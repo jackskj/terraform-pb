@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package aws;
+
+message AwsWafregionalXssMatchSet {
+  id = 1;
+  name = 2;
+  message XssMatchTuple {
+    text_transformation = 1;
+    message FieldToMatch {
+      data = 1;
+      type = 2;
+    }
+    field_to_match = 2;
+  }
+  xss_match_tuple = 3;
+}

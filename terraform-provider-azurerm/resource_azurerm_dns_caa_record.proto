@@ -1,0 +1,26 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermDnsCaaRecord {
+  fqdn = 1;
+  id = 2;
+  name = 3;
+  resource_group_name = 4;
+  tags = 5;
+  ttl = 6;
+  zone_name = 7;
+  message Record {
+    flags = 1;
+    tag = 2;
+    value = 3;
+  }
+  record = 8;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 9;
+}

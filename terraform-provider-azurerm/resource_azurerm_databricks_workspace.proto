@@ -1,0 +1,28 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermDatabricksWorkspace {
+  id = 1;
+  location = 2;
+  managed_resource_group_id = 3;
+  managed_resource_group_name = 4;
+  name = 5;
+  resource_group_name = 6;
+  sku = 7;
+  tags = 8;
+  message CustomParameters {
+    no_public_ip = 1;
+    private_subnet_name = 2;
+    public_subnet_name = 3;
+    virtual_network_id = 4;
+  }
+  custom_parameters = 9;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 10;
+}

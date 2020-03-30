@@ -1,0 +1,82 @@
+syntax "proto3";
+
+package aws;
+
+message AwsMskCluster {
+  arn = 1;
+  bootstrap_brokers = 2;
+  bootstrap_brokers_tls = 3;
+  cluster_name = 4;
+  current_version = 5;
+  enhanced_monitoring = 6;
+  id = 7;
+  kafka_version = 8;
+  number_of_broker_nodes = 9;
+  tags = 10;
+  zookeeper_connect_string = 11;
+  message BrokerNodeGroupInfo {
+    az_distribution = 1;
+    client_subnets = 2;
+    ebs_volume_size = 3;
+    instance_type = 4;
+    security_groups = 5;
+  }
+  broker_node_group_info = 12;
+  message ClientAuthentication {
+    message Tls {
+      certificate_authority_arns = 1;
+    }
+    tls = 1;
+  }
+  client_authentication = 13;
+  message ConfigurationInfo {
+    arn = 1;
+    revision = 2;
+  }
+  configuration_info = 14;
+  message EncryptionInfo {
+    encryption_at_rest_kms_key_arn = 1;
+    message EncryptionInTransit {
+      client_broker = 1;
+      in_cluster = 2;
+    }
+    encryption_in_transit = 2;
+  }
+  encryption_info = 15;
+  message LoggingInfo {
+    message BrokerLogs {
+      message CloudwatchLogs {
+        enabled = 1;
+        log_group = 2;
+      }
+      cloudwatch_logs = 1;
+      message Firehose {
+        delivery_stream = 1;
+        enabled = 2;
+      }
+      firehose = 2;
+      message S3 {
+        bucket = 1;
+        enabled = 2;
+        prefix = 3;
+      }
+      s3 = 3;
+    }
+    broker_logs = 1;
+  }
+  logging_info = 16;
+  message OpenMonitoring {
+    message Prometheus {
+      message JmxExporter {
+        enabled_in_broker = 1;
+      }
+      jmx_exporter = 1;
+      message NodeExporter {
+        enabled_in_broker = 1;
+      }
+      node_exporter = 2;
+    }
+    prometheus = 1;
+  }
+  open_monitoring = 17;
+}

@@ -1,0 +1,9 @@
+syntax "proto3";
+
+package aws;
+
+message AwsConfigConfigurationRecorderStatus {
+  id = 1;
+  is_enabled = 2;
+  name = 3;
+}

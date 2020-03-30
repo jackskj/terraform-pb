@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package aws;
+
+message AwsIotPolicy {
+  arn = 1;
+  default_version_id = 2;
+  id = 3;
+  name = 4;
+  policy = 5;
+}

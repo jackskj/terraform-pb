@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package aws;
+
+message AwsBackupVault {
+  arn = 1;
+  id = 2;
+  kms_key_arn = 3;
+  name = 4;
+  recovery_points = 5;
+  tags = 6;
+}

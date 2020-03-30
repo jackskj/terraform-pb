@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package aws;
+
+message AwsApiGatewayGatewayResponse {
+  id = 1;
+  response_parameters = 2;
+  response_templates = 3;
+  response_type = 4;
+  rest_api_id = 5;
+  status_code = 6;
+}

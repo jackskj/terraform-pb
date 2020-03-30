@@ -1,0 +1,16 @@
+syntax "proto3";
+
+package aws;
+
+message AwsServicequotasServiceQuota {
+  adjustable = 1;
+  arn = 2;
+  default_value = 3;
+  global_quota = 4;
+  id = 5;
+  quota_code = 6;
+  quota_name = 7;
+  service_code = 8;
+  service_name = 9;
+  value = 10;
+}

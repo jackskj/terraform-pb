@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package aws;
+
+message AwsOpsworksUserProfile {
+  allow_self_management = 1;
+  id = 2;
+  ssh_public_key = 3;
+  ssh_username = 4;
+  user_arn = 5;
+}

@@ -1,0 +1,21 @@
+syntax "proto3";
+
+package aws;
+
+message AwsAvailabilityZone {
+  all_availability_zones = 1;
+  group_name = 2;
+  id = 3;
+  name = 4;
+  name_suffix = 5;
+  network_border_group = 6;
+  opt_in_status = 7;
+  region = 8;
+  state = 9;
+  zone_id = 10;
+  message Filter {
+    name = 1;
+    values = 2;
+  }
+  filter = 11;
+}

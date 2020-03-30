@@ -1,0 +1,26 @@
+syntax "proto3";
+
+package aws;
+
+message AwsApiGatewayStage {
+  arn = 1;
+  cache_cluster_enabled = 2;
+  cache_cluster_size = 3;
+  client_certificate_id = 4;
+  deployment_id = 5;
+  description = 6;
+  documentation_version = 7;
+  execution_arn = 8;
+  id = 9;
+  invoke_url = 10;
+  rest_api_id = 11;
+  stage_name = 12;
+  tags = 13;
+  variables = 14;
+  xray_tracing_enabled = 15;
+  message AccessLogSettings {
+    destination_arn = 1;
+    format = 2;
+  }
+  access_log_settings = 16;
+}

@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package aws;
+
+message AwsRedshiftSnapshotCopyGrant {
+  arn = 1;
+  id = 2;
+  kms_key_id = 3;
+  snapshot_copy_grant_name = 4;
+  tags = 5;
+}

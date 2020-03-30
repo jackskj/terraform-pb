@@ -1,0 +1,43 @@
+syntax "proto3";
+
+package kubernetes;
+
+message KubernetesPriorityClass {
+
+  // An arbitrary string that usually provides guidelines on when this priority class should be used.
+  description = 1;
+
+  // Specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as `globalDefault`. However, if more than one PriorityClasses exists with their `globalDefault` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
+  global_default = 2;
+  id = 3;
+
+  // The value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
+  value = 4;
+  message Metadata {
+
+    // An unstructured key value map stored with the priority class that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+    annotations = 1;
+
+    // Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+    generate_name = 2;
+
+    // A sequence number representing a specific generation of the desired state.
+    generation = 3;
+
+    // Map of string keys and values that can be used to organize and categorize (scope and select) the priority class. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+    labels = 4;
+
+    // Name of the priority class, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+    name = 5;
+
+    // An opaque value that represents the internal version of this priority class that can be used by clients to determine when priority class has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+    resource_version = 6;
+
+    // A URL representing this priority class.
+    self_link = 7;
+
+    // The unique in time and space value for this priority class. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+    uid = 8;
+  }
+  metadata = 5;
+}

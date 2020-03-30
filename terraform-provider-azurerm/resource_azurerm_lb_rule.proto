@@ -1,0 +1,29 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermLbRule {
+  backend_address_pool_id = 1;
+  backend_port = 2;
+  disable_outbound_snat = 3;
+  enable_floating_ip = 4;
+  enable_tcp_reset = 5;
+  frontend_ip_configuration_id = 6;
+  frontend_ip_configuration_name = 7;
+  frontend_port = 8;
+  id = 9;
+  idle_timeout_in_minutes = 10;
+  load_distribution = 11;
+  loadbalancer_id = 12;
+  name = 13;
+  probe_id = 14;
+  protocol = 15;
+  resource_group_name = 16;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 17;
+}

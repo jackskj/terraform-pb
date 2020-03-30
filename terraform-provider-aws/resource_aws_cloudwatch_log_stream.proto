@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCloudwatchLogStream {
+  arn = 1;
+  id = 2;
+  log_group_name = 3;
+  name = 4;
+}

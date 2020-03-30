@@ -1,0 +1,124 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermVirtualMachine {
+  availability_set_id = 1;
+  delete_data_disks_on_termination = 2;
+  delete_os_disk_on_termination = 3;
+  id = 4;
+  license_type = 5;
+  location = 6;
+  name = 7;
+  network_interface_ids = 8;
+  primary_network_interface_id = 9;
+  proximity_placement_group_id = 10;
+  resource_group_name = 11;
+  tags = 12;
+  vm_size = 13;
+  zones = 14;
+  message AdditionalCapabilities {
+    ultra_ssd_enabled = 1;
+  }
+  additional_capabilities = 15;
+  message BootDiagnostics {
+    enabled = 1;
+    storage_uri = 2;
+  }
+  boot_diagnostics = 16;
+  message Identity {
+    identity_ids = 1;
+    principal_id = 2;
+    type = 3;
+  }
+  identity = 17;
+  message OsProfile {
+    admin_password = 1;
+    admin_username = 2;
+    computer_name = 3;
+    custom_data = 4;
+  }
+  os_profile = 18;
+  message OsProfileLinuxConfig {
+    disable_password_authentication = 1;
+    message SshKeys {
+      key_data = 1;
+      path = 2;
+    }
+    ssh_keys = 2;
+  }
+  os_profile_linux_config = 19;
+  message OsProfileSecrets {
+    source_vault_id = 1;
+    message VaultCertificates {
+      certificate_store = 1;
+      certificate_url = 2;
+    }
+    vault_certificates = 2;
+  }
+  os_profile_secrets = 20;
+  message OsProfileWindowsConfig {
+    enable_automatic_upgrades = 1;
+    provision_vm_agent = 2;
+    timezone = 3;
+    message AdditionalUnattendConfig {
+      component = 1;
+      content = 2;
+      pass = 3;
+      setting_name = 4;
+    }
+    additional_unattend_config = 4;
+    message Winrm {
+      certificate_url = 1;
+      protocol = 2;
+    }
+    winrm = 5;
+  }
+  os_profile_windows_config = 21;
+  message Plan {
+    name = 1;
+    product = 2;
+    publisher = 3;
+  }
+  plan = 22;
+  message StorageDataDisk {
+    caching = 1;
+    create_option = 2;
+    disk_size_gb = 3;
+    lun = 4;
+    managed_disk_id = 5;
+    managed_disk_type = 6;
+    name = 7;
+    vhd_uri = 8;
+    write_accelerator_enabled = 9;
+  }
+  storage_data_disk = 23;
+  message StorageImageReference {
+    id = 1;
+    offer = 2;
+    publisher = 3;
+    sku = 4;
+    version = 5;
+  }
+  storage_image_reference = 24;
+  message StorageOsDisk {
+    caching = 1;
+    create_option = 2;
+    disk_size_gb = 3;
+    image_uri = 4;
+    managed_disk_id = 5;
+    managed_disk_type = 6;
+    name = 7;
+    os_type = 8;
+    vhd_uri = 9;
+    write_accelerator_enabled = 10;
+  }
+  storage_os_disk = 25;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 26;
+}

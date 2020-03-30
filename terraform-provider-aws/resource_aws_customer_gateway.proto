@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCustomerGateway {
+  bgp_asn = 1;
+  id = 2;
+  ip_address = 3;
+  tags = 4;
+  type = 5;
+}

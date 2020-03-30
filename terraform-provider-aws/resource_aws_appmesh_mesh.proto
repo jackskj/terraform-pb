@@ -1,0 +1,19 @@
+syntax "proto3";
+
+package aws;
+
+message AwsAppmeshMesh {
+  arn = 1;
+  created_date = 2;
+  id = 3;
+  last_updated_date = 4;
+  name = 5;
+  tags = 6;
+  message Spec {
+    message EgressFilter {
+      type = 1;
+    }
+    egress_filter = 1;
+  }
+  spec = 7;
+}

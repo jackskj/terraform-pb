@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package google;
+
+message GoogleKmsKeyRingIamMember {
+  etag = 1;
+  id = 2;
+  key_ring_id = 3;
+  member = 4;
+  role = 5;
+}

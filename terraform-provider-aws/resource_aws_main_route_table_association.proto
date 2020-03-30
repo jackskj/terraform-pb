@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsMainRouteTableAssociation {
+  id = 1;
+  original_route_table_id = 2;
+  route_table_id = 3;
+  vpc_id = 4;
+}

@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSfnActivity {
+  arn = 1;
+  creation_date = 2;
+  id = 3;
+  name = 4;
+}

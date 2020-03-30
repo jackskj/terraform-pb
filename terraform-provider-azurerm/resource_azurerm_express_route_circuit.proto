@@ -1,0 +1,29 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermExpressRouteCircuit {
+  allow_classic_operations = 1;
+  bandwidth_in_mbps = 2;
+  id = 3;
+  location = 4;
+  name = 5;
+  peering_location = 6;
+  resource_group_name = 7;
+  service_key = 8;
+  service_provider_name = 9;
+  service_provider_provisioning_state = 10;
+  tags = 11;
+  message Sku {
+    family = 1;
+    tier = 2;
+  }
+  sku = 12;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 13;
+}

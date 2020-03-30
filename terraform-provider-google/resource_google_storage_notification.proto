@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package google;
+
+message GoogleStorageNotification {
+  bucket = 1;
+  custom_attributes = 2;
+  event_types = 3;
+  id = 4;
+  notification_id = 5;
+  object_name_prefix = 6;
+  payload_format = 7;
+  self_link = 8;
+  topic = 9;
+}

@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermLbBackendAddressPool {
+  backend_ip_configurations = 1;
+  id = 2;
+  loadbalancer_id = 3;
+  name = 4;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 5;
+}

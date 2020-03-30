@@ -1,0 +1,27 @@
+syntax "proto3";
+
+package aws;
+
+message AwsVpcPeeringConnectionAccepter {
+  accept_status = 1;
+  auto_accept = 2;
+  id = 3;
+  peer_owner_id = 4;
+  peer_region = 5;
+  peer_vpc_id = 6;
+  tags = 7;
+  vpc_id = 8;
+  vpc_peering_connection_id = 9;
+  message Accepter {
+    allow_classic_link_to_remote_vpc = 1;
+    allow_remote_vpc_dns_resolution = 2;
+    allow_vpc_to_remote_classic_link = 3;
+  }
+  accepter = 10;
+  message Requester {
+    allow_classic_link_to_remote_vpc = 1;
+    allow_remote_vpc_dns_resolution = 2;
+    allow_vpc_to_remote_classic_link = 3;
+  }
+  requester = 11;
+}

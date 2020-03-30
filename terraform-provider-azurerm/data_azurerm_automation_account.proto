@@ -1,0 +1,16 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermAutomationAccount {
+  endpoint = 1;
+  id = 2;
+  name = 3;
+  primary_key = 4;
+  resource_group_name = 5;
+  secondary_key = 6;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 7;
+}

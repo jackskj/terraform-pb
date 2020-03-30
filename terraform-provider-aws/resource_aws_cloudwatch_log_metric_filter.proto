@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCloudwatchLogMetricFilter {
+  id = 1;
+  log_group_name = 2;
+  name = 3;
+  pattern = 4;
+  message MetricTransformation {
+    default_value = 1;
+    name = 2;
+    namespace = 3;
+    value = 4;
+  }
+  metric_transformation = 5;
+}

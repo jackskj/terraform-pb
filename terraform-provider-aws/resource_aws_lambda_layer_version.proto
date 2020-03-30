@@ -1,0 +1,21 @@
+syntax "proto3";
+
+package aws;
+
+message AwsLambdaLayerVersion {
+  arn = 1;
+  compatible_runtimes = 2;
+  created_date = 3;
+  description = 4;
+  filename = 5;
+  id = 6;
+  layer_arn = 7;
+  layer_name = 8;
+  license_info = 9;
+  s3_bucket = 10;
+  s3_key = 11;
+  s3_object_version = 12;
+  source_code_hash = 13;
+  source_code_size = 14;
+  version = 15;
+}

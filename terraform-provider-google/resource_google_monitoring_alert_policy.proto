@@ -1,0 +1,451 @@
+syntax "proto3";
+
+package google;
+
+message GoogleMonitoringAlertPolicy {
+
+  // How to combine the results of multiple conditions to
+determine if an incident should be opened.
+  combiner = 1;
+
+  // A read-only record of the creation of the alerting policy.
+If provided in a call to create or update, this field will
+be ignored.
+  creation_record = 2;
+
+  // A short name or phrase used to identify the policy in
+dashboards, notifications, and incidents. To avoid confusion, don't use
+the same display name for multiple policies in the same project. The
+name is limited to 512 Unicode characters.
+  display_name = 3;
+
+  // Whether or not the policy is enabled. The default is true.
+  enabled = 4;
+  id = 5;
+  labels = 6;
+
+  // The unique resource name for this policy.
+Its syntax is: projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
+  name = 7;
+
+  // Identifies the notification channels to which notifications should be
+sent when incidents are opened or closed or when new violations occur
+on an already opened incident. Each element of this array corresponds
+to the name field in each of the NotificationChannel objects that are
+returned from the notificationChannels.list method. The syntax of the
+entries in this field is
+'projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]'
+  notification_channels = 8;
+  project = 9;
+
+  // This field is intended to be used for organizing and identifying the AlertPolicy
+objects.The field can contain up to 64 entries. Each key and value is limited
+to 63 Unicode characters or 128 bytes, whichever is smaller. Labels and values
+can contain only lowercase letters, numerals, underscores, and dashes. Keys
+must begin with a letter.
+  user_labels = 10;
+  message Conditions {
+
+    // A short name or phrase used to identify the
+condition in dashboards, notifications, and
+incidents. To avoid confusion, don't use the same
+display name for multiple conditions in the same
+policy.
+    display_name = 1;
+
+    // The unique resource name for this condition.
+Its syntax is:
+projects/[PROJECT_ID]/alertPolicies/[POLICY_ID]/conditions/[CONDITION_ID]
+[CONDITION_ID] is assigned by Stackdriver Monitoring when
+the condition is created as part of a new or updated alerting
+policy.
+    name = 2;
+    message ConditionAbsent {
+
+      // The amount of time that a time series must
+fail to report new data to be considered
+failing. Currently, only values that are a
+multiple of a minute--e.g. 60s, 120s, or 300s
+--are supported.
+      duration = 1;
+
+      // A filter that identifies which time series
+should be compared with the threshold.The
+filter is similar to the one that is
+specified in the
+MetricService.ListTimeSeries request (that
+call is useful to verify the time series
+that will be retrieved / processed) and must
+specify the metric type and optionally may
+contain restrictions on resource type,
+resource labels, and metric labels. This
+field may not exceed 2048 Unicode characters
+in length.
+      filter = 2;
+      message Aggregations {
+
+        // The alignment period for per-time
+series alignment. If present,
+alignmentPeriod must be at least
+60 seconds. After per-time series
+alignment, each time series will
+contain data points only on the
+period boundaries. If
+perSeriesAligner is not specified
+or equals ALIGN_NONE, then this
+field is ignored. If
+perSeriesAligner is specified and
+does not equal ALIGN_NONE, then
+this field must be defined;
+otherwise an error is returned.
+        alignment_period = 1;
+
+        // The approach to be used to combine
+time series. Not all reducer
+functions may be applied to all
+time series, depending on the
+metric type and the value type of
+the original time series.
+Reduction may change the metric
+type of value type of the time
+series.Time series data must be
+aligned in order to perform cross-
+time series reduction. If
+crossSeriesReducer is specified,
+then perSeriesAligner must be
+specified and not equal ALIGN_NONE
+and alignmentPeriod must be
+specified; otherwise, an error is
+returned.
+        cross_series_reducer = 2;
+
+        // The set of fields to preserve when
+crossSeriesReducer is specified.
+The groupByFields determine how
+the time series are partitioned
+into subsets prior to applying the
+aggregation function. Each subset
+contains time series that have the
+same value for each of the
+grouping fields. Each individual
+time series is a member of exactly
+one subset. The crossSeriesReducer
+is applied to each subset of time
+series. It is not possible to
+reduce across different resource
+types, so this field implicitly
+contains resource.type. Fields not
+specified in groupByFields are
+aggregated away. If groupByFields
+is not specified and all the time
+series have the same resource
+type, then the time series are
+aggregated into a single output
+time series. If crossSeriesReducer
+is not defined, this field is
+ignored.
+        group_by_fields = 3;
+
+        // The approach to be used to align
+individual time series. Not all
+alignment functions may be applied
+to all time series, depending on
+the metric type and value type of
+the original time series.
+Alignment may change the metric
+type or the value type of the time
+series.Time series data must be
+aligned in order to perform cross-
+time series reduction. If
+crossSeriesReducer is specified,
+then perSeriesAligner must be
+specified and not equal ALIGN_NONE
+and alignmentPeriod must be
+specified; otherwise, an error is
+returned.
+        per_series_aligner = 4;
+      }
+      aggregations = 3;
+      message Trigger {
+
+        // The absolute number of time series
+that must fail the predicate for the
+condition to be triggered.
+        count = 1;
+
+        // The percentage of time series that
+must fail the predicate for the
+condition to be triggered.
+        percent = 2;
+      }
+      trigger = 4;
+    }
+    condition_absent = 3;
+    message ConditionThreshold {
+
+      // The comparison to apply between the time
+series (indicated by filter and aggregation)
+and the threshold (indicated by
+threshold_value). The comparison is applied
+on each time series, with the time series on
+the left-hand side and the threshold on the
+right-hand side. Only COMPARISON_LT and
+COMPARISON_GT are supported currently.
+      comparison = 1;
+
+      // A filter that identifies a time series that
+should be used as the denominator of a ratio
+that will be compared with the threshold. If
+a denominator_filter is specified, the time
+series specified by the filter field will be
+used as the numerator.The filter is similar
+to the one that is specified in the
+MetricService.ListTimeSeries request (that
+call is useful to verify the time series
+that will be retrieved / processed) and must
+specify the metric type and optionally may
+contain restrictions on resource type,
+resource labels, and metric labels. This
+field may not exceed 2048 Unicode characters
+in length.
+      denominator_filter = 2;
+
+      // The amount of time that a time series must
+violate the threshold to be considered
+failing. Currently, only values that are a
+multiple of a minute--e.g., 0, 60, 120, or
+300 seconds--are supported. If an invalid
+value is given, an error will be returned.
+When choosing a duration, it is useful to
+keep in mind the frequency of the underlying
+time series data (which may also be affected
+by any alignments specified in the
+aggregations field); a good duration is long
+enough so that a single outlier does not
+generate spurious alerts, but short enough
+that unhealthy states are detected and
+alerted on quickly.
+      duration = 3;
+
+      // A filter that identifies which time series
+should be compared with the threshold.The
+filter is similar to the one that is
+specified in the
+MetricService.ListTimeSeries request (that
+call is useful to verify the time series
+that will be retrieved / processed) and must
+specify the metric type and optionally may
+contain restrictions on resource type,
+resource labels, and metric labels. This
+field may not exceed 2048 Unicode characters
+in length.
+      filter = 4;
+
+      // A value against which to compare the time
+series.
+      threshold_value = 5;
+      message Aggregations {
+
+        // The alignment period for per-time
+series alignment. If present,
+alignmentPeriod must be at least
+60 seconds. After per-time series
+alignment, each time series will
+contain data points only on the
+period boundaries. If
+perSeriesAligner is not specified
+or equals ALIGN_NONE, then this
+field is ignored. If
+perSeriesAligner is specified and
+does not equal ALIGN_NONE, then
+this field must be defined;
+otherwise an error is returned.
+        alignment_period = 1;
+
+        // The approach to be used to combine
+time series. Not all reducer
+functions may be applied to all
+time series, depending on the
+metric type and the value type of
+the original time series.
+Reduction may change the metric
+type of value type of the time
+series.Time series data must be
+aligned in order to perform cross-
+time series reduction. If
+crossSeriesReducer is specified,
+then perSeriesAligner must be
+specified and not equal ALIGN_NONE
+and alignmentPeriod must be
+specified; otherwise, an error is
+returned.
+        cross_series_reducer = 2;
+
+        // The set of fields to preserve when
+crossSeriesReducer is specified.
+The groupByFields determine how
+the time series are partitioned
+into subsets prior to applying the
+aggregation function. Each subset
+contains time series that have the
+same value for each of the
+grouping fields. Each individual
+time series is a member of exactly
+one subset. The crossSeriesReducer
+is applied to each subset of time
+series. It is not possible to
+reduce across different resource
+types, so this field implicitly
+contains resource.type. Fields not
+specified in groupByFields are
+aggregated away. If groupByFields
+is not specified and all the time
+series have the same resource
+type, then the time series are
+aggregated into a single output
+time series. If crossSeriesReducer
+is not defined, this field is
+ignored.
+        group_by_fields = 3;
+
+        // The approach to be used to align
+individual time series. Not all
+alignment functions may be applied
+to all time series, depending on
+the metric type and value type of
+the original time series.
+Alignment may change the metric
+type or the value type of the time
+series.Time series data must be
+aligned in order to perform cross-
+time series reduction. If
+crossSeriesReducer is specified,
+then perSeriesAligner must be
+specified and not equal ALIGN_NONE
+and alignmentPeriod must be
+specified; otherwise, an error is
+returned.
+        per_series_aligner = 4;
+      }
+      aggregations = 6;
+      message DenominatorAggregations {
+
+        // The alignment period for per-time
+series alignment. If present,
+alignmentPeriod must be at least
+60 seconds. After per-time series
+alignment, each time series will
+contain data points only on the
+period boundaries. If
+perSeriesAligner is not specified
+or equals ALIGN_NONE, then this
+field is ignored. If
+perSeriesAligner is specified and
+does not equal ALIGN_NONE, then
+this field must be defined;
+otherwise an error is returned.
+        alignment_period = 1;
+
+        // The approach to be used to combine
+time series. Not all reducer
+functions may be applied to all
+time series, depending on the
+metric type and the value type of
+the original time series.
+Reduction may change the metric
+type of value type of the time
+series.Time series data must be
+aligned in order to perform cross-
+time series reduction. If
+crossSeriesReducer is specified,
+then perSeriesAligner must be
+specified and not equal ALIGN_NONE
+and alignmentPeriod must be
+specified; otherwise, an error is
+returned.
+        cross_series_reducer = 2;
+
+        // The set of fields to preserve when
+crossSeriesReducer is specified.
+The groupByFields determine how
+the time series are partitioned
+into subsets prior to applying the
+aggregation function. Each subset
+contains time series that have the
+same value for each of the
+grouping fields. Each individual
+time series is a member of exactly
+one subset. The crossSeriesReducer
+is applied to each subset of time
+series. It is not possible to
+reduce across different resource
+types, so this field implicitly
+contains resource.type. Fields not
+specified in groupByFields are
+aggregated away. If groupByFields
+is not specified and all the time
+series have the same resource
+type, then the time series are
+aggregated into a single output
+time series. If crossSeriesReducer
+is not defined, this field is
+ignored.
+        group_by_fields = 3;
+
+        // The approach to be used to align
+individual time series. Not all
+alignment functions may be applied
+to all time series, depending on
+the metric type and value type of
+the original time series.
+Alignment may change the metric
+type or the value type of the time
+series.Time series data must be
+aligned in order to perform cross-
+time series reduction. If
+crossSeriesReducer is specified,
+then perSeriesAligner must be
+specified and not equal ALIGN_NONE
+and alignmentPeriod must be
+specified; otherwise, an error is
+returned.
+        per_series_aligner = 4;
+      }
+      denominator_aggregations = 7;
+      message Trigger {
+
+        // The absolute number of time series
+that must fail the predicate for the
+condition to be triggered.
+        count = 1;
+
+        // The percentage of time series that
+must fail the predicate for the
+condition to be triggered.
+        percent = 2;
+      }
+      trigger = 8;
+    }
+    condition_threshold = 4;
+  }
+  conditions = 11;
+  message Documentation {
+
+    // The text of the documentation, interpreted according to mimeType.
+The content may not exceed 8,192 Unicode characters and may not
+exceed more than 10,240 bytes when encoded in UTF-8 format,
+whichever is smaller.
+    content = 1;
+
+    // The format of the content field. Presently, only the value
+"text/markdown" is supported.
+    mime_type = 2;
+  }
+  documentation = 12;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 13;
+}

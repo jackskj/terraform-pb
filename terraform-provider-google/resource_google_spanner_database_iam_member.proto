@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package google;
+
+message GoogleSpannerDatabaseIamMember {
+  database = 1;
+  etag = 2;
+  id = 3;
+  instance = 4;
+  member = 5;
+  project = 6;
+  role = 7;
+}

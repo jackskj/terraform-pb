@@ -1,0 +1,21 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermPrivateLinkService {
+  alias = 1;
+  auto_approval_subscription_ids = 2;
+  enable_proxy_protocol = 3;
+  id = 4;
+  load_balancer_frontend_ip_configuration_ids = 5;
+  location = 6;
+  name = 7;
+  nat_ip_configuration = 8;
+  resource_group_name = 9;
+  tags = 10;
+  visibility_subscription_ids = 11;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 12;
+}

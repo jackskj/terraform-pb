@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermLogicAppActionCustom {
+  body = 1;
+  id = 2;
+  logic_app_id = 3;
+  name = 4;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 5;
+}

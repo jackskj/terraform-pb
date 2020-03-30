@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCognitoUserPools {
+  arns = 1;
+  id = 2;
+  ids = 3;
+  name = 4;
+}

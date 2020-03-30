@@ -1,0 +1,46 @@
+syntax "proto3";
+
+package kubernetes;
+
+message Kubernetes {
+
+  // PEM-encoded client certificate for TLS authentication.
+  client_certificate = 1;
+
+  // PEM-encoded client certificate key for TLS authentication.
+  client_key = 2;
+
+  // PEM-encoded root certificates bundle for TLS authentication.
+  cluster_ca_certificate = 3;
+  config_context = 4;
+  config_context_auth_info = 5;
+  config_context_cluster = 6;
+
+  // Path to the kube config file, defaults to ~/.kube/config
+  config_path = 7;
+
+  // The hostname (in form of URI) of Kubernetes master.
+  host = 8;
+
+  // Whether server should be accessed without verifying the TLS certificate.
+  insecure = 9;
+
+  // Load local kubeconfig.
+  load_config_file = 10;
+
+  // The password to use for HTTP basic authentication when accessing the Kubernetes master endpoint.
+  password = 11;
+
+  // Token to authenticate an service account
+  token = 12;
+
+  // The username to use for HTTP basic authentication when accessing the Kubernetes master endpoint.
+  username = 13;
+  message Exec {
+    api_version = 1;
+    args = 2;
+    command = 3;
+    env = 4;
+  }
+  exec = 14;
+}

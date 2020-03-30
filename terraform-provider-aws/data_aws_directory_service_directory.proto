@@ -1,0 +1,22 @@
+syntax "proto3";
+
+package aws;
+
+message AwsDirectoryServiceDirectory {
+  access_url = 1;
+  alias = 2;
+  connect_settings = 3;
+  description = 4;
+  directory_id = 5;
+  dns_ip_addresses = 6;
+  edition = 7;
+  enable_sso = 8;
+  id = 9;
+  name = 10;
+  security_group_id = 11;
+  short_name = 12;
+  size = 13;
+  tags = 14;
+  type = 15;
+  vpc_settings = 16;
+}

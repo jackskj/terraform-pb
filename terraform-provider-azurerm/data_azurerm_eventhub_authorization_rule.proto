@@ -1,0 +1,23 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermEventhubAuthorizationRule {
+  eventhub_name = 1;
+  id = 2;
+  listen = 3;
+  location = 4;
+  manage = 5;
+  name = 6;
+  namespace_name = 7;
+  primary_connection_string = 8;
+  primary_key = 9;
+  resource_group_name = 10;
+  secondary_connection_string = 11;
+  secondary_key = 12;
+  send = 13;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 14;
+}

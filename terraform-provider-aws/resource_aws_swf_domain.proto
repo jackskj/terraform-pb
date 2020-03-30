@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSwfDomain {
+  arn = 1;
+  description = 2;
+  id = 3;
+  name = 4;
+  name_prefix = 5;
+  tags = 6;
+  workflow_execution_retention_period_in_days = 7;
+}

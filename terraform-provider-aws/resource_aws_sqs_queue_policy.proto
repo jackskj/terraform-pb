@@ -1,0 +1,9 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSqsQueuePolicy {
+  id = 1;
+  policy = 2;
+  queue_url = 3;
+}

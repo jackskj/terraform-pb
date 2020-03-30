@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package aws;
+
+message AwsRegion {
+  current = 1;
+  description = 2;
+  endpoint = 3;
+  id = 4;
+  name = 5;
+}

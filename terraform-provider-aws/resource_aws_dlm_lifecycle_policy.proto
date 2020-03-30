@@ -1,0 +1,33 @@
+syntax "proto3";
+
+package aws;
+
+message AwsDlmLifecyclePolicy {
+  arn = 1;
+  description = 2;
+  execution_role_arn = 3;
+  id = 4;
+  state = 5;
+  tags = 6;
+  message PolicyDetails {
+    resource_types = 1;
+    target_tags = 2;
+    message Schedule {
+      copy_tags = 1;
+      name = 2;
+      tags_to_add = 3;
+      message CreateRule {
+        interval = 1;
+        interval_unit = 2;
+        times = 3;
+      }
+      create_rule = 4;
+      message RetainRule {
+        count = 1;
+      }
+      retain_rule = 5;
+    }
+    schedule = 3;
+  }
+  policy_details = 7;
+}

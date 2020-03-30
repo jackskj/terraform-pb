@@ -1,0 +1,181 @@
+syntax "proto3";
+
+package kubernetes;
+
+message KubernetesNetworkPolicy {
+  id = 1;
+  message Metadata {
+
+    // An unstructured key value map stored with the network policy that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+    annotations = 1;
+
+    // Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+    generate_name = 2;
+
+    // A sequence number representing a specific generation of the desired state.
+    generation = 3;
+
+    // Map of string keys and values that can be used to organize and categorize (scope and select) the network policy. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+    labels = 4;
+
+    // Name of the network policy, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+    name = 5;
+
+    // Namespace defines the space within which name of the network policy must be unique.
+    namespace = 6;
+
+    // An opaque value that represents the internal version of this network policy that can be used by clients to determine when network policy has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+    resource_version = 7;
+
+    // A URL representing this network policy.
+    self_link = 8;
+
+    // The unique in time and space value for this network policy. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+    uid = 9;
+  }
+  metadata = 2;
+  message Spec {
+
+    // List of rule types that the NetworkPolicy relates to. Valid options are "Ingress", "Egress", or "Ingress,Egress". If this field is not specified, it will default based on the existence of Ingress or Egress rules; policies that contain an Egress section are assumed to affect Egress, and all policies (whether or not they contain an Ingress section) are assumed to affect Ingress. If you want to write an egress-only policy, you must explicitly specify policyTypes [ "Egress" ]. Likewise, if you want to write a policy that specifies that no egress is allowed, you must specify a policyTypes value that include "Egress" (since such a policy would not include an Egress section and would otherwise default to just [ "Ingress" ]). This field is beta-level in 1.8
+    policy_types = 1;
+    message Egress {
+      message Ports {
+
+        // The port on the given protocol. This can either be a numerical or named port on a pod. If this field is not provided, this matches all port names and numbers.
+        port = 1;
+
+        // The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this field defaults to TCP.
+        protocol = 2;
+      }
+      ports = 1;
+      message To {
+        message IpBlock {
+
+          // CIDR is a string representing the IP Block Valid examples are "192.168.1.1/24"
+          cidr = 1;
+
+          // Except is a slice of CIDRs that should not be included within an IP Block Valid examples are "192.168.1.1/24" Except values will be rejected if they are outside the CIDR range
+          except = 2;
+        }
+        ip_block = 1;
+        message NamespaceSelector {
+
+          // A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+          match_labels = 1;
+          message MatchExpressions {
+
+            // The label key that the selector applies to.
+            key = 1;
+
+            // A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+            operator = 2;
+
+            // An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+            values = 3;
+          }
+          match_expressions = 2;
+        }
+        namespace_selector = 2;
+        message PodSelector {
+
+          // A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+          match_labels = 1;
+          message MatchExpressions {
+
+            // The label key that the selector applies to.
+            key = 1;
+
+            // A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+            operator = 2;
+
+            // An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+            values = 3;
+          }
+          match_expressions = 2;
+        }
+        pod_selector = 3;
+      }
+      to = 2;
+    }
+    egress = 2;
+    message Ingress {
+      message From {
+        message IpBlock {
+
+          // CIDR is a string representing the IP Block Valid examples are "192.168.1.1/24"
+          cidr = 1;
+
+          // Except is a slice of CIDRs that should not be included within an IP Block Valid examples are "192.168.1.1/24" Except values will be rejected if they are outside the CIDR range
+          except = 2;
+        }
+        ip_block = 1;
+        message NamespaceSelector {
+
+          // A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+          match_labels = 1;
+          message MatchExpressions {
+
+            // The label key that the selector applies to.
+            key = 1;
+
+            // A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+            operator = 2;
+
+            // An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+            values = 3;
+          }
+          match_expressions = 2;
+        }
+        namespace_selector = 2;
+        message PodSelector {
+
+          // A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+          match_labels = 1;
+          message MatchExpressions {
+
+            // The label key that the selector applies to.
+            key = 1;
+
+            // A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+            operator = 2;
+
+            // An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+            values = 3;
+          }
+          match_expressions = 2;
+        }
+        pod_selector = 3;
+      }
+      from = 1;
+      message Ports {
+
+        // The port on the given protocol. This can either be a numerical or named port on a pod. If this field is not provided, this matches all port names and numbers.
+        port = 1;
+
+        // The protocol (TCP, UDP, or SCTP) which traffic must match. If not specified, this field defaults to TCP.
+        protocol = 2;
+      }
+      ports = 2;
+    }
+    ingress = 3;
+    message PodSelector {
+
+      // A map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of `match_expressions`, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+      match_labels = 1;
+      message MatchExpressions {
+
+        // The label key that the selector applies to.
+        key = 1;
+
+        // A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists` and `DoesNotExist`.
+        operator = 2;
+
+        // An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+        values = 3;
+      }
+      match_expressions = 2;
+    }
+    pod_selector = 4;
+  }
+  spec = 3;
+}

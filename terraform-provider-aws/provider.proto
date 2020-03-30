@@ -1,0 +1,485 @@
+syntax "proto3";
+
+package aws;
+
+message Aws {
+
+  // The access key for API operations. You can retrieve this
+from the 'Security & Credentials' section of the AWS console.
+  access_key = 1;
+  allowed_account_ids = 2;
+  forbidden_account_ids = 3;
+
+  // Resource tag key prefixes to ignore across all resources.
+  ignore_tag_prefixes = 4;
+
+  // Resource tag keys to ignore across all resources.
+  ignore_tags = 5;
+
+  // Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
+  insecure = 6;
+
+  // The maximum number of times an AWS API request is
+being executed. If the API request still fails, an error is
+thrown.
+  max_retries = 7;
+
+  // The profile for API operations. If not set, the default profile
+created with `aws configure` will be used.
+  profile = 8;
+
+  // The region where AWS operations will take place. Examples
+are us-east-1, us-west-2, etc.
+  region = 9;
+
+  // Set this to true to force the request to use path-style addressing,
+i.e., http://s3.amazonaws.com/BUCKET/KEY. By default, the S3 client will
+use virtual hosted bucket addressing when possible
+(http://BUCKET.s3.amazonaws.com/KEY). Specific to the Amazon S3 service.
+  s3_force_path_style = 10;
+
+  // The secret key for API operations. You can retrieve this
+from the 'Security & Credentials' section of the AWS console.
+  secret_key = 11;
+
+  // The path to the shared credentials file. If not set
+this defaults to ~/.aws/credentials.
+  shared_credentials_file = 12;
+
+  // Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS available/implemented.
+  skip_credentials_validation = 13;
+
+  // Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
+  skip_get_ec2_platforms = 14;
+  skip_metadata_api_check = 15;
+
+  // Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are not public (yet).
+  skip_region_validation = 16;
+
+  // Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
+  skip_requesting_account_id = 17;
+
+  // session token. A session token is only required if you are
+using temporary security credentials.
+  token = 18;
+  message AssumeRole {
+
+    // The external ID to use when assuming the role. If omitted, no external ID is passed to the AssumeRole call.
+    external_id = 1;
+
+    // The permissions applied when assuming a role. You cannot use, this policy to grant further permissions that are in excess to those of the,  role that is being assumed.
+    policy = 2;
+
+    // The ARN of an IAM role to assume prior to making API calls.
+    role_arn = 3;
+
+    // The session name to use when assuming the role. If omitted, no session name is passed to the AssumeRole call.
+    session_name = 4;
+  }
+  assume_role = 19;
+  message Endpoints {
+
+    // Use this to override the default service endpoint URL
+    accessanalyzer = 1;
+
+    // Use this to override the default service endpoint URL
+    acm = 2;
+
+    // Use this to override the default service endpoint URL
+    acmpca = 3;
+
+    // Use this to override the default service endpoint URL
+    amplify = 4;
+
+    // Use this to override the default service endpoint URL
+    apigateway = 5;
+
+    // Use this to override the default service endpoint URL
+    applicationautoscaling = 6;
+
+    // Use this to override the default service endpoint URL
+    applicationinsights = 7;
+
+    // Use this to override the default service endpoint URL
+    appmesh = 8;
+
+    // Use this to override the default service endpoint URL
+    appstream = 9;
+
+    // Use this to override the default service endpoint URL
+    appsync = 10;
+
+    // Use this to override the default service endpoint URL
+    athena = 11;
+
+    // Use this to override the default service endpoint URL
+    autoscaling = 12;
+
+    // Use this to override the default service endpoint URL
+    autoscalingplans = 13;
+
+    // Use this to override the default service endpoint URL
+    backup = 14;
+
+    // Use this to override the default service endpoint URL
+    batch = 15;
+
+    // Use this to override the default service endpoint URL
+    budgets = 16;
+
+    // Use this to override the default service endpoint URL
+    cloud9 = 17;
+
+    // Use this to override the default service endpoint URL
+    cloudformation = 18;
+
+    // Use this to override the default service endpoint URL
+    cloudfront = 19;
+
+    // Use this to override the default service endpoint URL
+    cloudhsm = 20;
+
+    // Use this to override the default service endpoint URL
+    cloudsearch = 21;
+
+    // Use this to override the default service endpoint URL
+    cloudtrail = 22;
+
+    // Use this to override the default service endpoint URL
+    cloudwatch = 23;
+
+    // Use this to override the default service endpoint URL
+    cloudwatchevents = 24;
+
+    // Use this to override the default service endpoint URL
+    cloudwatchlogs = 25;
+
+    // Use this to override the default service endpoint URL
+    codebuild = 26;
+
+    // Use this to override the default service endpoint URL
+    codecommit = 27;
+
+    // Use this to override the default service endpoint URL
+    codedeploy = 28;
+
+    // Use this to override the default service endpoint URL
+    codepipeline = 29;
+
+    // Use this to override the default service endpoint URL
+    cognitoidentity = 30;
+
+    // Use this to override the default service endpoint URL
+    cognitoidp = 31;
+
+    // Use this to override the default service endpoint URL
+    configservice = 32;
+
+    // Use this to override the default service endpoint URL
+    cur = 33;
+
+    // Use this to override the default service endpoint URL
+    dataexchange = 34;
+
+    // Use this to override the default service endpoint URL
+    datapipeline = 35;
+
+    // Use this to override the default service endpoint URL
+    datasync = 36;
+
+    // Use this to override the default service endpoint URL
+    dax = 37;
+
+    // Use this to override the default service endpoint URL
+    devicefarm = 38;
+
+    // Use this to override the default service endpoint URL
+    directconnect = 39;
+
+    // Use this to override the default service endpoint URL
+    dlm = 40;
+
+    // Use this to override the default service endpoint URL
+    dms = 41;
+
+    // Use this to override the default service endpoint URL
+    docdb = 42;
+
+    // Use this to override the default service endpoint URL
+    ds = 43;
+
+    // Use this to override the default service endpoint URL
+    dynamodb = 44;
+
+    // Use this to override the default service endpoint URL
+    ec2 = 45;
+
+    // Use this to override the default service endpoint URL
+    ecr = 46;
+
+    // Use this to override the default service endpoint URL
+    ecs = 47;
+
+    // Use this to override the default service endpoint URL
+    efs = 48;
+
+    // Use this to override the default service endpoint URL
+    eks = 49;
+
+    // Use this to override the default service endpoint URL
+    elasticache = 50;
+
+    // Use this to override the default service endpoint URL
+    elasticbeanstalk = 51;
+
+    // Use this to override the default service endpoint URL
+    elastictranscoder = 52;
+
+    // Use this to override the default service endpoint URL
+    elb = 53;
+
+    // Use this to override the default service endpoint URL
+    emr = 54;
+
+    // Use this to override the default service endpoint URL
+    es = 55;
+
+    // Use this to override the default service endpoint URL
+    firehose = 56;
+
+    // Use this to override the default service endpoint URL
+    fms = 57;
+
+    // Use this to override the default service endpoint URL
+    forecast = 58;
+
+    // Use this to override the default service endpoint URL
+    fsx = 59;
+
+    // Use this to override the default service endpoint URL
+    gamelift = 60;
+
+    // Use this to override the default service endpoint URL
+    glacier = 61;
+
+    // Use this to override the default service endpoint URL
+    globalaccelerator = 62;
+
+    // Use this to override the default service endpoint URL
+    glue = 63;
+
+    // Use this to override the default service endpoint URL
+    greengrass = 64;
+
+    // Use this to override the default service endpoint URL
+    guardduty = 65;
+
+    // Use this to override the default service endpoint URL
+    iam = 66;
+
+    // Use this to override the default service endpoint URL
+    imagebuilder = 67;
+
+    // Use this to override the default service endpoint URL
+    inspector = 68;
+
+    // Use this to override the default service endpoint URL
+    iot = 69;
+
+    // Use this to override the default service endpoint URL
+    iotanalytics = 70;
+
+    // Use this to override the default service endpoint URL
+    iotevents = 71;
+
+    // Use this to override the default service endpoint URL
+    kafka = 72;
+
+    // Use this to override the default service endpoint URL
+    kinesis = 73;
+
+    // Use this to override the default service endpoint URL
+    kinesis_analytics = 74;
+
+    // Use this to override the default service endpoint URL
+    kinesisanalytics = 75;
+
+    // Use this to override the default service endpoint URL
+    kinesisvideo = 76;
+
+    // Use this to override the default service endpoint URL
+    kms = 77;
+
+    // Use this to override the default service endpoint URL
+    lakeformation = 78;
+
+    // Use this to override the default service endpoint URL
+    lambda = 79;
+
+    // Use this to override the default service endpoint URL
+    lexmodels = 80;
+
+    // Use this to override the default service endpoint URL
+    licensemanager = 81;
+
+    // Use this to override the default service endpoint URL
+    lightsail = 82;
+
+    // Use this to override the default service endpoint URL
+    macie = 83;
+
+    // Use this to override the default service endpoint URL
+    managedblockchain = 84;
+
+    // Use this to override the default service endpoint URL
+    marketplacecatalog = 85;
+
+    // Use this to override the default service endpoint URL
+    mediaconnect = 86;
+
+    // Use this to override the default service endpoint URL
+    mediaconvert = 87;
+
+    // Use this to override the default service endpoint URL
+    medialive = 88;
+
+    // Use this to override the default service endpoint URL
+    mediapackage = 89;
+
+    // Use this to override the default service endpoint URL
+    mediastore = 90;
+
+    // Use this to override the default service endpoint URL
+    mediastoredata = 91;
+
+    // Use this to override the default service endpoint URL
+    mq = 92;
+
+    // Use this to override the default service endpoint URL
+    neptune = 93;
+
+    // Use this to override the default service endpoint URL
+    opsworks = 94;
+
+    // Use this to override the default service endpoint URL
+    organizations = 95;
+
+    // Use this to override the default service endpoint URL
+    personalize = 96;
+
+    // Use this to override the default service endpoint URL
+    pinpoint = 97;
+
+    // Use this to override the default service endpoint URL
+    pricing = 98;
+
+    // Use this to override the default service endpoint URL
+    qldb = 99;
+
+    // Use this to override the default service endpoint URL
+    quicksight = 100;
+
+    // Use this to override the default service endpoint URL
+    r53 = 101;
+
+    // Use this to override the default service endpoint URL
+    ram = 102;
+
+    // Use this to override the default service endpoint URL
+    rds = 103;
+
+    // Use this to override the default service endpoint URL
+    redshift = 104;
+
+    // Use this to override the default service endpoint URL
+    resourcegroups = 105;
+
+    // Use this to override the default service endpoint URL
+    route53 = 106;
+
+    // Use this to override the default service endpoint URL
+    route53resolver = 107;
+
+    // Use this to override the default service endpoint URL
+    s3 = 108;
+
+    // Use this to override the default service endpoint URL
+    s3control = 109;
+
+    // Use this to override the default service endpoint URL
+    sagemaker = 110;
+
+    // Use this to override the default service endpoint URL
+    sdb = 111;
+
+    // Use this to override the default service endpoint URL
+    secretsmanager = 112;
+
+    // Use this to override the default service endpoint URL
+    securityhub = 113;
+
+    // Use this to override the default service endpoint URL
+    serverlessrepo = 114;
+
+    // Use this to override the default service endpoint URL
+    servicecatalog = 115;
+
+    // Use this to override the default service endpoint URL
+    servicediscovery = 116;
+
+    // Use this to override the default service endpoint URL
+    servicequotas = 117;
+
+    // Use this to override the default service endpoint URL
+    ses = 118;
+
+    // Use this to override the default service endpoint URL
+    shield = 119;
+
+    // Use this to override the default service endpoint URL
+    sns = 120;
+
+    // Use this to override the default service endpoint URL
+    sqs = 121;
+
+    // Use this to override the default service endpoint URL
+    ssm = 122;
+
+    // Use this to override the default service endpoint URL
+    stepfunctions = 123;
+
+    // Use this to override the default service endpoint URL
+    storagegateway = 124;
+
+    // Use this to override the default service endpoint URL
+    sts = 125;
+
+    // Use this to override the default service endpoint URL
+    swf = 126;
+
+    // Use this to override the default service endpoint URL
+    transfer = 127;
+
+    // Use this to override the default service endpoint URL
+    waf = 128;
+
+    // Use this to override the default service endpoint URL
+    wafregional = 129;
+
+    // Use this to override the default service endpoint URL
+    wafv2 = 130;
+
+    // Use this to override the default service endpoint URL
+    worklink = 131;
+
+    // Use this to override the default service endpoint URL
+    workmail = 132;
+
+    // Use this to override the default service endpoint URL
+    workspaces = 133;
+
+    // Use this to override the default service endpoint URL
+    xray = 134;
+  }
+  endpoints = 20;
+}

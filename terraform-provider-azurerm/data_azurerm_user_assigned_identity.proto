@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermUserAssignedIdentity {
+  client_id = 1;
+  id = 2;
+  location = 3;
+  name = 4;
+  principal_id = 5;
+  resource_group_name = 6;
+  tags = 7;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 8;
+}

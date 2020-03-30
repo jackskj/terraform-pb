@@ -1,0 +1,74 @@
+syntax "proto3";
+
+package aws;
+
+message AwsElasticsearchDomain {
+  access_policies = 1;
+  advanced_options = 2;
+  arn = 3;
+  domain_id = 4;
+  domain_name = 5;
+  elasticsearch_version = 6;
+  endpoint = 7;
+  id = 8;
+  kibana_endpoint = 9;
+  tags = 10;
+  message ClusterConfig {
+    dedicated_master_count = 1;
+    dedicated_master_enabled = 2;
+    dedicated_master_type = 3;
+    instance_count = 4;
+    instance_type = 5;
+    zone_awareness_enabled = 6;
+    message ZoneAwarenessConfig {
+      availability_zone_count = 1;
+    }
+    zone_awareness_config = 7;
+  }
+  cluster_config = 11;
+  message CognitoOptions {
+    enabled = 1;
+    identity_pool_id = 2;
+    role_arn = 3;
+    user_pool_id = 4;
+  }
+  cognito_options = 12;
+  message DomainEndpointOptions {
+    enforce_https = 1;
+    tls_security_policy = 2;
+  }
+  domain_endpoint_options = 13;
+  message EbsOptions {
+    ebs_enabled = 1;
+    iops = 2;
+    volume_size = 3;
+    volume_type = 4;
+  }
+  ebs_options = 14;
+  message EncryptAtRest {
+    enabled = 1;
+    kms_key_id = 2;
+  }
+  encrypt_at_rest = 15;
+  message LogPublishingOptions {
+    cloudwatch_log_group_arn = 1;
+    enabled = 2;
+    log_type = 3;
+  }
+  log_publishing_options = 16;
+  message NodeToNodeEncryption {
+    enabled = 1;
+  }
+  node_to_node_encryption = 17;
+  message SnapshotOptions {
+    automated_snapshot_start_hour = 1;
+  }
+  snapshot_options = 18;
+  message VpcOptions {
+    availability_zones = 1;
+    security_group_ids = 2;
+    subnet_ids = 3;
+    vpc_id = 4;
+  }
+  vpc_options = 19;
+}

@@ -1,0 +1,42 @@
+syntax "proto3";
+
+package aws;
+
+message AwsElastictranscoderPipeline {
+  arn = 1;
+  aws_kms_key_arn = 2;
+  id = 3;
+  input_bucket = 4;
+  name = 5;
+  output_bucket = 6;
+  role = 7;
+  message ContentConfig {
+    bucket = 1;
+    storage_class = 2;
+  }
+  content_config = 8;
+  message ContentConfigPermissions {
+    access = 1;
+    grantee = 2;
+    grantee_type = 3;
+  }
+  content_config_permissions = 9;
+  message Notifications {
+    completed = 1;
+    error = 2;
+    progressing = 3;
+    warning = 4;
+  }
+  notifications = 10;
+  message ThumbnailConfig {
+    bucket = 1;
+    storage_class = 2;
+  }
+  thumbnail_config = 11;
+  message ThumbnailConfigPermissions {
+    access = 1;
+    grantee = 2;
+    grantee_type = 3;
+  }
+  thumbnail_config_permissions = 12;
+}

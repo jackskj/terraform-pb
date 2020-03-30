@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package aws;
+
+message AwsRedshiftParameterGroup {
+  arn = 1;
+  description = 2;
+  family = 3;
+  id = 4;
+  name = 5;
+  tags = 6;
+  message Parameter {
+    name = 1;
+    value = 2;
+  }
+  parameter = 7;
+}

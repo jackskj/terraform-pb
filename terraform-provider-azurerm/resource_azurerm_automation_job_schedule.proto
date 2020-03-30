@@ -1,0 +1,21 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermAutomationJobSchedule {
+  automation_account_name = 1;
+  id = 2;
+  job_schedule_id = 3;
+  parameters = 4;
+  resource_group_name = 5;
+  run_on = 6;
+  runbook_name = 7;
+  schedule_name = 8;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 9;
+}

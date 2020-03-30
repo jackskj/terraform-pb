@@ -1,0 +1,56 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermRedisCache {
+  capacity = 1;
+  enable_non_ssl_port = 2;
+  family = 3;
+  hostname = 4;
+  id = 5;
+  location = 6;
+  minimum_tls_version = 7;
+  name = 8;
+  port = 9;
+  primary_access_key = 10;
+  primary_connection_string = 11;
+  private_static_ip_address = 12;
+  resource_group_name = 13;
+  secondary_access_key = 14;
+  secondary_connection_string = 15;
+  shard_count = 16;
+  sku_name = 17;
+  ssl_port = 18;
+  subnet_id = 19;
+  tags = 20;
+  zones = 21;
+  message PatchSchedule {
+    day_of_week = 1;
+    start_hour_utc = 2;
+  }
+  patch_schedule = 22;
+  message RedisConfiguration {
+    aof_backup_enabled = 1;
+    aof_storage_connection_string_0 = 2;
+    aof_storage_connection_string_1 = 3;
+    enable_authentication = 4;
+    maxclients = 5;
+    maxfragmentationmemory_reserved = 6;
+    maxmemory_delta = 7;
+    maxmemory_policy = 8;
+    maxmemory_reserved = 9;
+    notify_keyspace_events = 10;
+    rdb_backup_enabled = 11;
+    rdb_backup_frequency = 12;
+    rdb_backup_max_snapshot_count = 13;
+    rdb_storage_connection_string = 14;
+  }
+  redis_configuration = 23;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 24;
+}

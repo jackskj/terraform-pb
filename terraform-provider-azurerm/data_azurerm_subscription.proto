@@ -1,0 +1,18 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermSubscription {
+  display_name = 1;
+  id = 2;
+  location_placement_id = 3;
+  quota_id = 4;
+  spending_limit = 5;
+  state = 6;
+  subscription_id = 7;
+  tenant_id = 8;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 9;
+}

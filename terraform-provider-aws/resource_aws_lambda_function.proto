@@ -1,0 +1,52 @@
+syntax "proto3";
+
+package aws;
+
+message AwsLambdaFunction {
+  arn = 1;
+  description = 2;
+  filename = 3;
+  function_name = 4;
+  handler = 5;
+  id = 6;
+  invoke_arn = 7;
+  kms_key_arn = 8;
+  last_modified = 9;
+  layers = 10;
+  memory_size = 11;
+  publish = 12;
+  qualified_arn = 13;
+  reserved_concurrent_executions = 14;
+  role = 15;
+  runtime = 16;
+  s3_bucket = 17;
+  s3_key = 18;
+  s3_object_version = 19;
+  source_code_hash = 20;
+  source_code_size = 21;
+  tags = 22;
+  timeout = 23;
+  version = 24;
+  message DeadLetterConfig {
+    target_arn = 1;
+  }
+  dead_letter_config = 25;
+  message Environment {
+    variables = 1;
+  }
+  environment = 26;
+  message Timeouts {
+    create = 1;
+  }
+  timeouts = 27;
+  message TracingConfig {
+    mode = 1;
+  }
+  tracing_config = 28;
+  message VpcConfig {
+    security_group_ids = 1;
+    subnet_ids = 2;
+    vpc_id = 3;
+  }
+  vpc_config = 29;
+}

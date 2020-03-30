@@ -1,0 +1,32 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermStorageAccountBlobContainerSas {
+  cache_control = 1;
+  connection_string = 2;
+  container_name = 3;
+  content_disposition = 4;
+  content_encoding = 5;
+  content_language = 6;
+  content_type = 7;
+  expiry = 8;
+  https_only = 9;
+  id = 10;
+  ip_address = 11;
+  sas = 12;
+  start = 13;
+  message Permissions {
+    add = 1;
+    create = 2;
+    delete = 3;
+    list = 4;
+    read = 5;
+    write = 6;
+  }
+  permissions = 14;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 15;
+}

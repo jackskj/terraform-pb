@@ -1,0 +1,126 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermKubernetesCluster {
+  api_server_authorized_ip_ranges = 1;
+  dns_prefix = 2;
+  enable_pod_security_policy = 3;
+  fqdn = 4;
+  id = 5;
+  kube_admin_config = 6;
+  kube_admin_config_raw = 7;
+  kube_config = 8;
+  kube_config_raw = 9;
+  kubernetes_version = 10;
+  location = 11;
+  name = 12;
+  node_resource_group = 13;
+  private_fqdn = 14;
+  private_link_enabled = 15;
+  resource_group_name = 16;
+  tags = 17;
+  message AddonProfile {
+    message AciConnectorLinux {
+      enabled = 1;
+      subnet_name = 2;
+    }
+    aci_connector_linux = 1;
+    message AzurePolicy {
+      enabled = 1;
+    }
+    azure_policy = 2;
+    message HttpApplicationRouting {
+      enabled = 1;
+      http_application_routing_zone_name = 2;
+    }
+    http_application_routing = 3;
+    message KubeDashboard {
+      enabled = 1;
+    }
+    kube_dashboard = 4;
+    message OmsAgent {
+      enabled = 1;
+      log_analytics_workspace_id = 2;
+    }
+    oms_agent = 5;
+  }
+  addon_profile = 18;
+  message DefaultNodePool {
+    availability_zones = 1;
+    enable_auto_scaling = 2;
+    enable_node_public_ip = 3;
+    max_count = 4;
+    max_pods = 5;
+    min_count = 6;
+    name = 7;
+    node_count = 8;
+    node_labels = 9;
+    node_taints = 10;
+    os_disk_size_gb = 11;
+    tags = 12;
+    type = 13;
+    vm_size = 14;
+    vnet_subnet_id = 15;
+  }
+  default_node_pool = 19;
+  message Identity {
+    principal_id = 1;
+    tenant_id = 2;
+    type = 3;
+  }
+  identity = 20;
+  message LinuxProfile {
+    admin_username = 1;
+    message SshKey {
+      key_data = 1;
+    }
+    ssh_key = 2;
+  }
+  linux_profile = 21;
+  message NetworkProfile {
+    dns_service_ip = 1;
+    docker_bridge_cidr = 2;
+    load_balancer_sku = 3;
+    network_plugin = 4;
+    network_policy = 5;
+    pod_cidr = 6;
+    service_cidr = 7;
+    message LoadBalancerProfile {
+      effective_outbound_ips = 1;
+      managed_outbound_ip_count = 2;
+      outbound_ip_address_ids = 3;
+      outbound_ip_prefix_ids = 4;
+    }
+    load_balancer_profile = 8;
+  }
+  network_profile = 22;
+  message RoleBasedAccessControl {
+    enabled = 1;
+    message AzureActiveDirectory {
+      client_app_id = 1;
+      server_app_id = 2;
+      server_app_secret = 3;
+      tenant_id = 4;
+    }
+    azure_active_directory = 2;
+  }
+  role_based_access_control = 23;
+  message ServicePrincipal {
+    client_id = 1;
+    client_secret = 2;
+  }
+  service_principal = 24;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 25;
+  message WindowsProfile {
+    admin_password = 1;
+    admin_username = 2;
+  }
+  windows_profile = 26;
+}

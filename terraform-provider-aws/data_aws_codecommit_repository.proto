@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCodecommitRepository {
+  arn = 1;
+  clone_url_http = 2;
+  clone_url_ssh = 3;
+  id = 4;
+  repository_id = 5;
+  repository_name = 6;
+}

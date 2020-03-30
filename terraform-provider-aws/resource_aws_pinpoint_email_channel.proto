@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package aws;
+
+message AwsPinpointEmailChannel {
+  application_id = 1;
+  enabled = 2;
+  from_address = 3;
+  id = 4;
+  identity = 5;
+  messages_per_second = 6;
+  role_arn = 7;
+}

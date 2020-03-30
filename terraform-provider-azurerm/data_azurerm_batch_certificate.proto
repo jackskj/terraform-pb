@@ -1,0 +1,18 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermBatchCertificate {
+  account_name = 1;
+  format = 2;
+  id = 3;
+  name = 4;
+  public_data = 5;
+  resource_group_name = 6;
+  thumbprint = 7;
+  thumbprint_algorithm = 8;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 9;
+}

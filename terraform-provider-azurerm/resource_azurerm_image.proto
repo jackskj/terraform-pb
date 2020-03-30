@@ -1,0 +1,38 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermImage {
+  hyper_v_generation = 1;
+  id = 2;
+  location = 3;
+  name = 4;
+  resource_group_name = 5;
+  source_virtual_machine_id = 6;
+  tags = 7;
+  zone_resilient = 8;
+  message DataDisk {
+    blob_uri = 1;
+    caching = 2;
+    lun = 3;
+    managed_disk_id = 4;
+    size_gb = 5;
+  }
+  data_disk = 9;
+  message OsDisk {
+    blob_uri = 1;
+    caching = 2;
+    managed_disk_id = 3;
+    os_state = 4;
+    os_type = 5;
+    size_gb = 6;
+  }
+  os_disk = 10;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 11;
+}

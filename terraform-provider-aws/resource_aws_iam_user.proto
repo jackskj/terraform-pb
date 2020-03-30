@@ -1,0 +1,16 @@
+syntax "proto3";
+
+package aws;
+
+message AwsIamUser {
+  arn = 1;
+
+  // Delete user even if it has non-Terraform-managed IAM access keys, login profile or MFA devices
+  force_destroy = 2;
+  id = 3;
+  name = 4;
+  path = 5;
+  permissions_boundary = 6;
+  tags = 7;
+  unique_id = 8;
+}

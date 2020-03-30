@@ -1,0 +1,56 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeInstanceGroupManager {
+  base_instance_name = 1;
+  description = 2;
+  fingerprint = 3;
+  id = 4;
+  instance_group = 5;
+  instance_template = 6;
+  name = 7;
+  project = 8;
+  self_link = 9;
+  target_pools = 10;
+  target_size = 11;
+  update_strategy = 12;
+  wait_for_instances = 13;
+  zone = 14;
+  message AutoHealingPolicies {
+    health_check = 1;
+    initial_delay_sec = 2;
+  }
+  auto_healing_policies = 15;
+  message NamedPort {
+    name = 1;
+    port = 2;
+  }
+  named_port = 16;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 17;
+  message UpdatePolicy {
+    max_surge_fixed = 1;
+    max_surge_percent = 2;
+    max_unavailable_fixed = 3;
+    max_unavailable_percent = 4;
+    min_ready_sec = 5;
+    minimal_action = 6;
+    type = 7;
+  }
+  update_policy = 18;
+  message Version {
+    instance_template = 1;
+    name = 2;
+    message TargetSize {
+      fixed = 1;
+      percent = 2;
+    }
+    target_size = 3;
+  }
+  version = 19;
+}

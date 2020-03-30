@@ -1,0 +1,27 @@
+syntax "proto3";
+
+package aws;
+
+message AwsDxHostedTransitVirtualInterface {
+  address_family = 1;
+  amazon_address = 2;
+  amazon_side_asn = 3;
+  arn = 4;
+  aws_device = 5;
+  bgp_asn = 6;
+  bgp_auth_key = 7;
+  connection_id = 8;
+  customer_address = 9;
+  id = 10;
+  jumbo_frame_capable = 11;
+  mtu = 12;
+  name = 13;
+  owner_account_id = 14;
+  vlan = 15;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 16;
+}

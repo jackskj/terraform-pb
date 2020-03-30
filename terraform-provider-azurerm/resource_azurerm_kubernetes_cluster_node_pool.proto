@@ -1,0 +1,30 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermKubernetesClusterNodePool {
+  availability_zones = 1;
+  enable_auto_scaling = 2;
+  enable_node_public_ip = 3;
+  id = 4;
+  kubernetes_cluster_id = 5;
+  max_count = 6;
+  max_pods = 7;
+  min_count = 8;
+  name = 9;
+  node_count = 10;
+  node_labels = 11;
+  node_taints = 12;
+  os_disk_size_gb = 13;
+  os_type = 14;
+  tags = 15;
+  vm_size = 16;
+  vnet_subnet_id = 17;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 18;
+}

@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package google;
+
+message GoogleRuntimeconfigConfigIamBinding {
+  config = 1;
+  etag = 2;
+  id = 3;
+  members = 4;
+  project = 5;
+  role = 6;
+}

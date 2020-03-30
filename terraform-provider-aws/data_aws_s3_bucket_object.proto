@@ -1,0 +1,31 @@
+syntax "proto3";
+
+package aws;
+
+message AwsS3BucketObject {
+  body = 1;
+  bucket = 2;
+  cache_control = 3;
+  content_disposition = 4;
+  content_encoding = 5;
+  content_language = 6;
+  content_length = 7;
+  content_type = 8;
+  etag = 9;
+  expiration = 10;
+  expires = 11;
+  id = 12;
+  key = 13;
+  last_modified = 14;
+  metadata = 15;
+  object_lock_legal_hold_status = 16;
+  object_lock_mode = 17;
+  object_lock_retain_until_date = 18;
+  range = 19;
+  server_side_encryption = 20;
+  sse_kms_key_id = 21;
+  storage_class = 22;
+  tags = 23;
+  version_id = 24;
+  website_redirect_location = 25;
+}

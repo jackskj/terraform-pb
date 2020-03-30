@@ -1,0 +1,36 @@
+syntax "proto3";
+
+package aws;
+
+message AwsElasticBeanstalkEnvironment {
+  all_settings = 1;
+  application = 2;
+  arn = 3;
+  autoscaling_groups = 4;
+  cname = 5;
+  cname_prefix = 6;
+  description = 7;
+  endpoint_url = 8;
+  id = 9;
+  instances = 10;
+  launch_configurations = 11;
+  load_balancers = 12;
+  name = 13;
+  platform_arn = 14;
+  poll_interval = 15;
+  queues = 16;
+  solution_stack_name = 17;
+  tags = 18;
+  template_name = 19;
+  tier = 20;
+  triggers = 21;
+  version_label = 22;
+  wait_for_ready_timeout = 23;
+  message Setting {
+    name = 1;
+    namespace = 2;
+    resource = 3;
+    value = 4;
+  }
+  setting = 24;
+}

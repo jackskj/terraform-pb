@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package aws;
+
+message AwsWafregionalIpset {
+  arn = 1;
+  id = 2;
+  name = 3;
+  message IpSetDescriptor {
+    type = 1;
+    value = 2;
+  }
+  ip_set_descriptor = 4;
+}

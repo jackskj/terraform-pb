@@ -1,0 +1,9 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSesDomainDkim {
+  dkim_tokens = 1;
+  domain = 2;
+  id = 3;
+}

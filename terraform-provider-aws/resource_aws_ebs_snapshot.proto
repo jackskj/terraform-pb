@@ -1,0 +1,21 @@
+syntax "proto3";
+
+package aws;
+
+message AwsEbsSnapshot {
+  data_encryption_key_id = 1;
+  description = 2;
+  encrypted = 3;
+  id = 4;
+  kms_key_id = 5;
+  owner_alias = 6;
+  owner_id = 7;
+  tags = 8;
+  volume_id = 9;
+  volume_size = 10;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+  }
+  timeouts = 11;
+}

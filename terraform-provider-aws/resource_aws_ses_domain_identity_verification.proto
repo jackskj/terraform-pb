@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSesDomainIdentityVerification {
+  arn = 1;
+  domain = 2;
+  id = 3;
+  message Timeouts {
+    create = 1;
+  }
+  timeouts = 4;
+}

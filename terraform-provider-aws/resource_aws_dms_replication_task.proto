@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package aws;
+
+message AwsDmsReplicationTask {
+  cdc_start_time = 1;
+  id = 2;
+  migration_type = 3;
+  replication_instance_arn = 4;
+  replication_task_arn = 5;
+  replication_task_id = 6;
+  replication_task_settings = 7;
+  source_endpoint_arn = 8;
+  table_mappings = 9;
+  tags = 10;
+  target_endpoint_arn = 11;
+}

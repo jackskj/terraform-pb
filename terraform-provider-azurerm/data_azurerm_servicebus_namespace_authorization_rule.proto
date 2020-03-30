@@ -1,0 +1,18 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermServicebusNamespaceAuthorizationRule {
+  id = 1;
+  name = 2;
+  namespace_name = 3;
+  primary_connection_string = 4;
+  primary_key = 5;
+  resource_group_name = 6;
+  secondary_connection_string = 7;
+  secondary_key = 8;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 9;
+}

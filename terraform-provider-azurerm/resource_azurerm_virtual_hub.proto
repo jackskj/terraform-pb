@@ -1,0 +1,25 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermVirtualHub {
+  address_prefix = 1;
+  id = 2;
+  location = 3;
+  name = 4;
+  resource_group_name = 5;
+  tags = 6;
+  virtual_wan_id = 7;
+  message Route {
+    address_prefixes = 1;
+    next_hop_ip_address = 2;
+  }
+  route = 8;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 9;
+}

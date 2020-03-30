@@ -1,0 +1,66 @@
+syntax "proto3";
+
+package aws;
+
+message AwsEcsService {
+  cluster = 1;
+  deployment_maximum_percent = 2;
+  deployment_minimum_healthy_percent = 3;
+  desired_count = 4;
+  enable_ecs_managed_tags = 5;
+  health_check_grace_period_seconds = 6;
+  iam_role = 7;
+  id = 8;
+  launch_type = 9;
+  name = 10;
+  platform_version = 11;
+  propagate_tags = 12;
+  scheduling_strategy = 13;
+  tags = 14;
+  task_definition = 15;
+  message CapacityProviderStrategy {
+    base = 1;
+    capacity_provider = 2;
+    weight = 3;
+  }
+  capacity_provider_strategy = 16;
+  message DeploymentController {
+    type = 1;
+  }
+  deployment_controller = 17;
+  message LoadBalancer {
+    container_name = 1;
+    container_port = 2;
+    elb_name = 3;
+    target_group_arn = 4;
+  }
+  load_balancer = 18;
+  message NetworkConfiguration {
+    assign_public_ip = 1;
+    security_groups = 2;
+    subnets = 3;
+  }
+  network_configuration = 19;
+  message OrderedPlacementStrategy {
+    field = 1;
+    type = 2;
+  }
+  ordered_placement_strategy = 20;
+  message PlacementConstraints {
+    expression = 1;
+    type = 2;
+  }
+  placement_constraints = 21;
+  message PlacementStrategy {
+    field = 1;
+    type = 2;
+  }
+  placement_strategy = 22;
+  message ServiceRegistries {
+    container_name = 1;
+    container_port = 2;
+    port = 3;
+    registry_arn = 4;
+  }
+  service_registries = 23;
+}

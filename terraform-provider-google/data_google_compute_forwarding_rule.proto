@@ -1,0 +1,21 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeForwardingRule {
+  backend_service = 1;
+  description = 2;
+  id = 3;
+  ip_address = 4;
+  ip_protocol = 5;
+  load_balancing_scheme = 6;
+  name = 7;
+  network = 8;
+  port_range = 9;
+  ports = 10;
+  project = 11;
+  region = 12;
+  self_link = 13;
+  subnetwork = 14;
+  target = 15;
+}

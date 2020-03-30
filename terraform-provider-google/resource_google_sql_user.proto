@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package google;
+
+message GoogleSqlUser {
+  host = 1;
+  id = 2;
+  instance = 3;
+  name = 4;
+  password = 5;
+  project = 6;
+}

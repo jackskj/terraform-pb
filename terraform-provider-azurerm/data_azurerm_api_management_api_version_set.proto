@@ -1,0 +1,19 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermApiManagementApiVersionSet {
+  api_management_name = 1;
+  description = 2;
+  display_name = 3;
+  id = 4;
+  name = 5;
+  resource_group_name = 6;
+  version_header_name = 7;
+  version_query_name = 8;
+  versioning_scheme = 9;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 10;
+}

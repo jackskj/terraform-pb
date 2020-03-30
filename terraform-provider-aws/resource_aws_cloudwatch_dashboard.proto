@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCloudwatchDashboard {
+  dashboard_arn = 1;
+  dashboard_body = 2;
+  dashboard_name = 3;
+  id = 4;
+}

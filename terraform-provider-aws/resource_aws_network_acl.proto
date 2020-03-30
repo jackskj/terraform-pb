@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package aws;
+
+message AwsNetworkAcl {
+  egress = 1;
+  id = 2;
+  ingress = 3;
+  owner_id = 4;
+  subnet_id = 5;
+  subnet_ids = 6;
+  tags = 7;
+  vpc_id = 8;
+}

@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package aws;
+
+message AwsIamGroup {
+  arn = 1;
+  group_id = 2;
+  group_name = 3;
+  id = 4;
+  path = 5;
+  users = 6;
+}

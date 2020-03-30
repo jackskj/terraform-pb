@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsApiGatewayDocumentationVersion {
+  description = 1;
+  id = 2;
+  rest_api_id = 3;
+  version = 4;
+}

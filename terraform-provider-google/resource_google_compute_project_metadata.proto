@@ -1,0 +1,9 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeProjectMetadata {
+  id = 1;
+  metadata = 2;
+  project = 3;
+}

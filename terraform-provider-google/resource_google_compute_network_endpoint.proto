@@ -1,0 +1,32 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeNetworkEndpoint {
+  id = 1;
+
+  // The name for a specific VM instance that the IP address belongs to.
+This is required for network endpoints of type GCE_VM_IP_PORT.
+The instance must be in the same zone of network endpoint group.
+  instance = 2;
+
+  // IPv4 address of network endpoint. The IP address must belong
+to a VM in GCE (either the primary IP or as part of an aliased IP
+range).
+  ip_address = 3;
+
+  // The network endpoint group this endpoint is part of.
+  network_endpoint_group = 4;
+
+  // Port number of network endpoint.
+  port = 5;
+  project = 6;
+
+  // Zone where the containing network endpoint group is located.
+  zone = 7;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+  }
+  timeouts = 8;
+}

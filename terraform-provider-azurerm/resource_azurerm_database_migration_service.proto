@@ -1,0 +1,20 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermDatabaseMigrationService {
+  id = 1;
+  location = 2;
+  name = 3;
+  resource_group_name = 4;
+  sku_name = 5;
+  subnet_id = 6;
+  tags = 7;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 8;
+}

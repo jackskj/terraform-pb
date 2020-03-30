@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package aws;
+
+message AwsElasticBeanstalkApplication {
+  appversion_lifecycle = 1;
+  arn = 2;
+  description = 3;
+  id = 4;
+  name = 5;
+}

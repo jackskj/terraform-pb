@@ -1,0 +1,150 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermLinuxVirtualMachineScaleSet {
+  admin_password = 1;
+  admin_username = 2;
+  computer_name_prefix = 3;
+  custom_data = 4;
+  disable_password_authentication = 5;
+  do_not_run_extensions_on_overprovisioned_machines = 6;
+  eviction_policy = 7;
+  health_probe_id = 8;
+  id = 9;
+  instances = 10;
+  location = 11;
+  max_bid_price = 12;
+  name = 13;
+  overprovision = 14;
+  priority = 15;
+  provision_vm_agent = 16;
+  proximity_placement_group_id = 17;
+  resource_group_name = 18;
+  scale_in_policy = 19;
+  single_placement_group = 20;
+  sku = 21;
+  source_image_id = 22;
+  tags = 23;
+  unique_id = 24;
+  upgrade_mode = 25;
+  zone_balance = 26;
+  zones = 27;
+  message AdditionalCapabilities {
+    ultra_ssd_enabled = 1;
+  }
+  additional_capabilities = 28;
+  message AdminSshKey {
+    public_key = 1;
+    username = 2;
+  }
+  admin_ssh_key = 29;
+  message AutomaticOsUpgradePolicy {
+    disable_automatic_rollback = 1;
+    enable_automatic_os_upgrade = 2;
+  }
+  automatic_os_upgrade_policy = 30;
+  message BootDiagnostics {
+    storage_account_uri = 1;
+  }
+  boot_diagnostics = 31;
+  message DataDisk {
+    caching = 1;
+    disk_encryption_set_id = 2;
+    disk_size_gb = 3;
+    lun = 4;
+    storage_account_type = 5;
+    write_accelerator_enabled = 6;
+  }
+  data_disk = 32;
+  message Identity {
+    identity_ids = 1;
+    principal_id = 2;
+    type = 3;
+  }
+  identity = 33;
+  message NetworkInterface {
+    dns_servers = 1;
+    enable_accelerated_networking = 2;
+    enable_ip_forwarding = 3;
+    name = 4;
+    network_security_group_id = 5;
+    primary = 6;
+    message IpConfiguration {
+      application_gateway_backend_address_pool_ids = 1;
+      application_security_group_ids = 2;
+      load_balancer_backend_address_pool_ids = 3;
+      load_balancer_inbound_nat_rules_ids = 4;
+      name = 5;
+      primary = 6;
+      subnet_id = 7;
+      version = 8;
+      message PublicIpAddress {
+        domain_name_label = 1;
+        idle_timeout_in_minutes = 2;
+        name = 3;
+        public_ip_prefix_id = 4;
+        message IpTag {
+          tag = 1;
+          type = 2;
+        }
+        ip_tag = 5;
+      }
+      public_ip_address = 9;
+    }
+    ip_configuration = 7;
+  }
+  network_interface = 34;
+  message OsDisk {
+    caching = 1;
+    disk_encryption_set_id = 2;
+    disk_size_gb = 3;
+    storage_account_type = 4;
+    write_accelerator_enabled = 5;
+    message DiffDiskSettings {
+      option = 1;
+    }
+    diff_disk_settings = 6;
+  }
+  os_disk = 35;
+  message Plan {
+    name = 1;
+    product = 2;
+    publisher = 3;
+  }
+  plan = 36;
+  message RollingUpgradePolicy {
+    max_batch_instance_percent = 1;
+    max_unhealthy_instance_percent = 2;
+    max_unhealthy_upgraded_instance_percent = 3;
+    pause_time_between_batches = 4;
+  }
+  rolling_upgrade_policy = 37;
+  message Secret {
+    key_vault_id = 1;
+    message Certificate {
+      url = 1;
+    }
+    certificate = 2;
+  }
+  secret = 38;
+  message SourceImageReference {
+    offer = 1;
+    publisher = 2;
+    sku = 3;
+    version = 4;
+  }
+  source_image_reference = 39;
+  message TerminateNotification {
+    enabled = 1;
+    timeout = 2;
+  }
+  terminate_notification = 40;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 41;
+}

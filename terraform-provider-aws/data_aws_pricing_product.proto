@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package aws;
+
+message AwsPricingProduct {
+  id = 1;
+  result = 2;
+  service_code = 3;
+  message Filters {
+    field = 1;
+    value = 2;
+  }
+  filters = 4;
+}

@@ -1,0 +1,21 @@
+syntax "proto3";
+
+package aws;
+
+message AwsRoute53Zone {
+  comment = 1;
+  delegation_set_id = 2;
+  force_destroy = 3;
+  id = 4;
+  name = 5;
+  name_servers = 6;
+  tags = 7;
+  vpc_id = 8;
+  vpc_region = 9;
+  zone_id = 10;
+  message Vpc {
+    vpc_id = 1;
+    vpc_region = 2;
+  }
+  vpc = 11;
+}

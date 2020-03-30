@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package aws;
+
+message AwsVpcEndpointSubnetAssociation {
+  id = 1;
+  subnet_id = 2;
+  vpc_endpoint_id = 3;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+  }
+  timeouts = 4;
+}

@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package aws;
+
+message AwsApiGatewayApiKey {
+  created_date = 1;
+  description = 2;
+  enabled = 3;
+  id = 4;
+  last_updated_date = 5;
+  name = 6;
+  tags = 7;
+  value = 8;
+}

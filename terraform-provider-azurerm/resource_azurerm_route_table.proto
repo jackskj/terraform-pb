@@ -1,0 +1,21 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermRouteTable {
+  disable_bgp_route_propagation = 1;
+  id = 2;
+  location = 3;
+  name = 4;
+  resource_group_name = 5;
+  route = 6;
+  subnets = 7;
+  tags = 8;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 9;
+}

@@ -1,0 +1,18 @@
+syntax "proto3";
+
+package aws;
+
+message AwsWafregionalRegexMatchSet {
+  id = 1;
+  name = 2;
+  message RegexMatchTuple {
+    regex_pattern_set_id = 1;
+    text_transformation = 2;
+    message FieldToMatch {
+      data = 1;
+      type = 2;
+    }
+    field_to_match = 3;
+  }
+  regex_match_tuple = 3;
+}

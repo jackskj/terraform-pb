@@ -1,0 +1,33 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermAppServiceCertificateOrder {
+  app_service_certificate_not_renewable_reasons = 1;
+  auto_renew = 2;
+  certificates = 3;
+  csr = 4;
+  distinguished_name = 5;
+  domain_verification_token = 6;
+  expiration_time = 7;
+  id = 8;
+  intermediate_thumbprint = 9;
+  is_private_key_external = 10;
+  key_size = 11;
+  location = 12;
+  name = 13;
+  product_type = 14;
+  resource_group_name = 15;
+  root_thumbprint = 16;
+  signed_certificate_thumbprint = 17;
+  status = 18;
+  tags = 19;
+  validity_in_years = 20;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 21;
+}

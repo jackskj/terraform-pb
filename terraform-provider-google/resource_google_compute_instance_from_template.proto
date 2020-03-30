@@ -1,0 +1,86 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeInstanceFromTemplate {
+  allow_stopping_for_update = 1;
+  attached_disk = 2;
+  can_ip_forward = 3;
+  cpu_platform = 4;
+  current_status = 5;
+  deletion_protection = 6;
+  description = 7;
+  desired_status = 8;
+  enable_display = 9;
+  guest_accelerator = 10;
+  hostname = 11;
+  id = 12;
+  instance_id = 13;
+  label_fingerprint = 14;
+  labels = 15;
+  machine_type = 16;
+  metadata = 17;
+  metadata_fingerprint = 18;
+  metadata_startup_script = 19;
+  min_cpu_platform = 20;
+  name = 21;
+  project = 22;
+  scratch_disk = 23;
+  self_link = 24;
+  service_account = 25;
+  source_instance_template = 26;
+  tags = 27;
+  tags_fingerprint = 28;
+  zone = 29;
+  message BootDisk {
+    auto_delete = 1;
+    device_name = 2;
+    disk_encryption_key_raw = 3;
+    disk_encryption_key_sha256 = 4;
+    kms_key_self_link = 5;
+    mode = 6;
+    source = 7;
+    message InitializeParams {
+      image = 1;
+      labels = 2;
+      size = 3;
+      type = 4;
+    }
+    initialize_params = 8;
+  }
+  boot_disk = 30;
+  message NetworkInterface {
+    access_config = 1;
+    alias_ip_range = 2;
+    name = 3;
+    network = 4;
+    network_ip = 5;
+    subnetwork = 6;
+    subnetwork_project = 7;
+  }
+  network_interface = 31;
+  message Scheduling {
+    automatic_restart = 1;
+    on_host_maintenance = 2;
+    preemptible = 3;
+    message NodeAffinities {
+      key = 1;
+      operator = 2;
+      values = 3;
+    }
+    node_affinities = 4;
+  }
+  scheduling = 32;
+  message ShieldedInstanceConfig {
+    enable_integrity_monitoring = 1;
+    enable_secure_boot = 2;
+    enable_vtpm = 3;
+  }
+  shielded_instance_config = 33;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 34;
+}

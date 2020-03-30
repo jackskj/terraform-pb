@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package aws;
+
+message AwsDefaultRouteTable {
+  default_route_table_id = 1;
+  id = 2;
+  owner_id = 3;
+  propagating_vgws = 4;
+  route = 5;
+  tags = 6;
+  vpc_id = 7;
+}

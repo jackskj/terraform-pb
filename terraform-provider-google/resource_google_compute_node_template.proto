@@ -1,0 +1,47 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeNodeTemplate {
+
+  // Creation timestamp in RFC3339 text format.
+  creation_timestamp = 1;
+
+  // An optional textual description of the resource.
+  description = 2;
+  id = 3;
+
+  // Name of the resource.
+  name = 4;
+
+  // Labels to use for node affinity, which will be used in
+instance scheduling.
+  node_affinity_labels = 5;
+
+  // Node type to use for nodes group that are created from this template.
+Only one of nodeTypeFlexibility and nodeType can be specified.
+  node_type = 6;
+  project = 7;
+
+  // Region where nodes using the node template will be created.
+If it is not provided, the provider region is used.
+  region = 8;
+  self_link = 9;
+  message NodeTypeFlexibility {
+
+    // Number of virtual CPUs to use.
+    cpus = 1;
+
+    // Use local SSD
+    local_ssd = 2;
+
+    // Physical memory available to the node, defined in MB.
+    memory = 3;
+  }
+  node_type_flexibility = 10;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+  }
+  timeouts = 11;
+}

@@ -1,0 +1,39 @@
+syntax "proto3";
+
+package aws;
+
+message AwsLaunchTemplate {
+  arn = 1;
+  block_device_mappings = 2;
+  credit_specification = 3;
+  default_version = 4;
+  description = 5;
+  disable_api_termination = 6;
+  ebs_optimized = 7;
+  elastic_gpu_specifications = 8;
+  iam_instance_profile = 9;
+  id = 10;
+  image_id = 11;
+  instance_initiated_shutdown_behavior = 12;
+  instance_market_options = 13;
+  instance_type = 14;
+  kernel_id = 15;
+  key_name = 16;
+  latest_version = 17;
+  metadata_options = 18;
+  monitoring = 19;
+  name = 20;
+  network_interfaces = 21;
+  placement = 22;
+  ram_disk_id = 23;
+  security_group_names = 24;
+  tag_specifications = 25;
+  tags = 26;
+  user_data = 27;
+  vpc_security_group_ids = 28;
+  message Filter {
+    name = 1;
+    values = 2;
+  }
+  filter = 29;
+}

@@ -1,0 +1,74 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermIothub {
+  event_hub_events_endpoint = 1;
+  event_hub_events_path = 2;
+  event_hub_operations_endpoint = 3;
+  event_hub_operations_path = 4;
+  event_hub_partition_count = 5;
+  event_hub_retention_in_days = 6;
+  hostname = 7;
+  id = 8;
+  location = 9;
+  name = 10;
+  resource_group_name = 11;
+  shared_access_policy = 12;
+  tags = 13;
+  type = 14;
+  message Endpoint {
+    batch_frequency_in_seconds = 1;
+    connection_string = 2;
+    container_name = 3;
+    encoding = 4;
+    file_name_format = 5;
+    max_chunk_size_in_bytes = 6;
+    name = 7;
+    type = 8;
+  }
+  endpoint = 15;
+  message FallbackRoute {
+    condition = 1;
+    enabled = 2;
+    endpoint_names = 3;
+    source = 4;
+  }
+  fallback_route = 16;
+  message FileUpload {
+    connection_string = 1;
+    container_name = 2;
+    default_ttl = 3;
+    lock_duration = 4;
+    max_delivery_count = 5;
+    notifications = 6;
+    sas_ttl = 7;
+  }
+  file_upload = 17;
+  message IpFilterRule {
+    action = 1;
+    ip_mask = 2;
+    name = 3;
+  }
+  ip_filter_rule = 18;
+  message Route {
+    condition = 1;
+    enabled = 2;
+    endpoint_names = 3;
+    name = 4;
+    source = 5;
+  }
+  route = 19;
+  message Sku {
+    capacity = 1;
+    name = 2;
+  }
+  sku = 20;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 21;
+}

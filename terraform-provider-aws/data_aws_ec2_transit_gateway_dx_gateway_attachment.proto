@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package aws;
+
+message AwsEc2TransitGatewayDxGatewayAttachment {
+  dx_gateway_id = 1;
+  id = 2;
+  tags = 3;
+  transit_gateway_id = 4;
+  message Filter {
+    name = 1;
+    values = 2;
+  }
+  filter = 5;
+}

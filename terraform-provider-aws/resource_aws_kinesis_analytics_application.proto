@@ -1,0 +1,138 @@
+syntax "proto3";
+
+package aws;
+
+message AwsKinesisAnalyticsApplication {
+  arn = 1;
+  code = 2;
+  create_timestamp = 3;
+  description = 4;
+  id = 5;
+  last_update_timestamp = 6;
+  name = 7;
+  status = 8;
+  tags = 9;
+  version = 10;
+  message CloudwatchLoggingOptions {
+    id = 1;
+    log_stream_arn = 2;
+    role_arn = 3;
+  }
+  cloudwatch_logging_options = 11;
+  message Inputs {
+    id = 1;
+    name_prefix = 2;
+    starting_position_configuration = 3;
+    stream_names = 4;
+    message KinesisFirehose {
+      resource_arn = 1;
+      role_arn = 2;
+    }
+    kinesis_firehose = 5;
+    message KinesisStream {
+      resource_arn = 1;
+      role_arn = 2;
+    }
+    kinesis_stream = 6;
+    message Parallelism {
+      count = 1;
+    }
+    parallelism = 7;
+    message ProcessingConfiguration {
+      message Lambda {
+        resource_arn = 1;
+        role_arn = 2;
+      }
+      lambda = 1;
+    }
+    processing_configuration = 8;
+    message Schema {
+      record_encoding = 1;
+      message RecordColumns {
+        mapping = 1;
+        name = 2;
+        sql_type = 3;
+      }
+      record_columns = 2;
+      message RecordFormat {
+        record_format_type = 1;
+        message MappingParameters {
+          message Csv {
+            record_column_delimiter = 1;
+            record_row_delimiter = 2;
+          }
+          csv = 1;
+          message Json {
+            record_row_path = 1;
+          }
+          json = 2;
+        }
+        mapping_parameters = 2;
+      }
+      record_format = 3;
+    }
+    schema = 9;
+  }
+  inputs = 12;
+  message Outputs {
+    id = 1;
+    name = 2;
+    message KinesisFirehose {
+      resource_arn = 1;
+      role_arn = 2;
+    }
+    kinesis_firehose = 3;
+    message KinesisStream {
+      resource_arn = 1;
+      role_arn = 2;
+    }
+    kinesis_stream = 4;
+    message Lambda {
+      resource_arn = 1;
+      role_arn = 2;
+    }
+    lambda = 5;
+    message Schema {
+      record_format_type = 1;
+    }
+    schema = 6;
+  }
+  outputs = 13;
+  message ReferenceDataSources {
+    id = 1;
+    table_name = 2;
+    message S3 {
+      bucket_arn = 1;
+      file_key = 2;
+      role_arn = 3;
+    }
+    s3 = 3;
+    message Schema {
+      record_encoding = 1;
+      message RecordColumns {
+        mapping = 1;
+        name = 2;
+        sql_type = 3;
+      }
+      record_columns = 2;
+      message RecordFormat {
+        record_format_type = 1;
+        message MappingParameters {
+          message Csv {
+            record_column_delimiter = 1;
+            record_row_delimiter = 2;
+          }
+          csv = 1;
+          message Json {
+            record_row_path = 1;
+          }
+          json = 2;
+        }
+        mapping_parameters = 2;
+      }
+      record_format = 3;
+    }
+    schema = 4;
+  }
+  reference_data_sources = 14;
+}

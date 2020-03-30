@@ -1,0 +1,20 @@
+syntax "proto3";
+
+package aws;
+
+message AwsRouteTable {
+  associations = 1;
+  gateway_id = 2;
+  id = 3;
+  owner_id = 4;
+  route_table_id = 5;
+  routes = 6;
+  subnet_id = 7;
+  tags = 8;
+  vpc_id = 9;
+  message Filter {
+    name = 1;
+    values = 2;
+  }
+  filter = 10;
+}

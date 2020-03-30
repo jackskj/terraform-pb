@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package aws;
+
+message AwsIotCertificate {
+  active = 1;
+  arn = 2;
+  certificate_pem = 3;
+  csr = 4;
+  id = 5;
+  private_key = 6;
+  public_key = 7;
+}

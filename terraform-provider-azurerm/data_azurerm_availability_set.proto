@@ -1,0 +1,18 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermAvailabilitySet {
+  id = 1;
+  location = 2;
+  managed = 3;
+  name = 4;
+  platform_fault_domain_count = 5;
+  platform_update_domain_count = 6;
+  resource_group_name = 7;
+  tags = 8;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 9;
+}

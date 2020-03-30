@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermSubscriptions {
+  display_name_contains = 1;
+  display_name_prefix = 2;
+  id = 3;
+  subscriptions = 4;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 5;
+}

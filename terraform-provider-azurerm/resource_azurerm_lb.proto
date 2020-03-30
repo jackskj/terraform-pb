@@ -1,0 +1,36 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermLb {
+  id = 1;
+  location = 2;
+  name = 3;
+  private_ip_address = 4;
+  private_ip_addresses = 5;
+  resource_group_name = 6;
+  sku = 7;
+  tags = 8;
+  message FrontendIpConfiguration {
+    id = 1;
+    inbound_nat_rules = 2;
+    load_balancer_rules = 3;
+    name = 4;
+    outbound_rules = 5;
+    private_ip_address = 6;
+    private_ip_address_allocation = 7;
+    private_ip_address_version = 8;
+    public_ip_address_id = 9;
+    public_ip_prefix_id = 10;
+    subnet_id = 11;
+    zones = 12;
+  }
+  frontend_ip_configuration = 9;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 10;
+}

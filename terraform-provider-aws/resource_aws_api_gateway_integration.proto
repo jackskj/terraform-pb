@@ -1,0 +1,24 @@
+syntax "proto3";
+
+package aws;
+
+message AwsApiGatewayIntegration {
+  cache_key_parameters = 1;
+  cache_namespace = 2;
+  connection_id = 3;
+  connection_type = 4;
+  content_handling = 5;
+  credentials = 6;
+  http_method = 7;
+  id = 8;
+  integration_http_method = 9;
+  passthrough_behavior = 10;
+  request_parameters = 11;
+  request_parameters_in_json = 12;
+  request_templates = 13;
+  resource_id = 14;
+  rest_api_id = 15;
+  timeout_milliseconds = 16;
+  type = 17;
+  uri = 18;
+}

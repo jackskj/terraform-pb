@@ -1,0 +1,25 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermMonitorActionGroup {
+  arm_role_receiver = 1;
+  automation_runbook_receiver = 2;
+  azure_app_push_receiver = 3;
+  azure_function_receiver = 4;
+  email_receiver = 5;
+  enabled = 6;
+  id = 7;
+  itsm_receiver = 8;
+  logic_app_receiver = 9;
+  name = 10;
+  resource_group_name = 11;
+  short_name = 12;
+  sms_receiver = 13;
+  voice_receiver = 14;
+  webhook_receiver = 15;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 16;
+}

@@ -1,0 +1,56 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermApiManagementBackend {
+  api_management_name = 1;
+  description = 2;
+  id = 3;
+  name = 4;
+  protocol = 5;
+  resource_group_name = 6;
+  resource_id = 7;
+  title = 8;
+  url = 9;
+  message Credentials {
+    certificate = 1;
+    header = 2;
+    query = 3;
+    message Authorization {
+      parameter = 1;
+      scheme = 2;
+    }
+    authorization = 4;
+  }
+  credentials = 10;
+  message Proxy {
+    password = 1;
+    url = 2;
+    username = 3;
+  }
+  proxy = 11;
+  message ServiceFabricCluster {
+    client_certificate_thumbprint = 1;
+    management_endpoints = 2;
+    max_partition_resolution_retries = 3;
+    server_certificate_thumbprints = 4;
+    message ServerX509Name {
+      issuer_certificate_thumbprint = 1;
+      name = 2;
+    }
+    server_x509_name = 5;
+  }
+  service_fabric_cluster = 12;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 13;
+  message Tls {
+    validate_certificate_chain = 1;
+    validate_certificate_name = 2;
+  }
+  tls = 14;
+}

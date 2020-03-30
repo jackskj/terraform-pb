@@ -1,0 +1,103 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermFunctionApp {
+  app_service_plan_id = 1;
+  app_settings = 2;
+  client_affinity_enabled = 3;
+  daily_memory_time_quota = 4;
+  default_hostname = 5;
+  enable_builtin_logging = 6;
+  enabled = 7;
+  https_only = 8;
+  id = 9;
+  kind = 10;
+  location = 11;
+  name = 12;
+  os_type = 13;
+  outbound_ip_addresses = 14;
+  possible_outbound_ip_addresses = 15;
+  resource_group_name = 16;
+  site_credential = 17;
+  storage_connection_string = 18;
+  tags = 19;
+  version = 20;
+  message AuthSettings {
+    additional_login_params = 1;
+    allowed_external_redirect_urls = 2;
+    default_provider = 3;
+    enabled = 4;
+    issuer = 5;
+    runtime_version = 6;
+    token_refresh_extension_hours = 7;
+    token_store_enabled = 8;
+    unauthenticated_client_action = 9;
+    message ActiveDirectory {
+      allowed_audiences = 1;
+      client_id = 2;
+      client_secret = 3;
+    }
+    active_directory = 10;
+    message Facebook {
+      app_id = 1;
+      app_secret = 2;
+      oauth_scopes = 3;
+    }
+    facebook = 11;
+    message Google {
+      client_id = 1;
+      client_secret = 2;
+      oauth_scopes = 3;
+    }
+    google = 12;
+    message Microsoft {
+      client_id = 1;
+      client_secret = 2;
+      oauth_scopes = 3;
+    }
+    microsoft = 13;
+    message Twitter {
+      consumer_key = 1;
+      consumer_secret = 2;
+    }
+    twitter = 14;
+  }
+  auth_settings = 21;
+  message ConnectionString {
+    name = 1;
+    type = 2;
+    value = 3;
+  }
+  connection_string = 22;
+  message Identity {
+    identity_ids = 1;
+    principal_id = 2;
+    tenant_id = 3;
+    type = 4;
+  }
+  identity = 23;
+  message SiteConfig {
+    always_on = 1;
+    ftps_state = 2;
+    http2_enabled = 3;
+    ip_restriction = 4;
+    linux_fx_version = 5;
+    min_tls_version = 6;
+    use_32_bit_worker_process = 7;
+    websockets_enabled = 8;
+    message Cors {
+      allowed_origins = 1;
+      support_credentials = 2;
+    }
+    cors = 9;
+  }
+  site_config = 24;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 25;
+}

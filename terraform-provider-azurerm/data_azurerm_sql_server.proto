@@ -1,0 +1,19 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermSqlServer {
+  administrator_login = 1;
+  fqdn = 2;
+  id = 3;
+  identity = 4;
+  location = 5;
+  name = 6;
+  resource_group_name = 7;
+  tags = 8;
+  version = 9;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 10;
+}

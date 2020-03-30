@@ -1,0 +1,38 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermMonitorActivityLogAlert {
+  description = 1;
+  enabled = 2;
+  id = 3;
+  name = 4;
+  resource_group_name = 5;
+  scopes = 6;
+  tags = 7;
+  message Action {
+    action_group_id = 1;
+    webhook_properties = 2;
+  }
+  action = 8;
+  message Criteria {
+    caller = 1;
+    category = 2;
+    level = 3;
+    operation_name = 4;
+    resource_group = 5;
+    resource_id = 6;
+    resource_provider = 7;
+    resource_type = 8;
+    status = 9;
+    sub_status = 10;
+  }
+  criteria = 9;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 10;
+}

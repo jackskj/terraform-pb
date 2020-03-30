@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCognitoUserGroup {
+  description = 1;
+  id = 2;
+  name = 3;
+  precedence = 4;
+  role_arn = 5;
+  user_pool_id = 6;
+}

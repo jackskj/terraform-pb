@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package aws;
+
+message AwsGlobalacceleratorListener {
+  accelerator_arn = 1;
+  client_affinity = 2;
+  id = 3;
+  protocol = 4;
+  message PortRange {
+    from_port = 1;
+    to_port = 2;
+  }
+  port_range = 5;
+}

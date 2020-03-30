@@ -1,0 +1,45 @@
+syntax "proto3";
+
+package google;
+
+message GoogleKmsCryptoKey {
+  id = 1;
+
+  // The KeyRing that this key belongs to.
+Format: ''projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}''.
+  key_ring = 2;
+
+  // Labels with user-defined metadata to apply to this resource.
+  labels = 3;
+
+  // The resource name for the CryptoKey.
+  name = 4;
+
+  // The immutable purpose of this CryptoKey. See the
+[purpose reference](https://cloud.google.com/kms/docs/reference/rest/v1/projects.locations.keyRings.cryptoKeys#CryptoKeyPurpose)
+for possible inputs.
+  purpose = 5;
+
+  // Every time this period passes, generate a new CryptoKeyVersion and set it as the primary.
+The first rotation will take place after the specified period. The rotation period has
+the format of a decimal number with up to 9 fractional digits, followed by the
+letter 's' (seconds). It must be greater than a day (ie, 86400).
+  rotation_period = 6;
+  self_link = 7;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 8;
+  message VersionTemplate {
+
+    // The algorithm to use when creating a version based on this template.
+See the [algorithm reference](https://cloud.google.com/kms/docs/reference/rest/v1/CryptoKeyVersionAlgorithm) for possible inputs.
+    algorithm = 1;
+
+    // The protection level to use when creating a version based on this template.
+    protection_level = 2;
+  }
+  version_template = 9;
+}

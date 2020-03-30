@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package google;
+
+message GoogleIapAppEngineServiceIamBinding {
+  app_id = 1;
+  etag = 2;
+  id = 3;
+  members = 4;
+  project = 5;
+  role = 6;
+  service = 7;
+}

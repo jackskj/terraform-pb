@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package google;
+
+message GoogleTpuTensorflowVersions {
+  id = 1;
+  project = 2;
+  versions = 3;
+  zone = 4;
+}

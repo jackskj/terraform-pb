@@ -1,0 +1,9 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeLbIpRanges {
+  http_ssl_tcp_internal = 1;
+  id = 2;
+  network = 3;
+}

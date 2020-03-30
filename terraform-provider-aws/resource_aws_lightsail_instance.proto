@@ -1,0 +1,23 @@
+syntax "proto3";
+
+package aws;
+
+message AwsLightsailInstance {
+  arn = 1;
+  availability_zone = 2;
+  blueprint_id = 3;
+  bundle_id = 4;
+  cpu_count = 5;
+  created_at = 6;
+  id = 7;
+  ipv6_address = 8;
+  is_static_ip = 9;
+  key_pair_name = 10;
+  name = 11;
+  private_ip_address = 12;
+  public_ip_address = 13;
+  ram_size = 14;
+  tags = 15;
+  user_data = 16;
+  username = 17;
+}

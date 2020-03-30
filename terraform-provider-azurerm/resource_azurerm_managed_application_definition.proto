@@ -1,0 +1,30 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermManagedApplicationDefinition {
+  create_ui_definition = 1;
+  description = 2;
+  display_name = 3;
+  id = 4;
+  location = 5;
+  lock_level = 6;
+  main_template = 7;
+  name = 8;
+  package_enabled = 9;
+  package_file_uri = 10;
+  resource_group_name = 11;
+  tags = 12;
+  message Authorization {
+    role_definition_id = 1;
+    service_principal_id = 2;
+  }
+  authorization = 13;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 14;
+}

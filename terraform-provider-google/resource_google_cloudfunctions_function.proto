@@ -1,0 +1,47 @@
+syntax "proto3";
+
+package google;
+
+message GoogleCloudfunctionsFunction {
+  available_memory_mb = 1;
+  description = 2;
+  entry_point = 3;
+  environment_variables = 4;
+  https_trigger_url = 5;
+  id = 6;
+  ingress_settings = 7;
+  labels = 8;
+  max_instances = 9;
+  name = 10;
+  project = 11;
+  region = 12;
+  runtime = 13;
+  service_account_email = 14;
+  source_archive_bucket = 15;
+  source_archive_object = 16;
+  timeout = 17;
+  trigger_http = 18;
+  vpc_connector = 19;
+  vpc_connector_egress_settings = 20;
+  message EventTrigger {
+    event_type = 1;
+    resource = 2;
+    message FailurePolicy {
+      retry = 1;
+    }
+    failure_policy = 3;
+  }
+  event_trigger = 21;
+  message SourceRepository {
+    deployed_url = 1;
+    url = 2;
+  }
+  source_repository = 22;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 23;
+}

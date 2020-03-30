@@ -1,0 +1,36 @@
+syntax "proto3";
+
+package aws;
+
+message AwsGlueJob {
+  allocated_capacity = 1;
+  arn = 2;
+  connections = 3;
+  default_arguments = 4;
+  description = 5;
+  glue_version = 6;
+  id = 7;
+  max_capacity = 8;
+  max_retries = 9;
+  name = 10;
+  number_of_workers = 11;
+  role_arn = 12;
+  security_configuration = 13;
+  tags = 14;
+  timeout = 15;
+  worker_type = 16;
+  message Command {
+    name = 1;
+    python_version = 2;
+    script_location = 3;
+  }
+  command = 17;
+  message ExecutionProperty {
+    max_concurrent_runs = 1;
+  }
+  execution_property = 18;
+  message NotificationProperty {
+    notify_delay_after = 1;
+  }
+  notification_property = 19;
+}

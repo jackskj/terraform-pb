@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package aws;
+
+message AwsVpcs {
+  id = 1;
+  ids = 2;
+  tags = 3;
+  message Filter {
+    name = 1;
+    values = 2;
+  }
+  filter = 4;
+}

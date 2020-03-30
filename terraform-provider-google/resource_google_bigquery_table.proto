@@ -1,0 +1,64 @@
+syntax "proto3";
+
+package google;
+
+message GoogleBigqueryTable {
+  clustering = 1;
+  creation_time = 2;
+  dataset_id = 3;
+  description = 4;
+  etag = 5;
+  expiration_time = 6;
+  friendly_name = 7;
+  id = 8;
+  labels = 9;
+  last_modified_time = 10;
+  location = 11;
+  num_bytes = 12;
+  num_long_term_bytes = 13;
+  num_rows = 14;
+  project = 15;
+  schema = 16;
+  self_link = 17;
+  table_id = 18;
+  type = 19;
+  message EncryptionConfiguration {
+    kms_key_name = 1;
+  }
+  encryption_configuration = 20;
+  message ExternalDataConfiguration {
+    autodetect = 1;
+    compression = 2;
+    ignore_unknown_values = 3;
+    max_bad_records = 4;
+    source_format = 5;
+    source_uris = 6;
+    message CsvOptions {
+      allow_jagged_rows = 1;
+      allow_quoted_newlines = 2;
+      encoding = 3;
+      field_delimiter = 4;
+      quote = 5;
+      skip_leading_rows = 6;
+    }
+    csv_options = 7;
+    message GoogleSheetsOptions {
+      range = 1;
+      skip_leading_rows = 2;
+    }
+    google_sheets_options = 8;
+  }
+  external_data_configuration = 21;
+  message TimePartitioning {
+    expiration_ms = 1;
+    field = 2;
+    require_partition_filter = 3;
+    type = 4;
+  }
+  time_partitioning = 22;
+  message View {
+    query = 1;
+    use_legacy_sql = 2;
+  }
+  view = 23;
+}

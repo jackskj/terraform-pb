@@ -1,0 +1,27 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermApiManagement {
+  additional_location = 1;
+  gateway_regional_url = 2;
+  gateway_url = 3;
+  hostname_configuration = 4;
+  id = 5;
+  location = 6;
+  management_api_url = 7;
+  name = 8;
+  notification_sender_email = 9;
+  portal_url = 10;
+  public_ip_addresses = 11;
+  publisher_email = 12;
+  publisher_name = 13;
+  resource_group_name = 14;
+  scm_url = 15;
+  sku_name = 16;
+  tags = 17;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 18;
+}

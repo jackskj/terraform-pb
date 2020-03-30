@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package aws;
+
+message AwsEcsCluster {
+  arn = 1;
+  cluster_name = 2;
+  id = 3;
+  pending_tasks_count = 4;
+  registered_container_instances_count = 5;
+  running_tasks_count = 6;
+  setting = 7;
+  status = 8;
+}

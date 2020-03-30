@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package aws;
+
+message AwsBatchComputeEnvironment {
+  arn = 1;
+  compute_environment_name = 2;
+  ecs_cluster_arn = 3;
+  id = 4;
+  service_role = 5;
+  state = 6;
+  status = 7;
+  status_reason = 8;
+  type = 9;
+}

@@ -1,0 +1,22 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermPolicySetDefinition {
+  description = 1;
+  display_name = 2;
+  id = 3;
+  management_group_id = 4;
+  metadata = 5;
+  name = 6;
+  parameters = 7;
+  policy_definitions = 8;
+  policy_type = 9;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 10;
+}

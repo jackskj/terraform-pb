@@ -1,0 +1,141 @@
+syntax "proto3";
+
+package aws;
+
+message AwsS3Bucket {
+  acceleration_status = 1;
+  acl = 2;
+  arn = 3;
+  bucket = 4;
+  bucket_domain_name = 5;
+  bucket_prefix = 6;
+  bucket_regional_domain_name = 7;
+  force_destroy = 8;
+  hosted_zone_id = 9;
+  id = 10;
+  policy = 11;
+  region = 12;
+  request_payer = 13;
+  tags = 14;
+  website_domain = 15;
+  website_endpoint = 16;
+  message CorsRule {
+    allowed_headers = 1;
+    allowed_methods = 2;
+    allowed_origins = 3;
+    expose_headers = 4;
+    max_age_seconds = 5;
+  }
+  cors_rule = 17;
+  message Grant {
+    id = 1;
+    permissions = 2;
+    type = 3;
+    uri = 4;
+  }
+  grant = 18;
+  message LifecycleRule {
+    abort_incomplete_multipart_upload_days = 1;
+    enabled = 2;
+    id = 3;
+    prefix = 4;
+    tags = 5;
+    message Expiration {
+      date = 1;
+      days = 2;
+      expired_object_delete_marker = 3;
+    }
+    expiration = 6;
+    message NoncurrentVersionExpiration {
+      days = 1;
+    }
+    noncurrent_version_expiration = 7;
+    message NoncurrentVersionTransition {
+      days = 1;
+      storage_class = 2;
+    }
+    noncurrent_version_transition = 8;
+    message Transition {
+      date = 1;
+      days = 2;
+      storage_class = 3;
+    }
+    transition = 9;
+  }
+  lifecycle_rule = 19;
+  message Logging {
+    target_bucket = 1;
+    target_prefix = 2;
+  }
+  logging = 20;
+  message ObjectLockConfiguration {
+    object_lock_enabled = 1;
+    message Rule {
+      message DefaultRetention {
+        days = 1;
+        mode = 2;
+        years = 3;
+      }
+      default_retention = 1;
+    }
+    rule = 2;
+  }
+  object_lock_configuration = 21;
+  message ReplicationConfiguration {
+    role = 1;
+    message Rules {
+      id = 1;
+      prefix = 2;
+      priority = 3;
+      status = 4;
+      message Destination {
+        account_id = 1;
+        bucket = 2;
+        replica_kms_key_id = 3;
+        storage_class = 4;
+        message AccessControlTranslation {
+          owner = 1;
+        }
+        access_control_translation = 5;
+      }
+      destination = 5;
+      message Filter {
+        prefix = 1;
+        tags = 2;
+      }
+      filter = 6;
+      message SourceSelectionCriteria {
+        message SseKmsEncryptedObjects {
+          enabled = 1;
+        }
+        sse_kms_encrypted_objects = 1;
+      }
+      source_selection_criteria = 7;
+    }
+    rules = 2;
+  }
+  replication_configuration = 22;
+  message ServerSideEncryptionConfiguration {
+    message Rule {
+      message ApplyServerSideEncryptionByDefault {
+        kms_master_key_id = 1;
+        sse_algorithm = 2;
+      }
+      apply_server_side_encryption_by_default = 1;
+    }
+    rule = 1;
+  }
+  server_side_encryption_configuration = 23;
+  message Versioning {
+    enabled = 1;
+    mfa_delete = 2;
+  }
+  versioning = 24;
+  message Website {
+    error_document = 1;
+    index_document = 2;
+    redirect_all_requests_to = 3;
+    routing_rules = 4;
+  }
+  website = 25;
+}

@@ -1,0 +1,25 @@
+syntax "proto3";
+
+package aws;
+
+message AwsAppmeshVirtualRouter {
+  arn = 1;
+  created_date = 2;
+  id = 3;
+  last_updated_date = 4;
+  mesh_name = 5;
+  name = 6;
+  tags = 7;
+  message Spec {
+    service_names = 1;
+    message Listener {
+      message PortMapping {
+        port = 1;
+        protocol = 2;
+      }
+      port_mapping = 1;
+    }
+    listener = 2;
+  }
+  spec = 8;
+}

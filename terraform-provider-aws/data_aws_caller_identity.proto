@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCallerIdentity {
+  account_id = 1;
+  arn = 2;
+  id = 3;
+  user_id = 4;
+}

@@ -1,0 +1,136 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermAppServiceSlot {
+  app_service_name = 1;
+  app_service_plan_id = 2;
+  app_settings = 3;
+  client_affinity_enabled = 4;
+  default_site_hostname = 5;
+  enabled = 6;
+  https_only = 7;
+  id = 8;
+  location = 9;
+  name = 10;
+  resource_group_name = 11;
+  site_credential = 12;
+  tags = 13;
+  message AuthSettings {
+    additional_login_params = 1;
+    allowed_external_redirect_urls = 2;
+    default_provider = 3;
+    enabled = 4;
+    issuer = 5;
+    runtime_version = 6;
+    token_refresh_extension_hours = 7;
+    token_store_enabled = 8;
+    unauthenticated_client_action = 9;
+    message ActiveDirectory {
+      allowed_audiences = 1;
+      client_id = 2;
+      client_secret = 3;
+    }
+    active_directory = 10;
+    message Facebook {
+      app_id = 1;
+      app_secret = 2;
+      oauth_scopes = 3;
+    }
+    facebook = 11;
+    message Google {
+      client_id = 1;
+      client_secret = 2;
+      oauth_scopes = 3;
+    }
+    google = 12;
+    message Microsoft {
+      client_id = 1;
+      client_secret = 2;
+      oauth_scopes = 3;
+    }
+    microsoft = 13;
+    message Twitter {
+      consumer_key = 1;
+      consumer_secret = 2;
+    }
+    twitter = 14;
+  }
+  auth_settings = 14;
+  message ConnectionString {
+    name = 1;
+    type = 2;
+    value = 3;
+  }
+  connection_string = 15;
+  message Identity {
+    identity_ids = 1;
+    principal_id = 2;
+    tenant_id = 3;
+    type = 4;
+  }
+  identity = 16;
+  message Logs {
+    message ApplicationLogs {
+      message AzureBlobStorage {
+        level = 1;
+        retention_in_days = 2;
+        sas_url = 3;
+      }
+      azure_blob_storage = 1;
+    }
+    application_logs = 1;
+    message HttpLogs {
+      message AzureBlobStorage {
+        retention_in_days = 1;
+        sas_url = 2;
+      }
+      azure_blob_storage = 1;
+      message FileSystem {
+        retention_in_days = 1;
+        retention_in_mb = 2;
+      }
+      file_system = 2;
+    }
+    http_logs = 2;
+  }
+  logs = 17;
+  message SiteConfig {
+    always_on = 1;
+    app_command_line = 2;
+    auto_swap_slot_name = 3;
+    default_documents = 4;
+    dotnet_framework_version = 5;
+    ftps_state = 6;
+    http2_enabled = 7;
+    ip_restriction = 8;
+    java_container = 9;
+    java_container_version = 10;
+    java_version = 11;
+    linux_fx_version = 12;
+    local_mysql_enabled = 13;
+    managed_pipeline_mode = 14;
+    min_tls_version = 15;
+    php_version = 16;
+    python_version = 17;
+    remote_debugging_enabled = 18;
+    remote_debugging_version = 19;
+    scm_type = 20;
+    use_32_bit_worker_process = 21;
+    websockets_enabled = 22;
+    windows_fx_version = 23;
+    message Cors {
+      allowed_origins = 1;
+      support_credentials = 2;
+    }
+    cors = 24;
+  }
+  site_config = 18;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 19;
+}

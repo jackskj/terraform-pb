@@ -1,0 +1,27 @@
+syntax "proto3";
+
+package aws;
+
+message AwsWorklinkFleet {
+  arn = 1;
+  audit_stream_arn = 2;
+  company_code = 3;
+  created_time = 4;
+  device_ca_certificate = 5;
+  display_name = 6;
+  id = 7;
+  last_updated_time = 8;
+  name = 9;
+  optimize_for_end_user_location = 10;
+  message IdentityProvider {
+    saml_metadata = 1;
+    type = 2;
+  }
+  identity_provider = 11;
+  message Network {
+    security_group_ids = 1;
+    subnet_ids = 2;
+    vpc_id = 3;
+  }
+  network = 12;
+}

@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermPrivateEndpointConnection {
+  id = 1;
+  location = 2;
+  name = 3;
+  private_service_connection = 4;
+  resource_group_name = 5;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 6;
+}

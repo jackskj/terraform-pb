@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package google;
+
+message GoogleOrganizationIamPolicy {
+  etag = 1;
+  id = 2;
+  org_id = 3;
+  policy_data = 4;
+}

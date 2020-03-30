@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCodedeployApp {
+  compute_platform = 1;
+  id = 2;
+  name = 3;
+  unique_id = 4;
+}

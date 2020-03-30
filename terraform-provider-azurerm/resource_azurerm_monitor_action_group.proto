@@ -1,0 +1,87 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermMonitorActionGroup {
+  enabled = 1;
+  id = 2;
+  name = 3;
+  resource_group_name = 4;
+  short_name = 5;
+  tags = 6;
+  message ArmRoleReceiver {
+    name = 1;
+    role_id = 2;
+    use_common_alert_schema = 3;
+  }
+  arm_role_receiver = 7;
+  message AutomationRunbookReceiver {
+    automation_account_id = 1;
+    is_global_runbook = 2;
+    name = 3;
+    runbook_name = 4;
+    service_uri = 5;
+    use_common_alert_schema = 6;
+    webhook_resource_id = 7;
+  }
+  automation_runbook_receiver = 8;
+  message AzureAppPushReceiver {
+    email_address = 1;
+    name = 2;
+  }
+  azure_app_push_receiver = 9;
+  message AzureFunctionReceiver {
+    function_app_resource_id = 1;
+    function_name = 2;
+    http_trigger_url = 3;
+    name = 4;
+    use_common_alert_schema = 5;
+  }
+  azure_function_receiver = 10;
+  message EmailReceiver {
+    email_address = 1;
+    name = 2;
+    use_common_alert_schema = 3;
+  }
+  email_receiver = 11;
+  message ItsmReceiver {
+    connection_id = 1;
+    name = 2;
+    region = 3;
+    ticket_configuration = 4;
+    workspace_id = 5;
+  }
+  itsm_receiver = 12;
+  message LogicAppReceiver {
+    callback_url = 1;
+    name = 2;
+    resource_id = 3;
+    use_common_alert_schema = 4;
+  }
+  logic_app_receiver = 13;
+  message SmsReceiver {
+    country_code = 1;
+    name = 2;
+    phone_number = 3;
+  }
+  sms_receiver = 14;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 15;
+  message VoiceReceiver {
+    country_code = 1;
+    name = 2;
+    phone_number = 3;
+  }
+  voice_receiver = 16;
+  message WebhookReceiver {
+    name = 1;
+    service_uri = 2;
+    use_common_alert_schema = 3;
+  }
+  webhook_receiver = 17;
+}

@@ -1,0 +1,22 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermKeyVaultAccessPolicy {
+  application_id = 1;
+  certificate_permissions = 2;
+  id = 3;
+  key_permissions = 4;
+  key_vault_id = 5;
+  object_id = 6;
+  secret_permissions = 7;
+  storage_permissions = 8;
+  tenant_id = 9;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 10;
+}

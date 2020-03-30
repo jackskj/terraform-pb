@@ -1,0 +1,29 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermPointToSiteVpnGateway {
+  id = 1;
+  location = 2;
+  name = 3;
+  resource_group_name = 4;
+  scale_unit = 5;
+  tags = 6;
+  virtual_hub_id = 7;
+  vpn_server_configuration_id = 8;
+  message ConnectionConfiguration {
+    name = 1;
+    message VpnClientAddressPool {
+      address_prefixes = 1;
+    }
+    vpn_client_address_pool = 2;
+  }
+  connection_configuration = 9;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 10;
+}

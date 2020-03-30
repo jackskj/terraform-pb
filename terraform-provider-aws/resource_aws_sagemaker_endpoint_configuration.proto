@@ -1,0 +1,20 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSagemakerEndpointConfiguration {
+  arn = 1;
+  id = 2;
+  kms_key_arn = 3;
+  name = 4;
+  tags = 5;
+  message ProductionVariants {
+    accelerator_type = 1;
+    initial_instance_count = 2;
+    initial_variant_weight = 3;
+    instance_type = 4;
+    model_name = 5;
+    variant_name = 6;
+  }
+  production_variants = 6;
+}

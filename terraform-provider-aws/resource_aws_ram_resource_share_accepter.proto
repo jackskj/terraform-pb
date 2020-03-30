@@ -1,0 +1,20 @@
+syntax "proto3";
+
+package aws;
+
+message AwsRamResourceShareAccepter {
+  id = 1;
+  invitation_arn = 2;
+  receiver_account_id = 3;
+  resources = 4;
+  sender_account_id = 5;
+  share_arn = 6;
+  share_id = 7;
+  share_name = 8;
+  status = 9;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+  }
+  timeouts = 10;
+}

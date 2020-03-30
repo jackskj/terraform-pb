@@ -1,0 +1,99 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermApiManagementApiOperation {
+  api_management_name = 1;
+  api_name = 2;
+  description = 3;
+  display_name = 4;
+  id = 5;
+  method = 6;
+  operation_id = 7;
+  resource_group_name = 8;
+  url_template = 9;
+  message Request {
+    description = 1;
+    message Header {
+      default_value = 1;
+      description = 2;
+      name = 3;
+      required = 4;
+      type = 5;
+      values = 6;
+    }
+    header = 2;
+    message QueryParameter {
+      default_value = 1;
+      description = 2;
+      name = 3;
+      required = 4;
+      type = 5;
+      values = 6;
+    }
+    query_parameter = 3;
+    message Representation {
+      content_type = 1;
+      sample = 2;
+      schema_id = 3;
+      type_name = 4;
+      message FormParameter {
+        default_value = 1;
+        description = 2;
+        name = 3;
+        required = 4;
+        type = 5;
+        values = 6;
+      }
+      form_parameter = 5;
+    }
+    representation = 4;
+  }
+  request = 10;
+  message Response {
+    description = 1;
+    status_code = 2;
+    message Header {
+      default_value = 1;
+      description = 2;
+      name = 3;
+      required = 4;
+      type = 5;
+      values = 6;
+    }
+    header = 3;
+    message Representation {
+      content_type = 1;
+      sample = 2;
+      schema_id = 3;
+      type_name = 4;
+      message FormParameter {
+        default_value = 1;
+        description = 2;
+        name = 3;
+        required = 4;
+        type = 5;
+        values = 6;
+      }
+      form_parameter = 5;
+    }
+    representation = 4;
+  }
+  response = 11;
+  message TemplateParameter {
+    default_value = 1;
+    description = 2;
+    name = 3;
+    required = 4;
+    type = 5;
+    values = 6;
+  }
+  template_parameter = 12;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 13;
+}

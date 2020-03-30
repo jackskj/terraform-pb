@@ -1,0 +1,267 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermApplicationGateway {
+  enable_http2 = 1;
+  id = 2;
+  location = 3;
+  name = 4;
+  resource_group_name = 5;
+  tags = 6;
+  zones = 7;
+  message AuthenticationCertificate {
+    data = 1;
+    id = 2;
+    name = 3;
+  }
+  authentication_certificate = 8;
+  message AutoscaleConfiguration {
+    max_capacity = 1;
+    min_capacity = 2;
+  }
+  autoscale_configuration = 9;
+  message BackendAddressPool {
+    fqdns = 1;
+    id = 2;
+    ip_addresses = 3;
+    name = 4;
+  }
+  backend_address_pool = 10;
+  message BackendHttpSettings {
+    affinity_cookie_name = 1;
+    cookie_based_affinity = 2;
+    host_name = 3;
+    id = 4;
+    name = 5;
+    path = 6;
+    pick_host_name_from_backend_address = 7;
+    port = 8;
+    probe_id = 9;
+    probe_name = 10;
+    protocol = 11;
+    request_timeout = 12;
+    trusted_root_certificate_names = 13;
+    message AuthenticationCertificate {
+      id = 1;
+      name = 2;
+    }
+    authentication_certificate = 14;
+    message ConnectionDraining {
+      drain_timeout_sec = 1;
+      enabled = 2;
+    }
+    connection_draining = 15;
+  }
+  backend_http_settings = 11;
+  message CustomErrorConfiguration {
+    custom_error_page_url = 1;
+    id = 2;
+    status_code = 3;
+  }
+  custom_error_configuration = 12;
+  message FrontendIpConfiguration {
+    id = 1;
+    name = 2;
+    private_ip_address = 3;
+    private_ip_address_allocation = 4;
+    public_ip_address_id = 5;
+    subnet_id = 6;
+  }
+  frontend_ip_configuration = 13;
+  message FrontendPort {
+    id = 1;
+    name = 2;
+    port = 3;
+  }
+  frontend_port = 14;
+  message GatewayIpConfiguration {
+    id = 1;
+    name = 2;
+    subnet_id = 3;
+  }
+  gateway_ip_configuration = 15;
+  message HttpListener {
+    frontend_ip_configuration_id = 1;
+    frontend_ip_configuration_name = 2;
+    frontend_port_id = 3;
+    frontend_port_name = 4;
+    host_name = 5;
+    id = 6;
+    name = 7;
+    protocol = 8;
+    require_sni = 9;
+    ssl_certificate_id = 10;
+    ssl_certificate_name = 11;
+    message CustomErrorConfiguration {
+      custom_error_page_url = 1;
+      id = 2;
+      status_code = 3;
+    }
+    custom_error_configuration = 12;
+  }
+  http_listener = 16;
+  message Identity {
+    identity_ids = 1;
+    type = 2;
+  }
+  identity = 17;
+  message Probe {
+    host = 1;
+    id = 2;
+    interval = 3;
+    minimum_servers = 4;
+    name = 5;
+    path = 6;
+    pick_host_name_from_backend_http_settings = 7;
+    protocol = 8;
+    timeout = 9;
+    unhealthy_threshold = 10;
+    message Match {
+      body = 1;
+      status_code = 2;
+    }
+    match = 11;
+  }
+  probe = 18;
+  message RedirectConfiguration {
+    id = 1;
+    include_path = 2;
+    include_query_string = 3;
+    name = 4;
+    redirect_type = 5;
+    target_listener_id = 6;
+    target_listener_name = 7;
+    target_url = 8;
+  }
+  redirect_configuration = 19;
+  message RequestRoutingRule {
+    backend_address_pool_id = 1;
+    backend_address_pool_name = 2;
+    backend_http_settings_id = 3;
+    backend_http_settings_name = 4;
+    http_listener_id = 5;
+    http_listener_name = 6;
+    id = 7;
+    name = 8;
+    redirect_configuration_id = 9;
+    redirect_configuration_name = 10;
+    rewrite_rule_set_id = 11;
+    rewrite_rule_set_name = 12;
+    rule_type = 13;
+    url_path_map_id = 14;
+    url_path_map_name = 15;
+  }
+  request_routing_rule = 20;
+  message RewriteRuleSet {
+    id = 1;
+    name = 2;
+    message RewriteRule {
+      name = 1;
+      rule_sequence = 2;
+      message Condition {
+        ignore_case = 1;
+        negate = 2;
+        pattern = 3;
+        variable = 4;
+      }
+      condition = 3;
+      message RequestHeaderConfiguration {
+        header_name = 1;
+        header_value = 2;
+      }
+      request_header_configuration = 4;
+      message ResponseHeaderConfiguration {
+        header_name = 1;
+        header_value = 2;
+      }
+      response_header_configuration = 5;
+    }
+    rewrite_rule = 3;
+  }
+  rewrite_rule_set = 21;
+  message Sku {
+    capacity = 1;
+    name = 2;
+    tier = 3;
+  }
+  sku = 22;
+  message SslCertificate {
+    data = 1;
+    id = 2;
+    key_vault_secret_id = 3;
+    name = 4;
+    password = 5;
+    public_cert_data = 6;
+  }
+  ssl_certificate = 23;
+  message SslPolicy {
+    cipher_suites = 1;
+    disabled_protocols = 2;
+    min_protocol_version = 3;
+    policy_name = 4;
+    policy_type = 5;
+  }
+  ssl_policy = 24;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 25;
+  message TrustedRootCertificate {
+    data = 1;
+    id = 2;
+    name = 3;
+  }
+  trusted_root_certificate = 26;
+  message UrlPathMap {
+    default_backend_address_pool_id = 1;
+    default_backend_address_pool_name = 2;
+    default_backend_http_settings_id = 3;
+    default_backend_http_settings_name = 4;
+    default_redirect_configuration_id = 5;
+    default_redirect_configuration_name = 6;
+    default_rewrite_rule_set_id = 7;
+    default_rewrite_rule_set_name = 8;
+    id = 9;
+    name = 10;
+    message PathRule {
+      backend_address_pool_id = 1;
+      backend_address_pool_name = 2;
+      backend_http_settings_id = 3;
+      backend_http_settings_name = 4;
+      id = 5;
+      name = 6;
+      paths = 7;
+      redirect_configuration_id = 8;
+      redirect_configuration_name = 9;
+      rewrite_rule_set_id = 10;
+      rewrite_rule_set_name = 11;
+    }
+    path_rule = 11;
+  }
+  url_path_map = 27;
+  message WafConfiguration {
+    enabled = 1;
+    file_upload_limit_mb = 2;
+    firewall_mode = 3;
+    max_request_body_size_kb = 4;
+    request_body_check = 5;
+    rule_set_type = 6;
+    rule_set_version = 7;
+    message DisabledRuleGroup {
+      rule_group_name = 1;
+      rules = 2;
+    }
+    disabled_rule_group = 8;
+    message Exclusion {
+      match_variable = 1;
+      selector = 2;
+      selector_match_operator = 3;
+    }
+    exclusion = 9;
+  }
+  waf_configuration = 28;
+}

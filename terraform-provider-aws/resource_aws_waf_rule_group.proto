@@ -1,0 +1,21 @@
+syntax "proto3";
+
+package aws;
+
+message AwsWafRuleGroup {
+  arn = 1;
+  id = 2;
+  metric_name = 3;
+  name = 4;
+  tags = 5;
+  message ActivatedRule {
+    priority = 1;
+    rule_id = 2;
+    type = 3;
+    message Action {
+      type = 1;
+    }
+    action = 4;
+  }
+  activated_rule = 6;
+}

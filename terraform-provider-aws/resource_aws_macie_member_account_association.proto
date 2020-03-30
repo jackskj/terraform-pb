@@ -1,0 +1,8 @@
+syntax "proto3";
+
+package aws;
+
+message AwsMacieMemberAccountAssociation {
+  id = 1;
+  member_account_id = 2;
+}

@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package aws;
+
+message AwsIamGroupPolicy {
+  group = 1;
+  id = 2;
+  name = 3;
+  name_prefix = 4;
+  policy = 5;
+}

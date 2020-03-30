@@ -1,0 +1,16 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermNetworkInterfaceSecurityGroupAssociation {
+  id = 1;
+  network_interface_id = 2;
+  network_security_group_id = 3;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 4;
+}

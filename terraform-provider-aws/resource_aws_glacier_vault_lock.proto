@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package aws;
+
+message AwsGlacierVaultLock {
+  complete_lock = 1;
+  id = 2;
+  ignore_deletion_error = 3;
+  policy = 4;
+  vault_name = 5;
+}

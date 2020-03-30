@@ -1,0 +1,16 @@
+syntax "proto3";
+
+package aws;
+
+message AwsEc2TransitGatewayVpcAttachment {
+  dns_support = 1;
+  id = 2;
+  ipv6_support = 3;
+  subnet_ids = 4;
+  tags = 5;
+  transit_gateway_default_route_table_association = 6;
+  transit_gateway_default_route_table_propagation = 7;
+  transit_gateway_id = 8;
+  vpc_id = 9;
+  vpc_owner_id = 10;
+}

@@ -1,0 +1,19 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermLb {
+  frontend_ip_configuration = 1;
+  id = 2;
+  location = 3;
+  name = 4;
+  private_ip_address = 5;
+  private_ip_addresses = 6;
+  resource_group_name = 7;
+  sku = 8;
+  tags = 9;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 10;
+}

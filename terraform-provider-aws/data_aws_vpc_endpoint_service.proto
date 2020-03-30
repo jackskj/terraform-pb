@@ -1,0 +1,24 @@
+syntax "proto3";
+
+package aws;
+
+message AwsVpcEndpointService {
+  acceptance_required = 1;
+  availability_zones = 2;
+  base_endpoint_dns_names = 3;
+  id = 4;
+  manages_vpc_endpoints = 5;
+  owner = 6;
+  private_dns_name = 7;
+  service = 8;
+  service_id = 9;
+  service_name = 10;
+  service_type = 11;
+  tags = 12;
+  vpc_endpoint_policy_supported = 13;
+  message Filter {
+    name = 1;
+    values = 2;
+  }
+  filter = 14;
+}

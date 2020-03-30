@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSsmParameter {
+  arn = 1;
+  id = 2;
+  name = 3;
+  type = 4;
+  value = 5;
+  version = 6;
+  with_decryption = 7;
+}

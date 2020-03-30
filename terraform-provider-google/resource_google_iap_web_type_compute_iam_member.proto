@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package google;
+
+message GoogleIapWebTypeComputeIamMember {
+  etag = 1;
+  id = 2;
+  member = 3;
+  project = 4;
+  role = 5;
+}

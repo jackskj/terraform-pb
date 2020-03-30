@@ -1,0 +1,27 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermMonitorScheduledQueryRulesAlert {
+  action = 1;
+  authorized_resource_ids = 2;
+  data_source_id = 3;
+  description = 4;
+  enabled = 5;
+  frequency = 6;
+  id = 7;
+  location = 8;
+  name = 9;
+  query = 10;
+  query_type = 11;
+  resource_group_name = 12;
+  severity = 13;
+  tags = 14;
+  throttling = 15;
+  time_window = 16;
+  trigger = 17;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 18;
+}

@@ -1,0 +1,20 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermRoute {
+  address_prefix = 1;
+  id = 2;
+  name = 3;
+  next_hop_in_ip_address = 4;
+  next_hop_type = 5;
+  resource_group_name = 6;
+  route_table_name = 7;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 8;
+}

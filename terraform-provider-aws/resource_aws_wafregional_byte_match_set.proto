@@ -1,0 +1,30 @@
+syntax "proto3";
+
+package aws;
+
+message AwsWafregionalByteMatchSet {
+  id = 1;
+  name = 2;
+  message ByteMatchTuple {
+    positional_constraint = 1;
+    target_string = 2;
+    text_transformation = 3;
+    message FieldToMatch {
+      data = 1;
+      type = 2;
+    }
+    field_to_match = 4;
+  }
+  byte_match_tuple = 3;
+  message ByteMatchTuples {
+    positional_constraint = 1;
+    target_string = 2;
+    text_transformation = 3;
+    message FieldToMatch {
+      data = 1;
+      type = 2;
+    }
+    field_to_match = 4;
+  }
+  byte_match_tuples = 4;
+}

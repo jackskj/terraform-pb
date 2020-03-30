@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeSubnetwork {
+  description = 1;
+  gateway_address = 2;
+  id = 3;
+  ip_cidr_range = 4;
+  name = 5;
+  network = 6;
+  private_ip_google_access = 7;
+  project = 8;
+  region = 9;
+  secondary_ip_range = 10;
+  self_link = 11;
+}

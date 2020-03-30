@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package google;
+
+message GoogleContainerRegistryRepository {
+  id = 1;
+  project = 2;
+  region = 3;
+  repository_url = 4;
+}

@@ -1,0 +1,28 @@
+syntax "proto3";
+
+package aws;
+
+message AwsEc2ClientVpnEndpoint {
+  client_cidr_block = 1;
+  description = 2;
+  dns_name = 3;
+  dns_servers = 4;
+  id = 5;
+  server_certificate_arn = 6;
+  split_tunnel = 7;
+  status = 8;
+  tags = 9;
+  transport_protocol = 10;
+  message AuthenticationOptions {
+    active_directory_id = 1;
+    root_certificate_chain_arn = 2;
+    type = 3;
+  }
+  authentication_options = 11;
+  message ConnectionLogOptions {
+    cloudwatch_log_group = 1;
+    cloudwatch_log_stream = 2;
+    enabled = 3;
+  }
+  connection_log_options = 12;
+}

@@ -1,0 +1,79 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeSnapshot {
+
+  // Creation timestamp in RFC3339 text format.
+  creation_timestamp = 1;
+
+  // An optional description of this resource.
+  description = 2;
+
+  // Size of the snapshot, specified in GB.
+  disk_size_gb = 3;
+  id = 4;
+
+  // The fingerprint used for optimistic locking of this resource. Used
+internally during updates.
+  label_fingerprint = 5;
+
+  // Labels to apply to this Snapshot.
+  labels = 6;
+
+  // A list of public visible licenses that apply to this snapshot. This
+can be because the original image had licenses attached (such as a
+Windows image).  snapshotEncryptionKey nested object Encrypts the
+snapshot using a customer-supplied encryption key.
+  licenses = 7;
+
+  // Name of the resource; provided by the client when the resource is
+created. The name must be 1-63 characters long, and comply with
+RFC1035. Specifically, the name must be 1-63 characters long and match
+the regular expression '[a-z]([-a-z0-9]*[a-z0-9])?' which means the
+first character must be a lowercase letter, and all following
+characters must be a dash, lowercase letter, or digit, except the last
+character, which cannot be a dash.
+  name = 8;
+  project = 9;
+  self_link = 10;
+
+  // The unique identifier for the resource.
+  snapshot_id = 11;
+
+  // A reference to the disk used to create this snapshot.
+  source_disk = 12;
+  source_disk_link = 13;
+
+  // A size of the the storage used by the snapshot. As snapshots share
+storage, this number is expected to change with snapshot
+creation/deletion.
+  storage_bytes = 14;
+
+  // A reference to the zone where the disk is hosted.
+  zone = 15;
+  message SnapshotEncryptionKey {
+
+    // Specifies a 256-bit customer-supplied encryption key, encoded in
+RFC 4648 base64 to either encrypt or decrypt this resource.
+    raw_key = 1;
+
+    // The RFC 4648 base64 encoded SHA-256 hash of the customer-supplied
+encryption key that protects this resource.
+    sha256 = 2;
+  }
+  snapshot_encryption_key = 16;
+  message SourceDiskEncryptionKey {
+
+    // Specifies a 256-bit customer-supplied encryption key, encoded in
+RFC 4648 base64 to either encrypt or decrypt this resource.
+    raw_key = 1;
+  }
+  source_disk_encryption_key = 17;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 18;
+}

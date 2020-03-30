@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsDbInstanceRoleAssociation {
+  db_instance_identifier = 1;
+  feature_name = 2;
+  id = 3;
+  role_arn = 4;
+}

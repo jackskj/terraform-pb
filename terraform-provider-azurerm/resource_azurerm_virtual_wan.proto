@@ -1,0 +1,23 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermVirtualWan {
+  allow_branch_to_branch_traffic = 1;
+  allow_vnet_to_vnet_traffic = 2;
+  disable_vpn_encryption = 3;
+  id = 4;
+  location = 5;
+  name = 6;
+  office365_local_breakout_category = 7;
+  resource_group_name = 8;
+  tags = 9;
+  type = 10;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 11;
+}

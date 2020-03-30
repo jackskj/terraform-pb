@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package aws;
+
+message AwsServiceDiscoveryPrivateDnsNamespace {
+  arn = 1;
+  description = 2;
+  hosted_zone = 3;
+  id = 4;
+  name = 5;
+  vpc = 6;
+}

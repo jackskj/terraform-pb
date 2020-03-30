@@ -1,0 +1,21 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermAutomationCertificate {
+  automation_account_name = 1;
+  base64 = 2;
+  description = 3;
+  exportable = 4;
+  id = 5;
+  name = 6;
+  resource_group_name = 7;
+  thumbprint = 8;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 9;
+}

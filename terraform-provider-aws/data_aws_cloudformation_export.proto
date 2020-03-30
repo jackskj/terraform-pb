@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCloudformationExport {
+  exporting_stack_id = 1;
+  id = 2;
+  name = 3;
+  value = 4;
+}

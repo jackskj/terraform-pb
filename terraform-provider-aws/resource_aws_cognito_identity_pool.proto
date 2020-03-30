@@ -1,0 +1,21 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCognitoIdentityPool {
+  allow_unauthenticated_identities = 1;
+  arn = 2;
+  developer_provider_name = 3;
+  id = 4;
+  identity_pool_name = 5;
+  openid_connect_provider_arns = 6;
+  saml_provider_arns = 7;
+  supported_login_providers = 8;
+  tags = 9;
+  message CognitoIdentityProviders {
+    client_id = 1;
+    provider_name = 2;
+    server_side_token_check = 3;
+  }
+  cognito_identity_providers = 10;
+}

@@ -1,0 +1,32 @@
+syntax "proto3";
+
+package aws;
+
+message AwsConfigConfigRule {
+  arn = 1;
+  description = 2;
+  id = 3;
+  input_parameters = 4;
+  maximum_execution_frequency = 5;
+  name = 6;
+  rule_id = 7;
+  tags = 8;
+  message Scope {
+    compliance_resource_id = 1;
+    compliance_resource_types = 2;
+    tag_key = 3;
+    tag_value = 4;
+  }
+  scope = 9;
+  message Source {
+    owner = 1;
+    source_identifier = 2;
+    message SourceDetail {
+      event_source = 1;
+      maximum_execution_frequency = 2;
+      message_type = 3;
+    }
+    source_detail = 3;
+  }
+  source = 10;
+}

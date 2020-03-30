@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package google;
+
+message GoogleBigtableInstanceIamPolicy {
+  etag = 1;
+  id = 2;
+  instance = 3;
+  policy_data = 4;
+  project = 5;
+}

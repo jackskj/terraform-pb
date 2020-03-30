@@ -1,0 +1,22 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCognitoIdentityPoolRolesAttachment {
+  id = 1;
+  identity_pool_id = 2;
+  roles = 3;
+  message RoleMapping {
+    ambiguous_role_resolution = 1;
+    identity_provider = 2;
+    type = 3;
+    message MappingRule {
+      claim = 1;
+      match_type = 2;
+      role_arn = 3;
+      value = 4;
+    }
+    mapping_rule = 4;
+  }
+  role_mapping = 4;
+}

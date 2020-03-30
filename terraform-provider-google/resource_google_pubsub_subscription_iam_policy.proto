@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package google;
+
+message GooglePubsubSubscriptionIamPolicy {
+  etag = 1;
+  id = 2;
+  policy_data = 3;
+  project = 4;
+  subscription = 5;
+}

@@ -1,0 +1,20 @@
+syntax "proto3";
+
+package google;
+
+message GoogleBigtableGcPolicy {
+  column_family = 1;
+  id = 2;
+  instance_name = 3;
+  mode = 4;
+  project = 5;
+  table = 6;
+  message MaxAge {
+    days = 1;
+  }
+  max_age = 7;
+  message MaxVersion {
+    number = 1;
+  }
+  max_version = 8;
+}

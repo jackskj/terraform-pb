@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package aws;
+
+message AwsBackupSelection {
+  iam_role_arn = 1;
+  id = 2;
+  name = 3;
+  plan_id = 4;
+  resources = 5;
+  message SelectionTag {
+    key = 1;
+    type = 2;
+    value = 3;
+  }
+  selection_tag = 6;
+}

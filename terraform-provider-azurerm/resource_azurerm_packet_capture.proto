@@ -1,0 +1,35 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermPacketCapture {
+  id = 1;
+  maximum_bytes_per_packet = 2;
+  maximum_bytes_per_session = 3;
+  maximum_capture_duration = 4;
+  name = 5;
+  network_watcher_name = 6;
+  resource_group_name = 7;
+  target_resource_id = 8;
+  message Filter {
+    local_ip_address = 1;
+    local_port = 2;
+    protocol = 3;
+    remote_ip_address = 4;
+    remote_port = 5;
+  }
+  filter = 9;
+  message StorageLocation {
+    file_path = 1;
+    storage_account_id = 2;
+    storage_path = 3;
+  }
+  storage_location = 10;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 11;
+}

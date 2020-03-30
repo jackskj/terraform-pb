@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package aws;
+
+message AwsIamServiceLinkedRole {
+  arn = 1;
+  aws_service_name = 2;
+  create_date = 3;
+  custom_suffix = 4;
+  description = 5;
+  id = 6;
+  name = 7;
+  path = 8;
+  unique_id = 9;
+}

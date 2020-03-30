@@ -1,0 +1,20 @@
+syntax "proto3";
+
+package aws;
+
+message AwsApiGatewayApiKey {
+  arn = 1;
+  created_date = 2;
+  description = 3;
+  enabled = 4;
+  id = 5;
+  last_updated_date = 6;
+  name = 7;
+  tags = 8;
+  value = 9;
+  message StageKey {
+    rest_api_id = 1;
+    stage_name = 2;
+  }
+  stage_key = 10;
+}

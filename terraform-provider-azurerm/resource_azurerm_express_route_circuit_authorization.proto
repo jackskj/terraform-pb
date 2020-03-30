@@ -1,0 +1,19 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermExpressRouteCircuitAuthorization {
+  authorization_key = 1;
+  authorization_use_status = 2;
+  express_route_circuit_name = 3;
+  id = 4;
+  name = 5;
+  resource_group_name = 6;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 7;
+}

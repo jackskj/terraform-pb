@@ -1,0 +1,23 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermVirtualMachineExtension {
+  auto_upgrade_minor_version = 1;
+  id = 2;
+  name = 3;
+  protected_settings = 4;
+  publisher = 5;
+  settings = 6;
+  tags = 7;
+  type = 8;
+  type_handler_version = 9;
+  virtual_machine_id = 10;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 11;
+}

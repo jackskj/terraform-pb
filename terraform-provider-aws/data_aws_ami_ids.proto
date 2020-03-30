@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package aws;
+
+message AwsAmiIds {
+  executable_users = 1;
+  id = 2;
+  ids = 3;
+  name_regex = 4;
+  owners = 5;
+  sort_ascending = 6;
+  message Filter {
+    name = 1;
+    values = 2;
+  }
+  filter = 7;
+}

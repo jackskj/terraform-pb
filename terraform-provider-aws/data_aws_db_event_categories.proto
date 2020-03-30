@@ -1,0 +1,9 @@
+syntax "proto3";
+
+package aws;
+
+message AwsDbEventCategories {
+  event_categories = 1;
+  id = 2;
+  source_type = 3;
+}

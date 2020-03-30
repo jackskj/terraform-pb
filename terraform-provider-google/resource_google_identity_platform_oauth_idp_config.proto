@@ -1,0 +1,32 @@
+syntax "proto3";
+
+package google;
+
+message GoogleIdentityPlatformOauthIdpConfig {
+
+  // The client id of an OAuth client.
+  client_id = 1;
+
+  // The client secret of the OAuth client, to enable OIDC code flow.
+  client_secret = 2;
+
+  // Human friendly display name.
+  display_name = 3;
+
+  // If this config allows users to sign in with the provider.
+  enabled = 4;
+  id = 5;
+
+  // For OIDC Idps, the issuer identifier.
+  issuer = 6;
+
+  // The name of the OauthIdpConfig. Must start with 'oidc.'.
+  name = 7;
+  project = 8;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 9;
+}

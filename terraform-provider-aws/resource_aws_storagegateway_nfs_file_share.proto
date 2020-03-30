@@ -1,0 +1,36 @@
+syntax "proto3";
+
+package aws;
+
+message AwsStoragegatewayNfsFileShare {
+  arn = 1;
+  client_list = 2;
+  default_storage_class = 3;
+  fileshare_id = 4;
+  gateway_arn = 5;
+  guess_mime_type_enabled = 6;
+  id = 7;
+  kms_encrypted = 8;
+  kms_key_arn = 9;
+  location_arn = 10;
+  object_acl = 11;
+  path = 12;
+  read_only = 13;
+  requester_pays = 14;
+  role_arn = 15;
+  squash = 16;
+  tags = 17;
+  message NfsFileShareDefaults {
+    directory_mode = 1;
+    file_mode = 2;
+    group_id = 3;
+    owner_id = 4;
+  }
+  nfs_file_share_defaults = 18;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 19;
+}

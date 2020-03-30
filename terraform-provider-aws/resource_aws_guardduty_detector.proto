@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsGuarddutyDetector {
+  account_id = 1;
+  enable = 2;
+  finding_publishing_frequency = 3;
+  id = 4;
+}

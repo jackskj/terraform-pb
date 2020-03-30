@@ -1,0 +1,19 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermApplicationInsights {
+  app_id = 1;
+  application_type = 2;
+  id = 3;
+  instrumentation_key = 4;
+  location = 5;
+  name = 6;
+  resource_group_name = 7;
+  retention_in_days = 8;
+  tags = 9;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 10;
+}

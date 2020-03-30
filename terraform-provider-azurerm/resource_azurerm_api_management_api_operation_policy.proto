@@ -1,0 +1,20 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermApiManagementApiOperationPolicy {
+  api_management_name = 1;
+  api_name = 2;
+  id = 3;
+  operation_id = 4;
+  resource_group_name = 5;
+  xml_content = 6;
+  xml_link = 7;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 8;
+}

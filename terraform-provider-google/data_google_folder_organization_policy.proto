@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package google;
+
+message GoogleFolderOrganizationPolicy {
+  boolean_policy = 1;
+  constraint = 2;
+  etag = 3;
+  folder = 4;
+  id = 5;
+  list_policy = 6;
+  restore_policy = 7;
+  update_time = 8;
+  version = 9;
+}

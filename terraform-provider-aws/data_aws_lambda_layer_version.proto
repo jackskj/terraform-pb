@@ -1,0 +1,18 @@
+syntax "proto3";
+
+package aws;
+
+message AwsLambdaLayerVersion {
+  arn = 1;
+  compatible_runtime = 2;
+  compatible_runtimes = 3;
+  created_date = 4;
+  description = 5;
+  id = 6;
+  layer_arn = 7;
+  layer_name = 8;
+  license_info = 9;
+  source_code_hash = 10;
+  source_code_size = 11;
+  version = 12;
+}

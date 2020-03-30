@@ -1,0 +1,18 @@
+syntax "proto3";
+
+package aws;
+
+message AwsVpcEndpointService {
+  acceptance_required = 1;
+  allowed_principals = 2;
+  availability_zones = 3;
+  base_endpoint_dns_names = 4;
+  id = 5;
+  manages_vpc_endpoints = 6;
+  network_load_balancer_arns = 7;
+  private_dns_name = 8;
+  service_name = 9;
+  service_type = 10;
+  state = 11;
+  tags = 12;
+}

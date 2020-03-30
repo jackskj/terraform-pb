@@ -1,0 +1,8 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSesConfigurationSet {
+  id = 1;
+  name = 2;
+}

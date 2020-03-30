@@ -1,0 +1,19 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermRedisFirewallRule {
+  end_ip = 1;
+  id = 2;
+  name = 3;
+  redis_cache_name = 4;
+  resource_group_name = 5;
+  start_ip = 6;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 7;
+}

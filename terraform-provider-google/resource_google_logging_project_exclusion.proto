@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package google;
+
+message GoogleLoggingProjectExclusion {
+  description = 1;
+  disabled = 2;
+  filter = 3;
+  id = 4;
+  name = 5;
+  project = 6;
+}

@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package google;
+
+message GoogleContainerEngineVersions {
+  default_cluster_version = 1;
+  id = 2;
+  latest_master_version = 3;
+  latest_node_version = 4;
+  location = 5;
+  project = 6;
+  region = 7;
+  valid_master_versions = 8;
+  valid_node_versions = 9;
+  version_prefix = 10;
+  zone = 11;
+}

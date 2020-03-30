@@ -1,0 +1,37 @@
+syntax "proto3";
+
+package aws;
+
+message AwsRedshiftCluster {
+  allow_version_upgrade = 1;
+  automated_snapshot_retention_period = 2;
+  availability_zone = 3;
+  bucket_name = 4;
+  cluster_identifier = 5;
+  cluster_parameter_group_name = 6;
+  cluster_public_key = 7;
+  cluster_revision_number = 8;
+  cluster_security_groups = 9;
+  cluster_subnet_group_name = 10;
+  cluster_type = 11;
+  cluster_version = 12;
+  database_name = 13;
+  elastic_ip = 14;
+  enable_logging = 15;
+  encrypted = 16;
+  endpoint = 17;
+  enhanced_vpc_routing = 18;
+  iam_roles = 19;
+  id = 20;
+  kms_key_id = 21;
+  master_username = 22;
+  node_type = 23;
+  number_of_nodes = 24;
+  port = 25;
+  preferred_maintenance_window = 26;
+  publicly_accessible = 27;
+  s3_key_prefix = 28;
+  tags = 29;
+  vpc_id = 30;
+  vpc_security_group_ids = 31;
+}

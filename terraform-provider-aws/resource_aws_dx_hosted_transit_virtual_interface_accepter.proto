@@ -1,0 +1,16 @@
+syntax "proto3";
+
+package aws;
+
+message AwsDxHostedTransitVirtualInterfaceAccepter {
+  arn = 1;
+  dx_gateway_id = 2;
+  id = 3;
+  tags = 4;
+  virtual_interface_id = 5;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+  }
+  timeouts = 6;
+}

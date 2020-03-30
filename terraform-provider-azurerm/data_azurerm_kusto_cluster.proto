@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermKustoCluster {
+  data_ingestion_uri = 1;
+  id = 2;
+  location = 3;
+  name = 4;
+  resource_group_name = 5;
+  tags = 6;
+  uri = 7;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 8;
+}

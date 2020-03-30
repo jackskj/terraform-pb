@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeNodeTypes {
+  id = 1;
+  names = 2;
+  project = 3;
+  zone = 4;
+}

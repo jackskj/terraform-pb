@@ -1,0 +1,27 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermBackupPolicyFileShare {
+  id = 1;
+  name = 2;
+  recovery_vault_name = 3;
+  resource_group_name = 4;
+  timezone = 5;
+  message Backup {
+    frequency = 1;
+    time = 2;
+  }
+  backup = 6;
+  message RetentionDaily {
+    count = 1;
+  }
+  retention_daily = 7;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 8;
+}

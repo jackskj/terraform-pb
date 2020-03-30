@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package aws;
+
+message AwsEcrRepository {
+  arn = 1;
+  id = 2;
+  name = 3;
+  registry_id = 4;
+  repository_url = 5;
+  tags = 6;
+}

@@ -1,0 +1,16 @@
+syntax "proto3";
+
+package aws;
+
+message AwsDatasyncAgent {
+  activation_key = 1;
+  arn = 2;
+  id = 3;
+  ip_address = 4;
+  name = 5;
+  tags = 6;
+  message Timeouts {
+    create = 1;
+  }
+  timeouts = 7;
+}

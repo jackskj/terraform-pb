@@ -1,0 +1,18 @@
+syntax "proto3";
+
+package google;
+
+message GoogleBigtableInstance {
+  display_name = 1;
+  id = 2;
+  instance_type = 3;
+  name = 4;
+  project = 5;
+  message Cluster {
+    cluster_id = 1;
+    num_nodes = 2;
+    storage_type = 3;
+    zone = 4;
+  }
+  cluster = 6;
+}

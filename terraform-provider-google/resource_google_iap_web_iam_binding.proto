@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package google;
+
+message GoogleIapWebIamBinding {
+  etag = 1;
+  id = 2;
+  members = 3;
+  project = 4;
+  role = 5;
+}

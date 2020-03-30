@@ -1,0 +1,32 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermCosmosdbAccount {
+  capabilities = 1;
+  consistency_policy = 2;
+  enable_automatic_failover = 3;
+  enable_multiple_write_locations = 4;
+  endpoint = 5;
+  geo_location = 6;
+  id = 7;
+  ip_range_filter = 8;
+  is_virtual_network_filter_enabled = 9;
+  kind = 10;
+  location = 11;
+  name = 12;
+  offer_type = 13;
+  primary_master_key = 14;
+  primary_readonly_master_key = 15;
+  read_endpoints = 16;
+  resource_group_name = 17;
+  secondary_master_key = 18;
+  secondary_readonly_master_key = 19;
+  tags = 20;
+  virtual_network_rule = 21;
+  write_endpoints = 22;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 23;
+}

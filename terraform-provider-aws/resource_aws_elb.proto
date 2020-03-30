@@ -1,0 +1,47 @@
+syntax "proto3";
+
+package aws;
+
+message AwsElb {
+  arn = 1;
+  availability_zones = 2;
+  connection_draining = 3;
+  connection_draining_timeout = 4;
+  cross_zone_load_balancing = 5;
+  dns_name = 6;
+  id = 7;
+  idle_timeout = 8;
+  instances = 9;
+  internal = 10;
+  name = 11;
+  name_prefix = 12;
+  security_groups = 13;
+  source_security_group = 14;
+  source_security_group_id = 15;
+  subnets = 16;
+  tags = 17;
+  zone_id = 18;
+  message AccessLogs {
+    bucket = 1;
+    bucket_prefix = 2;
+    enabled = 3;
+    interval = 4;
+  }
+  access_logs = 19;
+  message HealthCheck {
+    healthy_threshold = 1;
+    interval = 2;
+    target = 3;
+    timeout = 4;
+    unhealthy_threshold = 5;
+  }
+  health_check = 20;
+  message Listener {
+    instance_port = 1;
+    instance_protocol = 2;
+    lb_port = 3;
+    lb_protocol = 4;
+    ssl_certificate_id = 5;
+  }
+  listener = 21;
+}

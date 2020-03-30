@@ -1,0 +1,47 @@
+syntax "proto3";
+
+package aws;
+
+message AwsElasticacheReplicationGroup {
+  apply_immediately = 1;
+  at_rest_encryption_enabled = 2;
+  auth_token = 3;
+  auto_minor_version_upgrade = 4;
+  automatic_failover_enabled = 5;
+  availability_zones = 6;
+  configuration_endpoint_address = 7;
+  engine = 8;
+  engine_version = 9;
+  id = 10;
+  kms_key_id = 11;
+  maintenance_window = 12;
+  member_clusters = 13;
+  node_type = 14;
+  notification_topic_arn = 15;
+  number_cache_clusters = 16;
+  parameter_group_name = 17;
+  port = 18;
+  primary_endpoint_address = 19;
+  replication_group_description = 20;
+  replication_group_id = 21;
+  security_group_ids = 22;
+  security_group_names = 23;
+  snapshot_arns = 24;
+  snapshot_name = 25;
+  snapshot_retention_limit = 26;
+  snapshot_window = 27;
+  subnet_group_name = 28;
+  tags = 29;
+  transit_encryption_enabled = 30;
+  message ClusterMode {
+    num_node_groups = 1;
+    replicas_per_node_group = 2;
+  }
+  cluster_mode = 31;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 32;
+}

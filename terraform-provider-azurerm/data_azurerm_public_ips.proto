@@ -1,0 +1,16 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermPublicIps {
+  allocation_type = 1;
+  attached = 2;
+  id = 3;
+  name_prefix = 4;
+  public_ips = 5;
+  resource_group_name = 6;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 7;
+}

@@ -1,0 +1,9 @@
+syntax "proto3";
+
+package aws;
+
+message AwsMediaStoreContainerPolicy {
+  container_name = 1;
+  id = 2;
+  policy = 3;
+}

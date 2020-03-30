@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package google;
+
+message GoogleStorageObjectAcl {
+  bucket = 1;
+  id = 2;
+  object = 3;
+  predefined_acl = 4;
+  role_entity = 5;
+}

@@ -1,0 +1,22 @@
+syntax "proto3";
+
+package aws;
+
+message AwsConfigConfigurationAggregator {
+  arn = 1;
+  id = 2;
+  name = 3;
+  tags = 4;
+  message AccountAggregationSource {
+    account_ids = 1;
+    all_regions = 2;
+    regions = 3;
+  }
+  account_aggregation_source = 5;
+  message OrganizationAggregationSource {
+    all_regions = 1;
+    regions = 2;
+    role_arn = 3;
+  }
+  organization_aggregation_source = 6;
+}

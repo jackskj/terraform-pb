@@ -1,0 +1,16 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCloudwatchEventRule {
+  arn = 1;
+  description = 2;
+  event_pattern = 3;
+  id = 4;
+  is_enabled = 5;
+  name = 6;
+  name_prefix = 7;
+  role_arn = 8;
+  schedule_expression = 9;
+  tags = 10;
+}

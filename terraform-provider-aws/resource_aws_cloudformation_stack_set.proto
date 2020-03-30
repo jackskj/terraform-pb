@@ -1,0 +1,22 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCloudformationStackSet {
+  administration_role_arn = 1;
+  arn = 2;
+  capabilities = 3;
+  description = 4;
+  execution_role_name = 5;
+  id = 6;
+  name = 7;
+  parameters = 8;
+  stack_set_id = 9;
+  tags = 10;
+  template_body = 11;
+  template_url = 12;
+  message Timeouts {
+    update = 1;
+  }
+  timeouts = 13;
+}

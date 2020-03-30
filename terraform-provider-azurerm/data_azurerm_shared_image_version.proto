@@ -1,0 +1,20 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermSharedImageVersion {
+  exclude_from_latest = 1;
+  gallery_name = 2;
+  id = 3;
+  image_name = 4;
+  location = 5;
+  managed_image_id = 6;
+  name = 7;
+  resource_group_name = 8;
+  tags = 9;
+  target_region = 10;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 11;
+}

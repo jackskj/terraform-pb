@@ -1,0 +1,37 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeSecurityPolicy {
+  description = 1;
+  fingerprint = 2;
+  id = 3;
+  name = 4;
+  project = 5;
+  self_link = 6;
+  message Rule {
+    action = 1;
+    description = 2;
+    preview = 3;
+    priority = 4;
+    message Match {
+      versioned_expr = 1;
+      message Config {
+        src_ip_ranges = 1;
+      }
+      config = 2;
+      message Expr {
+        expression = 1;
+      }
+      expr = 3;
+    }
+    match = 5;
+  }
+  rule = 7;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 8;
+}

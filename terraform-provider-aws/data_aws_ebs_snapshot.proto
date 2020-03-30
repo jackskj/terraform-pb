@@ -1,0 +1,27 @@
+syntax "proto3";
+
+package aws;
+
+message AwsEbsSnapshot {
+  data_encryption_key_id = 1;
+  description = 2;
+  encrypted = 3;
+  id = 4;
+  kms_key_id = 5;
+  most_recent = 6;
+  owner_alias = 7;
+  owner_id = 8;
+  owners = 9;
+  restorable_by_user_ids = 10;
+  snapshot_id = 11;
+  snapshot_ids = 12;
+  state = 13;
+  tags = 14;
+  volume_id = 15;
+  volume_size = 16;
+  message Filter {
+    name = 1;
+    values = 2;
+  }
+  filter = 17;
+}

@@ -1,0 +1,16 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSnsTopicSubscription {
+  arn = 1;
+  confirmation_timeout_in_minutes = 2;
+  delivery_policy = 3;
+  endpoint = 4;
+  endpoint_auto_confirms = 5;
+  filter_policy = 6;
+  id = 7;
+  protocol = 8;
+  raw_message_delivery = 9;
+  topic_arn = 10;
+}

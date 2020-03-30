@@ -1,0 +1,240 @@
+syntax "proto3";
+
+package google;
+
+message GoogleContainerCluster {
+  additional_zones = 1;
+  cluster_ipv4_cidr = 2;
+  default_max_pods_per_node = 3;
+  description = 4;
+  enable_binary_authorization = 5;
+  enable_intranode_visibility = 6;
+  enable_kubernetes_alpha = 7;
+  enable_legacy_abac = 8;
+  enable_tpu = 9;
+  endpoint = 10;
+  id = 11;
+  initial_node_count = 12;
+  instance_group_urls = 13;
+  label_fingerprint = 14;
+  location = 15;
+  logging_service = 16;
+  master_version = 17;
+  min_master_version = 18;
+  monitoring_service = 19;
+  name = 20;
+  network = 21;
+  node_locations = 22;
+  node_version = 23;
+  operation = 24;
+  project = 25;
+  region = 26;
+  remove_default_node_pool = 27;
+  resource_labels = 28;
+  services_ipv4_cidr = 29;
+  subnetwork = 30;
+  zone = 31;
+  message AddonsConfig {
+    message HorizontalPodAutoscaling {
+      disabled = 1;
+    }
+    horizontal_pod_autoscaling = 1;
+    message HttpLoadBalancing {
+      disabled = 1;
+    }
+    http_load_balancing = 2;
+    message KubernetesDashboard {
+      disabled = 1;
+    }
+    kubernetes_dashboard = 3;
+    message NetworkPolicyConfig {
+      disabled = 1;
+    }
+    network_policy_config = 4;
+  }
+  addons_config = 32;
+  message AuthenticatorGroupsConfig {
+    security_group = 1;
+  }
+  authenticator_groups_config = 33;
+  message ClusterAutoscaling {
+    enabled = 1;
+    message AutoProvisioningDefaults {
+      oauth_scopes = 1;
+      service_account = 2;
+    }
+    auto_provisioning_defaults = 2;
+    message ResourceLimits {
+      maximum = 1;
+      minimum = 2;
+      resource_type = 3;
+    }
+    resource_limits = 3;
+  }
+  cluster_autoscaling = 34;
+  message IpAllocationPolicy {
+    cluster_ipv4_cidr_block = 1;
+    cluster_secondary_range_name = 2;
+    node_ipv4_cidr_block = 3;
+    services_ipv4_cidr_block = 4;
+    services_secondary_range_name = 5;
+    subnetwork_name = 6;
+  }
+  ip_allocation_policy = 35;
+  message MaintenancePolicy {
+    message DailyMaintenanceWindow {
+      duration = 1;
+      start_time = 2;
+    }
+    daily_maintenance_window = 1;
+    message RecurringWindow {
+      end_time = 1;
+      recurrence = 2;
+      start_time = 3;
+    }
+    recurring_window = 2;
+  }
+  maintenance_policy = 36;
+  message MasterAuth {
+    client_certificate = 1;
+    client_key = 2;
+    cluster_ca_certificate = 3;
+    password = 4;
+    username = 5;
+    message ClientCertificateConfig {
+      issue_client_certificate = 1;
+    }
+    client_certificate_config = 6;
+  }
+  master_auth = 37;
+  message MasterAuthorizedNetworksConfig {
+    message CidrBlocks {
+      cidr_block = 1;
+      display_name = 2;
+    }
+    cidr_blocks = 1;
+  }
+  master_authorized_networks_config = 38;
+  message NetworkPolicy {
+    enabled = 1;
+    provider = 2;
+  }
+  network_policy = 39;
+  message NodeConfig {
+    disk_size_gb = 1;
+    disk_type = 2;
+    guest_accelerator = 3;
+    image_type = 4;
+    labels = 5;
+    local_ssd_count = 6;
+    machine_type = 7;
+    metadata = 8;
+    min_cpu_platform = 9;
+    oauth_scopes = 10;
+    preemptible = 11;
+    service_account = 12;
+    tags = 13;
+    taint = 14;
+    message SandboxConfig {
+      sandbox_type = 1;
+    }
+    sandbox_config = 15;
+    message ShieldedInstanceConfig {
+      enable_integrity_monitoring = 1;
+      enable_secure_boot = 2;
+    }
+    shielded_instance_config = 16;
+    message WorkloadMetadataConfig {
+      node_metadata = 1;
+    }
+    workload_metadata_config = 17;
+  }
+  node_config = 40;
+  message NodePool {
+    initial_node_count = 1;
+    instance_group_urls = 2;
+    max_pods_per_node = 3;
+    name = 4;
+    name_prefix = 5;
+    node_count = 6;
+    version = 7;
+    message Autoscaling {
+      max_node_count = 1;
+      min_node_count = 2;
+    }
+    autoscaling = 8;
+    message Management {
+      auto_repair = 1;
+      auto_upgrade = 2;
+    }
+    management = 9;
+    message NodeConfig {
+      disk_size_gb = 1;
+      disk_type = 2;
+      guest_accelerator = 3;
+      image_type = 4;
+      labels = 5;
+      local_ssd_count = 6;
+      machine_type = 7;
+      metadata = 8;
+      min_cpu_platform = 9;
+      oauth_scopes = 10;
+      preemptible = 11;
+      service_account = 12;
+      tags = 13;
+      taint = 14;
+      message SandboxConfig {
+        sandbox_type = 1;
+      }
+      sandbox_config = 15;
+      message ShieldedInstanceConfig {
+        enable_integrity_monitoring = 1;
+        enable_secure_boot = 2;
+      }
+      shielded_instance_config = 16;
+      message WorkloadMetadataConfig {
+        node_metadata = 1;
+      }
+      workload_metadata_config = 17;
+    }
+    node_config = 10;
+    message UpgradeSettings {
+      max_surge = 1;
+      max_unavailable = 2;
+    }
+    upgrade_settings = 11;
+  }
+  node_pool = 41;
+  message PodSecurityPolicyConfig {
+    enabled = 1;
+  }
+  pod_security_policy_config = 42;
+  message PrivateClusterConfig {
+    enable_private_endpoint = 1;
+    enable_private_nodes = 2;
+    master_ipv4_cidr_block = 3;
+    peering_name = 4;
+    private_endpoint = 5;
+    public_endpoint = 6;
+  }
+  private_cluster_config = 43;
+  message ResourceUsageExportConfig {
+    enable_network_egress_metering = 1;
+    enable_resource_consumption_metering = 2;
+    message BigqueryDestination {
+      dataset_id = 1;
+    }
+    bigquery_destination = 3;
+  }
+  resource_usage_export_config = 44;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 45;
+  message VerticalPodAutoscaling {
+    enabled = 1;
+  }
+  vertical_pod_autoscaling = 46;
+}

@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package google;
+
+message GoogleRuntimeconfigConfig {
+  description = 1;
+  id = 2;
+  name = 3;
+  project = 4;
+}

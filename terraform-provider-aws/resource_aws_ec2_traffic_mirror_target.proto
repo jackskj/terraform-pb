@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package aws;
+
+message AwsEc2TrafficMirrorTarget {
+  description = 1;
+  id = 2;
+  network_interface_id = 3;
+  network_load_balancer_arn = 4;
+  tags = 5;
+}

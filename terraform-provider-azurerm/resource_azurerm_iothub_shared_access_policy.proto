@@ -1,0 +1,25 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermIothubSharedAccessPolicy {
+  device_connect = 1;
+  id = 2;
+  iothub_name = 3;
+  name = 4;
+  primary_connection_string = 5;
+  primary_key = 6;
+  registry_read = 7;
+  registry_write = 8;
+  resource_group_name = 9;
+  secondary_connection_string = 10;
+  secondary_key = 11;
+  service_connect = 12;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 13;
+}

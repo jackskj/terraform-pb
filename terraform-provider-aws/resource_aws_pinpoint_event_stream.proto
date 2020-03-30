@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsPinpointEventStream {
+  application_id = 1;
+  destination_stream_arn = 2;
+  id = 3;
+  role_arn = 4;
+}

@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package google;
+
+message GoogleIapAppEngineVersionIamMember {
+  app_id = 1;
+  etag = 2;
+  id = 3;
+  member = 4;
+  project = 5;
+  role = 6;
+  service = 7;
+  version_id = 8;
+}

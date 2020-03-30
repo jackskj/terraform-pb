@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsWafRegexPatternSet {
+  arn = 1;
+  id = 2;
+  name = 3;
+  regex_pattern_strings = 4;
+}

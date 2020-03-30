@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package aws;
+
+message AwsAcmCertificate {
+  arn = 1;
+  domain = 2;
+  id = 3;
+  key_types = 4;
+  most_recent = 5;
+  statuses = 6;
+  types = 7;
+}

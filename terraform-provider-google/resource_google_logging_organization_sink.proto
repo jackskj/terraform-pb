@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package google;
+
+message GoogleLoggingOrganizationSink {
+  destination = 1;
+  filter = 2;
+  id = 3;
+  include_children = 4;
+  name = 5;
+  org_id = 6;
+  writer_identity = 7;
+  message BigqueryOptions {
+    use_partitioned_tables = 1;
+  }
+  bigquery_options = 8;
+}

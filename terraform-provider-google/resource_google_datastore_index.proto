@@ -1,0 +1,32 @@
+syntax "proto3";
+
+package google;
+
+message GoogleDatastoreIndex {
+
+  // Policy for including ancestors in the index.  Either 'ALL_ANCESTORS' or 'NONE',
+the default is 'NONE'.
+  ancestor = 1;
+  id = 2;
+
+  // The index id.
+  index_id = 3;
+
+  // The entity kind which the index applies to.
+  kind = 4;
+  project = 5;
+  message Properties {
+
+    // The direction the index should optimize for sorting. Possible values are ASCENDING and DESCENDING.
+    direction = 1;
+
+    // The property name to index.
+    name = 2;
+  }
+  properties = 6;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+  }
+  timeouts = 7;
+}

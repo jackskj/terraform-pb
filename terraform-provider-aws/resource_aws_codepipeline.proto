@@ -1,0 +1,38 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCodepipeline {
+  arn = 1;
+  id = 2;
+  name = 3;
+  role_arn = 4;
+  tags = 5;
+  message ArtifactStore {
+    location = 1;
+    type = 2;
+    message EncryptionKey {
+      id = 1;
+      type = 2;
+    }
+    encryption_key = 3;
+  }
+  artifact_store = 6;
+  message Stage {
+    name = 1;
+    message Action {
+      category = 1;
+      configuration = 2;
+      input_artifacts = 3;
+      name = 4;
+      output_artifacts = 5;
+      owner = 6;
+      provider = 7;
+      role_arn = 8;
+      run_order = 9;
+      version = 10;
+    }
+    action = 2;
+  }
+  stage = 7;
+}

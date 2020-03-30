@@ -1,0 +1,28 @@
+syntax "proto3";
+
+package aws;
+
+message AwsGlueScript {
+  id = 1;
+  language = 2;
+  python_script = 3;
+  scala_code = 4;
+  message DagEdge {
+    source = 1;
+    target = 2;
+    target_parameter = 3;
+  }
+  dag_edge = 5;
+  message DagNode {
+    id = 1;
+    line_number = 2;
+    node_type = 3;
+    message Args {
+      name = 1;
+      param = 2;
+      value = 3;
+    }
+    args = 4;
+  }
+  dag_node = 6;
+}

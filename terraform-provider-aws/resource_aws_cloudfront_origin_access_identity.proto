@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCloudfrontOriginAccessIdentity {
+  caller_reference = 1;
+  cloudfront_access_identity_path = 2;
+  comment = 3;
+  etag = 4;
+  iam_arn = 5;
+  id = 6;
+  s3_canonical_user_id = 7;
+}

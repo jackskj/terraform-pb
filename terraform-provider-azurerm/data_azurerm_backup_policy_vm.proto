@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermBackupPolicyVm {
+  id = 1;
+  name = 2;
+  recovery_vault_name = 3;
+  resource_group_name = 4;
+  tags = 5;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 6;
+}

@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package aws;
+
+message AwsAppsyncApiKey {
+  api_id = 1;
+  description = 2;
+  expires = 3;
+  id = 4;
+  key = 5;
+}

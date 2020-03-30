@@ -1,0 +1,20 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermHealthcareService {
+  access_policy_object_ids = 1;
+  authentication_configuration = 2;
+  cors_configuration = 3;
+  cosmosdb_throughput = 4;
+  id = 5;
+  kind = 6;
+  location = 7;
+  name = 8;
+  resource_group_name = 9;
+  tags = 10;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 11;
+}

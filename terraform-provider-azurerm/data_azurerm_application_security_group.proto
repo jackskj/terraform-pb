@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermApplicationSecurityGroup {
+  id = 1;
+  location = 2;
+  name = 3;
+  resource_group_name = 4;
+  tags = 5;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 6;
+}

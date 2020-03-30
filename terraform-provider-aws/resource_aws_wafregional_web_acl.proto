@@ -1,0 +1,41 @@
+syntax "proto3";
+
+package aws;
+
+message AwsWafregionalWebAcl {
+  arn = 1;
+  id = 2;
+  metric_name = 3;
+  name = 4;
+  tags = 5;
+  message DefaultAction {
+    type = 1;
+  }
+  default_action = 6;
+  message LoggingConfiguration {
+    log_destination = 1;
+    message RedactedFields {
+      message FieldToMatch {
+        data = 1;
+        type = 2;
+      }
+      field_to_match = 1;
+    }
+    redacted_fields = 2;
+  }
+  logging_configuration = 7;
+  message Rule {
+    priority = 1;
+    rule_id = 2;
+    type = 3;
+    message Action {
+      type = 1;
+    }
+    action = 4;
+    message OverrideAction {
+      type = 1;
+    }
+    override_action = 5;
+  }
+  rule = 8;
+}

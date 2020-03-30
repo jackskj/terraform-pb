@@ -1,0 +1,24 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermSearchService {
+  id = 1;
+  location = 2;
+  name = 3;
+  partition_count = 4;
+  primary_key = 5;
+  query_keys = 6;
+  replica_count = 7;
+  resource_group_name = 8;
+  secondary_key = 9;
+  sku = 10;
+  tags = 11;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 12;
+}

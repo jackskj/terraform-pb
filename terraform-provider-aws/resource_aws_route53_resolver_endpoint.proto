@@ -1,0 +1,25 @@
+syntax "proto3";
+
+package aws;
+
+message AwsRoute53ResolverEndpoint {
+  arn = 1;
+  direction = 2;
+  host_vpc_id = 3;
+  id = 4;
+  name = 5;
+  security_group_ids = 6;
+  tags = 7;
+  message IpAddress {
+    ip = 1;
+    ip_id = 2;
+    subnet_id = 3;
+  }
+  ip_address = 8;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 9;
+}

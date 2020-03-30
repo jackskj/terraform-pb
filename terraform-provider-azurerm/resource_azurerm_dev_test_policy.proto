@@ -1,0 +1,23 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermDevTestPolicy {
+  description = 1;
+  evaluator_type = 2;
+  fact_data = 3;
+  id = 4;
+  lab_name = 5;
+  name = 6;
+  policy_set_name = 7;
+  resource_group_name = 8;
+  tags = 9;
+  threshold = 10;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 11;
+}

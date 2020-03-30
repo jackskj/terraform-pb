@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSecurityhubMember {
+  account_id = 1;
+  email = 2;
+  id = 3;
+  invite = 4;
+  master_id = 5;
+  member_status = 6;
+}

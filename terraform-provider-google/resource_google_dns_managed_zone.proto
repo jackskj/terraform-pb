@@ -1,0 +1,79 @@
+syntax "proto3";
+
+package google;
+
+message GoogleDnsManagedZone {
+
+  // A textual description field. Defaults to 'Managed by Terraform'.
+  description = 1;
+
+  // The DNS name of this managed zone, for instance "example.com.".
+  dns_name = 2;
+  id = 3;
+
+  // A set of key/value label pairs to assign to this ManagedZone.
+  labels = 4;
+
+  // User assigned name for this resource.
+Must be unique within the project.
+  name = 5;
+
+  // Delegate your managed_zone to these virtual name servers;
+defined by the server
+  name_servers = 6;
+  project = 7;
+
+  // The zone's visibility: public zones are exposed to the Internet,
+while private zones are visible only to Virtual Private Cloud resources.
+Must be one of: 'public', 'private'.
+  visibility = 8;
+  message DnssecConfig {
+
+    // Identifies what kind of resource this is
+    kind = 1;
+
+    // Specifies the mechanism used to provide authenticated denial-of-existence responses.
+    non_existence = 2;
+
+    // Specifies whether DNSSEC is enabled, and what mode it is in
+    state = 3;
+    message DefaultKeySpecs {
+
+      // String mnemonic specifying the DNSSEC algorithm of this key
+      algorithm = 1;
+
+      // Length of the keys in bits
+      key_length = 2;
+
+      // Specifies whether this is a key signing key (KSK) or a zone
+signing key (ZSK). Key signing keys have the Secure Entry
+Point flag set and, when active, will only be used to sign
+resource record sets of type DNSKEY. Zone signing keys do
+not have the Secure Entry Point flag set and will be used
+to sign all other types of resource record sets.
+      key_type = 3;
+
+      // Identifies what kind of resource this is
+      kind = 4;
+    }
+    default_key_specs = 4;
+  }
+  dnssec_config = 9;
+  message PrivateVisibilityConfig {
+    message Networks {
+
+      // The fully qualified URL of the VPC network to bind to.
+This should be formatted like
+'https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}'
+      network_url = 1;
+    }
+    networks = 1;
+  }
+  private_visibility_config = 10;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 11;
+}

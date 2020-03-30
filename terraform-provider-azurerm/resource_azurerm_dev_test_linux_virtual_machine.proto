@@ -1,0 +1,44 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermDevTestLinuxVirtualMachine {
+  allow_claim = 1;
+  disallow_public_ip_address = 2;
+  fqdn = 3;
+  id = 4;
+  lab_name = 5;
+  lab_subnet_name = 6;
+  lab_virtual_network_id = 7;
+  location = 8;
+  name = 9;
+  notes = 10;
+  password = 11;
+  resource_group_name = 12;
+  size = 13;
+  ssh_key = 14;
+  storage_type = 15;
+  tags = 16;
+  unique_identifier = 17;
+  username = 18;
+  message GalleryImageReference {
+    offer = 1;
+    publisher = 2;
+    sku = 3;
+    version = 4;
+  }
+  gallery_image_reference = 19;
+  message InboundNatRule {
+    backend_port = 1;
+    frontend_port = 2;
+    protocol = 3;
+  }
+  inbound_nat_rule = 20;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 21;
+}

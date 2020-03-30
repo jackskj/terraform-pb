@@ -1,0 +1,103 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSpotInstanceRequest {
+  ami = 1;
+  arn = 2;
+  associate_public_ip_address = 3;
+  availability_zone = 4;
+  block_duration_minutes = 5;
+  cpu_core_count = 6;
+  cpu_threads_per_core = 7;
+  disable_api_termination = 8;
+  ebs_optimized = 9;
+  get_password_data = 10;
+  hibernation = 11;
+  host_id = 12;
+  iam_instance_profile = 13;
+  id = 14;
+  instance_initiated_shutdown_behavior = 15;
+  instance_interruption_behaviour = 16;
+  instance_state = 17;
+  instance_type = 18;
+  ipv6_address_count = 19;
+  ipv6_addresses = 20;
+  key_name = 21;
+  launch_group = 22;
+  monitoring = 23;
+  network_interface_id = 24;
+  password_data = 25;
+  placement_group = 26;
+  primary_network_interface_id = 27;
+  private_dns = 28;
+  private_ip = 29;
+  public_dns = 30;
+  public_ip = 31;
+  security_groups = 32;
+  source_dest_check = 33;
+  spot_bid_status = 34;
+  spot_instance_id = 35;
+  spot_price = 36;
+  spot_request_state = 37;
+  spot_type = 38;
+  subnet_id = 39;
+  tags = 40;
+  tenancy = 41;
+  user_data = 42;
+  user_data_base64 = 43;
+  valid_from = 44;
+  valid_until = 45;
+  volume_tags = 46;
+  vpc_security_group_ids = 47;
+  wait_for_fulfillment = 48;
+  message CreditSpecification {
+    cpu_credits = 1;
+  }
+  credit_specification = 49;
+  message EbsBlockDevice {
+    delete_on_termination = 1;
+    device_name = 2;
+    encrypted = 3;
+    iops = 4;
+    kms_key_id = 5;
+    snapshot_id = 6;
+    volume_id = 7;
+    volume_size = 8;
+    volume_type = 9;
+  }
+  ebs_block_device = 50;
+  message EphemeralBlockDevice {
+    device_name = 1;
+    no_device = 2;
+    virtual_name = 3;
+  }
+  ephemeral_block_device = 51;
+  message MetadataOptions {
+    http_endpoint = 1;
+    http_put_response_hop_limit = 2;
+    http_tokens = 3;
+  }
+  metadata_options = 52;
+  message NetworkInterface {
+    delete_on_termination = 1;
+    device_index = 2;
+    network_interface_id = 3;
+  }
+  network_interface = 53;
+  message RootBlockDevice {
+    delete_on_termination = 1;
+    encrypted = 2;
+    iops = 3;
+    kms_key_id = 4;
+    volume_id = 5;
+    volume_size = 6;
+    volume_type = 7;
+  }
+  root_block_device = 54;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+  }
+  timeouts = 55;
+}

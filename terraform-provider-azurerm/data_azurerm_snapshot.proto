@@ -1,0 +1,21 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermSnapshot {
+  creation_option = 1;
+  disk_size_gb = 2;
+  encryption_settings = 3;
+  id = 4;
+  name = 5;
+  os_type = 6;
+  resource_group_name = 7;
+  source_resource_id = 8;
+  source_uri = 9;
+  storage_account_id = 10;
+  time_created = 11;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 12;
+}

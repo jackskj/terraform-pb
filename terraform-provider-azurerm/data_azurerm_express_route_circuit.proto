@@ -1,0 +1,19 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermExpressRouteCircuit {
+  id = 1;
+  location = 2;
+  name = 3;
+  peerings = 4;
+  resource_group_name = 5;
+  service_key = 6;
+  service_provider_properties = 7;
+  service_provider_provisioning_state = 8;
+  sku = 9;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 10;
+}

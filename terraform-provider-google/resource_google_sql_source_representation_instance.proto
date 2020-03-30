@@ -1,0 +1,30 @@
+syntax "proto3";
+
+package google;
+
+message GoogleSqlSourceRepresentationInstance {
+
+  // The MySQL version running on your source database server: MYSQL_5_6 or MYSQL_5_7.
+  database_version = 1;
+
+  // The externally accessible IPv4 address for the source database server.
+  host = 2;
+  id = 3;
+
+  // The name of the source representation instance. Use any valid Cloud SQL instance name.
+  name = 4;
+
+  // The externally accessible port for the source database server.
+Defaults to 3306.
+  port = 5;
+  project = 6;
+
+  // The Region in which the created instance should reside.
+If it is not provided, the provider region is used.
+  region = 7;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+  }
+  timeouts = 8;
+}

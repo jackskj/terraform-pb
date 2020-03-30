@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package aws;
+
+message AwsAlbListener {
+  arn = 1;
+  certificate_arn = 2;
+  default_action = 3;
+  id = 4;
+  load_balancer_arn = 5;
+  port = 6;
+  protocol = 7;
+  ssl_policy = 8;
+}

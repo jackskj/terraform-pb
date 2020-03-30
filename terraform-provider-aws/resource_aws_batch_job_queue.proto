@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package aws;
+
+message AwsBatchJobQueue {
+  arn = 1;
+  compute_environments = 2;
+  id = 3;
+  name = 4;
+  priority = 5;
+  state = 6;
+}

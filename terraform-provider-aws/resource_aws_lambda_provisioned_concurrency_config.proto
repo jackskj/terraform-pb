@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package aws;
+
+message AwsLambdaProvisionedConcurrencyConfig {
+  function_name = 1;
+  id = 2;
+  provisioned_concurrent_executions = 3;
+  qualifier = 4;
+  message Timeouts {
+    create = 1;
+    update = 2;
+  }
+  timeouts = 5;
+}

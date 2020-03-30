@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeRegions {
+  id = 1;
+  names = 2;
+  project = 3;
+  status = 4;
+}

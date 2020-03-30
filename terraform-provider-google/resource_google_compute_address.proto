@@ -1,0 +1,63 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeAddress {
+
+  // The static external IP address represented by this resource. Only
+IPv4 is supported. An address may only be specified for INTERNAL
+address types. The IP address must be inside the specified subnetwork,
+if any.
+  address = 1;
+
+  // The type of address to reserve, either INTERNAL or EXTERNAL.
+If unspecified, defaults to EXTERNAL.
+  address_type = 2;
+
+  // Creation timestamp in RFC3339 text format.
+  creation_timestamp = 3;
+
+  // An optional description of this resource.
+  description = 4;
+  id = 5;
+
+  // Name of the resource. The name must be 1-63 characters long, and
+comply with RFC1035. Specifically, the name must be 1-63 characters
+long and match the regular expression '[a-z]([-a-z0-9]*[a-z0-9])?'
+which means the first character must be a lowercase letter, and all
+following characters must be a dash, lowercase letter, or digit,
+except the last character, which cannot be a dash.
+  name = 6;
+
+  // The networking tier used for configuring this address. This field can
+take the following values: PREMIUM or STANDARD. If this field is not
+specified, it is assumed to be PREMIUM.
+  network_tier = 7;
+  project = 8;
+
+  // The purpose of this resource, which can be one of the following values:
+
+- GCE_ENDPOINT for addresses that are used by VM instances, alias IP ranges, internal load balancers, and similar resources.
+
+This should only be set when using an Internal address.
+  purpose = 9;
+
+  // The Region in which the created address should reside.
+If it is not provided, the provider region is used.
+  region = 10;
+  self_link = 11;
+
+  // The URL of the subnetwork in which to reserve the address. If an IP
+address is specified, it must be within the subnetwork's IP range.
+This field can only be used with INTERNAL type with
+GCE_ENDPOINT/DNS_RESOLVER purposes.
+  subnetwork = 12;
+
+  // The URLs of the resources that are using this address.
+  users = 13;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+  }
+  timeouts = 14;
+}

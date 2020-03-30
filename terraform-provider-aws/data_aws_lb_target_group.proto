@@ -1,0 +1,21 @@
+syntax "proto3";
+
+package aws;
+
+message AwsLbTargetGroup {
+  arn = 1;
+  arn_suffix = 2;
+  deregistration_delay = 3;
+  health_check = 4;
+  id = 5;
+  lambda_multi_value_headers_enabled = 6;
+  name = 7;
+  port = 8;
+  protocol = 9;
+  proxy_protocol_v2 = 10;
+  slow_start = 11;
+  stickiness = 12;
+  tags = 13;
+  target_type = 14;
+  vpc_id = 15;
+}

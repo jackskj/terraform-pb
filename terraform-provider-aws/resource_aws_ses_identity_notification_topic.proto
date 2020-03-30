@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSesIdentityNotificationTopic {
+  id = 1;
+  identity = 2;
+  include_original_headers = 3;
+  notification_type = 4;
+  topic_arn = 5;
+}

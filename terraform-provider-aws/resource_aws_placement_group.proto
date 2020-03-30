@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package aws;
+
+message AwsPlacementGroup {
+  id = 1;
+  name = 2;
+  placement_group_id = 3;
+  strategy = 4;
+  tags = 5;
+}

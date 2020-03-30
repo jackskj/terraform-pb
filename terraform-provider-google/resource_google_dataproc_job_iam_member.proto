@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package google;
+
+message GoogleDataprocJobIamMember {
+  etag = 1;
+  id = 2;
+  job_id = 3;
+  member = 4;
+  project = 5;
+  region = 6;
+  role = 7;
+}

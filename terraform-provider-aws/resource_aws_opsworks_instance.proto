@@ -1,0 +1,76 @@
+syntax "proto3";
+
+package aws;
+
+message AwsOpsworksInstance {
+  agent_version = 1;
+  ami_id = 2;
+  architecture = 3;
+  auto_scaling_type = 4;
+  availability_zone = 5;
+  created_at = 6;
+  delete_ebs = 7;
+  delete_eip = 8;
+  ebs_optimized = 9;
+  ec2_instance_id = 10;
+  ecs_cluster_arn = 11;
+  elastic_ip = 12;
+  hostname = 13;
+  id = 14;
+  infrastructure_class = 15;
+  install_updates_on_boot = 16;
+  instance_profile_arn = 17;
+  instance_type = 18;
+  last_service_error_id = 19;
+  layer_ids = 20;
+  os = 21;
+  platform = 22;
+  private_dns = 23;
+  private_ip = 24;
+  public_dns = 25;
+  public_ip = 26;
+  registered_by = 27;
+  reported_agent_version = 28;
+  reported_os_family = 29;
+  reported_os_name = 30;
+  reported_os_version = 31;
+  root_device_type = 32;
+  root_device_volume_id = 33;
+  security_group_ids = 34;
+  ssh_host_dsa_key_fingerprint = 35;
+  ssh_host_rsa_key_fingerprint = 36;
+  ssh_key_name = 37;
+  stack_id = 38;
+  state = 39;
+  status = 40;
+  subnet_id = 41;
+  tenancy = 42;
+  virtualization_type = 43;
+  message EbsBlockDevice {
+    delete_on_termination = 1;
+    device_name = 2;
+    iops = 3;
+    snapshot_id = 4;
+    volume_size = 5;
+    volume_type = 6;
+  }
+  ebs_block_device = 44;
+  message EphemeralBlockDevice {
+    device_name = 1;
+    virtual_name = 2;
+  }
+  ephemeral_block_device = 45;
+  message RootBlockDevice {
+    delete_on_termination = 1;
+    iops = 2;
+    volume_size = 3;
+    volume_type = 4;
+  }
+  root_block_device = 46;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 47;
+}

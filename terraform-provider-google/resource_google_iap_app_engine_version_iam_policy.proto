@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package google;
+
+message GoogleIapAppEngineVersionIamPolicy {
+  app_id = 1;
+  etag = 2;
+  id = 3;
+  policy_data = 4;
+  project = 5;
+  service = 6;
+  version_id = 7;
+}

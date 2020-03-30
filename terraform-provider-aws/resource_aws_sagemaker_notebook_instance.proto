@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSagemakerNotebookInstance {
+  arn = 1;
+  direct_internet_access = 2;
+  id = 3;
+  instance_type = 4;
+  kms_key_id = 5;
+  lifecycle_config_name = 6;
+  name = 7;
+  role_arn = 8;
+  security_groups = 9;
+  subnet_id = 10;
+  tags = 11;
+}

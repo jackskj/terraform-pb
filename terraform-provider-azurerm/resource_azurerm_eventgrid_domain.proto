@@ -1,0 +1,37 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermEventgridDomain {
+  endpoint = 1;
+  id = 2;
+  input_schema = 3;
+  location = 4;
+  name = 5;
+  primary_access_key = 6;
+  resource_group_name = 7;
+  secondary_access_key = 8;
+  tags = 9;
+  message InputMappingDefaultValues {
+    data_version = 1;
+    event_type = 2;
+    subject = 3;
+  }
+  input_mapping_default_values = 10;
+  message InputMappingFields {
+    data_version = 1;
+    event_time = 2;
+    event_type = 3;
+    id = 4;
+    subject = 5;
+    topic = 6;
+  }
+  input_mapping_fields = 11;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 12;
+}

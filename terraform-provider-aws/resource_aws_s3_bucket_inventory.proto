@@ -1,0 +1,40 @@
+syntax "proto3";
+
+package aws;
+
+message AwsS3BucketInventory {
+  bucket = 1;
+  enabled = 2;
+  id = 3;
+  included_object_versions = 4;
+  name = 5;
+  optional_fields = 6;
+  message Destination {
+    message Bucket {
+      account_id = 1;
+      bucket_arn = 2;
+      format = 3;
+      prefix = 4;
+      message Encryption {
+        message SseKms {
+          key_id = 1;
+        }
+        sse_kms = 1;
+        message SseS3 {
+        }
+        sse_s3 = 2;
+      }
+      encryption = 5;
+    }
+    bucket = 1;
+  }
+  destination = 7;
+  message Filter {
+    prefix = 1;
+  }
+  filter = 8;
+  message Schedule {
+    frequency = 1;
+  }
+  schedule = 9;
+}

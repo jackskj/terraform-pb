@@ -1,0 +1,26 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeInstanceGroupNamedPort {
+
+  // The name of the instance group.
+  group = 1;
+  id = 2;
+
+  // The name for this named port. The name must be 1-63 characters
+long, and comply with RFC1035.
+  name = 3;
+
+  // The port number, which can be a value between 1 and 65535.
+  port = 4;
+  project = 5;
+
+  // The zone of the instance group.
+  zone = 6;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+  }
+  timeouts = 7;
+}

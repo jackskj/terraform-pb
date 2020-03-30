@@ -1,0 +1,27 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermEventhubNamespace {
+  auto_inflate_enabled = 1;
+  capacity = 2;
+  default_primary_connection_string = 3;
+  default_primary_key = 4;
+  default_secondary_connection_string = 5;
+  default_secondary_key = 6;
+  id = 7;
+  location = 8;
+  maximum_throughput_units = 9;
+  name = 10;
+  network_rulesets = 11;
+  resource_group_name = 12;
+  sku = 13;
+  tags = 14;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 15;
+}

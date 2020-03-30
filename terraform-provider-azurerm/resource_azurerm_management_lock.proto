@@ -1,0 +1,18 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermManagementLock {
+  id = 1;
+  lock_level = 2;
+  name = 3;
+  notes = 4;
+  scope = 5;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 6;
+}

@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package google;
+
+message GoogleDnsKeys {
+  id = 1;
+  key_signing_keys = 2;
+  managed_zone = 3;
+  project = 4;
+  zone_signing_keys = 5;
+}

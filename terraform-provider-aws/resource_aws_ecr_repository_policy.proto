@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsEcrRepositoryPolicy {
+  id = 1;
+  policy = 2;
+  registry_id = 3;
+  repository = 4;
+}

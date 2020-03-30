@@ -1,0 +1,105 @@
+syntax "proto3";
+
+package aws;
+
+message AwsEmrCluster {
+  additional_info = 1;
+  applications = 2;
+  arn = 3;
+  autoscaling_role = 4;
+  cluster_state = 5;
+  configurations = 6;
+  configurations_json = 7;
+  core_instance_count = 8;
+  core_instance_type = 9;
+  custom_ami_id = 10;
+  ebs_root_volume_size = 11;
+  id = 12;
+  keep_job_flow_alive_when_no_steps = 13;
+  log_uri = 14;
+  master_instance_type = 15;
+  master_public_dns = 16;
+  name = 17;
+  release_label = 18;
+  scale_down_behavior = 19;
+  security_configuration = 20;
+  service_role = 21;
+  step = 22;
+  step_concurrency_level = 23;
+  tags = 24;
+  termination_protection = 25;
+  visible_to_all_users = 26;
+  message BootstrapAction {
+    args = 1;
+    name = 2;
+    path = 3;
+  }
+  bootstrap_action = 27;
+  message CoreInstanceGroup {
+    autoscaling_policy = 1;
+    bid_price = 2;
+    id = 3;
+    instance_count = 4;
+    instance_type = 5;
+    name = 6;
+    message EbsConfig {
+      iops = 1;
+      size = 2;
+      type = 3;
+      volumes_per_instance = 4;
+    }
+    ebs_config = 7;
+  }
+  core_instance_group = 28;
+  message Ec2Attributes {
+    additional_master_security_groups = 1;
+    additional_slave_security_groups = 2;
+    emr_managed_master_security_group = 3;
+    emr_managed_slave_security_group = 4;
+    instance_profile = 5;
+    key_name = 6;
+    service_access_security_group = 7;
+    subnet_id = 8;
+  }
+  ec2_attributes = 29;
+  message InstanceGroup {
+    autoscaling_policy = 1;
+    bid_price = 2;
+    id = 3;
+    instance_count = 4;
+    instance_role = 5;
+    instance_type = 6;
+    name = 7;
+    message EbsConfig {
+      iops = 1;
+      size = 2;
+      type = 3;
+      volumes_per_instance = 4;
+    }
+    ebs_config = 8;
+  }
+  instance_group = 30;
+  message KerberosAttributes {
+    ad_domain_join_password = 1;
+    ad_domain_join_user = 2;
+    cross_realm_trust_principal_password = 3;
+    kdc_admin_password = 4;
+    realm = 5;
+  }
+  kerberos_attributes = 31;
+  message MasterInstanceGroup {
+    bid_price = 1;
+    id = 2;
+    instance_count = 3;
+    instance_type = 4;
+    name = 5;
+    message EbsConfig {
+      iops = 1;
+      size = 2;
+      type = 3;
+      volumes_per_instance = 4;
+    }
+    ebs_config = 6;
+  }
+  master_instance_group = 32;
+}

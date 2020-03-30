@@ -1,0 +1,126 @@
+syntax "proto3";
+
+package aws;
+
+message AwsLaunchTemplate {
+  arn = 1;
+  default_version = 2;
+  description = 3;
+  disable_api_termination = 4;
+  ebs_optimized = 5;
+  id = 6;
+  image_id = 7;
+  instance_initiated_shutdown_behavior = 8;
+  instance_type = 9;
+  kernel_id = 10;
+  key_name = 11;
+  latest_version = 12;
+  name = 13;
+  name_prefix = 14;
+  ram_disk_id = 15;
+  security_group_names = 16;
+  tags = 17;
+  user_data = 18;
+  vpc_security_group_ids = 19;
+  message BlockDeviceMappings {
+    device_name = 1;
+    no_device = 2;
+    virtual_name = 3;
+    message Ebs {
+      delete_on_termination = 1;
+      encrypted = 2;
+      iops = 3;
+      kms_key_id = 4;
+      snapshot_id = 5;
+      volume_size = 6;
+      volume_type = 7;
+    }
+    ebs = 4;
+  }
+  block_device_mappings = 20;
+  message CapacityReservationSpecification {
+    capacity_reservation_preference = 1;
+    message CapacityReservationTarget {
+      capacity_reservation_id = 1;
+    }
+    capacity_reservation_target = 2;
+  }
+  capacity_reservation_specification = 21;
+  message CpuOptions {
+    core_count = 1;
+    threads_per_core = 2;
+  }
+  cpu_options = 22;
+  message CreditSpecification {
+    cpu_credits = 1;
+  }
+  credit_specification = 23;
+  message ElasticGpuSpecifications {
+    type = 1;
+  }
+  elastic_gpu_specifications = 24;
+  message ElasticInferenceAccelerator {
+    type = 1;
+  }
+  elastic_inference_accelerator = 25;
+  message IamInstanceProfile {
+    arn = 1;
+    name = 2;
+  }
+  iam_instance_profile = 26;
+  message InstanceMarketOptions {
+    market_type = 1;
+    message SpotOptions {
+      block_duration_minutes = 1;
+      instance_interruption_behavior = 2;
+      max_price = 3;
+      spot_instance_type = 4;
+      valid_until = 5;
+    }
+    spot_options = 2;
+  }
+  instance_market_options = 27;
+  message LicenseSpecification {
+    license_configuration_arn = 1;
+  }
+  license_specification = 28;
+  message MetadataOptions {
+    http_endpoint = 1;
+    http_put_response_hop_limit = 2;
+    http_tokens = 3;
+  }
+  metadata_options = 29;
+  message Monitoring {
+    enabled = 1;
+  }
+  monitoring = 30;
+  message NetworkInterfaces {
+    associate_public_ip_address = 1;
+    delete_on_termination = 2;
+    description = 3;
+    device_index = 4;
+    ipv4_address_count = 5;
+    ipv4_addresses = 6;
+    ipv6_address_count = 7;
+    ipv6_addresses = 8;
+    network_interface_id = 9;
+    private_ip_address = 10;
+    security_groups = 11;
+    subnet_id = 12;
+  }
+  network_interfaces = 31;
+  message Placement {
+    affinity = 1;
+    availability_zone = 2;
+    group_name = 3;
+    host_id = 4;
+    spread_domain = 5;
+    tenancy = 6;
+  }
+  placement = 32;
+  message TagSpecifications {
+    resource_type = 1;
+    tags = 2;
+  }
+  tag_specifications = 33;
+}

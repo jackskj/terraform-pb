@@ -1,0 +1,24 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermVirtualMachineScaleSetExtension {
+  auto_upgrade_minor_version = 1;
+  force_update_tag = 2;
+  id = 3;
+  name = 4;
+  protected_settings = 5;
+  provision_after_extensions = 6;
+  publisher = 7;
+  settings = 8;
+  type = 9;
+  type_handler_version = 10;
+  virtual_machine_scale_set_id = 11;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 12;
+}

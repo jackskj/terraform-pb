@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package aws;
+
+message AwsIamUserPolicy {
+  id = 1;
+  name = 2;
+  name_prefix = 3;
+  policy = 4;
+  user = 5;
+}

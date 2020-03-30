@@ -1,0 +1,45 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCloudwatchMetricAlarm {
+  actions_enabled = 1;
+  alarm_actions = 2;
+  alarm_description = 3;
+  alarm_name = 4;
+  arn = 5;
+  comparison_operator = 6;
+  datapoints_to_alarm = 7;
+  dimensions = 8;
+  evaluate_low_sample_count_percentiles = 9;
+  evaluation_periods = 10;
+  extended_statistic = 11;
+  id = 12;
+  insufficient_data_actions = 13;
+  metric_name = 14;
+  namespace = 15;
+  ok_actions = 16;
+  period = 17;
+  statistic = 18;
+  tags = 19;
+  threshold = 20;
+  threshold_metric_id = 21;
+  treat_missing_data = 22;
+  unit = 23;
+  message MetricQuery {
+    expression = 1;
+    id = 2;
+    label = 3;
+    return_data = 4;
+    message Metric {
+      dimensions = 1;
+      metric_name = 2;
+      namespace = 3;
+      period = 4;
+      stat = 5;
+      unit = 6;
+    }
+    metric = 5;
+  }
+  metric_query = 24;
+}

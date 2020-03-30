@@ -1,0 +1,42 @@
+syntax "proto3";
+
+package google;
+
+message GoogleOrganizationPolicy {
+  constraint = 1;
+  etag = 2;
+  id = 3;
+  org_id = 4;
+  update_time = 5;
+  version = 6;
+  message BooleanPolicy {
+    enforced = 1;
+  }
+  boolean_policy = 7;
+  message ListPolicy {
+    inherit_from_parent = 1;
+    suggested_value = 2;
+    message Allow {
+      all = 1;
+      values = 2;
+    }
+    allow = 3;
+    message Deny {
+      all = 1;
+      values = 2;
+    }
+    deny = 4;
+  }
+  list_policy = 8;
+  message RestorePolicy {
+    default = 1;
+  }
+  restore_policy = 9;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 10;
+}

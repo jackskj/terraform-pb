@@ -1,0 +1,62 @@
+syntax "proto3";
+
+package aws;
+
+message AwsRedshiftCluster {
+  allow_version_upgrade = 1;
+  arn = 2;
+  automated_snapshot_retention_period = 3;
+  availability_zone = 4;
+  bucket_name = 5;
+  cluster_identifier = 6;
+  cluster_parameter_group_name = 7;
+  cluster_public_key = 8;
+  cluster_revision_number = 9;
+  cluster_security_groups = 10;
+  cluster_subnet_group_name = 11;
+  cluster_type = 12;
+  cluster_version = 13;
+  database_name = 14;
+  dns_name = 15;
+  elastic_ip = 16;
+  enable_logging = 17;
+  encrypted = 18;
+  endpoint = 19;
+  enhanced_vpc_routing = 20;
+  final_snapshot_identifier = 21;
+  iam_roles = 22;
+  id = 23;
+  kms_key_id = 24;
+  master_password = 25;
+  master_username = 26;
+  node_type = 27;
+  number_of_nodes = 28;
+  owner_account = 29;
+  port = 30;
+  preferred_maintenance_window = 31;
+  publicly_accessible = 32;
+  s3_key_prefix = 33;
+  skip_final_snapshot = 34;
+  snapshot_cluster_identifier = 35;
+  snapshot_identifier = 36;
+  tags = 37;
+  vpc_security_group_ids = 38;
+  message Logging {
+    bucket_name = 1;
+    enable = 2;
+    s3_key_prefix = 3;
+  }
+  logging = 39;
+  message SnapshotCopy {
+    destination_region = 1;
+    grant_name = 2;
+    retention_period = 3;
+  }
+  snapshot_copy = 40;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 41;
+}

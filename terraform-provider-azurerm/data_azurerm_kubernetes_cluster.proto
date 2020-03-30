@@ -1,0 +1,33 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermKubernetesCluster {
+  addon_profile = 1;
+  agent_pool_profile = 2;
+  api_server_authorized_ip_ranges = 3;
+  dns_prefix = 4;
+  fqdn = 5;
+  id = 6;
+  kube_admin_config = 7;
+  kube_admin_config_raw = 8;
+  kube_config = 9;
+  kube_config_raw = 10;
+  kubernetes_version = 11;
+  linux_profile = 12;
+  location = 13;
+  name = 14;
+  network_profile = 15;
+  node_resource_group = 16;
+  private_fqdn = 17;
+  private_link_enabled = 18;
+  resource_group_name = 19;
+  role_based_access_control = 20;
+  service_principal = 21;
+  tags = 22;
+  windows_profile = 23;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 24;
+}

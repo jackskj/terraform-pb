@@ -1,0 +1,25 @@
+syntax "proto3";
+
+package aws;
+
+message AwsBackupPlan {
+  arn = 1;
+  id = 2;
+  name = 3;
+  tags = 4;
+  version = 5;
+  message Rule {
+    completion_window = 1;
+    recovery_point_tags = 2;
+    rule_name = 3;
+    schedule = 4;
+    start_window = 5;
+    target_vault_name = 6;
+    message Lifecycle {
+      cold_storage_after = 1;
+      delete_after = 2;
+    }
+    lifecycle = 7;
+  }
+  rule = 6;
+}

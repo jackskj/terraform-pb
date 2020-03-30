@@ -1,0 +1,9 @@
+syntax "proto3";
+
+package aws;
+
+message AwsOrganizationsOrganizationalUnits {
+  children = 1;
+  id = 2;
+  parent_id = 3;
+}

@@ -1,0 +1,127 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermStorageAccount {
+  access_tier = 1;
+  account_kind = 2;
+  account_replication_type = 3;
+  account_tier = 4;
+  enable_https_traffic_only = 5;
+  id = 6;
+  is_hns_enabled = 7;
+  location = 8;
+  name = 9;
+  primary_access_key = 10;
+  primary_blob_connection_string = 11;
+  primary_blob_endpoint = 12;
+  primary_blob_host = 13;
+  primary_connection_string = 14;
+  primary_dfs_endpoint = 15;
+  primary_dfs_host = 16;
+  primary_file_endpoint = 17;
+  primary_file_host = 18;
+  primary_location = 19;
+  primary_queue_endpoint = 20;
+  primary_queue_host = 21;
+  primary_table_endpoint = 22;
+  primary_table_host = 23;
+  primary_web_endpoint = 24;
+  primary_web_host = 25;
+  resource_group_name = 26;
+  secondary_access_key = 27;
+  secondary_blob_connection_string = 28;
+  secondary_blob_endpoint = 29;
+  secondary_blob_host = 30;
+  secondary_connection_string = 31;
+  secondary_dfs_endpoint = 32;
+  secondary_dfs_host = 33;
+  secondary_file_endpoint = 34;
+  secondary_file_host = 35;
+  secondary_location = 36;
+  secondary_queue_endpoint = 37;
+  secondary_queue_host = 38;
+  secondary_table_endpoint = 39;
+  secondary_table_host = 40;
+  secondary_web_endpoint = 41;
+  secondary_web_host = 42;
+  tags = 43;
+  message BlobProperties {
+    message CorsRule {
+      allowed_headers = 1;
+      allowed_methods = 2;
+      allowed_origins = 3;
+      exposed_headers = 4;
+      max_age_in_seconds = 5;
+    }
+    cors_rule = 1;
+    message DeleteRetentionPolicy {
+      days = 1;
+    }
+    delete_retention_policy = 2;
+  }
+  blob_properties = 44;
+  message CustomDomain {
+    name = 1;
+    use_subdomain = 2;
+  }
+  custom_domain = 45;
+  message Identity {
+    principal_id = 1;
+    tenant_id = 2;
+    type = 3;
+  }
+  identity = 46;
+  message NetworkRules {
+    bypass = 1;
+    default_action = 2;
+    ip_rules = 3;
+    virtual_network_subnet_ids = 4;
+  }
+  network_rules = 47;
+  message QueueProperties {
+    message CorsRule {
+      allowed_headers = 1;
+      allowed_methods = 2;
+      allowed_origins = 3;
+      exposed_headers = 4;
+      max_age_in_seconds = 5;
+    }
+    cors_rule = 1;
+    message HourMetrics {
+      enabled = 1;
+      include_apis = 2;
+      retention_policy_days = 3;
+      version = 4;
+    }
+    hour_metrics = 2;
+    message Logging {
+      delete = 1;
+      read = 2;
+      retention_policy_days = 3;
+      version = 4;
+      write = 5;
+    }
+    logging = 3;
+    message MinuteMetrics {
+      enabled = 1;
+      include_apis = 2;
+      retention_policy_days = 3;
+      version = 4;
+    }
+    minute_metrics = 4;
+  }
+  queue_properties = 48;
+  message StaticWebsite {
+    error_404_document = 1;
+    index_document = 2;
+  }
+  static_website = 49;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 50;
+}

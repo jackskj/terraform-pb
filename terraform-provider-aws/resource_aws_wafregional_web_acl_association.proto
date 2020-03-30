@@ -1,0 +1,9 @@
+syntax "proto3";
+
+package aws;
+
+message AwsWafregionalWebAclAssociation {
+  id = 1;
+  resource_arn = 2;
+  web_acl_id = 3;
+}

@@ -1,0 +1,27 @@
+syntax "proto3";
+
+package aws;
+
+message AwsElasticsearchDomain {
+  access_policies = 1;
+  advanced_options = 2;
+  arn = 3;
+  cluster_config = 4;
+  cognito_options = 5;
+  created = 6;
+  deleted = 7;
+  domain_id = 8;
+  domain_name = 9;
+  ebs_options = 10;
+  elasticsearch_version = 11;
+  encryption_at_rest = 12;
+  endpoint = 13;
+  id = 14;
+  kibana_endpoint = 15;
+  log_publishing_options = 16;
+  node_to_node_encryption = 17;
+  processing = 18;
+  snapshot_options = 19;
+  tags = 20;
+  vpc_options = 21;
+}

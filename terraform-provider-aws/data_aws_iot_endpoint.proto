@@ -1,0 +1,9 @@
+syntax "proto3";
+
+package aws;
+
+message AwsIotEndpoint {
+  endpoint_address = 1;
+  endpoint_type = 2;
+  id = 3;
+}

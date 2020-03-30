@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package aws;
+
+message AwsWorkspacesIpGroup {
+  description = 1;
+  id = 2;
+  name = 3;
+  tags = 4;
+  message Rules {
+    description = 1;
+    source = 2;
+  }
+  rules = 5;
+}

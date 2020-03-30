@@ -1,0 +1,16 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermDedicatedHost {
+  dedicated_host_group_name = 1;
+  id = 2;
+  location = 3;
+  name = 4;
+  resource_group_name = 5;
+  tags = 6;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 7;
+}

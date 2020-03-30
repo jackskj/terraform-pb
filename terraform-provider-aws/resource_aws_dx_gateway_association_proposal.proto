@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package aws;
+
+message AwsDxGatewayAssociationProposal {
+  allowed_prefixes = 1;
+  associated_gateway_id = 2;
+  associated_gateway_owner_account_id = 3;
+  associated_gateway_type = 4;
+  dx_gateway_id = 5;
+  dx_gateway_owner_account_id = 6;
+  id = 7;
+  vpn_gateway_id = 8;
+}

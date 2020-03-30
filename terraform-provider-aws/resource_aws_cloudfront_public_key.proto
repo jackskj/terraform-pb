@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCloudfrontPublicKey {
+  caller_reference = 1;
+  comment = 2;
+  encoded_key = 3;
+  etag = 4;
+  id = 5;
+  name = 6;
+  name_prefix = 7;
+}

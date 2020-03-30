@@ -1,0 +1,16 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermRecoveryServicesVault {
+  id = 1;
+  location = 2;
+  name = 3;
+  resource_group_name = 4;
+  sku = 5;
+  tags = 6;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 7;
+}

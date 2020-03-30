@@ -1,0 +1,38 @@
+syntax "proto3";
+
+package google;
+
+message GoogleMlEngineModel {
+
+  // The description specified for the model when it was created.
+  description = 1;
+  id = 2;
+
+  // One or more labels that you can add, to organize your models.
+  labels = 3;
+
+  // The name specified for the model.
+  name = 4;
+
+  // If true, online prediction nodes send stderr and stdout streams to Stackdriver Logging
+  online_prediction_console_logging = 5;
+
+  // If true, online prediction access logs are sent to StackDriver Logging.
+  online_prediction_logging = 6;
+  project = 7;
+
+  // The list of regions where the model is going to be deployed.
+Currently only one region per model is supported
+  regions = 8;
+  message DefaultVersion {
+
+    // The name specified for the version when it was created.
+    name = 1;
+  }
+  default_version = 9;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+  }
+  timeouts = 10;
+}

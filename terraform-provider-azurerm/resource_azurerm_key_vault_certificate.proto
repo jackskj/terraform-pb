@@ -1,0 +1,68 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermKeyVaultCertificate {
+  certificate_data = 1;
+  id = 2;
+  key_vault_id = 3;
+  name = 4;
+  secret_id = 5;
+  tags = 6;
+  thumbprint = 7;
+  version = 8;
+  message Certificate {
+    contents = 1;
+    password = 2;
+  }
+  certificate = 9;
+  message CertificatePolicy {
+    message IssuerParameters {
+      name = 1;
+    }
+    issuer_parameters = 1;
+    message KeyProperties {
+      exportable = 1;
+      key_size = 2;
+      key_type = 3;
+      reuse_key = 4;
+    }
+    key_properties = 2;
+    message LifetimeAction {
+      message Action {
+        action_type = 1;
+      }
+      action = 1;
+      message Trigger {
+        days_before_expiry = 1;
+        lifetime_percentage = 2;
+      }
+      trigger = 2;
+    }
+    lifetime_action = 3;
+    message SecretProperties {
+      content_type = 1;
+    }
+    secret_properties = 4;
+    message X509CertificateProperties {
+      extended_key_usage = 1;
+      key_usage = 2;
+      subject = 3;
+      validity_in_months = 4;
+      message SubjectAlternativeNames {
+        dns_names = 1;
+        emails = 2;
+        upns = 3;
+      }
+      subject_alternative_names = 5;
+    }
+    x509_certificate_properties = 5;
+  }
+  certificate_policy = 10;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+  }
+  timeouts = 11;
+}

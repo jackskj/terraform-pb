@@ -1,0 +1,73 @@
+syntax "proto3";
+
+package google;
+
+message Google {
+  access_context_manager_custom_endpoint = 1;
+  access_token = 2;
+  app_engine_custom_endpoint = 3;
+  big_query_custom_endpoint = 4;
+  bigquery_data_transfer_custom_endpoint = 5;
+  bigtable_custom_endpoint = 6;
+  binary_authorization_custom_endpoint = 7;
+  cloud_billing_custom_endpoint = 8;
+  cloud_build_custom_endpoint = 9;
+  cloud_functions_custom_endpoint = 10;
+  cloud_iot_custom_endpoint = 11;
+  cloud_run_custom_endpoint = 12;
+  cloud_scheduler_custom_endpoint = 13;
+  cloud_tasks_custom_endpoint = 14;
+  composer_custom_endpoint = 15;
+  compute_beta_custom_endpoint = 16;
+  compute_custom_endpoint = 17;
+  container_analysis_custom_endpoint = 18;
+  container_beta_custom_endpoint = 19;
+  container_custom_endpoint = 20;
+  credentials = 21;
+  dataflow_custom_endpoint = 22;
+  dataproc_beta_custom_endpoint = 23;
+  dataproc_custom_endpoint = 24;
+  datastore_custom_endpoint = 25;
+  deployment_manager_custom_endpoint = 26;
+  dialogflow_custom_endpoint = 27;
+  dns_beta_custom_endpoint = 28;
+  dns_custom_endpoint = 29;
+  filestore_custom_endpoint = 30;
+  firestore_custom_endpoint = 31;
+  iam_credentials_custom_endpoint = 32;
+  iam_custom_endpoint = 33;
+  iap_custom_endpoint = 34;
+  identity_platform_custom_endpoint = 35;
+  kms_custom_endpoint = 36;
+  logging_custom_endpoint = 37;
+  ml_engine_custom_endpoint = 38;
+  monitoring_custom_endpoint = 39;
+  project = 40;
+  pubsub_custom_endpoint = 41;
+  redis_custom_endpoint = 42;
+  region = 43;
+  request_timeout = 44;
+  resource_manager_custom_endpoint = 45;
+  resource_manager_v2beta1_custom_endpoint = 46;
+  runtime_config_custom_endpoint = 47;
+  runtimeconfig_custom_endpoint = 48;
+  scopes = 49;
+  security_center_custom_endpoint = 50;
+  service_management_custom_endpoint = 51;
+  service_networking_custom_endpoint = 52;
+  service_usage_custom_endpoint = 53;
+  source_repo_custom_endpoint = 54;
+  spanner_custom_endpoint = 55;
+  sql_custom_endpoint = 56;
+  storage_custom_endpoint = 57;
+  storage_transfer_custom_endpoint = 58;
+  tpu_custom_endpoint = 59;
+  user_project_override = 60;
+  vpc_access_custom_endpoint = 61;
+  zone = 62;
+  message Batching {
+    enable_batching = 1;
+    send_after = 2;
+  }
+  batching = 63;
+}

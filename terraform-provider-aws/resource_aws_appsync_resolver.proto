@@ -1,0 +1,19 @@
+syntax "proto3";
+
+package aws;
+
+message AwsAppsyncResolver {
+  api_id = 1;
+  arn = 2;
+  data_source = 3;
+  field = 4;
+  id = 5;
+  kind = 6;
+  request_template = 7;
+  response_template = 8;
+  type = 9;
+  message PipelineConfig {
+    functions = 1;
+  }
+  pipeline_config = 10;
+}

@@ -1,0 +1,27 @@
+syntax "proto3";
+
+package aws;
+
+message AwsDbClusterSnapshot {
+  allocated_storage = 1;
+  availability_zones = 2;
+  db_cluster_identifier = 3;
+  db_cluster_snapshot_arn = 4;
+  db_cluster_snapshot_identifier = 5;
+  engine = 6;
+  engine_version = 7;
+  id = 8;
+  kms_key_id = 9;
+  license_model = 10;
+  port = 11;
+  snapshot_type = 12;
+  source_db_cluster_snapshot_arn = 13;
+  status = 14;
+  storage_encrypted = 15;
+  tags = 16;
+  vpc_id = 17;
+  message Timeouts {
+    create = 1;
+  }
+  timeouts = 18;
+}

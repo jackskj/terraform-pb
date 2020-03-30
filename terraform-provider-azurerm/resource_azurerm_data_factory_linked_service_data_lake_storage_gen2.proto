@@ -1,0 +1,26 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermDataFactoryLinkedServiceDataLakeStorageGen2 {
+  additional_properties = 1;
+  annotations = 2;
+  data_factory_name = 3;
+  description = 4;
+  id = 5;
+  integration_runtime_name = 6;
+  name = 7;
+  parameters = 8;
+  resource_group_name = 9;
+  service_principal_id = 10;
+  service_principal_key = 11;
+  tenant = 12;
+  url = 13;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 14;
+}

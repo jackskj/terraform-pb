@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package aws;
+
+message AwsS3BucketMetric {
+  bucket = 1;
+  id = 2;
+  name = 3;
+  message Filter {
+    prefix = 1;
+    tags = 2;
+  }
+  filter = 4;
+}

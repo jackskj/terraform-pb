@@ -1,0 +1,30 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermSubnet {
+  address_prefix = 1;
+  enforce_private_link_endpoint_network_policies = 2;
+  enforce_private_link_service_network_policies = 3;
+  id = 4;
+  name = 5;
+  resource_group_name = 6;
+  service_endpoints = 7;
+  virtual_network_name = 8;
+  message Delegation {
+    name = 1;
+    message ServiceDelegation {
+      actions = 1;
+      name = 2;
+    }
+    service_delegation = 2;
+  }
+  delegation = 9;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 10;
+}

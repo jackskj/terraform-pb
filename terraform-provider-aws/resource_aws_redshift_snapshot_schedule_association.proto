@@ -1,0 +1,9 @@
+syntax "proto3";
+
+package aws;
+
+message AwsRedshiftSnapshotScheduleAssociation {
+  cluster_identifier = 1;
+  id = 2;
+  schedule_identifier = 3;
+}

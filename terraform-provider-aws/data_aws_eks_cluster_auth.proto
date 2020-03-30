@@ -1,0 +1,9 @@
+syntax "proto3";
+
+package aws;
+
+message AwsEksClusterAuth {
+  id = 1;
+  name = 2;
+  token = 3;
+}

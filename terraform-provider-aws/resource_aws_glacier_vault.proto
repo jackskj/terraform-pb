@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package aws;
+
+message AwsGlacierVault {
+  access_policy = 1;
+  arn = 2;
+  id = 3;
+  location = 4;
+  name = 5;
+  tags = 6;
+  message Notification {
+    events = 1;
+    sns_topic = 2;
+  }
+  notification = 7;
+}

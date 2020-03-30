@@ -1,0 +1,9 @@
+syntax "proto3";
+
+package aws;
+
+message AwsVpcDhcpOptionsAssociation {
+  dhcp_options_id = 1;
+  id = 2;
+  vpc_id = 3;
+}

@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsEc2TrafficMirrorFilter {
+  description = 1;
+  id = 2;
+  network_services = 3;
+  tags = 4;
+}

@@ -1,0 +1,28 @@
+syntax "proto3";
+
+package aws;
+
+message AwsNetworkInterface {
+  association = 1;
+  attachment = 2;
+  availability_zone = 3;
+  description = 4;
+  id = 5;
+  interface_type = 6;
+  ipv6_addresses = 7;
+  mac_address = 8;
+  owner_id = 9;
+  private_dns_name = 10;
+  private_ip = 11;
+  private_ips = 12;
+  requester_id = 13;
+  security_groups = 14;
+  subnet_id = 15;
+  tags = 16;
+  vpc_id = 17;
+  message Filter {
+    name = 1;
+    values = 2;
+  }
+  filter = 18;
+}

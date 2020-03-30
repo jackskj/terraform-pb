@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package aws;
+
+message AwsGuarddutyIpset {
+  activate = 1;
+  detector_id = 2;
+  format = 3;
+  id = 4;
+  location = 5;
+  name = 6;
+}

@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package aws;
+
+message AwsWafRule {
+  arn = 1;
+  id = 2;
+  metric_name = 3;
+  name = 4;
+  tags = 5;
+  message Predicates {
+    data_id = 1;
+    negated = 2;
+    type = 3;
+  }
+  predicates = 6;
+}

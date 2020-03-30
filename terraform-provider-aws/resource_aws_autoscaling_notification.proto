@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsAutoscalingNotification {
+  group_names = 1;
+  id = 2;
+  notifications = 3;
+  topic_arn = 4;
+}

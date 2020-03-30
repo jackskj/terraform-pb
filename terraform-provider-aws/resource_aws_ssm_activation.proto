@@ -1,0 +1,16 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSsmActivation {
+  activation_code = 1;
+  description = 2;
+  expiration_date = 3;
+  expired = 4;
+  iam_role = 5;
+  id = 6;
+  name = 7;
+  registration_count = 8;
+  registration_limit = 9;
+  tags = 10;
+}

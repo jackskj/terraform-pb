@@ -1,0 +1,24 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermFunctionApp {
+  app_service_plan_id = 1;
+  app_settings = 2;
+  connection_string = 3;
+  default_hostname = 4;
+  enabled = 5;
+  id = 6;
+  location = 7;
+  name = 8;
+  os_type = 9;
+  outbound_ip_addresses = 10;
+  possible_outbound_ip_addresses = 11;
+  resource_group_name = 12;
+  site_credential = 13;
+  tags = 14;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 15;
+}

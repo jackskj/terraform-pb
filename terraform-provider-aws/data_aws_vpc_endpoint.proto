@@ -1,0 +1,28 @@
+syntax "proto3";
+
+package aws;
+
+message AwsVpcEndpoint {
+  cidr_blocks = 1;
+  dns_entry = 2;
+  id = 3;
+  network_interface_ids = 4;
+  owner_id = 5;
+  policy = 6;
+  prefix_list_id = 7;
+  private_dns_enabled = 8;
+  requester_managed = 9;
+  route_table_ids = 10;
+  security_group_ids = 11;
+  service_name = 12;
+  state = 13;
+  subnet_ids = 14;
+  tags = 15;
+  vpc_endpoint_type = 16;
+  vpc_id = 17;
+  message Filter {
+    name = 1;
+    values = 2;
+  }
+  filter = 18;
+}

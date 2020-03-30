@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package google;
+
+message GoogleIapWebBackendServiceIamPolicy {
+  etag = 1;
+  id = 2;
+  policy_data = 3;
+  project = 4;
+  web_backend_service = 5;
+}

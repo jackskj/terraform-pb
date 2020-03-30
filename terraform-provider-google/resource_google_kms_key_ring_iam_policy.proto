@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package google;
+
+message GoogleKmsKeyRingIamPolicy {
+  etag = 1;
+  id = 2;
+  key_ring_id = 3;
+  policy_data = 4;
+}

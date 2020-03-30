@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsDxGateway {
+  amazon_side_asn = 1;
+  id = 2;
+  name = 3;
+  owner_account_id = 4;
+}

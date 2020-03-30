@@ -1,0 +1,20 @@
+syntax "proto3";
+
+package aws;
+
+message AwsCloudhsmV2Hsm {
+  availability_zone = 1;
+  cluster_id = 2;
+  hsm_eni_id = 3;
+  hsm_id = 4;
+  hsm_state = 5;
+  id = 6;
+  ip_address = 7;
+  subnet_id = 8;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 9;
+}

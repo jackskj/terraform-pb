@@ -1,0 +1,49 @@
+syntax "proto3";
+
+package kubernetes;
+
+message KubernetesClusterRole {
+  id = 1;
+  message Metadata {
+
+    // An unstructured key value map stored with the clusterRole that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+    annotations = 1;
+
+    // A sequence number representing a specific generation of the desired state.
+    generation = 2;
+
+    // Map of string keys and values that can be used to organize and categorize (scope and select) the clusterRole. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+    labels = 3;
+
+    // Name of the clusterRole, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+    name = 4;
+
+    // An opaque value that represents the internal version of this clusterRole that can be used by clients to determine when clusterRole has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+    resource_version = 5;
+
+    // A URL representing this clusterRole.
+    self_link = 6;
+
+    // The unique in time and space value for this clusterRole. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+    uid = 7;
+  }
+  metadata = 2;
+  message Rule {
+
+    // APIGroups is the name of the APIGroup that contains the resources. If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.
+    api_groups = 1;
+
+    // NonResourceURLs is a set of partial urls that a user should have access to. *s are allowed, but only as the full, final step in the path Since non-resource URLs are not namespaced, this field is only applicable for ClusterRoles referenced from a ClusterRoleBinding. Rules can either apply to API resources (such as "pods" or "secrets") or non-resource URL paths (such as "/api"), but not both.
+    non_resource_urls = 2;
+
+    // ResourceNames is an optional white list of names that the rule applies to. An empty set means that everything is allowed.
+    resource_names = 3;
+
+    // Resources is a list of resources this rule applies to. ResourceAll represents all resources.
+    resources = 4;
+
+    // Verbs is a list of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule. VerbAll represents all kinds.
+    verbs = 5;
+  }
+  rule = 3;
+}

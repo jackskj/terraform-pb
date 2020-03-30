@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package aws;
+
+message AwsQuicksightGroup {
+  arn = 1;
+  aws_account_id = 2;
+  description = 3;
+  group_name = 4;
+  id = 5;
+  namespace = 6;
+}

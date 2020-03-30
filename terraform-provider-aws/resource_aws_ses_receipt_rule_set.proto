@@ -1,0 +1,8 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSesReceiptRuleSet {
+  id = 1;
+  rule_set_name = 2;
+}

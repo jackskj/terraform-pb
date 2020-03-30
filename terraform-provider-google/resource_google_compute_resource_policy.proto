@@ -1,0 +1,92 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComputeResourcePolicy {
+  id = 1;
+
+  // The name of the resource, provided by the client when initially creating
+the resource. The resource name must be 1-63 characters long, and comply
+with RFC1035. Specifically, the name must be 1-63 characters long and
+match the regular expression '[a-z]([-a-z0-9]*[a-z0-9])'? which means the
+first character must be a lowercase letter, and all following characters
+must be a dash, lowercase letter, or digit, except the last character,
+which cannot be a dash.
+  name = 2;
+  project = 3;
+
+  // Region where resource policy resides.
+  region = 4;
+  self_link = 5;
+  message SnapshotSchedulePolicy {
+    message RetentionPolicy {
+
+      // Maximum age of the snapshot that is allowed to be kept.
+      max_retention_days = 1;
+
+      // Specifies the behavior to apply to scheduled snapshots when
+the source disk is deleted.
+Valid options are KEEP_AUTO_SNAPSHOTS and APPLY_RETENTION_POLICY
+      on_source_disk_delete = 2;
+    }
+    retention_policy = 1;
+    message Schedule {
+      message DailySchedule {
+
+        // The number of days between snapshots.
+        days_in_cycle = 1;
+
+        // This must be in UTC format that resolves to one of
+00:00, 04:00, 08:00, 12:00, 16:00, or 20:00. For example,
+both 13:00-5 and 08:00 are valid.
+        start_time = 2;
+      }
+      daily_schedule = 1;
+      message HourlySchedule {
+
+        // The number of hours between snapshots.
+        hours_in_cycle = 1;
+
+        // Time within the window to start the operations.
+It must be in an hourly format "HH:MM",
+where HH : [00-23] and MM : [00] GMT.
+eg: 21:00
+        start_time = 2;
+      }
+      hourly_schedule = 2;
+      message WeeklySchedule {
+        message DayOfWeeks {
+
+          // The day of the week to create the snapshot. e.g. MONDAY
+          day = 1;
+
+          // Time within the window to start the operations.
+It must be in format "HH:MM", where HH : [00-23] and MM : [00-00] GMT.
+          start_time = 2;
+        }
+        day_of_weeks = 1;
+      }
+      weekly_schedule = 3;
+    }
+    schedule = 2;
+    message SnapshotProperties {
+
+      // Whether to perform a 'guest aware' snapshot.
+      guest_flush = 1;
+
+      // A set of key-value pairs.
+      labels = 2;
+
+      // Cloud Storage bucket location to store the auto snapshot
+(regional or multi-regional)
+      storage_locations = 3;
+    }
+    snapshot_properties = 3;
+  }
+  snapshot_schedule_policy = 6;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+  }
+  timeouts = 7;
+}

@@ -1,0 +1,19 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermVirtualHubConnection {
+  hub_to_vitual_network_traffic_allowed = 1;
+  id = 2;
+  internet_security_enabled = 3;
+  name = 4;
+  remote_virtual_network_id = 5;
+  virtual_hub_id = 6;
+  vitual_network_to_hub_gateways_traffic_allowed = 7;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+  }
+  timeouts = 8;
+}

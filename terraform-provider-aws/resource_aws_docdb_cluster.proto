@@ -1,0 +1,41 @@
+syntax "proto3";
+
+package aws;
+
+message AwsDocdbCluster {
+  apply_immediately = 1;
+  arn = 2;
+  availability_zones = 3;
+  backup_retention_period = 4;
+  cluster_identifier = 5;
+  cluster_identifier_prefix = 6;
+  cluster_members = 7;
+  cluster_resource_id = 8;
+  db_cluster_parameter_group_name = 9;
+  db_subnet_group_name = 10;
+  enabled_cloudwatch_logs_exports = 11;
+  endpoint = 12;
+  engine = 13;
+  engine_version = 14;
+  final_snapshot_identifier = 15;
+  hosted_zone_id = 16;
+  id = 17;
+  kms_key_id = 18;
+  master_password = 19;
+  master_username = 20;
+  port = 21;
+  preferred_backup_window = 22;
+  preferred_maintenance_window = 23;
+  reader_endpoint = 24;
+  skip_final_snapshot = 25;
+  snapshot_identifier = 26;
+  storage_encrypted = 27;
+  tags = 28;
+  vpc_security_group_ids = 29;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 30;
+}

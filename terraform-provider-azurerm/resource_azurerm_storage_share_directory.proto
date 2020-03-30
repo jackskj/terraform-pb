@@ -1,0 +1,18 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermStorageShareDirectory {
+  id = 1;
+  metadata = 2;
+  name = 3;
+  share_name = 4;
+  storage_account_name = 5;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 6;
+}

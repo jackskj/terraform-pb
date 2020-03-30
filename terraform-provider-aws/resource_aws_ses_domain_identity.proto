@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsSesDomainIdentity {
+  arn = 1;
+  domain = 2;
+  id = 3;
+  verification_token = 4;
+}

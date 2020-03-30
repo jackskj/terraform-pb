@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package aws;
+
+message AwsConfigConfigurationRecorder {
+  id = 1;
+  name = 2;
+  role_arn = 3;
+  message RecordingGroup {
+    all_supported = 1;
+    include_global_resource_types = 2;
+    resource_types = 3;
+  }
+  recording_group = 4;
+}

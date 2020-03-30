@@ -1,0 +1,22 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermServicebusNamespace {
+  capacity = 1;
+  default_primary_connection_string = 2;
+  default_primary_key = 3;
+  default_secondary_connection_string = 4;
+  default_secondary_key = 5;
+  id = 6;
+  location = 7;
+  name = 8;
+  resource_group_name = 9;
+  sku = 10;
+  tags = 11;
+  zone_redundant = 12;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 13;
+}

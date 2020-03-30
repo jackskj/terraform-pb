@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package google;
+
+message GoogleProjectIamCustomRole {
+  deleted = 1;
+  description = 2;
+  id = 3;
+  permissions = 4;
+  project = 5;
+  role_id = 6;
+  stage = 7;
+  title = 8;
+}

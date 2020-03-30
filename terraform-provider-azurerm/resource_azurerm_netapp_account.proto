@@ -1,0 +1,27 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermNetappAccount {
+  id = 1;
+  location = 2;
+  name = 3;
+  resource_group_name = 4;
+  tags = 5;
+  message ActiveDirectory {
+    dns_servers = 1;
+    domain = 2;
+    organizational_unit = 3;
+    password = 4;
+    smb_server_name = 5;
+    username = 6;
+  }
+  active_directory = 6;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 7;
+}

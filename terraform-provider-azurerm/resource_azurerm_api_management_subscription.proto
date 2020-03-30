@@ -1,0 +1,23 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermApiManagementSubscription {
+  api_management_name = 1;
+  display_name = 2;
+  id = 3;
+  primary_key = 4;
+  product_id = 5;
+  resource_group_name = 6;
+  secondary_key = 7;
+  state = 8;
+  subscription_id = 9;
+  user_id = 10;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 11;
+}

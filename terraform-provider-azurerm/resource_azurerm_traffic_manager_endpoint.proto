@@ -1,0 +1,38 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermTrafficManagerEndpoint {
+  endpoint_location = 1;
+  endpoint_monitor_status = 2;
+  endpoint_status = 3;
+  geo_mappings = 4;
+  id = 5;
+  min_child_endpoints = 6;
+  name = 7;
+  priority = 8;
+  profile_name = 9;
+  resource_group_name = 10;
+  target = 11;
+  target_resource_id = 12;
+  type = 13;
+  weight = 14;
+  message CustomHeader {
+    name = 1;
+    value = 2;
+  }
+  custom_header = 15;
+  message Subnet {
+    first = 1;
+    last = 2;
+    scope = 3;
+  }
+  subnet = 16;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 17;
+}

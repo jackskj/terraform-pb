@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package aws;
+
+message AwsLoadBalancerPolicy {
+  id = 1;
+  load_balancer_name = 2;
+  policy_name = 3;
+  policy_type_name = 4;
+  message PolicyAttribute {
+    name = 1;
+    value = 2;
+  }
+  policy_attribute = 5;
+}

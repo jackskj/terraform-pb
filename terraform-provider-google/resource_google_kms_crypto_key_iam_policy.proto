@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package google;
+
+message GoogleKmsCryptoKeyIamPolicy {
+  crypto_key_id = 1;
+  etag = 2;
+  id = 3;
+  policy_data = 4;
+}

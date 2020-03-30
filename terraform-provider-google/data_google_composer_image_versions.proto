@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package google;
+
+message GoogleComposerImageVersions {
+  id = 1;
+  image_versions = 2;
+  project = 3;
+  region = 4;
+}

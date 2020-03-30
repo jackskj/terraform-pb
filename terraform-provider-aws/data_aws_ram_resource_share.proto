@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package aws;
+
+message AwsRamResourceShare {
+  arn = 1;
+  id = 2;
+  name = 3;
+  resource_owner = 4;
+  status = 5;
+  tags = 6;
+  message Filter {
+    name = 1;
+    values = 2;
+  }
+  filter = 7;
+}

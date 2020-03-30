@@ -1,0 +1,40 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermSignalrService {
+  hostname = 1;
+  id = 2;
+  ip_address = 3;
+  location = 4;
+  name = 5;
+  primary_access_key = 6;
+  primary_connection_string = 7;
+  public_port = 8;
+  resource_group_name = 9;
+  secondary_access_key = 10;
+  secondary_connection_string = 11;
+  server_port = 12;
+  tags = 13;
+  message Cors {
+    allowed_origins = 1;
+  }
+  cors = 14;
+  message Features {
+    flag = 1;
+    value = 2;
+  }
+  features = 15;
+  message Sku {
+    capacity = 1;
+    name = 2;
+  }
+  sku = 16;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 17;
+}

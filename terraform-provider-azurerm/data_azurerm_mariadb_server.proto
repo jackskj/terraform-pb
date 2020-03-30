@@ -1,0 +1,22 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermMariadbServer {
+  administrator_login = 1;
+  administrator_login_password = 2;
+  fqdn = 3;
+  id = 4;
+  location = 5;
+  name = 6;
+  resource_group_name = 7;
+  sku_name = 8;
+  ssl_enforcement = 9;
+  storage_profile = 10;
+  tags = 11;
+  version = 12;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 13;
+}

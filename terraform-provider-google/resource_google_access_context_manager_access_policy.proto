@@ -1,0 +1,29 @@
+syntax "proto3";
+
+package google;
+
+message GoogleAccessContextManagerAccessPolicy {
+
+  // Time the AccessPolicy was created in UTC.
+  create_time = 1;
+  id = 2;
+
+  // Resource name of the AccessPolicy. Format: {policy_id}
+  name = 3;
+
+  // The parent of this AccessPolicy in the Cloud Resource Hierarchy.
+Format: organizations/{organization_id}
+  parent = 4;
+
+  // Human readable title. Does not affect behavior.
+  title = 5;
+
+  // Time the AccessPolicy was updated in UTC.
+  update_time = 6;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    update = 3;
+  }
+  timeouts = 7;
+}

@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermManagementGroup {
+  display_name = 1;
+  group_id = 2;
+  id = 3;
+  parent_management_group_id = 4;
+  subscription_ids = 5;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 6;
+}

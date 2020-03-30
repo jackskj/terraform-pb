@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package aws;
+
+message AwsQldbLedger {
+  arn = 1;
+  deletion_protection = 2;
+  id = 3;
+  name = 4;
+}

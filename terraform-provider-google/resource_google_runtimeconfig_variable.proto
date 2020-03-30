@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package google;
+
+message GoogleRuntimeconfigVariable {
+  id = 1;
+  name = 2;
+  parent = 3;
+  project = 4;
+  text = 5;
+  update_time = 6;
+  value = 7;
+}

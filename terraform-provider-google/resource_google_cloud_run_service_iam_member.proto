@@ -1,0 +1,13 @@
+syntax "proto3";
+
+package google;
+
+message GoogleCloudRunServiceIamMember {
+  etag = 1;
+  id = 2;
+  location = 3;
+  member = 4;
+  project = 5;
+  role = 6;
+  service = 7;
+}

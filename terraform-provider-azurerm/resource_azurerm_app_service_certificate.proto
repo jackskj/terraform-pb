@@ -1,0 +1,28 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermAppServiceCertificate {
+  expiration_date = 1;
+  friendly_name = 2;
+  host_names = 3;
+  id = 4;
+  issue_date = 5;
+  issuer = 6;
+  key_vault_secret_id = 7;
+  location = 8;
+  name = 9;
+  password = 10;
+  pfx_blob = 11;
+  resource_group_name = 12;
+  subject_name = 13;
+  tags = 14;
+  thumbprint = 15;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 16;
+}

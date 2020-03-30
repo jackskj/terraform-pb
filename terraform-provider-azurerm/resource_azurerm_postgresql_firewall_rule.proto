@@ -1,0 +1,19 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermPostgresqlFirewallRule {
+  end_ip_address = 1;
+  id = 2;
+  name = 3;
+  resource_group_name = 4;
+  server_name = 5;
+  start_ip_address = 6;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 7;
+}

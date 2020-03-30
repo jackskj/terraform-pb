@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package aws;
+
+message AwsRedshiftSubnetGroup {
+  arn = 1;
+  description = 2;
+  id = 3;
+  name = 4;
+  subnet_ids = 5;
+  tags = 6;
+}

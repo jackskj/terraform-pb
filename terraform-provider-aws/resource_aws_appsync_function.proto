@@ -1,0 +1,16 @@
+syntax "proto3";
+
+package aws;
+
+message AwsAppsyncFunction {
+  api_id = 1;
+  arn = 2;
+  data_source = 3;
+  description = 4;
+  function_id = 5;
+  function_version = 6;
+  id = 7;
+  name = 8;
+  request_mapping_template = 9;
+  response_mapping_template = 10;
+}

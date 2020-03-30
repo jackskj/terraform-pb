@@ -1,0 +1,11 @@
+syntax "proto3";
+
+package aws;
+
+message AwsDynamodbTableItem {
+  hash_key = 1;
+  id = 2;
+  item = 3;
+  range_key = 4;
+  table_name = 5;
+}

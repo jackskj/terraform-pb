@@ -1,0 +1,17 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermNetappSnapshot {
+  account_name = 1;
+  id = 2;
+  location = 3;
+  name = 4;
+  pool_name = 5;
+  resource_group_name = 6;
+  volume_name = 7;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 8;
+}

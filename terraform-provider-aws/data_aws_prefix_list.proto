@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package aws;
+
+message AwsPrefixList {
+  cidr_blocks = 1;
+  id = 2;
+  name = 3;
+  prefix_list_id = 4;
+  message Filter {
+    name = 1;
+    values = 2;
+  }
+  filter = 5;
+}

@@ -1,0 +1,10 @@
+syntax "proto3";
+
+package google;
+
+message GoogleIapWebIamPolicy {
+  etag = 1;
+  id = 2;
+  policy_data = 3;
+  project = 4;
+}

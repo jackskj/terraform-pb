@@ -1,0 +1,26 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermNetworkInterface {
+  applied_dns_servers = 1;
+  dns_servers = 2;
+  enable_accelerated_networking = 3;
+  enable_ip_forwarding = 4;
+  id = 5;
+  internal_dns_name_label = 6;
+  ip_configuration = 7;
+  location = 8;
+  mac_address = 9;
+  name = 10;
+  network_security_group_id = 11;
+  private_ip_address = 12;
+  private_ip_addresses = 13;
+  resource_group_name = 14;
+  tags = 15;
+  virtual_machine_id = 16;
+  message Timeouts {
+    read = 1;
+  }
+  timeouts = 17;
+}

@@ -1,0 +1,31 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermAppServicePlan {
+  app_service_environment_id = 1;
+  id = 2;
+  is_xenon = 3;
+  kind = 4;
+  location = 5;
+  maximum_elastic_worker_count = 6;
+  maximum_number_of_workers = 7;
+  name = 8;
+  per_site_scaling = 9;
+  reserved = 10;
+  resource_group_name = 11;
+  tags = 12;
+  message Sku {
+    capacity = 1;
+    size = 2;
+    tier = 3;
+  }
+  sku = 13;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 14;
+}

@@ -1,0 +1,34 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermKeyVault {
+  access_policy = 1;
+  enabled_for_deployment = 2;
+  enabled_for_disk_encryption = 3;
+  enabled_for_template_deployment = 4;
+  id = 5;
+  location = 6;
+  name = 7;
+  purge_protection_enabled = 8;
+  resource_group_name = 9;
+  sku_name = 10;
+  soft_delete_enabled = 11;
+  tags = 12;
+  tenant_id = 13;
+  vault_uri = 14;
+  message NetworkAcls {
+    bypass = 1;
+    default_action = 2;
+    ip_rules = 3;
+    virtual_network_subnet_ids = 4;
+  }
+  network_acls = 15;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 16;
+}

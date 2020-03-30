@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package google;
+
+message GoogleSourcerepoRepositoryIamMember {
+  etag = 1;
+  id = 2;
+  member = 3;
+  project = 4;
+  repository = 5;
+  role = 6;
+}

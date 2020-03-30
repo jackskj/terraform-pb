@@ -1,0 +1,28 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermPublicIp {
+  allocation_method = 1;
+  domain_name_label = 2;
+  fqdn = 3;
+  id = 4;
+  idle_timeout_in_minutes = 5;
+  ip_address = 6;
+  ip_version = 7;
+  location = 8;
+  name = 9;
+  public_ip_prefix_id = 10;
+  resource_group_name = 11;
+  reverse_fqdn = 12;
+  sku = 13;
+  tags = 14;
+  zones = 15;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 16;
+}

@@ -1,0 +1,93 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermLinuxVirtualMachine {
+  admin_password = 1;
+  admin_username = 2;
+  allow_extension_operations = 3;
+  availability_set_id = 4;
+  computer_name = 5;
+  custom_data = 6;
+  dedicated_host_id = 7;
+  disable_password_authentication = 8;
+  eviction_policy = 9;
+  id = 10;
+  location = 11;
+  max_bid_price = 12;
+  name = 13;
+  network_interface_ids = 14;
+  priority = 15;
+  private_ip_address = 16;
+  private_ip_addresses = 17;
+  provision_vm_agent = 18;
+  proximity_placement_group_id = 19;
+  public_ip_address = 20;
+  public_ip_addresses = 21;
+  resource_group_name = 22;
+  size = 23;
+  source_image_id = 24;
+  tags = 25;
+  virtual_machine_id = 26;
+  zone = 27;
+  message AdditionalCapabilities {
+    ultra_ssd_enabled = 1;
+  }
+  additional_capabilities = 28;
+  message AdminSshKey {
+    public_key = 1;
+    username = 2;
+  }
+  admin_ssh_key = 29;
+  message BootDiagnostics {
+    storage_account_uri = 1;
+  }
+  boot_diagnostics = 30;
+  message Identity {
+    identity_ids = 1;
+    principal_id = 2;
+    type = 3;
+  }
+  identity = 31;
+  message OsDisk {
+    caching = 1;
+    disk_encryption_set_id = 2;
+    disk_size_gb = 3;
+    name = 4;
+    storage_account_type = 5;
+    write_accelerator_enabled = 6;
+    message DiffDiskSettings {
+      option = 1;
+    }
+    diff_disk_settings = 7;
+  }
+  os_disk = 32;
+  message Plan {
+    name = 1;
+    product = 2;
+    publisher = 3;
+  }
+  plan = 33;
+  message Secret {
+    key_vault_id = 1;
+    message Certificate {
+      url = 1;
+    }
+    certificate = 2;
+  }
+  secret = 34;
+  message SourceImageReference {
+    offer = 1;
+    publisher = 2;
+    sku = 3;
+    version = 4;
+  }
+  source_image_reference = 35;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 36;
+}

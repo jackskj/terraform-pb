@@ -1,0 +1,14 @@
+syntax "proto3";
+
+package aws;
+
+message AwsIamServerCertificate {
+  arn = 1;
+  certificate_body = 2;
+  certificate_chain = 3;
+  id = 4;
+  name = 5;
+  name_prefix = 6;
+  path = 7;
+  private_key = 8;
+}

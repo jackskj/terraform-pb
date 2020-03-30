@@ -1,0 +1,27 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermStorageBlob {
+  access_tier = 1;
+  content_type = 2;
+  id = 3;
+  metadata = 4;
+  name = 5;
+  parallelism = 6;
+  size = 7;
+  source = 8;
+  source_content = 9;
+  source_uri = 10;
+  storage_account_name = 11;
+  storage_container_name = 12;
+  type = 13;
+  url = 14;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 15;
+}

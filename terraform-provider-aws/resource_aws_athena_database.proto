@@ -1,0 +1,15 @@
+syntax "proto3";
+
+package aws;
+
+message AwsAthenaDatabase {
+  bucket = 1;
+  force_destroy = 2;
+  id = 3;
+  name = 4;
+  message EncryptionConfiguration {
+    encryption_option = 1;
+    kms_key = 2;
+  }
+  encryption_configuration = 5;
+}

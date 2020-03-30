@@ -1,0 +1,31 @@
+syntax "proto3";
+
+package azurerm;
+
+message AzurermMachineLearningWorkspace {
+  application_insights_id = 1;
+  container_registry_id = 2;
+  description = 3;
+  friendly_name = 4;
+  id = 5;
+  key_vault_id = 6;
+  location = 7;
+  name = 8;
+  resource_group_name = 9;
+  sku_name = 10;
+  storage_account_id = 11;
+  tags = 12;
+  message Identity {
+    principal_id = 1;
+    tenant_id = 2;
+    type = 3;
+  }
+  identity = 13;
+  message Timeouts {
+    create = 1;
+    delete = 2;
+    read = 3;
+    update = 4;
+  }
+  timeouts = 14;
+}

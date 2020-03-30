@@ -1,0 +1,9 @@
+syntax "proto3";
+
+package aws;
+
+message AwsAmiLaunchPermission {
+  account_id = 1;
+  id = 2;
+  image_id = 3;
+}

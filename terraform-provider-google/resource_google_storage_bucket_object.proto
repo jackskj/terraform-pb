@@ -1,0 +1,23 @@
+syntax "proto3";
+
+package google;
+
+message GoogleStorageBucketObject {
+  bucket = 1;
+  cache_control = 2;
+  content = 3;
+  content_disposition = 4;
+  content_encoding = 5;
+  content_language = 6;
+  content_type = 7;
+  crc32c = 8;
+  detect_md5hash = 9;
+  id = 10;
+  md5hash = 11;
+  metadata = 12;
+  name = 13;
+  output_name = 14;
+  self_link = 15;
+  source = 16;
+  storage_class = 17;
+}

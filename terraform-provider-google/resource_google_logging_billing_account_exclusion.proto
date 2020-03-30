@@ -1,0 +1,12 @@
+syntax "proto3";
+
+package google;
+
+message GoogleLoggingBillingAccountExclusion {
+  billing_account = 1;
+  description = 2;
+  disabled = 3;
+  filter = 4;
+  id = 5;
+  name = 6;
+}
