@@ -2,7 +2,7 @@
 Terrraform-pb allows the developer do manage their infrastructure programmatically with the language of their choice.
 ## Motivation
 1) Flexibility: Many engineers prefer to manage their infrastructure with their favorite language, rather than relying on a data definition language.
-This project allows just that. The developer manage his/her infrastructure by instantiating a protocall buffer object which represents a terraform resource. 
+This project allows just that. The developer can manage his/her infrastructure by instantiating a protocall buffer object which represents a terraform resource. 
 2) Starting version 0.12, Terraform Core has adopted protocall buffers for communicating with each provider. More information [here](https://github.com/hashicorp/terraform/tree/master/docs/plugin-protocol). This adoption was taken to make provider development more [flexible and easier to manage](https://www.hashicorp.com/blog/announcing-the-terraform-plugin-sdk/). 
 Doing the same between Terraform and end clients can be beneficial for the same reason.
 ## Notes
