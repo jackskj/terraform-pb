@@ -1,0 +1,93 @@
+syntax="proto3";
+
+package aws;
+
+message AwsInstance {
+  string ami = 1;
+  string arn = 2;
+  bool   associate_public_ip_address = 3;
+  string availability_zone = 4;
+  int64  cpu_core_count = 5;
+  int64  cpu_threads_per_core = 6;
+  bool   disable_api_termination = 7;
+  bool   ebs_optimized = 8;
+  bool   get_password_data = 9;
+  bool   hibernation = 10;
+  string host_id = 11;
+  string iam_instance_profile = 12;
+  string id = 13;
+  string instance_initiated_shutdown_behavior = 14;
+  string instance_state = 15;
+  string instance_type = 16;
+  int64  ipv6_address_count = 17;
+  repeated string ipv6_addresses = 18;
+  string key_name = 19;
+  bool   monitoring = 20;
+  string network_interface_id = 21;
+  string password_data = 22;
+  string placement_group = 23;
+  string primary_network_interface_id = 24;
+  string private_dns = 25;
+  string private_ip = 26;
+  string public_dns = 27;
+  string public_ip = 28;
+  repeated string security_groups = 29;
+  bool   source_dest_check = 30;
+  string subnet_id = 31;
+  map<string, string> tags = 32;
+  string tenancy = 33;
+  string user_data = 34;
+  string user_data_base64 = 35;
+  map<string, string> volume_tags = 36;
+  repeated string vpc_security_group_ids = 37;
+  message CreditSpecification {
+    string cpu_credits = 1;
+  }
+  repeated CreditSpecification credit_specification = 38;
+  message EbsBlockDevice {
+    bool   delete_on_termination = 1;
+    string device_name = 2;
+    bool   encrypted = 3;
+    int64  iops = 4;
+    string kms_key_id = 5;
+    string snapshot_id = 6;
+    string volume_id = 7;
+    int64  volume_size = 8;
+    string volume_type = 9;
+  }
+  repeated EbsBlockDevice ebs_block_device = 39;
+  message EphemeralBlockDevice {
+    string device_name = 1;
+    bool   no_device = 2;
+    string virtual_name = 3;
+  }
+  repeated EphemeralBlockDevice ephemeral_block_device = 40;
+  message MetadataOptions {
+    string http_endpoint = 1;
+    int64  http_put_response_hop_limit = 2;
+    string http_tokens = 3;
+  }
+  repeated MetadataOptions metadata_options = 41;
+  message NetworkInterface {
+    bool   delete_on_termination = 1;
+    int64  device_index = 2;
+    string network_interface_id = 3;
+  }
+  repeated NetworkInterface network_interface = 42;
+  message RootBlockDevice {
+    bool   delete_on_termination = 1;
+    bool   encrypted = 2;
+    int64  iops = 3;
+    string kms_key_id = 4;
+    string volume_id = 5;
+    int64  volume_size = 6;
+    string volume_type = 7;
+  }
+  repeated RootBlockDevice root_block_device = 43;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 44;
+}

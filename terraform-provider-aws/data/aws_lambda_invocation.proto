@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLambdaInvocation {
+  string function_name = 1;
+  string id = 2;
+  string input = 3;
+  string qualifier = 4;
+  string result = 5;
+  map<string, string> result_map = 6;
+}

@@ -1,0 +1,44 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLambdaFunction {
+  string arn = 1;
+  message DeadLetterConfig {
+    string target_arn = 1;
+  }
+  repeated DeadLetterConfig dead_letter_config = 2;
+  string description = 3;
+  message Environment {
+    map<string, string> variables = 1;
+  }
+  repeated Environment environment = 4;
+  string function_name = 5;
+  string handler = 6;
+  string id = 7;
+  string invoke_arn = 8;
+  string kms_key_arn = 9;
+  string last_modified = 10;
+  repeated string layers = 11;
+  int64  memory_size = 12;
+  string qualified_arn = 13;
+  string qualifier = 14;
+  int64  reserved_concurrent_executions = 15;
+  string role = 16;
+  string runtime = 17;
+  string source_code_hash = 18;
+  int64  source_code_size = 19;
+  map<string, string> tags = 20;
+  int64  timeout = 21;
+  message TracingConfig {
+    string mode = 1;
+  }
+  repeated TracingConfig tracing_config = 22;
+  string version = 23;
+  message VpcConfig {
+    repeated string security_group_ids = 1;
+    repeated string subnet_ids = 2;
+    string vpc_id = 3;
+  }
+  repeated VpcConfig vpc_config = 24;
+}

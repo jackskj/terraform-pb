@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRoute53DelegationSet {
+  string caller_reference = 1;
+  string id = 2;
+  repeated string name_servers = 3;
+}

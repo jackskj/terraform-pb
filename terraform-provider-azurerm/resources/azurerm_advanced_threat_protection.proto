@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermAdvancedThreatProtection {
+  bool   enabled = 1;
+  string id = 2;
+  string target_resource_id = 3;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 4;
+}

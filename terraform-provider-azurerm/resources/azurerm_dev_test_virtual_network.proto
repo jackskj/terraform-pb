@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermDevTestVirtualNetwork {
+  string description = 1;
+  string id = 2;
+  string lab_name = 3;
+  string name = 4;
+  string resource_group_name = 5;
+  map<string, string> tags = 6;
+  string unique_identifier = 7;
+  message Subnet {
+    string name = 1;
+    string use_in_virtual_machine_creation = 2;
+    string use_public_ip_address = 3;
+  }
+  repeated Subnet subnet = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 9;
+}

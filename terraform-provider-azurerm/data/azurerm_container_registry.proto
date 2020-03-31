@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermContainerRegistry {
+  bool   admin_enabled = 1;
+  string admin_password = 2;
+  string admin_username = 3;
+  string id = 4;
+  string location = 5;
+  string login_server = 6;
+  string name = 7;
+  string resource_group_name = 8;
+  string sku = 9;
+  string storage_account_id = 10;
+  map<string, string> tags = 11;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 12;
+}

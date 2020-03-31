@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package google;
+
+message GoogleSpannerDatabaseIamPolicy {
+  string database = 1;
+  string etag = 2;
+  string id = 3;
+  string instance = 4;
+  string policy_data = 5;
+  string project = 6;
+}

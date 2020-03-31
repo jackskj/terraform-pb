@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDefaultRouteTable {
+  string default_route_table_id = 1;
+  string id = 2;
+  string owner_id = 3;
+  repeated string propagating_vgws = 4;
+  message Route {
+    string cidr_block = 1;
+    string egress_only_gateway_id = 2;
+    string gateway_id = 3;
+    string instance_id = 4;
+    string ipv6_cidr_block = 5;
+    string nat_gateway_id = 6;
+    string network_interface_id = 7;
+    string transit_gateway_id = 8;
+    string vpc_peering_connection_id = 9;
+  }
+  repeated Route route = 5;
+  map<string, string> tags = 6;
+  string vpc_id = 7;
+}

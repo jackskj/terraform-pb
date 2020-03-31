@@ -1,0 +1,46 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAutoscalingPolicy {
+  string adjustment_type = 1;
+  string arn = 2;
+  string autoscaling_group_name = 3;
+  int64  cooldown = 4;
+  int64  estimated_instance_warmup = 5;
+  string id = 6;
+  string metric_aggregation_type = 7;
+  int64  min_adjustment_magnitude = 8;
+  int64  min_adjustment_step = 9;
+  string name = 10;
+  string policy_type = 11;
+  int64  scaling_adjustment = 12;
+  message StepAdjustment {
+    string metric_interval_lower_bound = 1;
+    string metric_interval_upper_bound = 2;
+    int64  scaling_adjustment = 3;
+  }
+  repeated StepAdjustment step_adjustment = 13;
+  message TargetTrackingConfiguration {
+    bool   disable_scale_in = 1;
+    int64  target_value = 2;
+    message CustomizedMetricSpecification {
+      string metric_name = 1;
+      string namespace = 2;
+      string statistic = 3;
+      string unit = 4;
+      message MetricDimension {
+        string name = 1;
+        string value = 2;
+      }
+      repeated MetricDimension metric_dimension = 5;
+    }
+    repeated CustomizedMetricSpecification customized_metric_specification = 3;
+    message PredefinedMetricSpecification {
+      string predefined_metric_type = 1;
+      string resource_label = 2;
+    }
+    repeated PredefinedMetricSpecification predefined_metric_specification = 4;
+  }
+  repeated TargetTrackingConfiguration target_tracking_configuration = 14;
+}

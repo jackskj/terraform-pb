@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsInstances {
+  string id = 1;
+  repeated string ids = 2;
+  repeated string instance_state_names = 3;
+  map<string, string> instance_tags = 4;
+  repeated string private_ips = 5;
+  repeated string public_ips = 6;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 7;
+}

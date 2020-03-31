@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEfsMountTarget {
+  string dns_name = 1;
+  string file_system_arn = 2;
+  string file_system_id = 3;
+  string id = 4;
+  string ip_address = 5;
+  string mount_target_id = 6;
+  string network_interface_id = 7;
+  repeated string security_groups = 8;
+  string subnet_id = 9;
+}

@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStorageAccountNetworkRules {
+  repeated string bypass = 1;
+  string default_action = 2;
+  string id = 3;
+  repeated string ip_rules = 4;
+  string resource_group_name = 5;
+  string storage_account_name = 6;
+  repeated string virtual_network_subnet_ids = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 8;
+}

@@ -1,0 +1,50 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAppsyncGraphqlApi {
+  string arn = 1;
+  string authentication_type = 2;
+  string id = 3;
+  string name = 4;
+  string schema = 5;
+  map<string, string> tags = 6;
+  map<string, string> uris = 7;
+  bool   xray_enabled = 8;
+  message AdditionalAuthenticationProvider {
+    string authentication_type = 1;
+    message OpenidConnectConfig {
+      int64  auth_ttl = 1;
+      string client_id = 2;
+      int64  iat_ttl = 3;
+      string issuer = 4;
+    }
+    repeated OpenidConnectConfig openid_connect_config = 2;
+    message UserPoolConfig {
+      string app_id_client_regex = 1;
+      string aws_region = 2;
+      string user_pool_id = 3;
+    }
+    repeated UserPoolConfig user_pool_config = 3;
+  }
+  repeated AdditionalAuthenticationProvider additional_authentication_provider = 9;
+  message LogConfig {
+    string cloudwatch_logs_role_arn = 1;
+    string field_log_level = 2;
+  }
+  repeated LogConfig log_config = 10;
+  message OpenidConnectConfig {
+    int64  auth_ttl = 1;
+    string client_id = 2;
+    int64  iat_ttl = 3;
+    string issuer = 4;
+  }
+  repeated OpenidConnectConfig openid_connect_config = 11;
+  message UserPoolConfig {
+    string app_id_client_regex = 1;
+    string aws_region = 2;
+    string default_action = 3;
+    string user_pool_id = 4;
+  }
+  repeated UserPoolConfig user_pool_config = 12;
+}

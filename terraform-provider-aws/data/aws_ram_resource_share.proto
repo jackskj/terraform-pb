@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRamResourceShare {
+  string arn = 1;
+  string id = 2;
+  string name = 3;
+  string resource_owner = 4;
+  string status = 5;
+  map<string, string> tags = 6;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 7;
+}

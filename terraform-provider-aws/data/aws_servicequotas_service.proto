@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsServicequotasService {
+  string id = 1;
+  string service_code = 2;
+  string service_name = 3;
+}

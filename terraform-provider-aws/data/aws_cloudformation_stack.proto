@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCloudformationStack {
+  repeated string capabilities = 1;
+  string description = 2;
+  bool   disable_rollback = 3;
+  string iam_role_arn = 4;
+  string id = 5;
+  string name = 6;
+  repeated string notification_arns = 7;
+  map<string, string> outputs = 8;
+  map<string, string> parameters = 9;
+  map<string, string> tags = 10;
+  string template_body = 11;
+  int64  timeout_in_minutes = 12;
+}

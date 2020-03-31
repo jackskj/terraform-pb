@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEc2TransitGateway {
+  int64  amazon_side_asn = 1;
+  string arn = 2;
+  string association_default_route_table_id = 3;
+  string auto_accept_shared_attachments = 4;
+  string default_route_table_association = 5;
+  string default_route_table_propagation = 6;
+  string description = 7;
+  string dns_support = 8;
+  string id = 9;
+  string owner_id = 10;
+  string propagation_default_route_table_id = 11;
+  map<string, string> tags = 12;
+  string vpn_ecmp_support = 13;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 14;
+}

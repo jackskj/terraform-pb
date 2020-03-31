@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package google;
-
-message GoogleProjects {
-  filter = 1;
-  id = 2;
-  projects = 3;
-}

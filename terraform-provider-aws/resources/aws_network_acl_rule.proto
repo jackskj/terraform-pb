@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsNetworkAclRule {
+  string cidr_block = 1;
+  bool   egress = 2;
+  int64  from_port = 3;
+  string icmp_code = 4;
+  string icmp_type = 5;
+  string id = 6;
+  string ipv6_cidr_block = 7;
+  string network_acl_id = 8;
+  string protocol = 9;
+  string rule_action = 10;
+  int64  rule_number = 11;
+  int64  to_port = 12;
+}

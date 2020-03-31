@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsWafGeoMatchSet {
+  string arn = 1;
+  string id = 2;
+  string name = 3;
+  message GeoMatchConstraint {
+    string type = 1;
+    string value = 2;
+  }
+  repeated GeoMatchConstraint geo_match_constraint = 4;
+}

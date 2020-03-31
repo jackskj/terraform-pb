@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeRouterInterface {
+  string id = 1;
+  string interconnect_attachment = 2;
+  string ip_range = 3;
+  string name = 4;
+  string project = 5;
+  string region = 6;
+  string router = 7;
+  string vpn_tunnel = 8;
+}

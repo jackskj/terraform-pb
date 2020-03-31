@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package aws;
+
+message AwsGlueConnection {
+  string catalog_id = 1;
+  map<string, string> connection_properties = 2;
+  string connection_type = 3;
+  string description = 4;
+  string id = 5;
+  repeated string match_criteria = 6;
+  string name = 7;
+  message PhysicalConnectionRequirements {
+    string availability_zone = 1;
+    repeated string security_group_id_list = 2;
+    string subnet_id = 3;
+  }
+  repeated PhysicalConnectionRequirements physical_connection_requirements = 8;
+}

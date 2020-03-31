@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermBotChannelsRegistration {
+  string developer_app_insights_api_key = 1;
+  string developer_app_insights_application_id = 2;
+  string developer_app_insights_key = 3;
+  string display_name = 4;
+  string endpoint = 5;
+  string id = 6;
+  string location = 7;
+  string microsoft_app_id = 8;
+  string name = 9;
+  string resource_group_name = 10;
+  string sku = 11;
+  map<string, string> tags = 12;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 13;
+}

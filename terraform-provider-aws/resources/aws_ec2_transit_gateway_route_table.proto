@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEc2TransitGatewayRouteTable {
+  bool   default_association_route_table = 1;
+  bool   default_propagation_route_table = 2;
+  string id = 3;
+  map<string, string> tags = 4;
+  string transit_gateway_id = 5;
+}

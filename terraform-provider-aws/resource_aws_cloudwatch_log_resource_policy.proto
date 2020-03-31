@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsCloudwatchLogResourcePolicy {
-  id = 1;
-  policy_document = 2;
-  policy_name = 3;
-}

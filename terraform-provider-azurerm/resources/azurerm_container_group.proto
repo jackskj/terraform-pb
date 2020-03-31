@@ -1,0 +1,106 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermContainerGroup {
+  string dns_name_label = 1;
+  string fqdn = 2;
+  string id = 3;
+  string ip_address = 4;
+  string ip_address_type = 5;
+  string location = 6;
+  string name = 7;
+  string network_profile_id = 8;
+  string os_type = 9;
+  string resource_group_name = 10;
+  string restart_policy = 11;
+  map<string, string> tags = 12;
+  message Container {
+    repeated string commands = 1;
+    int64  cpu = 2;
+    map<string, string> environment_variables = 3;
+    string image = 4;
+    int64  memory = 5;
+    string name = 6;
+    map<string, string> secure_environment_variables = 7;
+    message Gpu {
+      int64  count = 1;
+      string sku = 2;
+    }
+    repeated Gpu gpu = 8;
+    message LivenessProbe {
+      repeated string exec = 1;
+      int64  failure_threshold = 2;
+      int64  initial_delay_seconds = 3;
+      int64  period_seconds = 4;
+      int64  success_threshold = 5;
+      int64  timeout_seconds = 6;
+      message HttpGet {
+        string path = 1;
+        int64  port = 2;
+        string scheme = 3;
+      }
+      repeated HttpGet http_get = 7;
+    }
+    repeated LivenessProbe liveness_probe = 9;
+    message Ports {
+      int64  port = 1;
+      string protocol = 2;
+    }
+    repeated Ports ports = 10;
+    message ReadinessProbe {
+      repeated string exec = 1;
+      int64  failure_threshold = 2;
+      int64  initial_delay_seconds = 3;
+      int64  period_seconds = 4;
+      int64  success_threshold = 5;
+      int64  timeout_seconds = 6;
+      message HttpGet {
+        string path = 1;
+        int64  port = 2;
+        string scheme = 3;
+      }
+      repeated HttpGet http_get = 7;
+    }
+    repeated ReadinessProbe readiness_probe = 11;
+    message Volume {
+      string mount_path = 1;
+      string name = 2;
+      bool   read_only = 3;
+      string share_name = 4;
+      string storage_account_key = 5;
+      string storage_account_name = 6;
+    }
+    repeated Volume volume = 12;
+  }
+  repeated Container container = 13;
+  message Diagnostics {
+    message LogAnalytics {
+      string log_type = 1;
+      map<string, string> metadata = 2;
+      string workspace_id = 3;
+      string workspace_key = 4;
+    }
+    repeated LogAnalytics log_analytics = 1;
+  }
+  repeated Diagnostics diagnostics = 14;
+  message Identity {
+    repeated string identity_ids = 1;
+    string principal_id = 2;
+    string type = 3;
+  }
+  repeated Identity identity = 15;
+  message ImageRegistryCredential {
+    string password = 1;
+    string server = 2;
+    string username = 3;
+  }
+  repeated ImageRegistryCredential image_registry_credential = 16;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 17;
+}

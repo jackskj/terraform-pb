@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOrganizationsAccount {
+  string arn = 1;
+  string email = 2;
+  string iam_user_access_to_billing = 3;
+  string id = 4;
+  string joined_method = 5;
+  string joined_timestamp = 6;
+  string name = 7;
+  string parent_id = 8;
+  string role_name = 9;
+  string status = 10;
+  map<string, string> tags = 11;
+}

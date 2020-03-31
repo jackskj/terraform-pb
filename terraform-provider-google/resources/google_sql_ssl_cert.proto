@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package google;
+
+message GoogleSqlSslCert {
+  string cert = 1;
+  string cert_serial_number = 2;
+  string common_name = 3;
+  string create_time = 4;
+  string expiration_time = 5;
+  string id = 6;
+  string instance = 7;
+  string private_key = 8;
+  string project = 9;
+  string server_ca_cert = 10;
+  string sha1_fingerprint = 11;
+}

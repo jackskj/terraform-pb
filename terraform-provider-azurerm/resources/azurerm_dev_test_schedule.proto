@@ -1,0 +1,41 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermDevTestSchedule {
+  string id = 1;
+  string lab_name = 2;
+  string location = 3;
+  string name = 4;
+  string resource_group_name = 5;
+  string status = 6;
+  map<string, string> tags = 7;
+  string task_type = 8;
+  string time_zone_id = 9;
+  message DailyRecurrence {
+    string time = 1;
+  }
+  repeated DailyRecurrence daily_recurrence = 10;
+  message HourlyRecurrence {
+    int64  minute = 1;
+  }
+  repeated HourlyRecurrence hourly_recurrence = 11;
+  message NotificationSettings {
+    string status = 1;
+    int64  time_in_minutes = 2;
+    string webhook_url = 3;
+  }
+  repeated NotificationSettings notification_settings = 12;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 13;
+  message WeeklyRecurrence {
+    string time = 1;
+    repeated string week_days = 2;
+  }
+  repeated WeeklyRecurrence weekly_recurrence = 14;
+}

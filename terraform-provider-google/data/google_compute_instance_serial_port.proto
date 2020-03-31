@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeInstanceSerialPort {
+  string contents = 1;
+  string id = 2;
+  string instance = 3;
+  int64  port = 4;
+  string project = 5;
+  string zone = 6;
+}

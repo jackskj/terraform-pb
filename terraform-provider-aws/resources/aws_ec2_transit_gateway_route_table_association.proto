@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEc2TransitGatewayRouteTableAssociation {
+  string id = 1;
+  string resource_id = 2;
+  string resource_type = 3;
+  string transit_gateway_attachment_id = 4;
+  string transit_gateway_route_table_id = 5;
+}

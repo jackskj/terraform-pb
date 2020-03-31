@@ -1,0 +1,252 @@
+syntax="proto3";
+
+package google;
+
+message GoogleContainerCluster {
+  repeated string additional_zones = 1;
+  message AddonsConfig {
+    message HorizontalPodAutoscaling {
+      bool   disabled = 1;
+    }
+    repeated HorizontalPodAutoscaling horizontal_pod_autoscaling = 1;
+    message HttpLoadBalancing {
+      bool   disabled = 1;
+    }
+    repeated HttpLoadBalancing http_load_balancing = 2;
+    message KubernetesDashboard {
+      bool   disabled = 1;
+    }
+    repeated KubernetesDashboard kubernetes_dashboard = 3;
+    message NetworkPolicyConfig {
+      bool   disabled = 1;
+    }
+    repeated NetworkPolicyConfig network_policy_config = 4;
+  }
+  repeated AddonsConfig addons_config = 2;
+  message AuthenticatorGroupsConfig {
+    string security_group = 1;
+  }
+  repeated AuthenticatorGroupsConfig authenticator_groups_config = 3;
+  message ClusterAutoscaling {
+    message AutoProvisioningDefaults {
+      repeated string oauth_scopes = 1;
+      string service_account = 2;
+    }
+    repeated AutoProvisioningDefaults auto_provisioning_defaults = 1;
+    bool   enabled = 2;
+    message ResourceLimits {
+      int64  maximum = 1;
+      int64  minimum = 2;
+      string resource_type = 3;
+    }
+    repeated ResourceLimits resource_limits = 3;
+  }
+  repeated ClusterAutoscaling cluster_autoscaling = 4;
+  string cluster_ipv4_cidr = 5;
+  int64  default_max_pods_per_node = 6;
+  string description = 7;
+  bool   enable_binary_authorization = 8;
+  bool   enable_intranode_visibility = 9;
+  bool   enable_kubernetes_alpha = 10;
+  bool   enable_legacy_abac = 11;
+  bool   enable_tpu = 12;
+  string endpoint = 13;
+  string id = 14;
+  int64  initial_node_count = 15;
+  repeated string instance_group_urls = 16;
+  message IpAllocationPolicy {
+    string cluster_ipv4_cidr_block = 1;
+    string cluster_secondary_range_name = 2;
+    string node_ipv4_cidr_block = 3;
+    string services_ipv4_cidr_block = 4;
+    string services_secondary_range_name = 5;
+    string subnetwork_name = 6;
+  }
+  repeated IpAllocationPolicy ip_allocation_policy = 17;
+  string label_fingerprint = 18;
+  string location = 19;
+  string logging_service = 20;
+  message MaintenancePolicy {
+    message DailyMaintenanceWindow {
+      string duration = 1;
+      string start_time = 2;
+    }
+    repeated DailyMaintenanceWindow daily_maintenance_window = 1;
+    message RecurringWindow {
+      string end_time = 1;
+      string recurrence = 2;
+      string start_time = 3;
+    }
+    repeated RecurringWindow recurring_window = 2;
+  }
+  repeated MaintenancePolicy maintenance_policy = 21;
+  message MasterAuth {
+    string client_certificate = 1;
+    message ClientCertificateConfig {
+      bool   issue_client_certificate = 1;
+    }
+    repeated ClientCertificateConfig client_certificate_config = 2;
+    string client_key = 3;
+    string cluster_ca_certificate = 4;
+    string password = 5;
+    string username = 6;
+  }
+  repeated MasterAuth master_auth = 22;
+  message MasterAuthorizedNetworksConfig {
+    message CidrBlocks {
+      string cidr_block = 1;
+      string display_name = 2;
+    }
+    repeated CidrBlocks cidr_blocks = 1;
+  }
+  repeated MasterAuthorizedNetworksConfig master_authorized_networks_config = 23;
+  string master_version = 24;
+  string min_master_version = 25;
+  string monitoring_service = 26;
+  string name = 27;
+  string network = 28;
+  message NetworkPolicy {
+    bool   enabled = 1;
+    string provider = 2;
+  }
+  repeated NetworkPolicy network_policy = 29;
+  message NodeConfig {
+    int64  disk_size_gb = 1;
+    string disk_type = 2;
+    message GuestAccelerator {
+      int64  count = 1;
+      string type = 2;
+    }
+    repeated GuestAccelerator guest_accelerator = 3;
+    string image_type = 4;
+    map<string, string> labels = 5;
+    int64  local_ssd_count = 6;
+    string machine_type = 7;
+    map<string, string> metadata = 8;
+    string min_cpu_platform = 9;
+    repeated string oauth_scopes = 10;
+    bool   preemptible = 11;
+    message SandboxConfig {
+      string sandbox_type = 1;
+    }
+    repeated SandboxConfig sandbox_config = 12;
+    string service_account = 13;
+    message ShieldedInstanceConfig {
+      bool   enable_integrity_monitoring = 1;
+      bool   enable_secure_boot = 2;
+    }
+    repeated ShieldedInstanceConfig shielded_instance_config = 14;
+    repeated string tags = 15;
+    message Taint {
+      string effect = 1;
+      string key = 2;
+      string value = 3;
+    }
+    repeated Taint taint = 16;
+    message WorkloadMetadataConfig {
+      string node_metadata = 1;
+    }
+    repeated WorkloadMetadataConfig workload_metadata_config = 17;
+  }
+  repeated NodeConfig node_config = 30;
+  repeated string node_locations = 31;
+  message NodePool {
+    message Autoscaling {
+      int64  max_node_count = 1;
+      int64  min_node_count = 2;
+    }
+    repeated Autoscaling autoscaling = 1;
+    int64  initial_node_count = 2;
+    repeated string instance_group_urls = 3;
+    message Management {
+      bool   auto_repair = 1;
+      bool   auto_upgrade = 2;
+    }
+    repeated Management management = 4;
+    int64  max_pods_per_node = 5;
+    string name = 6;
+    string name_prefix = 7;
+    message NodeConfig {
+      int64  disk_size_gb = 1;
+      string disk_type = 2;
+      message GuestAccelerator {
+        int64  count = 1;
+        string type = 2;
+      }
+      repeated GuestAccelerator guest_accelerator = 3;
+      string image_type = 4;
+      map<string, string> labels = 5;
+      int64  local_ssd_count = 6;
+      string machine_type = 7;
+      map<string, string> metadata = 8;
+      string min_cpu_platform = 9;
+      repeated string oauth_scopes = 10;
+      bool   preemptible = 11;
+      message SandboxConfig {
+        string sandbox_type = 1;
+      }
+      repeated SandboxConfig sandbox_config = 12;
+      string service_account = 13;
+      message ShieldedInstanceConfig {
+        bool   enable_integrity_monitoring = 1;
+        bool   enable_secure_boot = 2;
+      }
+      repeated ShieldedInstanceConfig shielded_instance_config = 14;
+      repeated string tags = 15;
+      message Taint {
+        string effect = 1;
+        string key = 2;
+        string value = 3;
+      }
+      repeated Taint taint = 16;
+      message WorkloadMetadataConfig {
+        string node_metadata = 1;
+      }
+      repeated WorkloadMetadataConfig workload_metadata_config = 17;
+    }
+    repeated NodeConfig node_config = 8;
+    int64  node_count = 9;
+    message UpgradeSettings {
+      int64  max_surge = 1;
+      int64  max_unavailable = 2;
+    }
+    repeated UpgradeSettings upgrade_settings = 10;
+    string version = 11;
+  }
+  repeated NodePool node_pool = 32;
+  string node_version = 33;
+  string operation = 34;
+  message PodSecurityPolicyConfig {
+    bool   enabled = 1;
+  }
+  repeated PodSecurityPolicyConfig pod_security_policy_config = 35;
+  message PrivateClusterConfig {
+    bool   enable_private_endpoint = 1;
+    bool   enable_private_nodes = 2;
+    string master_ipv4_cidr_block = 3;
+    string peering_name = 4;
+    string private_endpoint = 5;
+    string public_endpoint = 6;
+  }
+  repeated PrivateClusterConfig private_cluster_config = 36;
+  string project = 37;
+  string region = 38;
+  bool   remove_default_node_pool = 39;
+  map<string, string> resource_labels = 40;
+  message ResourceUsageExportConfig {
+    message BigqueryDestination {
+      string dataset_id = 1;
+    }
+    repeated BigqueryDestination bigquery_destination = 1;
+    bool   enable_network_egress_metering = 2;
+    bool   enable_resource_consumption_metering = 3;
+  }
+  repeated ResourceUsageExportConfig resource_usage_export_config = 41;
+  string services_ipv4_cidr = 42;
+  string subnetwork = 43;
+  message VerticalPodAutoscaling {
+    bool   enabled = 1;
+  }
+  repeated VerticalPodAutoscaling vertical_pod_autoscaling = 44;
+  string zone = 45;
+}

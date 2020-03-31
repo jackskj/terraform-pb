@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package google;
+
+message GoogleProjects {
+  string filter = 1;
+  string id = 2;
+  message Projects {
+    string project_id = 1;
+  }
+  repeated Projects projects = 3;
+}

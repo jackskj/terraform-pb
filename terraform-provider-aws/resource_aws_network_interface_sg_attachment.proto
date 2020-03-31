@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsNetworkInterfaceSgAttachment {
-  id = 1;
-  network_interface_id = 2;
-  security_group_id = 3;
-}

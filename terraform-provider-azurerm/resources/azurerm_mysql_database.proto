@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMysqlDatabase {
+  string charset = 1;
+  string collation = 2;
+  string id = 3;
+  string name = 4;
+  string resource_group_name = 5;
+  string server_name = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 7;
+}

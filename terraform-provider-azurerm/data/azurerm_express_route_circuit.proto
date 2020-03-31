@@ -1,0 +1,37 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermExpressRouteCircuit {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  message Peerings {
+    int64  azure_asn = 1;
+    int64  peer_asn = 2;
+    string peering_type = 3;
+    string primary_peer_address_prefix = 4;
+    string secondary_peer_address_prefix = 5;
+    string shared_key = 6;
+    int64  vlan_id = 7;
+  }
+  repeated Peerings peerings = 4;
+  string resource_group_name = 5;
+  string service_key = 6;
+  message ServiceProviderProperties {
+    int64  bandwidth_in_mbps = 1;
+    string peering_location = 2;
+    string service_provider_name = 3;
+  }
+  repeated ServiceProviderProperties service_provider_properties = 7;
+  string service_provider_provisioning_state = 8;
+  message Sku {
+    string family = 1;
+    string tier = 2;
+  }
+  repeated Sku sku = 9;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 10;
+}

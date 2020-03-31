@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIotThing {
+  string arn = 1;
+  map<string, string> attributes = 2;
+  string default_client_id = 3;
+  string id = 4;
+  string name = 5;
+  string thing_type_name = 6;
+  int64  version = 7;
+}

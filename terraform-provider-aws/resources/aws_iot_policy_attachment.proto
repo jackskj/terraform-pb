@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIotPolicyAttachment {
+  string id = 1;
+  string policy = 2;
+  string target = 3;
+}

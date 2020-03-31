@@ -1,0 +1,46 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDbInstance {
+  string address = 1;
+  int64  allocated_storage = 2;
+  bool   auto_minor_version_upgrade = 3;
+  string availability_zone = 4;
+  int64  backup_retention_period = 5;
+  string ca_cert_identifier = 6;
+  string db_cluster_identifier = 7;
+  string db_instance_arn = 8;
+  string db_instance_class = 9;
+  string db_instance_identifier = 10;
+  int64  db_instance_port = 11;
+  string db_name = 12;
+  repeated string db_parameter_groups = 13;
+  repeated string db_security_groups = 14;
+  string db_subnet_group = 15;
+  repeated string enabled_cloudwatch_logs_exports = 16;
+  string endpoint = 17;
+  string engine = 18;
+  string engine_version = 19;
+  string hosted_zone_id = 20;
+  string id = 21;
+  int64  iops = 22;
+  string kms_key_id = 23;
+  string license_model = 24;
+  string master_username = 25;
+  int64  monitoring_interval = 26;
+  string monitoring_role_arn = 27;
+  bool   multi_az = 28;
+  repeated string option_group_memberships = 29;
+  int64  port = 30;
+  string preferred_backup_window = 31;
+  string preferred_maintenance_window = 32;
+  bool   publicly_accessible = 33;
+  string replicate_source_db = 34;
+  string resource_id = 35;
+  bool   storage_encrypted = 36;
+  string storage_type = 37;
+  map<string, string> tags = 38;
+  string timezone = 39;
+  repeated string vpc_security_groups = 40;
+}

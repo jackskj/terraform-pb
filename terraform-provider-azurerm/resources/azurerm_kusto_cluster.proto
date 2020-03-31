@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermKustoCluster {
+  string data_ingestion_uri = 1;
+  bool   enable_disk_encryption = 2;
+  bool   enable_streaming_ingest = 3;
+  string id = 4;
+  string location = 5;
+  string name = 6;
+  string resource_group_name = 7;
+  map<string, string> tags = 8;
+  string uri = 9;
+  message Sku {
+    int64  capacity = 1;
+    string name = 2;
+  }
+  repeated Sku sku = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

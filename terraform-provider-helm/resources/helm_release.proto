@@ -1,0 +1,135 @@
+syntax="proto3";
+
+package helm;
+
+message HelmRelease {
+
+  // If set, installation process purges chart on fail. The wait flag will be set automatically if atomic is used
+  bool   atomic = 1;
+
+  // Chart name to be installed. A path may be used.
+  string chart = 2;
+
+  // Allow deletion of new resources created in this upgrade when upgrade fails
+  bool   cleanup_on_fail = 3;
+
+  // Run helm dependency update before installing the chart
+  bool   dependency_update = 4;
+
+  // Add a custom description
+  string description = 5;
+
+  // Use chart development versions, too. Equivalent to version '>0.0.0-0'. If `version` is set, this is ignored
+  bool   devel = 6;
+
+  // Prevent CRD hooks from, running, but run other hooks.  See helm install --no-crd-hook
+  bool   disable_crd_hooks = 7;
+
+  // If set, the installation process will not validate rendered templates against the Kubernetes OpenAPI Schema
+  bool   disable_openapi_validation = 8;
+
+  // Prevent hooks from running.
+  bool   disable_webhooks = 9;
+
+  // Force resource update through delete/recreate if needed.
+  bool   force_update = 10;
+  string id = 11;
+
+  // Location of public keys used for verification. Used only if `verify` is true
+  string keyring = 12;
+
+  // Limit the maximum number of revisions saved per release. Use 0 for no limit
+  int64  max_history = 13;
+
+  // Status of the deployed release.
+  message Metadata {
+    string chart = 1;
+    string name = 2;
+    string namespace = 3;
+    int64  revision = 4;
+    string values = 5;
+    string version = 6;
+  }
+  repeated Metadata metadata = 14;
+
+  // Release name.
+  string name = 15;
+
+  // Namespace to install the release into.
+  string namespace = 16;
+
+  // Perform pods restart during upgrade/rollback
+  bool   recreate_pods = 17;
+
+  // If set, render subchart notes along with the parent
+  bool   render_subchart_notes = 18;
+
+  // Re-use the given name, even if that name is already used. This is unsafe in production
+  bool   replace = 19;
+
+  // Repository where to locate the requested chart. If is a URL the chart is installed without installing the repository.
+  string repository = 20;
+
+  // The Repositories CA File
+  string repository_ca_file = 21;
+
+  // The repositories cert file
+  string repository_cert_file = 22;
+
+  // The repositories cert key file
+  string repository_key_file = 23;
+
+  // Password for HTTP basic authentication
+  string repository_password = 24;
+
+  // Username for HTTP basic authentication
+  string repository_username = 25;
+
+  // When upgrading, reset the values to the ones built into the chart
+  bool   reset_values = 26;
+
+  // When upgrading, reuse the last release's values and merge in any overrides. If 'reset_values' is specified, this is ignored
+  bool   reuse_values = 27;
+
+  // If set, no CRDs will be installed. By default, CRDs are installed if not already present
+  bool   skip_crds = 28;
+
+  // Status of the release.
+  string status = 29;
+
+  // Time in seconds to wait for any individual kubernetes operation.
+  int64  timeout = 30;
+
+  // List of values in raw yaml format to pass to helm.
+  repeated string values = 31;
+
+  // Verify the package before installing it.
+  bool   verify = 32;
+
+  // Specify the exact chart version to install. If this is not specified, the latest version is installed.
+  string version = 33;
+
+  // Will wait until all resources are in a ready state before marking the release as successful.
+  bool   wait = 34;
+  message Postrender {
+
+    // The command binary path.
+    string binary_path = 1;
+  }
+  repeated Postrender postrender = 35;
+  message Set {
+    string name = 1;
+    string value = 2;
+  }
+  repeated Set set = 36;
+  message SetSensitive {
+    string name = 1;
+    string value = 2;
+  }
+  repeated SetSensitive set_sensitive = 37;
+  message SetString {
+    string name = 1;
+    string value = 2;
+  }
+  repeated SetString set_string = 38;
+}

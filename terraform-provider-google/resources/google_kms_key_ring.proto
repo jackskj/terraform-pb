@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package google;
+
+message GoogleKmsKeyRing {
+  string id = 1;
+
+  // The location for the KeyRing.
+  // A full list of valid locations can be found by running 'gcloud kms locations list'.
+  string location = 2;
+
+  // The resource name for the KeyRing.
+  string name = 3;
+  string project = 4;
+  string self_link = 5;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 6;
+}

@@ -1,0 +1,42 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLb {
+  string arn = 1;
+  string arn_suffix = 2;
+  string dns_name = 3;
+  bool   drop_invalid_header_fields = 4;
+  bool   enable_cross_zone_load_balancing = 5;
+  bool   enable_deletion_protection = 6;
+  bool   enable_http2 = 7;
+  string id = 8;
+  int64  idle_timeout = 9;
+  bool   internal = 10;
+  string ip_address_type = 11;
+  string load_balancer_type = 12;
+  string name = 13;
+  string name_prefix = 14;
+  repeated string security_groups = 15;
+  repeated string subnets = 16;
+  map<string, string> tags = 17;
+  string vpc_id = 18;
+  string zone_id = 19;
+  message AccessLogs {
+    string bucket = 1;
+    bool   enabled = 2;
+    string prefix = 3;
+  }
+  repeated AccessLogs access_logs = 20;
+  message SubnetMapping {
+    string allocation_id = 1;
+    string subnet_id = 2;
+  }
+  repeated SubnetMapping subnet_mapping = 21;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 22;
+}

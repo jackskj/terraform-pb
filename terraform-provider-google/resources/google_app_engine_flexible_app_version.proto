@@ -1,0 +1,339 @@
+syntax="proto3";
+
+package google;
+
+message GoogleAppEngineFlexibleAppVersion {
+
+  // Metadata settings that are supplied to this version to enable beta runtime features.
+  map<string, string> beta_settings = 1;
+
+  // Duration that static files should be cached by web proxies and browsers.
+  // Only applicable if the corresponding StaticFilesHandler does not specify its own expiration time.
+  string default_expiration = 2;
+  bool   delete_service_on_destroy = 3;
+
+  // Environment variables available to the application.  As these are not returned in the API request, Terraform will not detect any changes made outside of the Terraform config.
+  map<string, string> env_variables = 4;
+  string id = 5;
+
+  // Before an application can receive email or XMPP messages, the application must be configured to enable the service.
+  repeated string inbound_services = 6;
+
+  // Instance class that is used to run this version. Valid values are
+  // AutomaticScaling: F1, F2, F4, F4_1G
+  // ManualScaling: B1, B2, B4, B8, B4_1G
+  // Defaults to F1 for AutomaticScaling and B1 for ManualScaling.
+  string instance_class = 7;
+
+  // Full path to the Version resource in the API. Example, "v1".
+  string name = 8;
+
+  // Files that match this pattern will not be built into this version. Only applicable for Go runtimes.
+  string nobuild_files_regex = 9;
+  bool   noop_on_destroy = 10;
+  string project = 11;
+
+  // Desired runtime. Example python27.
+  string runtime = 12;
+
+  // The version of the API in the given runtime environment. 
+  // Please see the app.yaml reference for valid values at https://cloud.google.com/appengine/docs/standard//config/appref
+  string runtime_api_version = 13;
+
+  // The channel of the runtime to use. Only available for some runtimes.
+  string runtime_channel = 14;
+
+  // The path or name of the app's main executable.
+  string runtime_main_executable_path = 15;
+
+  // AppEngine service resource
+  string service = 16;
+
+  // Current serving status of this version. Only the versions with a SERVING status create instances and can be billed.
+  // Defaults to SERVING.
+  string serving_status = 17;
+
+  // Relative name of the version within the service. For example, 'v1'. Version names can contain only lowercase letters, numbers, or hyphens.
+  // Reserved names,"default", "latest", and any name with the prefix "ah-".
+  string version_id = 18;
+  message ApiConfig {
+
+    // Action to take when users access resources that require authentication. Defaults to "AUTH_FAIL_ACTION_REDIRECT".
+    string auth_fail_action = 1;
+
+    // Level of login required to access this resource. Defaults to "LOGIN_OPTIONAL".
+    string login = 2;
+
+    // Path to the script from the application root directory.
+    string script = 3;
+
+    // Security (HTTPS) enforcement for this URL.
+    string security_level = 4;
+
+    // URL to serve the endpoint at.
+    string url = 5;
+  }
+  repeated ApiConfig api_config = 19;
+  message AutomaticScaling {
+
+    // The time period that the Autoscaler should wait before it starts collecting information from a new instance.
+    // This prevents the autoscaler from collecting information when the instance is initializing,
+    // during which the collected usage would not be reliable. Default: 120s
+    string cool_down_period = 1;
+
+    // Number of concurrent requests an automatic scaling instance can accept before the scheduler spawns a new instance.
+    // 
+    // Defaults to a runtime-specific value.
+    int64  max_concurrent_requests = 2;
+
+    // Maximum number of idle instances that should be maintained for this version.
+    int64  max_idle_instances = 3;
+
+    // Maximum amount of time that a request should wait in the pending queue before starting a new instance to handle it.
+    string max_pending_latency = 4;
+
+    // Maximum number of instances that should be started to handle requests for this version. Default: 20
+    int64  max_total_instances = 5;
+
+    // Minimum number of idle instances that should be maintained for this version. Only applicable for the default version of a service.
+    int64  min_idle_instances = 6;
+
+    // Minimum amount of time a request should wait in the pending queue before starting a new instance to handle it.
+    string min_pending_latency = 7;
+
+    // Minimum number of running instances that should be maintained for this version. Default: 2
+    int64  min_total_instances = 8;
+    message CpuUtilization {
+
+      // Period of time over which CPU utilization is calculated.
+      string aggregation_window_length = 1;
+
+      // Target CPU utilization ratio to maintain when scaling. Must be between 0 and 1.
+      int64  target_utilization = 2;
+    }
+    repeated CpuUtilization cpu_utilization = 9;
+    message DiskUtilization {
+
+      // Target bytes read per second.
+      int64  target_read_bytes_per_second = 1;
+
+      // Target ops read per seconds.
+      int64  target_read_ops_per_second = 2;
+
+      // Target bytes written per second.
+      int64  target_write_bytes_per_second = 3;
+
+      // Target ops written per second.
+      int64  target_write_ops_per_second = 4;
+    }
+    repeated DiskUtilization disk_utilization = 10;
+    message NetworkUtilization {
+
+      // Target bytes received per second.
+      int64  target_received_bytes_per_second = 1;
+
+      // Target packets received per second.
+      int64  target_received_packets_per_second = 2;
+
+      // Target bytes sent per second.
+      int64  target_sent_bytes_per_second = 3;
+
+      // Target packets sent per second.
+      int64  target_sent_packets_per_second = 4;
+    }
+    repeated NetworkUtilization network_utilization = 11;
+    message RequestUtilization {
+
+      // Target number of concurrent requests.
+      int64  target_concurrent_requests = 1;
+
+      // Target requests per second.
+      string target_request_count_per_second = 2;
+    }
+    repeated RequestUtilization request_utilization = 12;
+  }
+  repeated AutomaticScaling automatic_scaling = 20;
+  message Deployment {
+    message CloudBuildOptions {
+
+      // Path to the yaml file used in deployment, used to determine runtime configuration details.
+      string app_yaml_path = 1;
+
+      // The Cloud Build timeout used as part of any dependent builds performed by version creation. Defaults to 10 minutes.
+      // 
+      // A duration in seconds with up to nine fractional digits, terminated by 's'. Example: "3.5s".
+      string cloud_build_timeout = 2;
+    }
+    repeated CloudBuildOptions cloud_build_options = 1;
+    message Container {
+
+      // URI to the hosted container image in Google Container Registry. The URI must be fully qualified and include a tag or digest.
+      // Examples: "gcr.io/my-project/image:tag" or "gcr.io/my-project/image@digest"
+      string image = 1;
+    }
+    repeated Container container = 2;
+    message Files {
+      string name = 1;
+
+      // SHA1 checksum of the file
+      string sha1_sum = 2;
+
+      // Source URL
+      string source_url = 3;
+    }
+    repeated Files files = 3;
+    message Zip {
+
+      // files count
+      int64  files_count = 1;
+
+      // Source URL
+      string source_url = 2;
+    }
+    repeated Zip zip = 4;
+  }
+  repeated Deployment deployment = 21;
+  message EndpointsApiService {
+
+    // Endpoints service configuration ID as specified by the Service Management API. For example "2016-09-19r1".
+    // 
+    // By default, the rollout strategy for Endpoints is "FIXED". This means that Endpoints starts up with a particular configuration ID.
+    // When a new configuration is rolled out, Endpoints must be given the new configuration ID. The configId field is used to give the configuration ID
+    // and is required in this case.
+    // 
+    // Endpoints also has a rollout strategy called "MANAGED". When using this, Endpoints fetches the latest configuration and does not need
+    // the configuration ID. In this case, configId must be omitted.
+    string config_id = 1;
+
+    // Enable or disable trace sampling. By default, this is set to false for enabled.
+    bool   disable_trace_sampling = 2;
+
+    // Endpoints service name which is the name of the "service" resource in the Service Management API.
+    // For example "myapi.endpoints.myproject.cloud.goog"
+    string name = 3;
+
+    // Endpoints rollout strategy. If FIXED, configId must be specified. If MANAGED, configId must be omitted. Default is "FIXED".
+    string rollout_strategy = 4;
+  }
+  repeated EndpointsApiService endpoints_api_service = 22;
+  message Entrypoint {
+
+    // The format should be a shell command that can be fed to bash -c.
+    string shell = 1;
+  }
+  repeated Entrypoint entrypoint = 23;
+  message LivenessCheck {
+
+    // Interval between health checks.
+    string check_interval = 1;
+
+    // Number of consecutive failed checks required before considering the VM unhealthy. Default: 4.
+    int64  failure_threshold = 2;
+
+    // Host header to send when performing a HTTP Readiness check. Example: "myapp.appspot.com"
+    string host = 3;
+
+    // The initial delay before starting to execute the checks. Default: "300s"
+    string initial_delay = 4;
+
+    // The request path.
+    string path = 5;
+
+    // Number of consecutive successful checks required before considering the VM healthy. Default: 2.
+    int64  success_threshold = 6;
+
+    // Time before the check is considered failed. Default: "4s"
+    string timeout = 7;
+  }
+  repeated LivenessCheck liveness_check = 24;
+  message ManualScaling {
+
+    // Number of instances to assign to the service at the start. This number can later be altered by using the Modules API set_num_instances() function.
+    int64  instances = 1;
+  }
+  repeated ManualScaling manual_scaling = 25;
+  message Network {
+
+    // List of ports, or port pairs, to forward from the virtual machine to the application container.
+    repeated string forwarded_ports = 1;
+
+    // Tag to apply to the instance during creation.
+    string instance_tag = 2;
+
+    // Google Compute Engine network where the virtual machines are created. Specify the short name, not the resource path.
+    string name = 3;
+
+    // Enable session affinity.
+    bool   session_affinity = 4;
+
+    // Google Cloud Platform sub-network where the virtual machines are created. Specify the short name, not the resource path.
+    // 
+    // If the network that the instance is being created in is a Legacy network, then the IP address is allocated from the IPv4Range.
+    // If the network that the instance is being created in is an auto Subnet Mode Network, then only network name should be specified (not the subnetworkName) and the IP address is created from the IPCidrRange of the subnetwork that exists in that zone for that network.
+    // If the network that the instance is being created in is a custom Subnet Mode Network, then the subnetworkName must be specified and the IP address is created from the IPCidrRange of the subnetwork.
+    // If specified, the subnetwork must exist in the same region as the App Engine flexible environment application.
+    string subnetwork = 5;
+  }
+  repeated Network network = 26;
+  message ReadinessCheck {
+
+    // A maximum time limit on application initialization, measured from moment the application successfully
+    // replies to a healthcheck until it is ready to serve traffic. Default: "300s"
+    string app_start_timeout = 1;
+
+    // Interval between health checks.  Default: "5s".
+    string check_interval = 2;
+
+    // Number of consecutive failed checks required before removing traffic. Default: 2.
+    int64  failure_threshold = 3;
+
+    // Host header to send when performing a HTTP Readiness check. Example: "myapp.appspot.com"
+    string host = 4;
+
+    // The request path.
+    string path = 5;
+
+    // Number of consecutive successful checks required before receiving traffic. Default: 2.
+    int64  success_threshold = 6;
+
+    // Time before the check is considered failed. Default: "4s"
+    string timeout = 7;
+  }
+  repeated ReadinessCheck readiness_check = 27;
+  message Resources {
+
+    // Number of CPU cores needed.
+    int64  cpu = 1;
+
+    // Disk size (GB) needed.
+    int64  disk_gb = 2;
+
+    // Memory (GB) needed.
+    int64  memory_gb = 3;
+    message Volumes {
+
+      // Unique name for the volume.
+      string name = 1;
+
+      // Volume size in gigabytes.
+      int64  size_gb = 2;
+
+      // Underlying volume type, e.g. 'tmpfs'.
+      string volume_type = 3;
+    }
+    repeated Volumes volumes = 4;
+  }
+  repeated Resources resources = 28;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 29;
+  message VpcAccessConnector {
+
+    // Full Serverless VPC Access Connector name e.g. /projects/my-project/locations/us-central1/connectors/c1.
+    string name = 1;
+  }
+  repeated VpcAccessConnector vpc_access_connector = 30;
+}

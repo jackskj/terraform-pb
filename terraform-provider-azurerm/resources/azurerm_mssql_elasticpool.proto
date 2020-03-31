@@ -1,0 +1,34 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMssqlElasticpool {
+  string id = 1;
+  string location = 2;
+  int64  max_size_bytes = 3;
+  int64  max_size_gb = 4;
+  string name = 5;
+  string resource_group_name = 6;
+  string server_name = 7;
+  map<string, string> tags = 8;
+  bool   zone_redundant = 9;
+  message PerDatabaseSettings {
+    int64  max_capacity = 1;
+    int64  min_capacity = 2;
+  }
+  repeated PerDatabaseSettings per_database_settings = 10;
+  message Sku {
+    int64  capacity = 1;
+    string family = 2;
+    string name = 3;
+    string tier = 4;
+  }
+  repeated Sku sku = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

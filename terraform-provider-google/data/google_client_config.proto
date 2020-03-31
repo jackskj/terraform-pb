@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package google;
+
+message GoogleClientConfig {
+  string access_token = 1;
+  string id = 2;
+  string project = 3;
+  string region = 4;
+  string zone = 5;
+}

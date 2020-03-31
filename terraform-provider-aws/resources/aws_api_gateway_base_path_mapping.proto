@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayBasePathMapping {
+  string api_id = 1;
+  string base_path = 2;
+  string domain_name = 3;
+  string id = 4;
+  string stage_name = 5;
+}

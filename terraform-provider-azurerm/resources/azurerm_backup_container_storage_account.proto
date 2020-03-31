@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermBackupContainerStorageAccount {
+  string id = 1;
+  string recovery_vault_name = 2;
+  string resource_group_name = 3;
+  string storage_account_id = 4;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 5;
+}

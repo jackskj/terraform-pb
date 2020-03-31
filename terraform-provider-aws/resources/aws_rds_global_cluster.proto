@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRdsGlobalCluster {
+  string arn = 1;
+  string database_name = 2;
+  bool   deletion_protection = 3;
+  string engine = 4;
+  string engine_version = 5;
+  string global_cluster_identifier = 6;
+  string global_cluster_resource_id = 7;
+  string id = 8;
+  bool   storage_encrypted = 9;
+}

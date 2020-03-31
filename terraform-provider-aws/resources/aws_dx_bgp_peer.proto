@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDxBgpPeer {
+  string address_family = 1;
+  string amazon_address = 2;
+  string aws_device = 3;
+  int64  bgp_asn = 4;
+  string bgp_auth_key = 5;
+  string bgp_peer_id = 6;
+  string bgp_status = 7;
+  string customer_address = 8;
+  string id = 9;
+  string virtual_interface_id = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 11;
+}

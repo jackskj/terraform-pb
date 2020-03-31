@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package aws;
+
+message AwsElasticacheReplicationGroup {
+  bool   auth_token_enabled = 1;
+  bool   automatic_failover_enabled = 2;
+  string configuration_endpoint_address = 3;
+  string id = 4;
+  repeated string member_clusters = 5;
+  string node_type = 6;
+  int64  number_cache_clusters = 7;
+  int64  port = 8;
+  string primary_endpoint_address = 9;
+  string replication_group_description = 10;
+  string replication_group_id = 11;
+  int64  snapshot_retention_limit = 12;
+  string snapshot_window = 13;
+}

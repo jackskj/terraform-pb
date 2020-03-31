@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package google;
+
+message GoogleActiveFolder {
+  string display_name = 1;
+  string id = 2;
+  string name = 3;
+  string parent = 4;
+}

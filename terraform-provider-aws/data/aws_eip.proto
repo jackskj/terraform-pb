@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEip {
+  string association_id = 1;
+  string domain = 2;
+  string id = 3;
+  string instance_id = 4;
+  string network_interface_id = 5;
+  string network_interface_owner_id = 6;
+  string private_dns = 7;
+  string private_ip = 8;
+  string public_dns = 9;
+  string public_ip = 10;
+  string public_ipv4_pool = 11;
+  map<string, string> tags = 12;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 13;
+}

@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEcsTaskDefinition {
+  string family = 1;
+  string id = 2;
+  string network_mode = 3;
+  int64  revision = 4;
+  string status = 5;
+  string task_definition = 6;
+  string task_role_arn = 7;
+}

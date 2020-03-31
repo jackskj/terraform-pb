@@ -1,0 +1,34 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermAutomationRunbook {
+  string automation_account_name = 1;
+  string content = 2;
+  string description = 3;
+  string id = 4;
+  string location = 5;
+  bool   log_progress = 6;
+  bool   log_verbose = 7;
+  string name = 8;
+  string resource_group_name = 9;
+  string runbook_type = 10;
+  map<string, string> tags = 11;
+  message PublishContentLink {
+    string uri = 1;
+    string version = 2;
+    message Hash {
+      string algorithm = 1;
+      string value = 2;
+    }
+    repeated Hash hash = 3;
+  }
+  repeated PublishContentLink publish_content_link = 12;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 13;
+}

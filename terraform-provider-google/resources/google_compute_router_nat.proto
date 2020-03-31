@@ -1,0 +1,94 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeRouterNat {
+
+  // A list of URLs of the IP resources to be drained. These IPs must be
+  // valid static external IPs that have been assigned to the NAT.
+  repeated string drain_nat_ips = 1;
+
+  // Timeout (in seconds) for ICMP connections. Defaults to 30s if not set.
+  int64  icmp_idle_timeout_sec = 2;
+  string id = 3;
+
+  // Minimum number of ports allocated to a VM from this NAT.
+  int64  min_ports_per_vm = 4;
+
+  // Name of the NAT service. The name must be 1-63 characters long and
+  // comply with RFC1035.
+  string name = 5;
+
+  // How external IPs should be allocated for this NAT. Valid values are
+  // 'AUTO_ONLY' for only allowing NAT IPs allocated by Google Cloud
+  // Platform, or 'MANUAL_ONLY' for only user-allocated NAT IP addresses.
+  string nat_ip_allocate_option = 6;
+
+  // Self-links of NAT IPs. Only valid if natIpAllocateOption
+  // is set to MANUAL_ONLY.
+  repeated string nat_ips = 7;
+  string project = 8;
+
+  // Region where the router and NAT reside.
+  string region = 9;
+
+  // The name of the Cloud Router in which this NAT will be configured.
+  string router = 10;
+
+  // How NAT should be configured per Subnetwork.
+  // If 'ALL_SUBNETWORKS_ALL_IP_RANGES', all of the
+  // IP ranges in every Subnetwork are allowed to Nat.
+  // If 'ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES', all of the primary IP
+  // ranges in every Subnetwork are allowed to Nat.
+  // 'LIST_OF_SUBNETWORKS': A list of Subnetworks are allowed to Nat
+  // (specified in the field subnetwork below). Note that if this field
+  // contains ALL_SUBNETWORKS_ALL_IP_RANGES or
+  // ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, then there should not be any
+  // other RouterNat section in any Router for this network in this region.
+  string source_subnetwork_ip_ranges_to_nat = 11;
+
+  // Timeout (in seconds) for TCP established connections.
+  // Defaults to 1200s if not set.
+  int64  tcp_established_idle_timeout_sec = 12;
+
+  // Timeout (in seconds) for TCP transitory connections.
+  // Defaults to 30s if not set.
+  int64  tcp_transitory_idle_timeout_sec = 13;
+
+  // Timeout (in seconds) for UDP connections. Defaults to 30s if not set.
+  int64  udp_idle_timeout_sec = 14;
+  message LogConfig {
+
+    // Indicates whether or not to export logs.
+    bool   enable = 1;
+
+    // Specifies the desired filtering of logs on this NAT. Valid
+    // values are: '"ERRORS_ONLY"', '"TRANSLATIONS_ONLY"', '"ALL"'
+    string filter = 2;
+  }
+  repeated LogConfig log_config = 15;
+  message Subnetwork {
+
+    // Self-link of subnetwork to NAT
+    string name = 1;
+
+    // List of the secondary ranges of the subnetwork that are allowed
+    // to use NAT. This can be populated only if
+    // 'LIST_OF_SECONDARY_IP_RANGES' is one of the values in
+    // sourceIpRangesToNat
+    repeated string secondary_ip_range_names = 2;
+
+    // List of options for which source IPs in the subnetwork
+    // should have NAT enabled. Supported values include:
+    // 'ALL_IP_RANGES', 'LIST_OF_SECONDARY_IP_RANGES',
+    // 'PRIMARY_IP_RANGE'.
+    repeated string source_ip_ranges_to_nat = 3;
+  }
+  repeated Subnetwork subnetwork = 16;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 17;
+}

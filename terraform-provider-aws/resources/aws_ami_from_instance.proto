@@ -1,0 +1,43 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAmiFromInstance {
+  string architecture = 1;
+  string description = 2;
+  bool   ena_support = 3;
+  string id = 4;
+  string image_location = 5;
+  string kernel_id = 6;
+  bool   manage_ebs_snapshots = 7;
+  string name = 8;
+  string ramdisk_id = 9;
+  string root_device_name = 10;
+  string root_snapshot_id = 11;
+  bool   snapshot_without_reboot = 12;
+  string source_instance_id = 13;
+  string sriov_net_support = 14;
+  map<string, string> tags = 15;
+  string virtualization_type = 16;
+  message EbsBlockDevice {
+    bool   delete_on_termination = 1;
+    string device_name = 2;
+    bool   encrypted = 3;
+    int64  iops = 4;
+    string snapshot_id = 5;
+    int64  volume_size = 6;
+    string volume_type = 7;
+  }
+  repeated EbsBlockDevice ebs_block_device = 17;
+  message EphemeralBlockDevice {
+    string device_name = 1;
+    string virtual_name = 2;
+  }
+  repeated EphemeralBlockDevice ephemeral_block_device = 18;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 19;
+}

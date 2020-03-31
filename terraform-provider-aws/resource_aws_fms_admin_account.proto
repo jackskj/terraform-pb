@@ -1,8 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsFmsAdminAccount {
-  account_id = 1;
-  id = 2;
-}

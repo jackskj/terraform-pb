@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAutoscalingNotification {
+  repeated string group_names = 1;
+  string id = 2;
+  repeated string notifications = 3;
+  string topic_arn = 4;
+}

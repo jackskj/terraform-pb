@@ -1,0 +1,54 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAcmpcaCertificateAuthority {
+  string arn = 1;
+  string certificate = 2;
+  string certificate_chain = 3;
+  string certificate_signing_request = 4;
+  bool   enabled = 5;
+  string id = 6;
+  string not_after = 7;
+  string not_before = 8;
+  int64  permanent_deletion_time_in_days = 9;
+  string serial = 10;
+  string status = 11;
+  map<string, string> tags = 12;
+  string type = 13;
+  message CertificateAuthorityConfiguration {
+    string key_algorithm = 1;
+    string signing_algorithm = 2;
+    message Subject {
+      string common_name = 1;
+      string country = 2;
+      string distinguished_name_qualifier = 3;
+      string generation_qualifier = 4;
+      string given_name = 5;
+      string initials = 6;
+      string locality = 7;
+      string organization = 8;
+      string organizational_unit = 9;
+      string pseudonym = 10;
+      string state = 11;
+      string surname = 12;
+      string title = 13;
+    }
+    repeated Subject subject = 3;
+  }
+  repeated CertificateAuthorityConfiguration certificate_authority_configuration = 14;
+  message RevocationConfiguration {
+    message CrlConfiguration {
+      string custom_cname = 1;
+      bool   enabled = 2;
+      int64  expiration_in_days = 3;
+      string s3_bucket_name = 4;
+    }
+    repeated CrlConfiguration crl_configuration = 1;
+  }
+  repeated RevocationConfiguration revocation_configuration = 15;
+  message Timeouts {
+    string create = 1;
+  }
+  Timeouts timeouts = 16;
+}

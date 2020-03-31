@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMapsAccount {
+  string id = 1;
+  string name = 2;
+  string primary_access_key = 3;
+  string resource_group_name = 4;
+  string secondary_access_key = 5;
+  string sku_name = 6;
+  map<string, string> tags = 7;
+  string x_ms_client_id = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 9;
+}

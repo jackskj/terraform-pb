@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsConfigDeliveryChannel {
+  string id = 1;
+  string name = 2;
+  string s3_bucket_name = 3;
+  string s3_key_prefix = 4;
+  string sns_topic_arn = 5;
+  message SnapshotDeliveryProperties {
+    string delivery_frequency = 1;
+  }
+  repeated SnapshotDeliveryProperties snapshot_delivery_properties = 6;
+}

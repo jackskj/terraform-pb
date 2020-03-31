@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermBatchAccount {
+  string account_endpoint = 1;
+  string id = 2;
+  string location = 3;
+  string name = 4;
+  string pool_allocation_mode = 5;
+  string primary_access_key = 6;
+  string resource_group_name = 7;
+  string secondary_access_key = 8;
+  string storage_account_id = 9;
+  map<string, string> tags = 10;
+  message KeyVaultReference {
+    string id = 1;
+    string url = 2;
+  }
+  repeated KeyVaultReference key_vault_reference = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

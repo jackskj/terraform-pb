@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package google;
+
+message GoogleSpannerDatabaseIamBinding {
+  string database = 1;
+  string etag = 2;
+  string id = 3;
+  string instance = 4;
+  repeated string members = 5;
+  string project = 6;
+  string role = 7;
+}

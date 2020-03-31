@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEbsVolume {
+  string arn = 1;
+  string availability_zone = 2;
+  bool   encrypted = 3;
+  string id = 4;
+  int64  iops = 5;
+  string kms_key_id = 6;
+  int64  size = 7;
+  string snapshot_id = 8;
+  map<string, string> tags = 9;
+  string type = 10;
+}

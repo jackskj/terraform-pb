@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package google;
+
+message GoogleFolder {
+  string create_time = 1;
+  string display_name = 2;
+  string folder = 3;
+  string id = 4;
+  string lifecycle_state = 5;
+  bool   lookup_organization = 6;
+  string name = 7;
+  string organization = 8;
+  string parent = 9;
+}

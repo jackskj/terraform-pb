@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermDiskEncryptionSet {
+  string id = 1;
+  string key_vault_key_id = 2;
+  string location = 3;
+  string name = 4;
+  string resource_group_name = 5;
+  map<string, string> tags = 6;
+  message Identity {
+    string principal_id = 1;
+    string tenant_id = 2;
+    string type = 3;
+  }
+  repeated Identity identity = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 8;
+}

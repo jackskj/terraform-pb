@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVpcEndpointRouteTableAssociation {
+  string id = 1;
+  string route_table_id = 2;
+  string vpc_endpoint_id = 3;
+}

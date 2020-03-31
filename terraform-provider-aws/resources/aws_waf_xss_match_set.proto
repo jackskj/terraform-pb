@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsWafXssMatchSet {
+  string arn = 1;
+  string id = 2;
+  string name = 3;
+  message XssMatchTuples {
+    string text_transformation = 1;
+    message FieldToMatch {
+      string data = 1;
+      string type = 2;
+    }
+    repeated FieldToMatch field_to_match = 2;
+  }
+  repeated XssMatchTuples xss_match_tuples = 4;
+}

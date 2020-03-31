@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLambdaAlias {
+  string arn = 1;
+  string description = 2;
+  string function_name = 3;
+  string function_version = 4;
+  string id = 5;
+  string invoke_arn = 6;
+  string name = 7;
+  message RoutingConfig {
+    map<string, int64> additional_version_weights = 1;
+  }
+  repeated RoutingConfig routing_config = 8;
+}

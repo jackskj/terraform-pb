@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCustomerGateway {
+  int64  bgp_asn = 1;
+  string id = 2;
+  string ip_address = 3;
+  map<string, string> tags = 4;
+  string type = 5;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 6;
+}

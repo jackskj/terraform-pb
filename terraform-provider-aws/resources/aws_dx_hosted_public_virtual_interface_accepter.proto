@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDxHostedPublicVirtualInterfaceAccepter {
+  string arn = 1;
+  string id = 2;
+  map<string, string> tags = 3;
+  string virtual_interface_id = 4;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 5;
+}

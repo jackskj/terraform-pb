@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIotThingType {
+  string arn = 1;
+  bool   deprecated = 2;
+  string id = 3;
+  string name = 4;
+  message Properties {
+    string description = 1;
+    repeated string searchable_attributes = 2;
+  }
+  repeated Properties properties = 5;
+}

@@ -1,0 +1,29 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDxPrivateVirtualInterface {
+  string address_family = 1;
+  string amazon_address = 2;
+  string amazon_side_asn = 3;
+  string arn = 4;
+  string aws_device = 5;
+  int64  bgp_asn = 6;
+  string bgp_auth_key = 7;
+  string connection_id = 8;
+  string customer_address = 9;
+  string dx_gateway_id = 10;
+  string id = 11;
+  bool   jumbo_frame_capable = 12;
+  int64  mtu = 13;
+  string name = 14;
+  map<string, string> tags = 15;
+  int64  vlan = 16;
+  string vpn_gateway_id = 17;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 18;
+}

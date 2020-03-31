@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsRoute53DelegationSet {
-  id = 1;
-  name_servers = 2;
-  reference_name = 3;
-}

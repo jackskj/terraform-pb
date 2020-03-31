@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStorageDataLakeGen2Filesystem {
+  string id = 1;
+  string name = 2;
+  map<string, string> properties = 3;
+  string storage_account_id = 4;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 5;
+}

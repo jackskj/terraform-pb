@@ -1,0 +1,61 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDynamodbTable {
+  string arn = 1;
+  string billing_mode = 2;
+  string hash_key = 3;
+  string id = 4;
+  string name = 5;
+  string range_key = 6;
+  int64  read_capacity = 7;
+  string stream_arn = 8;
+  bool   stream_enabled = 9;
+  string stream_label = 10;
+  string stream_view_type = 11;
+  map<string, string> tags = 12;
+  int64  write_capacity = 13;
+  message Attribute {
+    string name = 1;
+    string type = 2;
+  }
+  repeated Attribute attribute = 14;
+  message GlobalSecondaryIndex {
+    string hash_key = 1;
+    string name = 2;
+    repeated string non_key_attributes = 3;
+    string projection_type = 4;
+    string range_key = 5;
+    int64  read_capacity = 6;
+    int64  write_capacity = 7;
+  }
+  repeated GlobalSecondaryIndex global_secondary_index = 15;
+  message LocalSecondaryIndex {
+    string name = 1;
+    repeated string non_key_attributes = 2;
+    string projection_type = 3;
+    string range_key = 4;
+  }
+  repeated LocalSecondaryIndex local_secondary_index = 16;
+  message PointInTimeRecovery {
+    bool   enabled = 1;
+  }
+  repeated PointInTimeRecovery point_in_time_recovery = 17;
+  message ServerSideEncryption {
+    bool   enabled = 1;
+    string kms_key_arn = 2;
+  }
+  repeated ServerSideEncryption server_side_encryption = 18;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 19;
+  message Ttl {
+    string attribute_name = 1;
+    bool   enabled = 2;
+  }
+  repeated Ttl ttl = 20;
+}

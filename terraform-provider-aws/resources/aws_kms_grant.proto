@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package aws;
+
+message AwsKmsGrant {
+  repeated string grant_creation_tokens = 1;
+  string grant_id = 2;
+  string grant_token = 3;
+  string grantee_principal = 4;
+  string id = 5;
+  string key_id = 6;
+  string name = 7;
+  repeated string operations = 8;
+  bool   retire_on_delete = 9;
+  string retiring_principal = 10;
+  message Constraints {
+    map<string, string> encryption_context_equals = 1;
+    map<string, string> encryption_context_subset = 2;
+  }
+  repeated Constraints constraints = 11;
+}

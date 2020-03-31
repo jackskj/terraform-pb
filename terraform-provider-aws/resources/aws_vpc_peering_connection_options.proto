@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVpcPeeringConnectionOptions {
+  string id = 1;
+  string vpc_peering_connection_id = 2;
+  message Accepter {
+    bool   allow_classic_link_to_remote_vpc = 1;
+    bool   allow_remote_vpc_dns_resolution = 2;
+    bool   allow_vpc_to_remote_classic_link = 3;
+  }
+  repeated Accepter accepter = 3;
+  message Requester {
+    bool   allow_classic_link_to_remote_vpc = 1;
+    bool   allow_remote_vpc_dns_resolution = 2;
+    bool   allow_vpc_to_remote_classic_link = 3;
+  }
+  repeated Requester requester = 4;
+}

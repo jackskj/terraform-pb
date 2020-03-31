@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStorageTable {
+  string id = 1;
+  string name = 2;
+  string storage_account_name = 3;
+  message Acl {
+    string id = 1;
+    message AccessPolicy {
+      string expiry = 1;
+      string permissions = 2;
+      string start = 3;
+    }
+    repeated AccessPolicy access_policy = 2;
+  }
+  repeated Acl acl = 4;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 5;
+}

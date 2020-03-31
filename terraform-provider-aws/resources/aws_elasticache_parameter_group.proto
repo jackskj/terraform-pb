@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsElasticacheParameterGroup {
+  string description = 1;
+  string family = 2;
+  string id = 3;
+  string name = 4;
+  message Parameter {
+    string name = 1;
+    string value = 2;
+  }
+  repeated Parameter parameter = 5;
+}

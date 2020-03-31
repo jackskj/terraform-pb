@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsElasticacheSecurityGroup {
+  string description = 1;
+  string id = 2;
+  string name = 3;
+  repeated string security_group_names = 4;
+}

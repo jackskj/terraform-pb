@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLbCookieStickinessPolicy {
+  int64  cookie_expiration_period = 1;
+  string id = 2;
+  int64  lb_port = 3;
+  string load_balancer = 4;
+  string name = 5;
+}

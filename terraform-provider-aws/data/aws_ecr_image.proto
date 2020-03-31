@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEcrImage {
+  string id = 1;
+  string image_digest = 2;
+  int64  image_pushed_at = 3;
+  int64  image_size_in_bytes = 4;
+  string image_tag = 5;
+  repeated string image_tags = 6;
+  string registry_id = 7;
+  string repository_name = 8;
+}

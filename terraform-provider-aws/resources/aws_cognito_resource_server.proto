@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCognitoResourceServer {
+  string id = 1;
+  string identifier = 2;
+  string name = 3;
+  repeated string scope_identifiers = 4;
+  string user_pool_id = 5;
+  message Scope {
+    string scope_description = 1;
+    string scope_name = 2;
+  }
+  repeated Scope scope = 6;
+}

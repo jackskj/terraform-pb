@@ -1,0 +1,32 @@
+syntax="proto3";
+
+package google;
+
+message GoogleIapBrand {
+
+  // Application name displayed on OAuth consent screen.
+  string application_title = 1;
+  string id = 2;
+
+  // Output only. Identifier of the brand, in the format
+  // 'projects/{project_number}/brands/{brand_id}'. NOTE: The brand
+  // identification corresponds to the project number as only one
+  // brand per project can be created.
+  string name = 3;
+
+  // Whether the brand is only intended for usage inside the GSuite organization only.
+  bool   org_internal_only = 4;
+  string project = 5;
+
+  // Support email displayed on the OAuth consent screen. Can be either a
+  // user or group email. When a user email is specified, the caller must
+  // be the user with the associated email address. When a group email is
+  // specified, the caller can be either a user or a service account which
+  // is an owner of the specified group in Cloud Identity.
+  string support_email = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 7;
+}

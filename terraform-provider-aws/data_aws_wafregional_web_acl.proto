@@ -1,8 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsWafregionalWebAcl {
-  id = 1;
-  name = 2;
-}

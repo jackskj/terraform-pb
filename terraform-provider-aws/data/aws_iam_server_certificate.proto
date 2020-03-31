@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamServerCertificate {
+  string arn = 1;
+  string certificate_body = 2;
+  string certificate_chain = 3;
+  string expiration_date = 4;
+  string id = 5;
+  bool   latest = 6;
+  string name = 7;
+  string name_prefix = 8;
+  string path = 9;
+  string path_prefix = 10;
+  string upload_date = 11;
+}

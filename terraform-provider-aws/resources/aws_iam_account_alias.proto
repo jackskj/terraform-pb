@@ -1,0 +1,8 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamAccountAlias {
+  string account_alias = 1;
+  string id = 2;
+}

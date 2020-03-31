@@ -1,0 +1,114 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeInstanceFromTemplate {
+  bool   allow_stopping_for_update = 1;
+  message AttachedDisk {
+    string device_name = 1;
+    string disk_encryption_key_raw = 2;
+    string disk_encryption_key_sha256 = 3;
+    string kms_key_self_link = 4;
+    string mode = 5;
+    string source = 6;
+  }
+  repeated AttachedDisk attached_disk = 2;
+  bool   can_ip_forward = 3;
+  string cpu_platform = 4;
+  string current_status = 5;
+  bool   deletion_protection = 6;
+  string description = 7;
+  string desired_status = 8;
+  bool   enable_display = 9;
+  message GuestAccelerator {
+    int64  count = 1;
+    string type = 2;
+  }
+  repeated GuestAccelerator guest_accelerator = 10;
+  string hostname = 11;
+  string id = 12;
+  string instance_id = 13;
+  string label_fingerprint = 14;
+  map<string, string> labels = 15;
+  string machine_type = 16;
+  map<string, string> metadata = 17;
+  string metadata_fingerprint = 18;
+  string metadata_startup_script = 19;
+  string min_cpu_platform = 20;
+  string name = 21;
+  string project = 22;
+  message ScratchDisk {
+    string interface = 1;
+  }
+  repeated ScratchDisk scratch_disk = 23;
+  string self_link = 24;
+  message ServiceAccount {
+    string email = 1;
+    repeated string scopes = 2;
+  }
+  repeated ServiceAccount service_account = 25;
+  string source_instance_template = 26;
+  repeated string tags = 27;
+  string tags_fingerprint = 28;
+  string zone = 29;
+  message BootDisk {
+    bool   auto_delete = 1;
+    string device_name = 2;
+    string disk_encryption_key_raw = 3;
+    string disk_encryption_key_sha256 = 4;
+    string kms_key_self_link = 5;
+    string mode = 6;
+    string source = 7;
+    message InitializeParams {
+      string image = 1;
+      map<string, string> labels = 2;
+      int64  size = 3;
+      string type = 4;
+    }
+    repeated InitializeParams initialize_params = 8;
+  }
+  repeated BootDisk boot_disk = 30;
+  message NetworkInterface {
+    message AccessConfig {
+      string nat_ip = 1;
+      string network_tier = 2;
+      string public_ptr_domain_name = 3;
+    }
+    repeated AccessConfig access_config = 1;
+    message AliasIpRange {
+      string ip_cidr_range = 1;
+      string subnetwork_range_name = 2;
+    }
+    repeated AliasIpRange alias_ip_range = 2;
+    string name = 3;
+    string network = 4;
+    string network_ip = 5;
+    string subnetwork = 6;
+    string subnetwork_project = 7;
+  }
+  repeated NetworkInterface network_interface = 31;
+  message Scheduling {
+    bool   automatic_restart = 1;
+    string on_host_maintenance = 2;
+    bool   preemptible = 3;
+    message NodeAffinities {
+      string key = 1;
+      string operator = 2;
+      repeated string values = 3;
+    }
+    repeated NodeAffinities node_affinities = 4;
+  }
+  repeated Scheduling scheduling = 32;
+  message ShieldedInstanceConfig {
+    bool   enable_integrity_monitoring = 1;
+    bool   enable_secure_boot = 2;
+    bool   enable_vtpm = 3;
+  }
+  repeated ShieldedInstanceConfig shielded_instance_config = 33;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 34;
+}

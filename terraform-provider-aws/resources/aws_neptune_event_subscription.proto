@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package aws;
+
+message AwsNeptuneEventSubscription {
+  string arn = 1;
+  string customer_aws_id = 2;
+  bool   enabled = 3;
+  repeated string event_categories = 4;
+  string id = 5;
+  string name = 6;
+  string name_prefix = 7;
+  string sns_topic_arn = 8;
+  repeated string source_ids = 9;
+  string source_type = 10;
+  map<string, string> tags = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 12;
+}

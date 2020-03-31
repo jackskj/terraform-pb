@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsPinpointAdmChannel {
+  string application_id = 1;
+  string client_id = 2;
+  string client_secret = 3;
+  bool   enabled = 4;
+  string id = 5;
+}

@@ -1,0 +1,37 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamPolicyDocument {
+  string id = 1;
+  string json = 2;
+  string override_json = 3;
+  string policy_id = 4;
+  string source_json = 5;
+  string version = 6;
+  message Statement {
+    repeated string actions = 1;
+    string effect = 2;
+    repeated string not_actions = 3;
+    repeated string not_resources = 4;
+    repeated string resources = 5;
+    string sid = 6;
+    message Condition {
+      string test = 1;
+      repeated string values = 2;
+      string variable = 3;
+    }
+    repeated Condition condition = 7;
+    message NotPrincipals {
+      repeated string identifiers = 1;
+      string type = 2;
+    }
+    repeated NotPrincipals not_principals = 8;
+    message Principals {
+      repeated string identifiers = 1;
+      string type = 2;
+    }
+    repeated Principals principals = 9;
+  }
+  repeated Statement statement = 7;
+}

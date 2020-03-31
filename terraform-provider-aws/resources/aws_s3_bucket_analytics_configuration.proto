@@ -1,0 +1,31 @@
+syntax="proto3";
+
+package aws;
+
+message AwsS3BucketAnalyticsConfiguration {
+  string bucket = 1;
+  string id = 2;
+  string name = 3;
+  message Filter {
+    string prefix = 1;
+    map<string, string> tags = 2;
+  }
+  repeated Filter filter = 4;
+  message StorageClassAnalysis {
+    message DataExport {
+      string output_schema_version = 1;
+      message Destination {
+        message S3BucketDestination {
+          string bucket_account_id = 1;
+          string bucket_arn = 2;
+          string format = 3;
+          string prefix = 4;
+        }
+        repeated S3BucketDestination s3_bucket_destination = 1;
+      }
+      repeated Destination destination = 2;
+    }
+    repeated DataExport data_export = 1;
+  }
+  repeated StorageClassAnalysis storage_class_analysis = 5;
+}

@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRoute53QueryLog {
+  string cloudwatch_log_group_arn = 1;
+  string id = 2;
+  string zone_id = 3;
+}

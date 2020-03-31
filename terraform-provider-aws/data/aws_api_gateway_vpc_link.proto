@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayVpcLink {
+  string description = 1;
+  string id = 2;
+  string name = 3;
+  string status = 4;
+  string status_message = 5;
+  map<string, string> tags = 6;
+  repeated string target_arns = 7;
+}

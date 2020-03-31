@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSqsQueue {
+  string arn = 1;
+  string id = 2;
+  string name = 3;
+  map<string, string> tags = 4;
+  string url = 5;
+}

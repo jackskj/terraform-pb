@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package google;
+
+message GoogleDnsManagedZone {
+  string description = 1;
+  string dns_name = 2;
+  string id = 3;
+  string name = 4;
+  repeated string name_servers = 5;
+  string project = 6;
+  string visibility = 7;
+}

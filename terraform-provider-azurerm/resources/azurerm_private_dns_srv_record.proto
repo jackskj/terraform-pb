@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermPrivateDnsSrvRecord {
+  string fqdn = 1;
+  string id = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  map<string, string> tags = 5;
+  int64  ttl = 6;
+  string zone_name = 7;
+  message Record {
+    int64  port = 1;
+    int64  priority = 2;
+    string target = 3;
+    int64  weight = 4;
+  }
+  repeated Record record = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 9;
+}

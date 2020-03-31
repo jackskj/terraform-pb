@@ -1,0 +1,52 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEksCluster {
+  string arn = 1;
+  message CertificateAuthority {
+    string data = 1;
+  }
+  repeated CertificateAuthority certificate_authority = 2;
+  string created_at = 3;
+  repeated string enabled_cluster_log_types = 4;
+  string endpoint = 5;
+  string id = 6;
+  message Identity {
+    message Oidc {
+      string issuer = 1;
+    }
+    repeated Oidc oidc = 1;
+  }
+  repeated Identity identity = 7;
+  string name = 8;
+  string platform_version = 9;
+  string role_arn = 10;
+  string status = 11;
+  map<string, string> tags = 12;
+  string version = 13;
+  message EncryptionConfig {
+    repeated string resources = 1;
+    message Provider {
+      string key_arn = 1;
+    }
+    repeated Provider provider = 2;
+  }
+  repeated EncryptionConfig encryption_config = 14;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 15;
+  message VpcConfig {
+    string cluster_security_group_id = 1;
+    bool   endpoint_private_access = 2;
+    bool   endpoint_public_access = 3;
+    repeated string public_access_cidrs = 4;
+    repeated string security_group_ids = 5;
+    repeated string subnet_ids = 6;
+    string vpc_id = 7;
+  }
+  repeated VpcConfig vpc_config = 16;
+}

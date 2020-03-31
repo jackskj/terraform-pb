@@ -1,0 +1,43 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMonitorMetricAlert {
+  bool   auto_mitigate = 1;
+  string description = 2;
+  bool   enabled = 3;
+  string frequency = 4;
+  string id = 5;
+  string name = 6;
+  string resource_group_name = 7;
+  repeated string scopes = 8;
+  int64  severity = 9;
+  map<string, string> tags = 10;
+  string window_size = 11;
+  message Action {
+    string action_group_id = 1;
+    map<string, string> webhook_properties = 2;
+  }
+  repeated Action action = 12;
+  message Criteria {
+    string aggregation = 1;
+    string metric_name = 2;
+    string metric_namespace = 3;
+    string operator = 4;
+    int64  threshold = 5;
+    message Dimension {
+      string name = 1;
+      string operator = 2;
+      repeated string values = 3;
+    }
+    repeated Dimension dimension = 6;
+  }
+  repeated Criteria criteria = 13;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 14;
+}

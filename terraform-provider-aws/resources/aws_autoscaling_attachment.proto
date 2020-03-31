@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAutoscalingAttachment {
+  string alb_target_group_arn = 1;
+  string autoscaling_group_name = 2;
+  string elb = 3;
+  string id = 4;
+}

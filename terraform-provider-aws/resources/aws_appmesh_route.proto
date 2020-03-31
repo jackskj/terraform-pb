@@ -1,0 +1,63 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAppmeshRoute {
+  string arn = 1;
+  string created_date = 2;
+  string id = 3;
+  string last_updated_date = 4;
+  string mesh_name = 5;
+  string name = 6;
+  map<string, string> tags = 7;
+  string virtual_router_name = 8;
+  message Spec {
+    int64  priority = 1;
+    message HttpRoute {
+      message Action {
+        message WeightedTarget {
+          string virtual_node = 1;
+          int64  weight = 2;
+        }
+        repeated WeightedTarget weighted_target = 1;
+      }
+      repeated Action action = 1;
+      message Match {
+        string method = 1;
+        string prefix = 2;
+        string scheme = 3;
+        message Header {
+          bool   invert = 1;
+          string name = 2;
+          message Match {
+            string exact = 1;
+            string prefix = 2;
+            string regex = 3;
+            string suffix = 4;
+            message Range {
+              int64  end = 1;
+              int64  start = 2;
+            }
+            repeated Range range = 5;
+          }
+          repeated Match match = 3;
+        }
+        repeated Header header = 4;
+      }
+      repeated Match match = 2;
+    }
+    repeated HttpRoute http_route = 2;
+    message TcpRoute {
+      message Action {
+        message WeightedTarget {
+          string virtual_node = 1;
+          int64  weight = 2;
+        }
+        repeated WeightedTarget weighted_target = 1;
+      }
+      repeated Action action = 1;
+    }
+    repeated TcpRoute tcp_route = 3;
+  }
+  repeated Spec spec = 9;
+}

@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStreamAnalyticsOutputMssql {
+  string database = 1;
+  string id = 2;
+  string name = 3;
+  string password = 4;
+  string resource_group_name = 5;
+  string server = 6;
+  string stream_analytics_job_name = 7;
+  string table = 8;
+  string user = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 10;
+}

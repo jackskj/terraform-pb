@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermDataFactoryLinkedServiceMysql {
+  map<string, string> additional_properties = 1;
+  repeated string annotations = 2;
+  string connection_string = 3;
+  string data_factory_name = 4;
+  string description = 5;
+  string id = 6;
+  string integration_runtime_name = 7;
+  string name = 8;
+  map<string, string> parameters = 9;
+  string resource_group_name = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

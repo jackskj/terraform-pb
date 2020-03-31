@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOpsworksPermission {
+  bool   allow_ssh = 1;
+  bool   allow_sudo = 2;
+  string id = 3;
+  string level = 4;
+  string stack_id = 5;
+  string user_arn = 6;
+}

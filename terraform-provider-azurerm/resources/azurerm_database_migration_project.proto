@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermDatabaseMigrationProject {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  string service_name = 5;
+  string source_platform = 6;
+  map<string, string> tags = 7;
+  string target_platform = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 9;
+}

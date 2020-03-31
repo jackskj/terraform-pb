@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEbsSnapshotCopy {
+  string data_encryption_key_id = 1;
+  string description = 2;
+  bool   encrypted = 3;
+  string id = 4;
+  string kms_key_id = 5;
+  string owner_alias = 6;
+  string owner_id = 7;
+  string source_region = 8;
+  string source_snapshot_id = 9;
+  map<string, string> tags = 10;
+  string volume_id = 11;
+  int64  volume_size = 12;
+}

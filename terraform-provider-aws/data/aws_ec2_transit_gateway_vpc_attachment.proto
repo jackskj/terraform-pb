@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEc2TransitGatewayVpcAttachment {
+  string dns_support = 1;
+  string id = 2;
+  string ipv6_support = 3;
+  repeated string subnet_ids = 4;
+  map<string, string> tags = 5;
+  string transit_gateway_id = 6;
+  string vpc_id = 7;
+  string vpc_owner_id = 8;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 9;
+}

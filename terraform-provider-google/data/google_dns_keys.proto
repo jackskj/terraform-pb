@@ -1,0 +1,42 @@
+syntax="proto3";
+
+package google;
+
+message GoogleDnsKeys {
+  string id = 1;
+  message KeySigningKeys {
+    string algorithm = 1;
+    string creation_time = 2;
+    string description = 3;
+    message Digests {
+      string digest = 1;
+      string type = 2;
+    }
+    repeated Digests digests = 4;
+    string ds_record = 5;
+    string id = 6;
+    bool   is_active = 7;
+    int64  key_length = 8;
+    int64  key_tag = 9;
+    string public_key = 10;
+  }
+  repeated KeySigningKeys key_signing_keys = 2;
+  string managed_zone = 3;
+  string project = 4;
+  message ZoneSigningKeys {
+    string algorithm = 1;
+    string creation_time = 2;
+    string description = 3;
+    message Digests {
+      string digest = 1;
+      string type = 2;
+    }
+    repeated Digests digests = 4;
+    string id = 5;
+    bool   is_active = 6;
+    int64  key_length = 7;
+    int64  key_tag = 8;
+    string public_key = 9;
+  }
+  repeated ZoneSigningKeys zone_signing_keys = 5;
+}

@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamAccessKey {
+  string encrypted_secret = 1;
+  string id = 2;
+  string key_fingerprint = 3;
+  string pgp_key = 4;
+  string secret = 5;
+  string ses_smtp_password = 6;
+  string ses_smtp_password_v4 = 7;
+  string status = 8;
+  string user = 9;
+}

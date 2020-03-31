@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRoute53ResolverRule {
+  string arn = 1;
+  string domain_name = 2;
+  string id = 3;
+  string name = 4;
+  string owner_id = 5;
+  string resolver_endpoint_id = 6;
+  string resolver_rule_id = 7;
+  string rule_type = 8;
+  string share_status = 9;
+  map<string, string> tags = 10;
+}

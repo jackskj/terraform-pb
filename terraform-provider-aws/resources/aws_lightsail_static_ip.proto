@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLightsailStaticIp {
+  string arn = 1;
+  string id = 2;
+  string ip_address = 3;
+  string name = 4;
+  string support_code = 5;
+}

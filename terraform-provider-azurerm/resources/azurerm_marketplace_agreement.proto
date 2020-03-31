@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMarketplaceAgreement {
+  string id = 1;
+  string license_text_link = 2;
+  string offer = 3;
+  string plan = 4;
+  string privacy_policy_link = 5;
+  string publisher = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 7;
+}

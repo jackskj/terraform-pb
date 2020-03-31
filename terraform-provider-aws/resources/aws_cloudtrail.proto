@@ -1,0 +1,32 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCloudtrail {
+  string arn = 1;
+  string cloud_watch_logs_group_arn = 2;
+  string cloud_watch_logs_role_arn = 3;
+  bool   enable_log_file_validation = 4;
+  bool   enable_logging = 5;
+  string home_region = 6;
+  string id = 7;
+  bool   include_global_service_events = 8;
+  bool   is_multi_region_trail = 9;
+  bool   is_organization_trail = 10;
+  string kms_key_id = 11;
+  string name = 12;
+  string s3_bucket_name = 13;
+  string s3_key_prefix = 14;
+  string sns_topic_name = 15;
+  map<string, string> tags = 16;
+  message EventSelector {
+    bool   include_management_events = 1;
+    string read_write_type = 2;
+    message DataResource {
+      string type = 1;
+      repeated string values = 2;
+    }
+    repeated DataResource data_resource = 3;
+  }
+  repeated EventSelector event_selector = 17;
+}

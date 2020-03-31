@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayClientCertificate {
+  string arn = 1;
+  string created_date = 2;
+  string description = 3;
+  string expiration_date = 4;
+  string id = 5;
+  string pem_encoded_certificate = 6;
+  map<string, string> tags = 7;
+}

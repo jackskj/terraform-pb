@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsElasticacheSubnetGroup {
+  string description = 1;
+  string id = 2;
+  string name = 3;
+  repeated string subnet_ids = 4;
+}

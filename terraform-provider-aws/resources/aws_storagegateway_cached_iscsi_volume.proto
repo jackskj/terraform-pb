@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package aws;
+
+message AwsStoragegatewayCachedIscsiVolume {
+  string arn = 1;
+  bool   chap_enabled = 2;
+  string gateway_arn = 3;
+  string id = 4;
+  int64  lun_number = 5;
+  string network_interface_id = 6;
+  int64  network_interface_port = 7;
+  string snapshot_id = 8;
+  string source_volume_arn = 9;
+  map<string, string> tags = 10;
+  string target_arn = 11;
+  string target_name = 12;
+  string volume_arn = 13;
+  string volume_id = 14;
+  int64  volume_size_in_bytes = 15;
+}

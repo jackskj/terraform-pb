@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsQuicksightUser {
+  string arn = 1;
+  string aws_account_id = 2;
+  string email = 3;
+  string iam_arn = 4;
+  string id = 5;
+  string identity_type = 6;
+  string namespace = 7;
+  string session_name = 8;
+  string user_name = 9;
+  string user_role = 10;
+}

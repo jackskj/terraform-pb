@@ -1,0 +1,44 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOpsworksHaproxyLayer {
+  string arn = 1;
+  bool   auto_assign_elastic_ips = 2;
+  bool   auto_assign_public_ips = 3;
+  bool   auto_healing = 4;
+  repeated string custom_configure_recipes = 5;
+  repeated string custom_deploy_recipes = 6;
+  string custom_instance_profile_arn = 7;
+  string custom_json = 8;
+  repeated string custom_security_group_ids = 9;
+  repeated string custom_setup_recipes = 10;
+  repeated string custom_shutdown_recipes = 11;
+  repeated string custom_undeploy_recipes = 12;
+  bool   drain_elb_on_shutdown = 13;
+  string elastic_load_balancer = 14;
+  string healthcheck_method = 15;
+  string healthcheck_url = 16;
+  string id = 17;
+  bool   install_updates_on_boot = 18;
+  int64  instance_shutdown_timeout = 19;
+  string name = 20;
+  string stack_id = 21;
+  bool   stats_enabled = 22;
+  string stats_password = 23;
+  string stats_url = 24;
+  string stats_user = 25;
+  repeated string system_packages = 26;
+  map<string, string> tags = 27;
+  bool   use_ebs_optimized_instances = 28;
+  message EbsVolume {
+    bool   encrypted = 1;
+    int64  iops = 2;
+    string mount_point = 3;
+    int64  number_of_disks = 4;
+    string raid_level = 5;
+    int64  size = 6;
+    string type = 7;
+  }
+  repeated EbsVolume ebs_volume = 29;
+}

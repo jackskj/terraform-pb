@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package google;
+
+message GooglePubsubTopicIamMember {
+  string etag = 1;
+  string id = 2;
+  string member = 3;
+  string project = 4;
+  string role = 5;
+  string topic = 6;
+}

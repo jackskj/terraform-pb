@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeAddress {
+  string address = 1;
+  string id = 2;
+  string name = 3;
+  string project = 4;
+  string region = 5;
+  string self_link = 6;
+  string status = 7;
+}

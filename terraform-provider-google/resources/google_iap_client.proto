@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package google;
+
+message GoogleIapClient {
+
+  // Identifier of the brand to which this client
+  // is attached to. The format is
+  // 'projects/{project_number}/brands/{brand_id}/identityAwareProxyClients/{client_id}'.
+  string brand = 1;
+
+  // Output only. Unique identifier of the OAuth client.
+  string client_id = 2;
+
+  // Human-friendly name given to the OAuth client.
+  string display_name = 3;
+  string id = 4;
+
+  // Output only. Client secret of the OAuth client.
+  string secret = 5;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 6;
+}

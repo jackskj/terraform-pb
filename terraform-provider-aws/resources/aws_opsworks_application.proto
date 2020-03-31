@@ -1,0 +1,42 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOpsworksApplication {
+  string auto_bundle_on_deploy = 1;
+  string aws_flow_ruby_settings = 2;
+  string data_source_arn = 3;
+  string data_source_database_name = 4;
+  string data_source_type = 5;
+  string description = 6;
+  string document_root = 7;
+  repeated string domains = 8;
+  bool   enable_ssl = 9;
+  string id = 10;
+  string name = 11;
+  string rails_env = 12;
+  string short_name = 13;
+  string stack_id = 14;
+  string type = 15;
+  message AppSource {
+    string password = 1;
+    string revision = 2;
+    string ssh_key = 3;
+    string type = 4;
+    string url = 5;
+    string username = 6;
+  }
+  repeated AppSource app_source = 16;
+  message Environment {
+    string key = 1;
+    bool   secure = 2;
+    string value = 3;
+  }
+  repeated Environment environment = 17;
+  message SslConfiguration {
+    string certificate = 1;
+    string chain = 2;
+    string private_key = 3;
+  }
+  repeated SslConfiguration ssl_configuration = 18;
+}

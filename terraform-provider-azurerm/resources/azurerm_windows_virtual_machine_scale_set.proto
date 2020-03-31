@@ -1,0 +1,158 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermWindowsVirtualMachineScaleSet {
+  string admin_password = 1;
+  string admin_username = 2;
+  string computer_name_prefix = 3;
+  string custom_data = 4;
+  bool   do_not_run_extensions_on_overprovisioned_machines = 5;
+  bool   enable_automatic_updates = 6;
+  string eviction_policy = 7;
+  string health_probe_id = 8;
+  string id = 9;
+  int64  instances = 10;
+  string license_type = 11;
+  string location = 12;
+  int64  max_bid_price = 13;
+  string name = 14;
+  bool   overprovision = 15;
+  string priority = 16;
+  bool   provision_vm_agent = 17;
+  string proximity_placement_group_id = 18;
+  string resource_group_name = 19;
+  string scale_in_policy = 20;
+  bool   single_placement_group = 21;
+  string sku = 22;
+  string source_image_id = 23;
+  map<string, string> tags = 24;
+  string timezone = 25;
+  string unique_id = 26;
+  string upgrade_mode = 27;
+  bool   zone_balance = 28;
+  repeated string zones = 29;
+  message AdditionalCapabilities {
+    bool   ultra_ssd_enabled = 1;
+  }
+  repeated AdditionalCapabilities additional_capabilities = 30;
+  message AdditionalUnattendContent {
+    string content = 1;
+    string setting = 2;
+  }
+  repeated AdditionalUnattendContent additional_unattend_content = 31;
+  message AutomaticOsUpgradePolicy {
+    bool   disable_automatic_rollback = 1;
+    bool   enable_automatic_os_upgrade = 2;
+  }
+  repeated AutomaticOsUpgradePolicy automatic_os_upgrade_policy = 32;
+  message BootDiagnostics {
+    string storage_account_uri = 1;
+  }
+  repeated BootDiagnostics boot_diagnostics = 33;
+  message DataDisk {
+    string caching = 1;
+    string disk_encryption_set_id = 2;
+    int64  disk_size_gb = 3;
+    int64  lun = 4;
+    string storage_account_type = 5;
+    bool   write_accelerator_enabled = 6;
+  }
+  repeated DataDisk data_disk = 34;
+  message Identity {
+    repeated string identity_ids = 1;
+    string principal_id = 2;
+    string type = 3;
+  }
+  repeated Identity identity = 35;
+  message NetworkInterface {
+    repeated string dns_servers = 1;
+    bool   enable_accelerated_networking = 2;
+    bool   enable_ip_forwarding = 3;
+    string name = 4;
+    string network_security_group_id = 5;
+    bool   primary = 6;
+    message IpConfiguration {
+      repeated string application_gateway_backend_address_pool_ids = 1;
+      repeated string application_security_group_ids = 2;
+      repeated string load_balancer_backend_address_pool_ids = 3;
+      repeated string load_balancer_inbound_nat_rules_ids = 4;
+      string name = 5;
+      bool   primary = 6;
+      string subnet_id = 7;
+      string version = 8;
+      message PublicIpAddress {
+        string domain_name_label = 1;
+        int64  idle_timeout_in_minutes = 2;
+        string name = 3;
+        string public_ip_prefix_id = 4;
+        message IpTag {
+          string tag = 1;
+          string type = 2;
+        }
+        repeated IpTag ip_tag = 5;
+      }
+      repeated PublicIpAddress public_ip_address = 9;
+    }
+    repeated IpConfiguration ip_configuration = 7;
+  }
+  repeated NetworkInterface network_interface = 36;
+  message OsDisk {
+    string caching = 1;
+    string disk_encryption_set_id = 2;
+    int64  disk_size_gb = 3;
+    string storage_account_type = 4;
+    bool   write_accelerator_enabled = 5;
+    message DiffDiskSettings {
+      string option = 1;
+    }
+    repeated DiffDiskSettings diff_disk_settings = 6;
+  }
+  repeated OsDisk os_disk = 37;
+  message Plan {
+    string name = 1;
+    string product = 2;
+    string publisher = 3;
+  }
+  repeated Plan plan = 38;
+  message RollingUpgradePolicy {
+    int64  max_batch_instance_percent = 1;
+    int64  max_unhealthy_instance_percent = 2;
+    int64  max_unhealthy_upgraded_instance_percent = 3;
+    string pause_time_between_batches = 4;
+  }
+  repeated RollingUpgradePolicy rolling_upgrade_policy = 39;
+  message Secret {
+    string key_vault_id = 1;
+    message Certificate {
+      string store = 1;
+      string url = 2;
+    }
+    repeated Certificate certificate = 2;
+  }
+  repeated Secret secret = 40;
+  message SourceImageReference {
+    string offer = 1;
+    string publisher = 2;
+    string sku = 3;
+    string version = 4;
+  }
+  repeated SourceImageReference source_image_reference = 41;
+  message TerminateNotification {
+    bool   enabled = 1;
+    string timeout = 2;
+  }
+  repeated TerminateNotification terminate_notification = 42;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 43;
+  message WinrmListener {
+    string certificate_url = 1;
+    string protocol = 2;
+  }
+  repeated WinrmListener winrm_listener = 44;
+}

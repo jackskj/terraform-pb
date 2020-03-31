@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package aws;
+
+message AwsXraySamplingRule {
+  string arn = 1;
+  map<string, string> attributes = 2;
+  int64  fixed_rate = 3;
+  string host = 4;
+  string http_method = 5;
+  string id = 6;
+  int64  priority = 7;
+  int64  reservoir_size = 8;
+  string resource_arn = 9;
+  string rule_name = 10;
+  string service_name = 11;
+  string service_type = 12;
+  string url_path = 13;
+  int64  version = 14;
+}

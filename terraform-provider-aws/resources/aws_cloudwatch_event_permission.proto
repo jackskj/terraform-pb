@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCloudwatchEventPermission {
+  string action = 1;
+  string id = 2;
+  string principal = 3;
+  string statement_id = 4;
+  message Condition {
+    string key = 1;
+    string type = 2;
+    string value = 3;
+  }
+  repeated Condition condition = 5;
+}

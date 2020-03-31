@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermNotificationHubNamespace {
+  bool   enabled = 1;
+  string id = 2;
+  string location = 3;
+  string name = 4;
+  string namespace_type = 5;
+  string resource_group_name = 6;
+  string servicebus_endpoint = 7;
+  message Sku {
+    string name = 1;
+  }
+  repeated Sku sku = 8;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 9;
+}

@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSecurityCenterSubscriptionPricing {
+  string id = 1;
+  string tier = 2;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 3;
+}

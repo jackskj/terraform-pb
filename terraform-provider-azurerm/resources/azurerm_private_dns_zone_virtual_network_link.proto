@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermPrivateDnsZoneVirtualNetworkLink {
+  string id = 1;
+  string name = 2;
+  string private_dns_zone_name = 3;
+  bool   registration_enabled = 4;
+  string resource_group_name = 5;
+  map<string, string> tags = 6;
+  string virtual_network_id = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 8;
+}

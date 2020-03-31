@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package aws;
+
+message AwsKinesisVideoStream {
+  string arn = 1;
+  string creation_time = 2;
+  int64  data_retention_in_hours = 3;
+  string device_name = 4;
+  string id = 5;
+  string kms_key_id = 6;
+  string media_type = 7;
+  string name = 8;
+  map<string, string> tags = 9;
+  string version = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 11;
+}

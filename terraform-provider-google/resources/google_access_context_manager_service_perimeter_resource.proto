@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package google;
+
+message GoogleAccessContextManagerServicePerimeterResource {
+  string id = 1;
+
+  // The name of the Service Perimeter to add this resource to.
+  string perimeter_name = 2;
+
+  // A GCP resource that is inside of the service perimeter.
+  // Currently only projects are allowed.
+  // Format: projects/{project_number}
+  string resource = 3;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 4;
+}

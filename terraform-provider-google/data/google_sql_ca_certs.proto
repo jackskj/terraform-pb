@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package google;
+
+message GoogleSqlCaCerts {
+  string active_version = 1;
+  message Certs {
+    string cert = 1;
+    string common_name = 2;
+    string create_time = 3;
+    string expiration_time = 4;
+    string sha1_fingerprint = 5;
+  }
+  repeated Certs certs = 2;
+  string id = 3;
+  string instance = 4;
+  string project = 5;
+}

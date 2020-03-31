@@ -1,0 +1,35 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMssqlVirtualMachine {
+  string id = 1;
+  bool   r_services_enabled = 2;
+  int64  sql_connectivity_port = 3;
+  string sql_connectivity_type = 4;
+  string sql_connectivity_update_password = 5;
+  string sql_connectivity_update_username = 6;
+  string sql_license_type = 7;
+  map<string, string> tags = 8;
+  string virtual_machine_id = 9;
+  message AutoPatching {
+    string day_of_week = 1;
+    int64  maintenance_window_duration_in_minutes = 2;
+    int64  maintenance_window_starting_hour = 3;
+  }
+  repeated AutoPatching auto_patching = 10;
+  message KeyVaultCredential {
+    string key_vault_url = 1;
+    string name = 2;
+    string service_principal_name = 3;
+    string service_principal_secret = 4;
+  }
+  repeated KeyVaultCredential key_vault_credential = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

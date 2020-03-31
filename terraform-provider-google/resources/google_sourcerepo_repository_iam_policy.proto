@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package google;
+
+message GoogleSourcerepoRepositoryIamPolicy {
+  string etag = 1;
+  string id = 2;
+  string policy_data = 3;
+  string project = 4;
+  string repository = 5;
+}

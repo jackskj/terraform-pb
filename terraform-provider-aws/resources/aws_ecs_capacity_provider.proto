@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEcsCapacityProvider {
+  string arn = 1;
+  string id = 2;
+  string name = 3;
+  map<string, string> tags = 4;
+  message AutoScalingGroupProvider {
+    string auto_scaling_group_arn = 1;
+    string managed_termination_protection = 2;
+    message ManagedScaling {
+      int64  maximum_scaling_step_size = 1;
+      int64  minimum_scaling_step_size = 2;
+      string status = 3;
+      int64  target_capacity = 4;
+    }
+    repeated ManagedScaling managed_scaling = 3;
+  }
+  repeated AutoScalingGroupProvider auto_scaling_group_provider = 5;
+}

@@ -1,0 +1,37 @@
+syntax="proto3";
+
+package aws;
+
+message AwsNeptuneClusterInstance {
+  string address = 1;
+  bool   apply_immediately = 2;
+  string arn = 3;
+  bool   auto_minor_version_upgrade = 4;
+  string availability_zone = 5;
+  string cluster_identifier = 6;
+  string dbi_resource_id = 7;
+  string endpoint = 8;
+  string engine = 9;
+  string engine_version = 10;
+  string id = 11;
+  string identifier = 12;
+  string identifier_prefix = 13;
+  string instance_class = 14;
+  string kms_key_arn = 15;
+  string neptune_parameter_group_name = 16;
+  string neptune_subnet_group_name = 17;
+  int64  port = 18;
+  string preferred_backup_window = 19;
+  string preferred_maintenance_window = 20;
+  int64  promotion_tier = 21;
+  bool   publicly_accessible = 22;
+  bool   storage_encrypted = 23;
+  map<string, string> tags = 24;
+  bool   writer = 25;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 26;
+}

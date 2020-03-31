@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeAttachedDisk {
+  string device_name = 1;
+  string disk = 2;
+  string id = 3;
+  string instance = 4;
+  string mode = 5;
+  string project = 6;
+  string zone = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 8;
+}

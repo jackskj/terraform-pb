@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsElasticBeanstalkApplicationVersion {
+  string application = 1;
+  string arn = 2;
+  string bucket = 3;
+  string description = 4;
+  bool   force_delete = 5;
+  string id = 6;
+  string key = 7;
+  string name = 8;
+  map<string, string> tags = 9;
+}

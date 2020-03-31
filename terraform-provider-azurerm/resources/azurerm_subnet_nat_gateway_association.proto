@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSubnetNatGatewayAssociation {
+  string id = 1;
+  string nat_gateway_id = 2;
+  string subnet_id = 3;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 4;
+}

@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAccessanalyzerAnalyzer {
+  string analyzer_name = 1;
+  string arn = 2;
+  string id = 3;
+  map<string, string> tags = 4;
+  string type = 5;
+}

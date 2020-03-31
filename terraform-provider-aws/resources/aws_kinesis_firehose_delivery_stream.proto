@@ -1,0 +1,248 @@
+syntax="proto3";
+
+package aws;
+
+message AwsKinesisFirehoseDeliveryStream {
+  string arn = 1;
+  string destination = 2;
+  string destination_id = 3;
+  string id = 4;
+  string name = 5;
+  map<string, string> tags = 6;
+  string version_id = 7;
+  message ElasticsearchConfiguration {
+    int64  buffering_interval = 1;
+    int64  buffering_size = 2;
+    string domain_arn = 3;
+    string index_name = 4;
+    string index_rotation_period = 5;
+    int64  retry_duration = 6;
+    string role_arn = 7;
+    string s3_backup_mode = 8;
+    string type_name = 9;
+    message CloudwatchLoggingOptions {
+      bool   enabled = 1;
+      string log_group_name = 2;
+      string log_stream_name = 3;
+    }
+    repeated CloudwatchLoggingOptions cloudwatch_logging_options = 10;
+    message ProcessingConfiguration {
+      bool   enabled = 1;
+      message Processors {
+        string type = 1;
+        message Parameters {
+          string parameter_name = 1;
+          string parameter_value = 2;
+        }
+        repeated Parameters parameters = 2;
+      }
+      repeated Processors processors = 2;
+    }
+    repeated ProcessingConfiguration processing_configuration = 11;
+  }
+  repeated ElasticsearchConfiguration elasticsearch_configuration = 8;
+  message ExtendedS3Configuration {
+    string bucket_arn = 1;
+    int64  buffer_interval = 2;
+    int64  buffer_size = 3;
+    string compression_format = 4;
+    string error_output_prefix = 5;
+    string kms_key_arn = 6;
+    string prefix = 7;
+    string role_arn = 8;
+    string s3_backup_mode = 9;
+    message CloudwatchLoggingOptions {
+      bool   enabled = 1;
+      string log_group_name = 2;
+      string log_stream_name = 3;
+    }
+    repeated CloudwatchLoggingOptions cloudwatch_logging_options = 10;
+    message DataFormatConversionConfiguration {
+      bool   enabled = 1;
+      message InputFormatConfiguration {
+        message Deserializer {
+          message HiveJsonSerDe {
+            repeated string timestamp_formats = 1;
+          }
+          repeated HiveJsonSerDe hive_json_ser_de = 1;
+          message OpenXJsonSerDe {
+            bool   case_insensitive = 1;
+            map<string, string> column_to_json_key_mappings = 2;
+            bool   convert_dots_in_json_keys_to_underscores = 3;
+          }
+          repeated OpenXJsonSerDe open_x_json_ser_de = 2;
+        }
+        repeated Deserializer deserializer = 1;
+      }
+      repeated InputFormatConfiguration input_format_configuration = 2;
+      message OutputFormatConfiguration {
+        message Serializer {
+          message OrcSerDe {
+            int64  block_size_bytes = 1;
+            repeated string bloom_filter_columns = 2;
+            int64  bloom_filter_false_positive_probability = 3;
+            string compression = 4;
+            int64  dictionary_key_threshold = 5;
+            bool   enable_padding = 6;
+            string format_version = 7;
+            int64  padding_tolerance = 8;
+            int64  row_index_stride = 9;
+            int64  stripe_size_bytes = 10;
+          }
+          repeated OrcSerDe orc_ser_de = 1;
+          message ParquetSerDe {
+            int64  block_size_bytes = 1;
+            string compression = 2;
+            bool   enable_dictionary_compression = 3;
+            int64  max_padding_bytes = 4;
+            int64  page_size_bytes = 5;
+            string writer_version = 6;
+          }
+          repeated ParquetSerDe parquet_ser_de = 2;
+        }
+        repeated Serializer serializer = 1;
+      }
+      repeated OutputFormatConfiguration output_format_configuration = 3;
+      message SchemaConfiguration {
+        string catalog_id = 1;
+        string database_name = 2;
+        string region = 3;
+        string role_arn = 4;
+        string table_name = 5;
+        string version_id = 6;
+      }
+      repeated SchemaConfiguration schema_configuration = 4;
+    }
+    repeated DataFormatConversionConfiguration data_format_conversion_configuration = 11;
+    message ProcessingConfiguration {
+      bool   enabled = 1;
+      message Processors {
+        string type = 1;
+        message Parameters {
+          string parameter_name = 1;
+          string parameter_value = 2;
+        }
+        repeated Parameters parameters = 2;
+      }
+      repeated Processors processors = 2;
+    }
+    repeated ProcessingConfiguration processing_configuration = 12;
+    message S3BackupConfiguration {
+      string bucket_arn = 1;
+      int64  buffer_interval = 2;
+      int64  buffer_size = 3;
+      string compression_format = 4;
+      string kms_key_arn = 5;
+      string prefix = 6;
+      string role_arn = 7;
+      message CloudwatchLoggingOptions {
+        bool   enabled = 1;
+        string log_group_name = 2;
+        string log_stream_name = 3;
+      }
+      repeated CloudwatchLoggingOptions cloudwatch_logging_options = 8;
+    }
+    repeated S3BackupConfiguration s3_backup_configuration = 13;
+  }
+  repeated ExtendedS3Configuration extended_s3_configuration = 9;
+  message KinesisSourceConfiguration {
+    string kinesis_stream_arn = 1;
+    string role_arn = 2;
+  }
+  repeated KinesisSourceConfiguration kinesis_source_configuration = 10;
+  message RedshiftConfiguration {
+    string cluster_jdbcurl = 1;
+    string copy_options = 2;
+    string data_table_columns = 3;
+    string data_table_name = 4;
+    string password = 5;
+    int64  retry_duration = 6;
+    string role_arn = 7;
+    string s3_backup_mode = 8;
+    string username = 9;
+    message CloudwatchLoggingOptions {
+      bool   enabled = 1;
+      string log_group_name = 2;
+      string log_stream_name = 3;
+    }
+    repeated CloudwatchLoggingOptions cloudwatch_logging_options = 10;
+    message ProcessingConfiguration {
+      bool   enabled = 1;
+      message Processors {
+        string type = 1;
+        message Parameters {
+          string parameter_name = 1;
+          string parameter_value = 2;
+        }
+        repeated Parameters parameters = 2;
+      }
+      repeated Processors processors = 2;
+    }
+    repeated ProcessingConfiguration processing_configuration = 11;
+    message S3BackupConfiguration {
+      string bucket_arn = 1;
+      int64  buffer_interval = 2;
+      int64  buffer_size = 3;
+      string compression_format = 4;
+      string kms_key_arn = 5;
+      string prefix = 6;
+      string role_arn = 7;
+      message CloudwatchLoggingOptions {
+        bool   enabled = 1;
+        string log_group_name = 2;
+        string log_stream_name = 3;
+      }
+      repeated CloudwatchLoggingOptions cloudwatch_logging_options = 8;
+    }
+    repeated S3BackupConfiguration s3_backup_configuration = 12;
+  }
+  repeated RedshiftConfiguration redshift_configuration = 11;
+  message S3Configuration {
+    string bucket_arn = 1;
+    int64  buffer_interval = 2;
+    int64  buffer_size = 3;
+    string compression_format = 4;
+    string kms_key_arn = 5;
+    string prefix = 6;
+    string role_arn = 7;
+    message CloudwatchLoggingOptions {
+      bool   enabled = 1;
+      string log_group_name = 2;
+      string log_stream_name = 3;
+    }
+    repeated CloudwatchLoggingOptions cloudwatch_logging_options = 8;
+  }
+  repeated S3Configuration s3_configuration = 12;
+  message ServerSideEncryption {
+    bool   enabled = 1;
+  }
+  repeated ServerSideEncryption server_side_encryption = 13;
+  message SplunkConfiguration {
+    int64  hec_acknowledgment_timeout = 1;
+    string hec_endpoint = 2;
+    string hec_endpoint_type = 3;
+    string hec_token = 4;
+    int64  retry_duration = 5;
+    string s3_backup_mode = 6;
+    message CloudwatchLoggingOptions {
+      bool   enabled = 1;
+      string log_group_name = 2;
+      string log_stream_name = 3;
+    }
+    repeated CloudwatchLoggingOptions cloudwatch_logging_options = 7;
+    message ProcessingConfiguration {
+      bool   enabled = 1;
+      message Processors {
+        string type = 1;
+        message Parameters {
+          string parameter_name = 1;
+          string parameter_value = 2;
+        }
+        repeated Parameters parameters = 2;
+      }
+      repeated Processors processors = 2;
+    }
+    repeated ProcessingConfiguration processing_configuration = 8;
+  }
+  repeated SplunkConfiguration splunk_configuration = 14;
+}

@@ -1,0 +1,87 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLbListenerRule {
+  string arn = 1;
+  string id = 2;
+  string listener_arn = 3;
+  int64  priority = 4;
+  message Action {
+    int64  order = 1;
+    string target_group_arn = 2;
+    string type = 3;
+    message AuthenticateCognito {
+      map<string, string> authentication_request_extra_params = 1;
+      string on_unauthenticated_request = 2;
+      string scope = 3;
+      string session_cookie_name = 4;
+      int64  session_timeout = 5;
+      string user_pool_arn = 6;
+      string user_pool_client_id = 7;
+      string user_pool_domain = 8;
+    }
+    repeated AuthenticateCognito authenticate_cognito = 4;
+    message AuthenticateOidc {
+      map<string, string> authentication_request_extra_params = 1;
+      string authorization_endpoint = 2;
+      string client_id = 3;
+      string client_secret = 4;
+      string issuer = 5;
+      string on_unauthenticated_request = 6;
+      string scope = 7;
+      string session_cookie_name = 8;
+      int64  session_timeout = 9;
+      string token_endpoint = 10;
+      string user_info_endpoint = 11;
+    }
+    repeated AuthenticateOidc authenticate_oidc = 5;
+    message FixedResponse {
+      string content_type = 1;
+      string message_body = 2;
+      string status_code = 3;
+    }
+    repeated FixedResponse fixed_response = 6;
+    message Redirect {
+      string host = 1;
+      string path = 2;
+      string port = 3;
+      string protocol = 4;
+      string query = 5;
+      string status_code = 6;
+    }
+    repeated Redirect redirect = 7;
+  }
+  repeated Action action = 5;
+  message Condition {
+    string field = 1;
+    repeated string values = 2;
+    message HostHeader {
+      repeated string values = 1;
+    }
+    repeated HostHeader host_header = 3;
+    message HttpHeader {
+      string http_header_name = 1;
+      repeated string values = 2;
+    }
+    repeated HttpHeader http_header = 4;
+    message HttpRequestMethod {
+      repeated string values = 1;
+    }
+    repeated HttpRequestMethod http_request_method = 5;
+    message PathPattern {
+      repeated string values = 1;
+    }
+    repeated PathPattern path_pattern = 6;
+    message QueryString {
+      string key = 1;
+      string value = 2;
+    }
+    repeated QueryString query_string = 7;
+    message SourceIp {
+      repeated string values = 1;
+    }
+    repeated SourceIp source_ip = 8;
+  }
+  repeated Condition condition = 6;
+}

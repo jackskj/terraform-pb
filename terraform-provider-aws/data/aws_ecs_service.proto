@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEcsService {
+  string arn = 1;
+  string cluster_arn = 2;
+  int64  desired_count = 3;
+  string id = 4;
+  string launch_type = 5;
+  string scheduling_strategy = 6;
+  string service_name = 7;
+  string task_definition = 8;
+}

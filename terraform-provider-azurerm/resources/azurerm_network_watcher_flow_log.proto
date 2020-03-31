@@ -1,0 +1,33 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermNetworkWatcherFlowLog {
+  bool   enabled = 1;
+  string id = 2;
+  string network_security_group_id = 3;
+  string network_watcher_name = 4;
+  string resource_group_name = 5;
+  string storage_account_id = 6;
+  int64  version = 7;
+  message RetentionPolicy {
+    int64  days = 1;
+    bool   enabled = 2;
+  }
+  repeated RetentionPolicy retention_policy = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 9;
+  message TrafficAnalytics {
+    bool   enabled = 1;
+    int64  interval_in_minutes = 2;
+    string workspace_id = 3;
+    string workspace_region = 4;
+    string workspace_resource_id = 5;
+  }
+  repeated TrafficAnalytics traffic_analytics = 10;
+}

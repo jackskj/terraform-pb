@@ -1,0 +1,40 @@
+syntax="proto3";
+
+package aws;
+
+message AwsBatchComputeEnvironment {
+  string arn = 1;
+  string compute_environment_name = 2;
+  string compute_environment_name_prefix = 3;
+  string ecc_cluster_arn = 4;
+  string ecs_cluster_arn = 5;
+  string id = 6;
+  string service_role = 7;
+  string state = 8;
+  string status = 9;
+  string status_reason = 10;
+  string type = 11;
+  message ComputeResources {
+    string allocation_strategy = 1;
+    int64  bid_percentage = 2;
+    int64  desired_vcpus = 3;
+    string ec2_key_pair = 4;
+    string image_id = 5;
+    string instance_role = 6;
+    repeated string instance_type = 7;
+    int64  max_vcpus = 8;
+    int64  min_vcpus = 9;
+    repeated string security_group_ids = 10;
+    string spot_iam_fleet_role = 11;
+    repeated string subnets = 12;
+    map<string, string> tags = 13;
+    string type = 14;
+    message LaunchTemplate {
+      string launch_template_id = 1;
+      string launch_template_name = 2;
+      string version = 3;
+    }
+    repeated LaunchTemplate launch_template = 15;
+  }
+  repeated ComputeResources compute_resources = 12;
+}

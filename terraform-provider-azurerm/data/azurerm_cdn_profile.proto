@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermCdnProfile {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  string sku = 5;
+  map<string, string> tags = 6;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 7;
+}

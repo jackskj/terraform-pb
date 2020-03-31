@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermNetworkInterfaceBackendAddressPoolAssociation {
+  string backend_address_pool_id = 1;
+  string id = 2;
+  string ip_configuration_name = 3;
+  string network_interface_id = 4;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 5;
+}

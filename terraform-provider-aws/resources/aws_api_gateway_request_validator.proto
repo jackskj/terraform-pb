@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayRequestValidator {
+  string id = 1;
+  string name = 2;
+  string rest_api_id = 3;
+  bool   validate_request_body = 4;
+  bool   validate_request_parameters = 5;
+}

@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSesReceiptFilter {
+  string cidr = 1;
+  string id = 2;
+  string name = 3;
+  string policy = 4;
+}

@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMssqlServerSecurityAlertPolicy {
+  repeated string disabled_alerts = 1;
+  bool   email_account_admins = 2;
+  repeated string email_addresses = 3;
+  string id = 4;
+  string resource_group_name = 5;
+  int64  retention_days = 6;
+  string server_name = 7;
+  string state = 8;
+  string storage_account_access_key = 9;
+  string storage_endpoint = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

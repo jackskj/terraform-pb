@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeSubnetworkIamBinding {
+  string etag = 1;
+  string id = 2;
+  repeated string members = 3;
+  string project = 4;
+  string region = 5;
+  string role = 6;
+  string subnetwork = 7;
+}

@@ -1,0 +1,38 @@
+syntax="proto3";
+
+package aws;
+
+message AwsFsxWindowsFileSystem {
+  string active_directory_id = 1;
+  string arn = 2;
+  int64  automatic_backup_retention_days = 3;
+  bool   copy_tags_to_backups = 4;
+  string daily_automatic_backup_start_time = 5;
+  string dns_name = 6;
+  string id = 7;
+  string kms_key_id = 8;
+  repeated string network_interface_ids = 9;
+  string owner_id = 10;
+  repeated string security_group_ids = 11;
+  bool   skip_final_backup = 12;
+  int64  storage_capacity = 13;
+  repeated string subnet_ids = 14;
+  map<string, string> tags = 15;
+  int64  throughput_capacity = 16;
+  string vpc_id = 17;
+  string weekly_maintenance_start_time = 18;
+  message SelfManagedActiveDirectory {
+    repeated string dns_ips = 1;
+    string domain_name = 2;
+    string file_system_administrators_group = 3;
+    string organizational_unit_distinguished_name = 4;
+    string password = 5;
+    string username = 6;
+  }
+  repeated SelfManagedActiveDirectory self_managed_active_directory = 19;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 20;
+}

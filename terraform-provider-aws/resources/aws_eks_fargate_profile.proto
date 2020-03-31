@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEksFargateProfile {
+  string arn = 1;
+  string cluster_name = 2;
+  string fargate_profile_name = 3;
+  string id = 4;
+  string pod_execution_role_arn = 5;
+  string status = 6;
+  repeated string subnet_ids = 7;
+  map<string, string> tags = 8;
+  message Selector {
+    map<string, string> labels = 1;
+    string namespace = 2;
+  }
+  repeated Selector selector = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 10;
+}

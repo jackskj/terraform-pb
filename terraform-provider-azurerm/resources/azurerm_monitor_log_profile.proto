@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMonitorLogProfile {
+  repeated string categories = 1;
+  string id = 2;
+  repeated string locations = 3;
+  string name = 4;
+  string servicebus_rule_id = 5;
+  string storage_account_id = 6;
+  message RetentionPolicy {
+    int64  days = 1;
+    bool   enabled = 2;
+  }
+  repeated RetentionPolicy retention_policy = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 8;
+}

@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamUserLoginProfile {
+  string encrypted_password = 1;
+  string id = 2;
+  string key_fingerprint = 3;
+  int64  password_length = 4;
+  bool   password_reset_required = 5;
+  string pgp_key = 6;
+  string user = 7;
+}

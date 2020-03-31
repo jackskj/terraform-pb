@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSagemakerNotebookInstanceLifecycleConfiguration {
+  string arn = 1;
+  string id = 2;
+  string name = 3;
+  string on_create = 4;
+  string on_start = 5;
+}

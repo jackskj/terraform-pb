@@ -1,0 +1,70 @@
+syntax="proto3";
+
+package google;
+
+message GoogleTpuNode {
+
+  // The type of hardware accelerators associated with this node.
+  string accelerator_type = 1;
+
+  // The CIDR block that the TPU node will use when selecting an IP
+  // address. This CIDR block must be a /29 block; the Compute Engine
+  // networks API forbids a smaller block, and using a larger block would
+  // be wasteful (a node can only consume one IP address).
+  // 
+  // Errors will occur if the CIDR block has already been used for a
+  // currently existing TPU node, the CIDR block conflicts with any
+  // subnetworks in the user's provided network, or the provided network
+  // is peered with another network that is using that CIDR block.
+  string cidr_block = 2;
+
+  // The user-supplied description of the TPU. Maximum of 512 characters.
+  string description = 3;
+  string id = 4;
+
+  // Resource labels to represent user provided metadata.
+  map<string, string> labels = 5;
+
+  // The immutable name of the TPU.
+  string name = 6;
+
+  // The name of a network to peer the TPU node to. It must be a
+  // preexisting Compute Engine network inside of the project on which
+  // this API has been activated. If none is provided, "default" will be
+  // used.
+  string network = 7;
+
+  // The network endpoints where TPU workers can be accessed and sent work.
+  // It is recommended that Tensorflow clients of the node first reach out
+  // to the first (index 0) entry.
+  message NetworkEndpoints {
+    string ip_address = 1;
+    int64  port = 2;
+  }
+  repeated NetworkEndpoints network_endpoints = 8;
+  string project = 9;
+
+  // The service account used to run the tensor flow services within the
+  // node. To share resources, including Google Cloud Storage data, with
+  // the Tensorflow job running in the Node, this account must have
+  // permissions to that data.
+  string service_account = 10;
+
+  // The version of Tensorflow running in the Node.
+  string tensorflow_version = 11;
+
+  // The GCP location for the TPU.
+  string zone = 12;
+  message SchedulingConfig {
+
+    // Defines whether the TPU instance is preemptible.
+    bool   preemptible = 1;
+  }
+  repeated SchedulingConfig scheduling_config = 13;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 14;
+}

@@ -1,0 +1,33 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermServicebusSubscriptionRule {
+  string action = 1;
+  string filter_type = 2;
+  string id = 3;
+  string name = 4;
+  string namespace_name = 5;
+  string resource_group_name = 6;
+  string sql_filter = 7;
+  string subscription_name = 8;
+  string topic_name = 9;
+  message CorrelationFilter {
+    string content_type = 1;
+    string correlation_id = 2;
+    string label = 3;
+    string message_id = 4;
+    string reply_to = 5;
+    string reply_to_session_id = 6;
+    string session_id = 7;
+    string to = 8;
+  }
+  repeated CorrelationFilter correlation_filter = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDmsReplicationSubnetGroup {
+  string id = 1;
+  string replication_subnet_group_arn = 2;
+  string replication_subnet_group_description = 3;
+  string replication_subnet_group_id = 4;
+  repeated string subnet_ids = 5;
+  map<string, string> tags = 6;
+  string vpc_id = 7;
+}

@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsIamGroupPolicyAttachment {
-  group = 1;
-  id = 2;
-  policy_arn = 3;
-}

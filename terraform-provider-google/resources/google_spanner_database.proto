@@ -1,0 +1,29 @@
+syntax="proto3";
+
+package google;
+
+message GoogleSpannerDatabase {
+
+  // An optional list of DDL statements to run inside the newly created
+  // database. Statements can create tables, indexes, etc. These statements
+  // execute atomically with the creation of the database: if there is an
+  // error in any statement, the database is not created.
+  repeated string ddl = 1;
+  string id = 2;
+
+  // The instance to create the database on.
+  string instance = 3;
+
+  // A unique identifier for the database, which cannot be changed after
+  // the instance is created. Values are of the form [a-z][-a-z0-9]*[a-z0-9].
+  string name = 4;
+  string project = 5;
+
+  // An explanation of the status of the database.
+  string state = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 7;
+}

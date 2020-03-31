@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDbSecurityGroup {
+  string arn = 1;
+  string description = 2;
+  string id = 3;
+  string name = 4;
+  map<string, string> tags = 5;
+  message Ingress {
+    string cidr = 1;
+    string security_group_id = 2;
+    string security_group_name = 3;
+    string security_group_owner_id = 4;
+  }
+  repeated Ingress ingress = 6;
+}

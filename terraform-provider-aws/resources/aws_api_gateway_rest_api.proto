@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayRestApi {
+  string api_key_source = 1;
+  string arn = 2;
+  repeated string binary_media_types = 3;
+  string body = 4;
+  string created_date = 5;
+  string description = 6;
+  string execution_arn = 7;
+  string id = 8;
+  int64  minimum_compression_size = 9;
+  string name = 10;
+  string policy = 11;
+  string root_resource_id = 12;
+  map<string, string> tags = 13;
+  message EndpointConfiguration {
+    repeated string types = 1;
+    repeated string vpc_endpoint_ids = 2;
+  }
+  repeated EndpointConfiguration endpoint_configuration = 14;
+}

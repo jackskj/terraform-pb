@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLicensemanagerAssociation {
+  string id = 1;
+  string license_configuration_arn = 2;
+  string resource_arn = 3;
+}

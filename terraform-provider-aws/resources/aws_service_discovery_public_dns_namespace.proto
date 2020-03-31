@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsServiceDiscoveryPublicDnsNamespace {
+  string arn = 1;
+  string description = 2;
+  string hosted_zone = 3;
+  string id = 4;
+  string name = 5;
+}

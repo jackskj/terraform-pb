@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermLbOutboundRule {
+  int64  allocated_outbound_ports = 1;
+  string backend_address_pool_id = 2;
+  bool   enable_tcp_reset = 3;
+  string id = 4;
+  int64  idle_timeout_in_minutes = 5;
+  string loadbalancer_id = 6;
+  string name = 7;
+  string protocol = 8;
+  string resource_group_name = 9;
+  message FrontendIpConfiguration {
+    string id = 1;
+    string name = 2;
+  }
+  repeated FrontendIpConfiguration frontend_ip_configuration = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

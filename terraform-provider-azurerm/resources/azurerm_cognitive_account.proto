@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermCognitiveAccount {
+  string endpoint = 1;
+  string id = 2;
+  string kind = 3;
+  string location = 4;
+  string name = 5;
+  string primary_access_key = 6;
+  string qna_runtime_endpoint = 7;
+  string resource_group_name = 8;
+  string secondary_access_key = 9;
+  string sku_name = 10;
+  map<string, string> tags = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

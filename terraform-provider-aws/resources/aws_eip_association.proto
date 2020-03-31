@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEipAssociation {
+  string allocation_id = 1;
+  bool   allow_reassociation = 2;
+  string id = 3;
+  string instance_id = 4;
+  string network_interface_id = 5;
+  string private_ip_address = 6;
+  string public_ip = 7;
+}

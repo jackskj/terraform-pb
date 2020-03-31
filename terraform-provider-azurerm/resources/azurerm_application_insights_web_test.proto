@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermApplicationInsightsWebTest {
+  string application_insights_id = 1;
+  string configuration = 2;
+  string description = 3;
+  bool   enabled = 4;
+  int64  frequency = 5;
+  repeated string geo_locations = 6;
+  string id = 7;
+  string kind = 8;
+  string location = 9;
+  string name = 10;
+  string resource_group_name = 11;
+  bool   retry_enabled = 12;
+  string synthetic_monitor_id = 13;
+  map<string, string> tags = 14;
+  int64  timeout = 15;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 16;
+}

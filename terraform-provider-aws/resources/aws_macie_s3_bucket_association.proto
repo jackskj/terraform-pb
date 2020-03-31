@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsMacieS3BucketAssociation {
+  string bucket_name = 1;
+  string id = 2;
+  string member_account_id = 3;
+  string prefix = 4;
+  message ClassificationType {
+    string continuous = 1;
+    string one_time = 2;
+  }
+  repeated ClassificationType classification_type = 5;
+}

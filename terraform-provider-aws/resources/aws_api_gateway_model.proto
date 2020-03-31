@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayModel {
+  string content_type = 1;
+  string description = 2;
+  string id = 3;
+  string name = 4;
+  string rest_api_id = 5;
+  string schema = 6;
+}

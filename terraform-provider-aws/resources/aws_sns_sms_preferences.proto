@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSnsSmsPreferences {
+  string default_sender_id = 1;
+  string default_sms_type = 2;
+  string delivery_status_iam_role_arn = 3;
+  string delivery_status_success_sampling_rate = 4;
+  string id = 5;
+  string monthly_spend_limit = 6;
+  string usage_report_s3_bucket = 7;
+}

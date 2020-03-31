@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamOpenidConnectProvider {
+  string arn = 1;
+  repeated string client_id_list = 2;
+  string id = 3;
+  repeated string thumbprint_list = 4;
+  string url = 5;
+}

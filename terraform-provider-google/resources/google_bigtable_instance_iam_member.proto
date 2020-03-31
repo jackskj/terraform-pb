@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package google;
+
+message GoogleBigtableInstanceIamMember {
+  string etag = 1;
+  string id = 2;
+  string instance = 3;
+  string member = 4;
+  string project = 5;
+  string role = 6;
+}

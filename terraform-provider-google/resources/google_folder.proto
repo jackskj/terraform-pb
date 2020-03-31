@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package google;
+
+message GoogleFolder {
+  string create_time = 1;
+  string display_name = 2;
+  string id = 3;
+  string lifecycle_state = 4;
+  string name = 5;
+  string parent = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 7;
+}

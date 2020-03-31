@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermEventgridTopic {
+  string endpoint = 1;
+  string id = 2;
+  string location = 3;
+  string name = 4;
+  string primary_access_key = 5;
+  string resource_group_name = 6;
+  string secondary_access_key = 7;
+  map<string, string> tags = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 9;
+}

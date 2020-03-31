@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermPlatformImage {
+  string id = 1;
+  string location = 2;
+  string offer = 3;
+  string publisher = 4;
+  string sku = 5;
+  string version = 6;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 7;
+}

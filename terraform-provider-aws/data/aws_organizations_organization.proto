@@ -1,0 +1,41 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOrganizationsOrganization {
+  message Accounts {
+    string arn = 1;
+    string email = 2;
+    string id = 3;
+    string name = 4;
+    string status = 5;
+  }
+  repeated Accounts accounts = 1;
+  string arn = 2;
+  repeated string aws_service_access_principals = 3;
+  repeated string enabled_policy_types = 4;
+  string feature_set = 5;
+  string id = 6;
+  string master_account_arn = 7;
+  string master_account_email = 8;
+  string master_account_id = 9;
+  message NonMasterAccounts {
+    string arn = 1;
+    string email = 2;
+    string id = 3;
+    string name = 4;
+    string status = 5;
+  }
+  repeated NonMasterAccounts non_master_accounts = 10;
+  message Roots {
+    string arn = 1;
+    string id = 2;
+    string name = 3;
+    message PolicyTypes {
+      string status = 1;
+      string type = 2;
+    }
+    repeated PolicyTypes policy_types = 4;
+  }
+  repeated Roots roots = 11;
+}

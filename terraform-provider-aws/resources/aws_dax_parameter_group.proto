@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDaxParameterGroup {
+  string description = 1;
+  string id = 2;
+  string name = 3;
+  message Parameters {
+    string name = 1;
+    string value = 2;
+  }
+  repeated Parameters parameters = 4;
+}

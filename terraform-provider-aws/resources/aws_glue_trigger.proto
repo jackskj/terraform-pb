@@ -1,0 +1,39 @@
+syntax="proto3";
+
+package aws;
+
+message AwsGlueTrigger {
+  string arn = 1;
+  string description = 2;
+  bool   enabled = 3;
+  string id = 4;
+  string name = 5;
+  string schedule = 6;
+  map<string, string> tags = 7;
+  string type = 8;
+  string workflow_name = 9;
+  message Actions {
+    map<string, string> arguments = 1;
+    string crawler_name = 2;
+    string job_name = 3;
+    int64  timeout = 4;
+  }
+  repeated Actions actions = 10;
+  message Predicate {
+    string logical = 1;
+    message Conditions {
+      string crawl_state = 1;
+      string crawler_name = 2;
+      string job_name = 3;
+      string logical_operator = 4;
+      string state = 5;
+    }
+    repeated Conditions conditions = 2;
+  }
+  repeated Predicate predicate = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 12;
+}

@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package aws;
+
+message AwsNeptuneClusterSnapshot {
+  int64  allocated_storage = 1;
+  repeated string availability_zones = 2;
+  string db_cluster_identifier = 3;
+  string db_cluster_snapshot_arn = 4;
+  string db_cluster_snapshot_identifier = 5;
+  string engine = 6;
+  string engine_version = 7;
+  string id = 8;
+  string kms_key_id = 9;
+  string license_model = 10;
+  int64  port = 11;
+  string snapshot_type = 12;
+  string source_db_cluster_snapshot_arn = 13;
+  string status = 14;
+  bool   storage_encrypted = 15;
+  string vpc_id = 16;
+  message Timeouts {
+    string create = 1;
+  }
+  Timeouts timeouts = 17;
+}

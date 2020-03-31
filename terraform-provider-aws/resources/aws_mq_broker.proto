@@ -1,0 +1,53 @@
+syntax="proto3";
+
+package aws;
+
+message AwsMqBroker {
+  bool   apply_immediately = 1;
+  string arn = 2;
+  bool   auto_minor_version_upgrade = 3;
+  string broker_name = 4;
+  string deployment_mode = 5;
+  string engine_type = 6;
+  string engine_version = 7;
+  string host_instance_type = 8;
+  string id = 9;
+  message Instances {
+    string console_url = 1;
+    repeated string endpoints = 2;
+    string ip_address = 3;
+  }
+  repeated Instances instances = 10;
+  bool   publicly_accessible = 11;
+  repeated string security_groups = 12;
+  repeated string subnet_ids = 13;
+  map<string, string> tags = 14;
+  message Configuration {
+    string id = 1;
+    int64  revision = 2;
+  }
+  repeated Configuration configuration = 15;
+  message EncryptionOptions {
+    string kms_key_id = 1;
+    bool   use_aws_owned_key = 2;
+  }
+  repeated EncryptionOptions encryption_options = 16;
+  message Logs {
+    bool   audit = 1;
+    bool   general = 2;
+  }
+  repeated Logs logs = 17;
+  message MaintenanceWindowStartTime {
+    string day_of_week = 1;
+    string time_of_day = 2;
+    string time_zone = 3;
+  }
+  repeated MaintenanceWindowStartTime maintenance_window_start_time = 18;
+  message User {
+    bool   console_access = 1;
+    repeated string groups = 2;
+    string password = 3;
+    string username = 4;
+  }
+  repeated User user = 19;
+}

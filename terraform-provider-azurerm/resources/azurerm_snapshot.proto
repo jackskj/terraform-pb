@@ -1,0 +1,37 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSnapshot {
+  string create_option = 1;
+  int64  disk_size_gb = 2;
+  string id = 3;
+  string location = 4;
+  string name = 5;
+  string resource_group_name = 6;
+  string source_resource_id = 7;
+  string source_uri = 8;
+  string storage_account_id = 9;
+  map<string, string> tags = 10;
+  message EncryptionSettings {
+    bool   enabled = 1;
+    message DiskEncryptionKey {
+      string secret_url = 1;
+      string source_vault_id = 2;
+    }
+    repeated DiskEncryptionKey disk_encryption_key = 2;
+    message KeyEncryptionKey {
+      string key_url = 1;
+      string source_vault_id = 2;
+    }
+    repeated KeyEncryptionKey key_encryption_key = 3;
+  }
+  repeated EncryptionSettings encryption_settings = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

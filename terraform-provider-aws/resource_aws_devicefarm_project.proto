@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsDevicefarmProject {
-  arn = 1;
-  id = 2;
-  name = 3;
-}

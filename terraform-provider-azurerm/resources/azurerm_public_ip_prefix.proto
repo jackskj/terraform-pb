@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermPublicIpPrefix {
+  string id = 1;
+  string ip_prefix = 2;
+  string location = 3;
+  string name = 4;
+  int64  prefix_length = 5;
+  string resource_group_name = 6;
+  string sku = 7;
+  map<string, string> tags = 8;
+  repeated string zones = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 10;
+}

@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package aws;
+
+message AwsS3AccountPublicAccessBlock {
+  string account_id = 1;
+  bool   block_public_acls = 2;
+  bool   block_public_policy = 3;
+  string id = 4;
+  bool   ignore_public_acls = 5;
+  bool   restrict_public_buckets = 6;
+}

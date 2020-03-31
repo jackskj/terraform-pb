@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSqlActiveDirectoryAdministrator {
+  string id = 1;
+  string login = 2;
+  string object_id = 3;
+  string resource_group_name = 4;
+  string server_name = 5;
+  string tenant_id = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 7;
+}

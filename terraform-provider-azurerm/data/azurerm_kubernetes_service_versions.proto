@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermKubernetesServiceVersions {
+  string id = 1;
+  bool   include_preview = 2;
+  string latest_version = 3;
+  string location = 4;
+  string version_prefix = 5;
+  repeated string versions = 6;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 7;
+}

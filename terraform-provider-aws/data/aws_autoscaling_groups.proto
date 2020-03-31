@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAutoscalingGroups {
+  repeated string arns = 1;
+  string id = 2;
+  repeated string names = 3;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 4;
+}

@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsGuarddutyInviteAccepter {
+  string detector_id = 1;
+  string id = 2;
+  string master_account_id = 3;
+  message Timeouts {
+    string create = 1;
+  }
+  Timeouts timeouts = 4;
+}

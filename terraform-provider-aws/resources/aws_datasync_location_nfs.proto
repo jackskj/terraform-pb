@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDatasyncLocationNfs {
+  string arn = 1;
+  string id = 2;
+  string server_hostname = 3;
+  string subdirectory = 4;
+  map<string, string> tags = 5;
+  string uri = 6;
+  message OnPremConfig {
+    repeated string agent_arns = 1;
+  }
+  repeated OnPremConfig on_prem_config = 7;
+}

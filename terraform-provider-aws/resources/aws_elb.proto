@@ -1,0 +1,47 @@
+syntax="proto3";
+
+package aws;
+
+message AwsElb {
+  string arn = 1;
+  repeated string availability_zones = 2;
+  bool   connection_draining = 3;
+  int64  connection_draining_timeout = 4;
+  bool   cross_zone_load_balancing = 5;
+  string dns_name = 6;
+  string id = 7;
+  int64  idle_timeout = 8;
+  repeated string instances = 9;
+  bool   internal = 10;
+  string name = 11;
+  string name_prefix = 12;
+  repeated string security_groups = 13;
+  string source_security_group = 14;
+  string source_security_group_id = 15;
+  repeated string subnets = 16;
+  map<string, string> tags = 17;
+  string zone_id = 18;
+  message AccessLogs {
+    string bucket = 1;
+    string bucket_prefix = 2;
+    bool   enabled = 3;
+    int64  interval = 4;
+  }
+  repeated AccessLogs access_logs = 19;
+  message HealthCheck {
+    int64  healthy_threshold = 1;
+    int64  interval = 2;
+    string target = 3;
+    int64  timeout = 4;
+    int64  unhealthy_threshold = 5;
+  }
+  repeated HealthCheck health_check = 20;
+  message Listener {
+    int64  instance_port = 1;
+    string instance_protocol = 2;
+    int64  lb_port = 3;
+    string lb_protocol = 4;
+    string ssl_certificate_id = 5;
+  }
+  repeated Listener listener = 21;
+}

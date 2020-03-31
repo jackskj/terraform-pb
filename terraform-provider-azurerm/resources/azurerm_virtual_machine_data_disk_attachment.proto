@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermVirtualMachineDataDiskAttachment {
+  string caching = 1;
+  string create_option = 2;
+  string id = 3;
+  int64  lun = 4;
+  string managed_disk_id = 5;
+  string virtual_machine_id = 6;
+  bool   write_accelerator_enabled = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 8;
+}

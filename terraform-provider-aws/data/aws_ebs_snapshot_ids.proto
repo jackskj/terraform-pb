@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEbsSnapshotIds {
+  string id = 1;
+  repeated string ids = 2;
+  repeated string owners = 3;
+  repeated string restorable_by_user_ids = 4;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 5;
+}

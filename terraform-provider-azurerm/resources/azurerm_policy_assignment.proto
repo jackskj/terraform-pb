@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermPolicyAssignment {
+  string description = 1;
+  string display_name = 2;
+  string id = 3;
+  string location = 4;
+  string name = 5;
+  repeated string not_scopes = 6;
+  string parameters = 7;
+  string policy_definition_id = 8;
+  string scope = 9;
+  message Identity {
+    string principal_id = 1;
+    string tenant_id = 2;
+    string type = 3;
+  }
+  repeated Identity identity = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

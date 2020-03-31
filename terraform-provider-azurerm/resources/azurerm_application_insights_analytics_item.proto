@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermApplicationInsightsAnalyticsItem {
+  string application_insights_id = 1;
+  string content = 2;
+  string function_alias = 3;
+  string id = 4;
+  string name = 5;
+  string scope = 6;
+  string time_created = 7;
+  string time_modified = 8;
+  string type = 9;
+  string version = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

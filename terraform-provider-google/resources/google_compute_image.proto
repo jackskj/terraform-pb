@@ -1,0 +1,84 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeImage {
+
+  // Size of the image tar.gz archive stored in Google Cloud Storage (in
+  // bytes).
+  int64  archive_size_bytes = 1;
+
+  // Creation timestamp in RFC3339 text format.
+  string creation_timestamp = 2;
+
+  // An optional description of this resource. Provide this property when
+  // you create the resource.
+  string description = 3;
+
+  // Size of the image when restored onto a persistent disk (in GB).
+  int64  disk_size_gb = 4;
+
+  // The name of the image family to which this image belongs. You can
+  // create disks by specifying an image family instead of a specific
+  // image name. The image family always returns its latest image that is
+  // not deprecated. The name of the image family must comply with
+  // RFC1035.
+  string family = 5;
+  string id = 6;
+
+  // The fingerprint used for optimistic locking of this resource. Used
+  // internally during updates.
+  string label_fingerprint = 7;
+
+  // Labels to apply to this Image.
+  map<string, string> labels = 8;
+
+  // Any applicable license URI.
+  repeated string licenses = 9;
+
+  // Name of the resource; provided by the client when the resource is
+  // created. The name must be 1-63 characters long, and comply with
+  // RFC1035. Specifically, the name must be 1-63 characters long and
+  // match the regular expression '[a-z]([-a-z0-9]*[a-z0-9])?' which means
+  // the first character must be a lowercase letter, and all following
+  // characters must be a dash, lowercase letter, or digit, except the
+  // last character, which cannot be a dash.
+  string name = 10;
+  string project = 11;
+  string self_link = 12;
+
+  // The source disk to create this image based on.
+  // You must provide either this property or the
+  // rawDisk.source property but not both to create an image.
+  string source_disk = 13;
+  message GuestOsFeatures {
+
+    // The type of supported feature. Read [Enabling guest operating system features](https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images#guest-os-features) to see a list of available options.
+    string type = 1;
+  }
+  repeated GuestOsFeatures guest_os_features = 14;
+  message RawDisk {
+
+    // The format used to encode and transmit the block device, which
+    // should be TAR. This is just a container and transmission format
+    // and not a runtime format. Provided by the client when the disk
+    // image is created.
+    string container_type = 1;
+
+    // An optional SHA1 checksum of the disk image before unpackaging.
+    // This is provided by the client when the disk image is created.
+    string sha1 = 2;
+
+    // The full Google Cloud Storage URL where disk storage is stored
+    // You must provide either this property or the sourceDisk property
+    // but not both.
+    string source = 3;
+  }
+  repeated RawDisk raw_disk = 15;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 16;
+}

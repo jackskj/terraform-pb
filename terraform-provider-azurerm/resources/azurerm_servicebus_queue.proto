@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermServicebusQueue {
+  string auto_delete_on_idle = 1;
+  bool   dead_lettering_on_message_expiration = 2;
+  string default_message_ttl = 3;
+  string duplicate_detection_history_time_window = 4;
+  bool   enable_express = 5;
+  bool   enable_partitioning = 6;
+  string id = 7;
+  string lock_duration = 8;
+  int64  max_delivery_count = 9;
+  int64  max_size_in_megabytes = 10;
+  string name = 11;
+  string namespace_name = 12;
+  bool   requires_duplicate_detection = 13;
+  bool   requires_session = 14;
+  string resource_group_name = 15;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 16;
+}

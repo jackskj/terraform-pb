@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeNetworkPeeringRoutesConfig {
+
+  // Whether to export the custom routes to the peer network.
+  bool   export_custom_routes = 1;
+  string id = 2;
+
+  // Whether to import the custom routes to the peer network.
+  bool   import_custom_routes = 3;
+
+  // The name of the primary network for the peering.
+  string network = 4;
+
+  // Name of the peering.
+  string peering = 5;
+  string project = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 7;
+}

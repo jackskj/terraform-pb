@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermAppServiceEnvironment {
+  int64  front_end_scale_factor = 1;
+  string id = 2;
+  string name = 3;
+  string pricing_tier = 4;
+  string resource_group_name = 5;
+  map<string, string> tags = 6;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 7;
+}

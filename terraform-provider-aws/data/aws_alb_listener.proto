@@ -1,0 +1,59 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAlbListener {
+  string arn = 1;
+  string certificate_arn = 2;
+  message DefaultAction {
+    message AuthenticateCognito {
+      map<string, string> authentication_request_extra_params = 1;
+      string on_unauthenticated_request = 2;
+      string scope = 3;
+      string session_cookie_name = 4;
+      int64  session_timeout = 5;
+      string user_pool_arn = 6;
+      string user_pool_client_id = 7;
+      string user_pool_domain = 8;
+    }
+    repeated AuthenticateCognito authenticate_cognito = 1;
+    message AuthenticateOidc {
+      map<string, string> authentication_request_extra_params = 1;
+      string authorization_endpoint = 2;
+      string client_id = 3;
+      string client_secret = 4;
+      string issuer = 5;
+      string on_unauthenticated_request = 6;
+      string scope = 7;
+      string session_cookie_name = 8;
+      int64  session_timeout = 9;
+      string token_endpoint = 10;
+      string user_info_endpoint = 11;
+    }
+    repeated AuthenticateOidc authenticate_oidc = 2;
+    message FixedResponse {
+      string content_type = 1;
+      string message_body = 2;
+      string status_code = 3;
+    }
+    repeated FixedResponse fixed_response = 3;
+    int64  order = 4;
+    message Redirect {
+      string host = 1;
+      string path = 2;
+      string port = 3;
+      string protocol = 4;
+      string query = 5;
+      string status_code = 6;
+    }
+    repeated Redirect redirect = 5;
+    string target_group_arn = 6;
+    string type = 7;
+  }
+  repeated DefaultAction default_action = 3;
+  string id = 4;
+  string load_balancer_arn = 5;
+  int64  port = 6;
+  string protocol = 7;
+  string ssl_policy = 8;
+}

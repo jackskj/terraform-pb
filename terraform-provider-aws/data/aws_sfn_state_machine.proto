@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSfnStateMachine {
+  string arn = 1;
+  string creation_date = 2;
+  string definition = 3;
+  string id = 4;
+  string name = 5;
+  string role_arn = 6;
+  string status = 7;
+}

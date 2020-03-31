@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package aws;
+
+message AwsNetworkInterface {
+  string description = 1;
+  string id = 2;
+  string mac_address = 3;
+  string private_dns_name = 4;
+  string private_ip = 5;
+  repeated string private_ips = 6;
+  int64  private_ips_count = 7;
+  repeated string security_groups = 8;
+  bool   source_dest_check = 9;
+  string subnet_id = 10;
+  map<string, string> tags = 11;
+  message Attachment {
+    string attachment_id = 1;
+    int64  device_index = 2;
+    string instance = 3;
+  }
+  repeated Attachment attachment = 12;
+}

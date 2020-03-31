@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeInstanceGroup {
+  string description = 1;
+  string id = 2;
+  repeated string instances = 3;
+  string name = 4;
+  string network = 5;
+  string project = 6;
+  string self_link = 7;
+  int64  size = 8;
+  string zone = 9;
+  message NamedPort {
+    string name = 1;
+    int64  port = 2;
+  }
+  repeated NamedPort named_port = 10;
+}

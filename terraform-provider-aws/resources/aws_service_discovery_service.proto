@@ -1,0 +1,31 @@
+syntax="proto3";
+
+package aws;
+
+message AwsServiceDiscoveryService {
+  string arn = 1;
+  string description = 2;
+  string id = 3;
+  string name = 4;
+  string namespace_id = 5;
+  message DnsConfig {
+    string namespace_id = 1;
+    string routing_policy = 2;
+    message DnsRecords {
+      int64  ttl = 1;
+      string type = 2;
+    }
+    repeated DnsRecords dns_records = 3;
+  }
+  repeated DnsConfig dns_config = 6;
+  message HealthCheckConfig {
+    int64  failure_threshold = 1;
+    string resource_path = 2;
+    string type = 3;
+  }
+  repeated HealthCheckConfig health_check_config = 7;
+  message HealthCheckCustomConfig {
+    int64  failure_threshold = 1;
+  }
+  repeated HealthCheckCustomConfig health_check_custom_config = 8;
+}

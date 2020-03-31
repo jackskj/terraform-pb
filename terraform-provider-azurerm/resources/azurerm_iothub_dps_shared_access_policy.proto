@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermIothubDpsSharedAccessPolicy {
+  bool   enrollment_read = 1;
+  bool   enrollment_write = 2;
+  string id = 3;
+  string iothub_dps_name = 4;
+  string name = 5;
+  string primary_connection_string = 6;
+  string primary_key = 7;
+  bool   registration_read = 8;
+  bool   registration_write = 9;
+  string resource_group_name = 10;
+  string secondary_connection_string = 11;
+  string secondary_key = 12;
+  bool   service_config = 13;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 14;
+}

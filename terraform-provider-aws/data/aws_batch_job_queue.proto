@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsBatchJobQueue {
+  string arn = 1;
+  message ComputeEnvironmentOrder {
+    string compute_environment = 1;
+    int64  order = 2;
+  }
+  repeated ComputeEnvironmentOrder compute_environment_order = 2;
+  string id = 3;
+  string name = 4;
+  int64  priority = 5;
+  string state = 6;
+  string status = 7;
+  string status_reason = 8;
+}

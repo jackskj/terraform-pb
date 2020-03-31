@@ -1,0 +1,59 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermApiManagement {
+  message AdditionalLocation {
+    string gateway_regional_url = 1;
+    string location = 2;
+    repeated string public_ip_addresses = 3;
+  }
+  repeated AdditionalLocation additional_location = 1;
+  string gateway_regional_url = 2;
+  string gateway_url = 3;
+  message HostnameConfiguration {
+    message Management {
+      string host_name = 1;
+      string key_vault_id = 2;
+      bool   negotiate_client_certificate = 3;
+    }
+    repeated Management management = 1;
+    message Portal {
+      string host_name = 1;
+      string key_vault_id = 2;
+      bool   negotiate_client_certificate = 3;
+    }
+    repeated Portal portal = 2;
+    message Proxy {
+      bool   default_ssl_binding = 1;
+      string host_name = 2;
+      string key_vault_id = 3;
+      bool   negotiate_client_certificate = 4;
+    }
+    repeated Proxy proxy = 3;
+    message Scm {
+      string host_name = 1;
+      string key_vault_id = 2;
+      bool   negotiate_client_certificate = 3;
+    }
+    repeated Scm scm = 4;
+  }
+  repeated HostnameConfiguration hostname_configuration = 4;
+  string id = 5;
+  string location = 6;
+  string management_api_url = 7;
+  string name = 8;
+  string notification_sender_email = 9;
+  string portal_url = 10;
+  repeated string public_ip_addresses = 11;
+  string publisher_email = 12;
+  string publisher_name = 13;
+  string resource_group_name = 14;
+  string scm_url = 15;
+  string sku_name = 16;
+  map<string, string> tags = 17;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 18;
+}

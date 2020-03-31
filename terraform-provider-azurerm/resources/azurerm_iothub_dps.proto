@@ -1,0 +1,35 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermIothubDps {
+  string allocation_policy = 1;
+  string device_provisioning_host_name = 2;
+  string id = 3;
+  string id_scope = 4;
+  string location = 5;
+  string name = 6;
+  string resource_group_name = 7;
+  string service_operations_host_name = 8;
+  map<string, string> tags = 9;
+  message LinkedHub {
+    int64  allocation_weight = 1;
+    bool   apply_allocation_policy = 2;
+    string connection_string = 3;
+    string hostname = 4;
+    string location = 5;
+  }
+  repeated LinkedHub linked_hub = 10;
+  message Sku {
+    int64  capacity = 1;
+    string name = 2;
+  }
+  repeated Sku sku = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

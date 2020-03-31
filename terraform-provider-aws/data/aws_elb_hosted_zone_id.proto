@@ -1,0 +1,8 @@
+syntax="proto3";
+
+package aws;
+
+message AwsElbHostedZoneId {
+  string id = 1;
+  string region = 2;
+}

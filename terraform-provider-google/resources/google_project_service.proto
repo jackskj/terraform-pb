@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package google;
+
+message GoogleProjectService {
+  bool   disable_dependent_services = 1;
+  bool   disable_on_destroy = 2;
+  string id = 3;
+  string project = 4;
+  string service = 5;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 6;
+}

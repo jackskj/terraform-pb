@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsProxyProtocolPolicy {
+  string id = 1;
+  repeated string instance_ports = 2;
+  string load_balancer = 3;
+}

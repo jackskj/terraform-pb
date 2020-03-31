@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermNetworkDdosProtectionPlan {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  map<string, string> tags = 5;
+  repeated string virtual_network_ids = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 7;
+}

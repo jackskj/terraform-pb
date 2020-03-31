@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsStoragegatewayLocalDisk {
+  string disk_id = 1;
+  string disk_node = 2;
+  string disk_path = 3;
+  string gateway_arn = 4;
+  string id = 5;
+}

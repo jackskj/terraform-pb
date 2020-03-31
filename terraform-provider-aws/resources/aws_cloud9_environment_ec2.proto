@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCloud9EnvironmentEc2 {
+  string arn = 1;
+  int64  automatic_stop_time_minutes = 2;
+  string description = 3;
+  string id = 4;
+  string instance_type = 5;
+  string name = 6;
+  string owner_arn = 7;
+  string subnet_id = 8;
+  map<string, string> tags = 9;
+  string type = 10;
+}

@@ -1,0 +1,32 @@
+syntax="proto3";
+
+package aws;
+
+message AwsGlueClassifier {
+  string id = 1;
+  string name = 2;
+  message CsvClassifier {
+    bool   allow_single_column = 1;
+    string contains_header = 2;
+    string delimiter = 3;
+    bool   disable_value_trimming = 4;
+    repeated string header = 5;
+    string quote_symbol = 6;
+  }
+  repeated CsvClassifier csv_classifier = 3;
+  message GrokClassifier {
+    string classification = 1;
+    string custom_patterns = 2;
+    string grok_pattern = 3;
+  }
+  repeated GrokClassifier grok_classifier = 4;
+  message JsonClassifier {
+    string json_path = 1;
+  }
+  repeated JsonClassifier json_classifier = 5;
+  message XmlClassifier {
+    string classification = 1;
+    string row_tag = 2;
+  }
+  repeated XmlClassifier xml_classifier = 6;
+}

@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamInstanceProfile {
+  string arn = 1;
+  string create_date = 2;
+  string id = 3;
+  string name = 4;
+  string name_prefix = 5;
+  string path = 6;
+  string role = 7;
+  repeated string roles = 8;
+  string unique_id = 9;
+}

@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSqlElasticpool {
+  string creation_date = 1;
+  int64  db_dtu_max = 2;
+  int64  db_dtu_min = 3;
+  int64  dtu = 4;
+  string edition = 5;
+  string id = 6;
+  string location = 7;
+  string name = 8;
+  int64  pool_size = 9;
+  string resource_group_name = 10;
+  string server_name = 11;
+  map<string, string> tags = 12;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 13;
+}

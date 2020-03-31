@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsS3BucketPolicy {
-  bucket = 1;
-  id = 2;
-  policy = 3;
-}

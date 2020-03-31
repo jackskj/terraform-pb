@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsVpcEndpointRouteTableAssociation {
-  id = 1;
-  route_table_id = 2;
-  vpc_endpoint_id = 3;
-}

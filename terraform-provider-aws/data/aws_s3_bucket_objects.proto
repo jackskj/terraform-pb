@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsS3BucketObjects {
+  string bucket = 1;
+  repeated string common_prefixes = 2;
+  string delimiter = 3;
+  string encoding_type = 4;
+  bool   fetch_owner = 5;
+  string id = 6;
+  repeated string keys = 7;
+  int64  max_keys = 8;
+  repeated string owners = 9;
+  string prefix = 10;
+  string start_after = 11;
+}

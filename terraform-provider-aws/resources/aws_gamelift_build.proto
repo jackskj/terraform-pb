@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsGameliftBuild {
+  string arn = 1;
+  string id = 2;
+  string name = 3;
+  string operating_system = 4;
+  map<string, string> tags = 5;
+  string version = 6;
+  message StorageLocation {
+    string bucket = 1;
+    string key = 2;
+    string role_arn = 3;
+  }
+  repeated StorageLocation storage_location = 7;
+}

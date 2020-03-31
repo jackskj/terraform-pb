@@ -1,0 +1,187 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCloudfrontDistribution {
+  map<string, string> active_trusted_signers = 1;
+  repeated string aliases = 2;
+  string arn = 3;
+  string caller_reference = 4;
+  string comment = 5;
+  string default_root_object = 6;
+  string domain_name = 7;
+  bool   enabled = 8;
+  string etag = 9;
+  string hosted_zone_id = 10;
+  string http_version = 11;
+  string id = 12;
+  int64  in_progress_validation_batches = 13;
+  bool   is_ipv6_enabled = 14;
+  string last_modified_time = 15;
+  string price_class = 16;
+  bool   retain_on_delete = 17;
+  string status = 18;
+  map<string, string> tags = 19;
+  bool   wait_for_deployment = 20;
+  string web_acl_id = 21;
+  message CacheBehavior {
+    repeated string allowed_methods = 1;
+    repeated string cached_methods = 2;
+    bool   compress = 3;
+    int64  default_ttl = 4;
+    string field_level_encryption_id = 5;
+    int64  max_ttl = 6;
+    int64  min_ttl = 7;
+    string path_pattern = 8;
+    bool   smooth_streaming = 9;
+    string target_origin_id = 10;
+    repeated string trusted_signers = 11;
+    string viewer_protocol_policy = 12;
+    message ForwardedValues {
+      repeated string headers = 1;
+      bool   query_string = 2;
+      repeated string query_string_cache_keys = 3;
+      message Cookies {
+        string forward = 1;
+        repeated string whitelisted_names = 2;
+      }
+      repeated Cookies cookies = 4;
+    }
+    repeated ForwardedValues forwarded_values = 13;
+    message LambdaFunctionAssociation {
+      string event_type = 1;
+      bool   include_body = 2;
+      string lambda_arn = 3;
+    }
+    repeated LambdaFunctionAssociation lambda_function_association = 14;
+  }
+  repeated CacheBehavior cache_behavior = 22;
+  message CustomErrorResponse {
+    int64  error_caching_min_ttl = 1;
+    int64  error_code = 2;
+    int64  response_code = 3;
+    string response_page_path = 4;
+  }
+  repeated CustomErrorResponse custom_error_response = 23;
+  message DefaultCacheBehavior {
+    repeated string allowed_methods = 1;
+    repeated string cached_methods = 2;
+    bool   compress = 3;
+    int64  default_ttl = 4;
+    string field_level_encryption_id = 5;
+    int64  max_ttl = 6;
+    int64  min_ttl = 7;
+    bool   smooth_streaming = 8;
+    string target_origin_id = 9;
+    repeated string trusted_signers = 10;
+    string viewer_protocol_policy = 11;
+    message ForwardedValues {
+      repeated string headers = 1;
+      bool   query_string = 2;
+      repeated string query_string_cache_keys = 3;
+      message Cookies {
+        string forward = 1;
+        repeated string whitelisted_names = 2;
+      }
+      repeated Cookies cookies = 4;
+    }
+    repeated ForwardedValues forwarded_values = 12;
+    message LambdaFunctionAssociation {
+      string event_type = 1;
+      bool   include_body = 2;
+      string lambda_arn = 3;
+    }
+    repeated LambdaFunctionAssociation lambda_function_association = 13;
+  }
+  repeated DefaultCacheBehavior default_cache_behavior = 24;
+  message LoggingConfig {
+    string bucket = 1;
+    bool   include_cookies = 2;
+    string prefix = 3;
+  }
+  repeated LoggingConfig logging_config = 25;
+  message OrderedCacheBehavior {
+    repeated string allowed_methods = 1;
+    repeated string cached_methods = 2;
+    bool   compress = 3;
+    int64  default_ttl = 4;
+    string field_level_encryption_id = 5;
+    int64  max_ttl = 6;
+    int64  min_ttl = 7;
+    string path_pattern = 8;
+    bool   smooth_streaming = 9;
+    string target_origin_id = 10;
+    repeated string trusted_signers = 11;
+    string viewer_protocol_policy = 12;
+    message ForwardedValues {
+      repeated string headers = 1;
+      bool   query_string = 2;
+      repeated string query_string_cache_keys = 3;
+      message Cookies {
+        string forward = 1;
+        repeated string whitelisted_names = 2;
+      }
+      repeated Cookies cookies = 4;
+    }
+    repeated ForwardedValues forwarded_values = 13;
+    message LambdaFunctionAssociation {
+      string event_type = 1;
+      bool   include_body = 2;
+      string lambda_arn = 3;
+    }
+    repeated LambdaFunctionAssociation lambda_function_association = 14;
+  }
+  repeated OrderedCacheBehavior ordered_cache_behavior = 26;
+  message Origin {
+    string domain_name = 1;
+    string origin_id = 2;
+    string origin_path = 3;
+    message CustomHeader {
+      string name = 1;
+      string value = 2;
+    }
+    repeated CustomHeader custom_header = 4;
+    message CustomOriginConfig {
+      int64  http_port = 1;
+      int64  https_port = 2;
+      int64  origin_keepalive_timeout = 3;
+      string origin_protocol_policy = 4;
+      int64  origin_read_timeout = 5;
+      repeated string origin_ssl_protocols = 6;
+    }
+    repeated CustomOriginConfig custom_origin_config = 5;
+    message S3OriginConfig {
+      string origin_access_identity = 1;
+    }
+    repeated S3OriginConfig s3_origin_config = 6;
+  }
+  repeated Origin origin = 27;
+  message OriginGroup {
+    string origin_id = 1;
+    message FailoverCriteria {
+      repeated int64 status_codes = 1;
+    }
+    repeated FailoverCriteria failover_criteria = 2;
+    message Member {
+      string origin_id = 1;
+    }
+    repeated Member member = 3;
+  }
+  repeated OriginGroup origin_group = 28;
+  message Restrictions {
+    message GeoRestriction {
+      repeated string locations = 1;
+      string restriction_type = 2;
+    }
+    repeated GeoRestriction geo_restriction = 1;
+  }
+  repeated Restrictions restrictions = 29;
+  message ViewerCertificate {
+    string acm_certificate_arn = 1;
+    bool   cloudfront_default_certificate = 2;
+    string iam_certificate_id = 3;
+    string minimum_protocol_version = 4;
+    string ssl_support_method = 5;
+  }
+  repeated ViewerCertificate viewer_certificate = 30;
+}

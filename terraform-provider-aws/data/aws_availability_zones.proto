@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAvailabilityZones {
+  bool   all_availability_zones = 1;
+  repeated string blacklisted_names = 2;
+  repeated string blacklisted_zone_ids = 3;
+  repeated string group_names = 4;
+  string id = 5;
+  repeated string names = 6;
+  string state = 7;
+  repeated string zone_ids = 8;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 9;
+}

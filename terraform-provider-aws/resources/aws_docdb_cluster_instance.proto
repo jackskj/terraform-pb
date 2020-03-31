@@ -1,0 +1,36 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDocdbClusterInstance {
+  bool   apply_immediately = 1;
+  string arn = 2;
+  bool   auto_minor_version_upgrade = 3;
+  string availability_zone = 4;
+  string ca_cert_identifier = 5;
+  string cluster_identifier = 6;
+  string db_subnet_group_name = 7;
+  string dbi_resource_id = 8;
+  string endpoint = 9;
+  string engine = 10;
+  string engine_version = 11;
+  string id = 12;
+  string identifier = 13;
+  string identifier_prefix = 14;
+  string instance_class = 15;
+  string kms_key_id = 16;
+  int64  port = 17;
+  string preferred_backup_window = 18;
+  string preferred_maintenance_window = 19;
+  int64  promotion_tier = 20;
+  bool   publicly_accessible = 21;
+  bool   storage_encrypted = 22;
+  map<string, string> tags = 23;
+  bool   writer = 24;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 25;
+}

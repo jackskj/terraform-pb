@@ -1,0 +1,44 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermAppConfiguration {
+  string endpoint = 1;
+  string id = 2;
+  string location = 3;
+  string name = 4;
+  message PrimaryReadKey {
+    string connection_string = 1;
+    string id = 2;
+    string secret = 3;
+  }
+  repeated PrimaryReadKey primary_read_key = 5;
+  message PrimaryWriteKey {
+    string connection_string = 1;
+    string id = 2;
+    string secret = 3;
+  }
+  repeated PrimaryWriteKey primary_write_key = 6;
+  string resource_group_name = 7;
+  message SecondaryReadKey {
+    string connection_string = 1;
+    string id = 2;
+    string secret = 3;
+  }
+  repeated SecondaryReadKey secondary_read_key = 8;
+  message SecondaryWriteKey {
+    string connection_string = 1;
+    string id = 2;
+    string secret = 3;
+  }
+  repeated SecondaryWriteKey secondary_write_key = 9;
+  string sku = 10;
+  map<string, string> tags = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

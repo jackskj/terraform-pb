@@ -1,0 +1,32 @@
+syntax="proto3";
+
+package aws;
+
+message AwsS3BucketNotification {
+  string bucket = 1;
+  string id = 2;
+  message LambdaFunction {
+    repeated string events = 1;
+    string filter_prefix = 2;
+    string filter_suffix = 3;
+    string id = 4;
+    string lambda_function_arn = 5;
+  }
+  repeated LambdaFunction lambda_function = 3;
+  message Queue {
+    repeated string events = 1;
+    string filter_prefix = 2;
+    string filter_suffix = 3;
+    string id = 4;
+    string queue_arn = 5;
+  }
+  repeated Queue queue = 4;
+  message Topic {
+    repeated string events = 1;
+    string filter_prefix = 2;
+    string filter_suffix = 3;
+    string id = 4;
+    string topic_arn = 5;
+  }
+  repeated Topic topic = 5;
+}

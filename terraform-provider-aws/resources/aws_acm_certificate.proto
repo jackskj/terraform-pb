@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAcmCertificate {
+  string arn = 1;
+  string certificate_authority_arn = 2;
+  string certificate_body = 3;
+  string certificate_chain = 4;
+  string domain_name = 5;
+  message DomainValidationOptions {
+    string domain_name = 1;
+    string resource_record_name = 2;
+    string resource_record_type = 3;
+    string resource_record_value = 4;
+  }
+  repeated DomainValidationOptions domain_validation_options = 6;
+  string id = 7;
+  string private_key = 8;
+  repeated string subject_alternative_names = 9;
+  map<string, string> tags = 10;
+  repeated string validation_emails = 11;
+  string validation_method = 12;
+  message Options {
+    string certificate_transparency_logging_preference = 1;
+  }
+  repeated Options options = 13;
+}

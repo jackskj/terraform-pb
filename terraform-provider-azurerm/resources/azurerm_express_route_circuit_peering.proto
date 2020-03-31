@@ -1,0 +1,29 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermExpressRouteCircuitPeering {
+  int64  azure_asn = 1;
+  string express_route_circuit_name = 2;
+  string id = 3;
+  int64  peer_asn = 4;
+  string peering_type = 5;
+  string primary_azure_port = 6;
+  string primary_peer_address_prefix = 7;
+  string resource_group_name = 8;
+  string secondary_azure_port = 9;
+  string secondary_peer_address_prefix = 10;
+  string shared_key = 11;
+  int64  vlan_id = 12;
+  message MicrosoftPeeringConfig {
+    repeated string advertised_public_prefixes = 1;
+  }
+  repeated MicrosoftPeeringConfig microsoft_peering_config = 13;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 14;
+}

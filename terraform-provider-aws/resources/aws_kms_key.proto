@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsKmsKey {
+  string arn = 1;
+  string customer_master_key_spec = 2;
+  int64  deletion_window_in_days = 3;
+  string description = 4;
+  bool   enable_key_rotation = 5;
+  string id = 6;
+  bool   is_enabled = 7;
+  string key_id = 8;
+  string key_usage = 9;
+  string policy = 10;
+  map<string, string> tags = 11;
+}

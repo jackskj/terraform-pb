@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMediaServicesAccount {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  message StorageAccount {
+    string id = 1;
+    bool   is_primary = 2;
+  }
+  repeated StorageAccount storage_account = 5;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 6;
+}

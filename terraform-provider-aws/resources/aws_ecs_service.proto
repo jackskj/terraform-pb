@@ -1,0 +1,66 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEcsService {
+  string cluster = 1;
+  int64  deployment_maximum_percent = 2;
+  int64  deployment_minimum_healthy_percent = 3;
+  int64  desired_count = 4;
+  bool   enable_ecs_managed_tags = 5;
+  int64  health_check_grace_period_seconds = 6;
+  string iam_role = 7;
+  string id = 8;
+  string launch_type = 9;
+  string name = 10;
+  string platform_version = 11;
+  string propagate_tags = 12;
+  string scheduling_strategy = 13;
+  map<string, string> tags = 14;
+  string task_definition = 15;
+  message CapacityProviderStrategy {
+    int64  base = 1;
+    string capacity_provider = 2;
+    int64  weight = 3;
+  }
+  repeated CapacityProviderStrategy capacity_provider_strategy = 16;
+  message DeploymentController {
+    string type = 1;
+  }
+  repeated DeploymentController deployment_controller = 17;
+  message LoadBalancer {
+    string container_name = 1;
+    int64  container_port = 2;
+    string elb_name = 3;
+    string target_group_arn = 4;
+  }
+  repeated LoadBalancer load_balancer = 18;
+  message NetworkConfiguration {
+    bool   assign_public_ip = 1;
+    repeated string security_groups = 2;
+    repeated string subnets = 3;
+  }
+  repeated NetworkConfiguration network_configuration = 19;
+  message OrderedPlacementStrategy {
+    string field = 1;
+    string type = 2;
+  }
+  repeated OrderedPlacementStrategy ordered_placement_strategy = 20;
+  message PlacementConstraints {
+    string expression = 1;
+    string type = 2;
+  }
+  repeated PlacementConstraints placement_constraints = 21;
+  message PlacementStrategy {
+    string field = 1;
+    string type = 2;
+  }
+  repeated PlacementStrategy placement_strategy = 22;
+  message ServiceRegistries {
+    string container_name = 1;
+    int64  container_port = 2;
+    int64  port = 3;
+    string registry_arn = 4;
+  }
+  repeated ServiceRegistries service_registries = 23;
+}

@@ -1,0 +1,40 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermEventhubNamespace {
+  bool   auto_inflate_enabled = 1;
+  int64  capacity = 2;
+  string default_primary_connection_string = 3;
+  string default_primary_key = 4;
+  string default_secondary_connection_string = 5;
+  string default_secondary_key = 6;
+  string id = 7;
+  string location = 8;
+  int64  maximum_throughput_units = 9;
+  string name = 10;
+  message NetworkRulesets {
+    string default_action = 1;
+    message IpRule {
+      string action = 1;
+      string ip_mask = 2;
+    }
+    repeated IpRule ip_rule = 2;
+    message VirtualNetworkRule {
+      bool   ignore_missing_virtual_network_service_endpoint = 1;
+      string subnet_id = 2;
+    }
+    repeated VirtualNetworkRule virtual_network_rule = 3;
+  }
+  repeated NetworkRulesets network_rulesets = 11;
+  string resource_group_name = 12;
+  string sku = 13;
+  map<string, string> tags = 14;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 15;
+}

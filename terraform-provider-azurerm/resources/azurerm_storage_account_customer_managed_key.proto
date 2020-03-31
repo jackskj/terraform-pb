@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStorageAccountCustomerManagedKey {
+  string id = 1;
+  string key_name = 2;
+  string key_vault_id = 3;
+  string key_version = 4;
+  string storage_account_id = 5;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 6;
+}

@@ -1,0 +1,76 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSsmMaintenanceWindowTask {
+  string description = 1;
+  string id = 2;
+  string max_concurrency = 3;
+  string max_errors = 4;
+  string name = 5;
+  int64  priority = 6;
+  string service_role_arn = 7;
+  string task_arn = 8;
+  string task_type = 9;
+  string window_id = 10;
+  message LoggingInfo {
+    string s3_bucket_name = 1;
+    string s3_bucket_prefix = 2;
+    string s3_region = 3;
+  }
+  repeated LoggingInfo logging_info = 11;
+  message Targets {
+    string key = 1;
+    repeated string values = 2;
+  }
+  repeated Targets targets = 12;
+  message TaskInvocationParameters {
+    message AutomationParameters {
+      string document_version = 1;
+      message Parameter {
+        string name = 1;
+        repeated string values = 2;
+      }
+      repeated Parameter parameter = 2;
+    }
+    repeated AutomationParameters automation_parameters = 1;
+    message LambdaParameters {
+      string client_context = 1;
+      string payload = 2;
+      string qualifier = 3;
+    }
+    repeated LambdaParameters lambda_parameters = 2;
+    message RunCommandParameters {
+      string comment = 1;
+      string document_hash = 2;
+      string document_hash_type = 3;
+      string output_s3_bucket = 4;
+      string output_s3_key_prefix = 5;
+      string service_role_arn = 6;
+      int64  timeout_seconds = 7;
+      message NotificationConfig {
+        string notification_arn = 1;
+        repeated string notification_events = 2;
+        string notification_type = 3;
+      }
+      repeated NotificationConfig notification_config = 8;
+      message Parameter {
+        string name = 1;
+        repeated string values = 2;
+      }
+      repeated Parameter parameter = 9;
+    }
+    repeated RunCommandParameters run_command_parameters = 3;
+    message StepFunctionsParameters {
+      string input = 1;
+      string name = 2;
+    }
+    repeated StepFunctionsParameters step_functions_parameters = 4;
+  }
+  repeated TaskInvocationParameters task_invocation_parameters = 13;
+  message TaskParameters {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated TaskParameters task_parameters = 14;
+}

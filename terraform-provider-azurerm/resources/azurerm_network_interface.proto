@@ -1,0 +1,37 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermNetworkInterface {
+  repeated string applied_dns_servers = 1;
+  repeated string dns_servers = 2;
+  bool   enable_accelerated_networking = 3;
+  bool   enable_ip_forwarding = 4;
+  string id = 5;
+  string internal_dns_name_label = 6;
+  string location = 7;
+  string mac_address = 8;
+  string name = 9;
+  string private_ip_address = 10;
+  repeated string private_ip_addresses = 11;
+  string resource_group_name = 12;
+  map<string, string> tags = 13;
+  string virtual_machine_id = 14;
+  message IpConfiguration {
+    string name = 1;
+    bool   primary = 2;
+    string private_ip_address = 3;
+    string private_ip_address_allocation = 4;
+    string private_ip_address_version = 5;
+    string public_ip_address_id = 6;
+    string subnet_id = 7;
+  }
+  repeated IpConfiguration ip_configuration = 15;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 16;
+}

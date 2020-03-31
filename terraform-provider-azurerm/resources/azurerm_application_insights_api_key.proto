@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermApplicationInsightsApiKey {
+  string api_key = 1;
+  string application_insights_id = 2;
+  string id = 3;
+  string name = 4;
+  repeated string read_permissions = 5;
+  repeated string write_permissions = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 7;
+}

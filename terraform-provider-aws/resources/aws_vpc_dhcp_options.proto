@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVpcDhcpOptions {
+  string domain_name = 1;
+  repeated string domain_name_servers = 2;
+  string id = 3;
+  repeated string netbios_name_servers = 4;
+  string netbios_node_type = 5;
+  repeated string ntp_servers = 6;
+  string owner_id = 7;
+  map<string, string> tags = 8;
+}

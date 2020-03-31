@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermServicebusSubscription {
+  string auto_delete_on_idle = 1;
+  bool   dead_lettering_on_message_expiration = 2;
+  string default_message_ttl = 3;
+  bool   enable_batched_operations = 4;
+  string forward_dead_lettered_messages_to = 5;
+  string forward_to = 6;
+  string id = 7;
+  string lock_duration = 8;
+  int64  max_delivery_count = 9;
+  string name = 10;
+  string namespace_name = 11;
+  bool   requires_session = 12;
+  string resource_group_name = 13;
+  string topic_name = 14;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 15;
+}

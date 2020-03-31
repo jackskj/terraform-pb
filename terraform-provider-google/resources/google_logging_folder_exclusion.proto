@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package google;
+
+message GoogleLoggingFolderExclusion {
+  string description = 1;
+  bool   disabled = 2;
+  string filter = 3;
+  string folder = 4;
+  string id = 5;
+  string name = 6;
+}

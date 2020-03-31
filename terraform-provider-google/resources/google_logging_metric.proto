@@ -1,0 +1,112 @@
+syntax="proto3";
+
+package google;
+
+message GoogleLoggingMetric {
+
+  // A description of this metric, which is used in documentation. The maximum length of the
+  // description is 8000 characters.
+  string description = 1;
+
+  // An advanced logs filter (https://cloud.google.com/logging/docs/view/advanced-filters) which
+  // is used to match log entries.
+  string filter = 2;
+  string id = 3;
+
+  // A map from a label key string to an extractor expression which is used to extract data from a log
+  // entry field and assign as the label value. Each label key specified in the LabelDescriptor must
+  // have an associated extractor expression in this map. The syntax of the extractor expression is
+  // the same as for the valueExtractor field.
+  map<string, string> label_extractors = 4;
+
+  // The client-assigned metric identifier. Examples - "error_count", "nginx/requests".
+  // Metric identifiers are limited to 100 characters and can include only the following
+  // characters A-Z, a-z, 0-9, and the special characters _-.,+!*',()%/. The forward-slash
+  // character (/) denotes a hierarchy of name pieces, and it cannot be the first character
+  // of the name.
+  string name = 5;
+  string project = 6;
+
+  // A valueExtractor is required when using a distribution logs-based metric to extract the values to
+  // record from a log entry. Two functions are supported for value extraction - EXTRACT(field) or
+  // REGEXP_EXTRACT(field, regex). The argument are 1. field - The name of the log entry field from which
+  // the value is to be extracted. 2. regex - A regular expression using the Google RE2 syntax
+  // (https://github.com/google/re2/wiki/Syntax) with a single capture group to extract data from the specified
+  // log entry field. The value of the field is converted to a string before applying the regex. It is an
+  // error to specify a regex that does not include exactly one capture group.
+  string value_extractor = 7;
+  message BucketOptions {
+    message ExplicitBuckets {
+
+      // The values must be monotonically increasing.
+      repeated int64 bounds = 1;
+    }
+    repeated ExplicitBuckets explicit_buckets = 1;
+    message ExponentialBuckets {
+
+      // Must be greater than 1.
+      int64  growth_factor = 1;
+
+      // Must be greater than 0.
+      int64  num_finite_buckets = 2;
+
+      // Must be greater than 0.
+      int64  scale = 3;
+    }
+    repeated ExponentialBuckets exponential_buckets = 2;
+    message LinearBuckets {
+
+      // Must be greater than 0.
+      int64  num_finite_buckets = 1;
+
+      // Lower bound of the first bucket.
+      int64  offset = 2;
+
+      // Must be greater than 0.
+      int64  width = 3;
+    }
+    repeated LinearBuckets linear_buckets = 3;
+  }
+  repeated BucketOptions bucket_options = 8;
+  message MetricDescriptor {
+
+    // A concise name for the metric, which can be displayed in user interfaces. Use sentence case 
+    // without an ending period, for example "Request count". This field is optional but it is 
+    // recommended to be set for any metrics associated with user-visible concepts, such as Quota.
+    string display_name = 1;
+
+    // Whether the metric records instantaneous values, changes to a value, etc.
+    // Some combinations of metricKind and valueType might not be supported.
+    // For counter metrics, set this to DELTA.
+    string metric_kind = 2;
+
+    // The unit in which the metric value is reported. It is only applicable if the valueType is
+    // 'INT64', 'DOUBLE', or 'DISTRIBUTION'. The supported units are a subset of
+    // [The Unified Code for Units of Measure](http://unitsofmeasure.org/ucum.html) standard
+    string unit = 3;
+
+    // Whether the measurement is an integer, a floating-point number, etc.
+    // Some combinations of metricKind and valueType might not be supported.
+    // For counter metrics, set this to INT64.
+    string value_type = 4;
+    message Labels {
+
+      // A human-readable description for the label.
+      string description = 1;
+
+      // The label key.
+      string key = 2;
+
+      // The type of data that can be assigned to the label.
+      string value_type = 3;
+    }
+    repeated Labels labels = 5;
+  }
+  repeated MetricDescriptor metric_descriptor = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 10;
+}

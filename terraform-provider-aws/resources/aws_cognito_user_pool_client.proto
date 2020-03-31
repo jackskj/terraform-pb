@@ -1,0 +1,30 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCognitoUserPoolClient {
+  repeated string allowed_oauth_flows = 1;
+  bool   allowed_oauth_flows_user_pool_client = 2;
+  repeated string allowed_oauth_scopes = 3;
+  repeated string callback_urls = 4;
+  string client_secret = 5;
+  string default_redirect_uri = 6;
+  repeated string explicit_auth_flows = 7;
+  bool   generate_secret = 8;
+  string id = 9;
+  repeated string logout_urls = 10;
+  string name = 11;
+  string prevent_user_existence_errors = 12;
+  repeated string read_attributes = 13;
+  int64  refresh_token_validity = 14;
+  repeated string supported_identity_providers = 15;
+  string user_pool_id = 16;
+  repeated string write_attributes = 17;
+  message AnalyticsConfiguration {
+    string application_id = 1;
+    string external_id = 2;
+    string role_arn = 3;
+    bool   user_data_shared = 4;
+  }
+  repeated AnalyticsConfiguration analytics_configuration = 18;
+}

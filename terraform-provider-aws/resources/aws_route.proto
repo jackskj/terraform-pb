@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRoute {
+  string destination_cidr_block = 1;
+  string destination_ipv6_cidr_block = 2;
+  string destination_prefix_list_id = 3;
+  string egress_only_gateway_id = 4;
+  string gateway_id = 5;
+  string id = 6;
+  string instance_id = 7;
+  string instance_owner_id = 8;
+  string nat_gateway_id = 9;
+  string network_interface_id = 10;
+  string origin = 11;
+  string route_table_id = 12;
+  string state = 13;
+  string transit_gateway_id = 14;
+  string vpc_peering_connection_id = 15;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 16;
+}

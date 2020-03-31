@@ -1,0 +1,41 @@
+syntax="proto3";
+
+package aws;
+
+message AwsNetworkInterface {
+  message Association {
+    string allocation_id = 1;
+    string association_id = 2;
+    string ip_owner_id = 3;
+    string public_dns_name = 4;
+    string public_ip = 5;
+  }
+  repeated Association association = 1;
+  message Attachment {
+    string attachment_id = 1;
+    int64  device_index = 2;
+    string instance_id = 3;
+    string instance_owner_id = 4;
+  }
+  repeated Attachment attachment = 2;
+  string availability_zone = 3;
+  string description = 4;
+  string id = 5;
+  string interface_type = 6;
+  repeated string ipv6_addresses = 7;
+  string mac_address = 8;
+  string owner_id = 9;
+  string private_dns_name = 10;
+  string private_ip = 11;
+  repeated string private_ips = 12;
+  string requester_id = 13;
+  repeated string security_groups = 14;
+  string subnet_id = 15;
+  map<string, string> tags = 16;
+  string vpc_id = 17;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 18;
+}

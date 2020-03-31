@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package aws;
+
+message AwsTransferServer {
+  string arn = 1;
+  string endpoint = 2;
+  string endpoint_type = 3;
+  bool   force_destroy = 4;
+  string host_key = 5;
+  string host_key_fingerprint = 6;
+  string id = 7;
+  string identity_provider_type = 8;
+  string invocation_role = 9;
+  string logging_role = 10;
+  map<string, string> tags = 11;
+  string url = 12;
+  message EndpointDetails {
+    string vpc_endpoint_id = 1;
+  }
+  repeated EndpointDetails endpoint_details = 13;
+}

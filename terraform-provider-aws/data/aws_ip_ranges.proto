@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIpRanges {
+  repeated string cidr_blocks = 1;
+  string create_date = 2;
+  string id = 3;
+  repeated string ipv6_cidr_blocks = 4;
+  repeated string regions = 5;
+  repeated string services = 6;
+  int64  sync_token = 7;
+  string url = 8;
+}

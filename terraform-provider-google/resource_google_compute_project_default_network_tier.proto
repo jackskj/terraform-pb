@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package google;
-
-message GoogleComputeProjectDefaultNetworkTier {
-  id = 1;
-  network_tier = 2;
-  project = 3;
-}

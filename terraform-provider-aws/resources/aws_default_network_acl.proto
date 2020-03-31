@@ -1,0 +1,36 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDefaultNetworkAcl {
+  string default_network_acl_id = 1;
+  string id = 2;
+  string owner_id = 3;
+  repeated string subnet_ids = 4;
+  map<string, string> tags = 5;
+  string vpc_id = 6;
+  message Egress {
+    string action = 1;
+    string cidr_block = 2;
+    int64  from_port = 3;
+    int64  icmp_code = 4;
+    int64  icmp_type = 5;
+    string ipv6_cidr_block = 6;
+    string protocol = 7;
+    int64  rule_no = 8;
+    int64  to_port = 9;
+  }
+  repeated Egress egress = 7;
+  message Ingress {
+    string action = 1;
+    string cidr_block = 2;
+    int64  from_port = 3;
+    int64  icmp_code = 4;
+    int64  icmp_type = 5;
+    string ipv6_cidr_block = 6;
+    string protocol = 7;
+    int64  rule_no = 8;
+    int64  to_port = 9;
+  }
+  repeated Ingress ingress = 8;
+}

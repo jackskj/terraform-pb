@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsConfigAggregateAuthorization {
+  string account_id = 1;
+  string arn = 2;
+  string id = 3;
+  string region = 4;
+  map<string, string> tags = 5;
+}

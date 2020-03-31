@@ -1,7 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsSecurityhubAccount {
-  id = 1;
-}

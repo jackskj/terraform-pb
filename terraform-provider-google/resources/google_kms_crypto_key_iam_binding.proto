@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package google;
+
+message GoogleKmsCryptoKeyIamBinding {
+  string crypto_key_id = 1;
+  string etag = 2;
+  string id = 3;
+  repeated string members = 4;
+  string role = 5;
+}

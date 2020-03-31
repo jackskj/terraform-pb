@@ -1,0 +1,111 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermFunctionApp {
+  string app_service_plan_id = 1;
+  map<string, string> app_settings = 2;
+  bool   client_affinity_enabled = 3;
+  int64  daily_memory_time_quota = 4;
+  string default_hostname = 5;
+  bool   enable_builtin_logging = 6;
+  bool   enabled = 7;
+  bool   https_only = 8;
+  string id = 9;
+  string kind = 10;
+  string location = 11;
+  string name = 12;
+  string os_type = 13;
+  string outbound_ip_addresses = 14;
+  string possible_outbound_ip_addresses = 15;
+  string resource_group_name = 16;
+  message SiteCredential {
+    string password = 1;
+    string username = 2;
+  }
+  repeated SiteCredential site_credential = 17;
+  string storage_connection_string = 18;
+  map<string, string> tags = 19;
+  string version = 20;
+  message AuthSettings {
+    map<string, string> additional_login_params = 1;
+    repeated string allowed_external_redirect_urls = 2;
+    string default_provider = 3;
+    bool   enabled = 4;
+    string issuer = 5;
+    string runtime_version = 6;
+    int64  token_refresh_extension_hours = 7;
+    bool   token_store_enabled = 8;
+    string unauthenticated_client_action = 9;
+    message ActiveDirectory {
+      repeated string allowed_audiences = 1;
+      string client_id = 2;
+      string client_secret = 3;
+    }
+    repeated ActiveDirectory active_directory = 10;
+    message Facebook {
+      string app_id = 1;
+      string app_secret = 2;
+      repeated string oauth_scopes = 3;
+    }
+    repeated Facebook facebook = 11;
+    message Google {
+      string client_id = 1;
+      string client_secret = 2;
+      repeated string oauth_scopes = 3;
+    }
+    repeated Google google = 12;
+    message Microsoft {
+      string client_id = 1;
+      string client_secret = 2;
+      repeated string oauth_scopes = 3;
+    }
+    repeated Microsoft microsoft = 13;
+    message Twitter {
+      string consumer_key = 1;
+      string consumer_secret = 2;
+    }
+    repeated Twitter twitter = 14;
+  }
+  repeated AuthSettings auth_settings = 21;
+  message ConnectionString {
+    string name = 1;
+    string type = 2;
+    string value = 3;
+  }
+  repeated ConnectionString connection_string = 22;
+  message Identity {
+    repeated string identity_ids = 1;
+    string principal_id = 2;
+    string tenant_id = 3;
+    string type = 4;
+  }
+  repeated Identity identity = 23;
+  message SiteConfig {
+    bool   always_on = 1;
+    string ftps_state = 2;
+    bool   http2_enabled = 3;
+    message IpRestriction {
+      string ip_address = 1;
+      string subnet_id = 2;
+    }
+    repeated IpRestriction ip_restriction = 4;
+    string linux_fx_version = 5;
+    string min_tls_version = 6;
+    bool   use_32_bit_worker_process = 7;
+    bool   websockets_enabled = 8;
+    message Cors {
+      repeated string allowed_origins = 1;
+      bool   support_credentials = 2;
+    }
+    repeated Cors cors = 9;
+  }
+  repeated SiteConfig site_config = 24;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 25;
+}

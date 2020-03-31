@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAcmpcaCertificateAuthority {
+  string arn = 1;
+  string certificate = 2;
+  string certificate_chain = 3;
+  string certificate_signing_request = 4;
+  string id = 5;
+  string not_after = 6;
+  string not_before = 7;
+  string serial = 8;
+  string status = 9;
+  map<string, string> tags = 10;
+  string type = 11;
+  message RevocationConfiguration {
+    message CrlConfiguration {
+      string custom_cname = 1;
+      bool   enabled = 2;
+      int64  expiration_in_days = 3;
+      string s3_bucket_name = 4;
+    }
+    repeated CrlConfiguration crl_configuration = 1;
+  }
+  repeated RevocationConfiguration revocation_configuration = 12;
+}

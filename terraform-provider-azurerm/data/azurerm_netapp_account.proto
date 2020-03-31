@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermNetappAccount {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 5;
+}

@@ -1,0 +1,42 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeRouter {
+
+  // BGP information specific to this router.
+  message Bgp {
+    string advertise_mode = 1;
+    repeated string advertised_groups = 2;
+    message AdvertisedIpRanges {
+      string description = 1;
+      string range = 2;
+    }
+    repeated AdvertisedIpRanges advertised_ip_ranges = 3;
+    int64  asn = 4;
+  }
+  repeated Bgp bgp = 1;
+
+  // Creation timestamp in RFC3339 text format.
+  string creation_timestamp = 2;
+
+  // An optional description of this resource.
+  string description = 3;
+  string id = 4;
+
+  // Name of the resource. The name must be 1-63 characters long, and
+  // comply with RFC1035. Specifically, the name must be 1-63 characters
+  // long and match the regular expression '[a-z]([-a-z0-9]*[a-z0-9])?'
+  // which means the first character must be a lowercase letter, and all
+  // following characters must be a dash, lowercase letter, or digit,
+  // except the last character, which cannot be a dash.
+  string name = 5;
+
+  // A reference to the network to which this router belongs.
+  string network = 6;
+  string project = 7;
+
+  // Region where the router resides.
+  string region = 8;
+  string self_link = 9;
+}

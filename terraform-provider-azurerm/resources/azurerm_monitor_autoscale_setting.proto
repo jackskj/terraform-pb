@@ -1,0 +1,78 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMonitorAutoscaleSetting {
+  bool   enabled = 1;
+  string id = 2;
+  string location = 3;
+  string name = 4;
+  string resource_group_name = 5;
+  map<string, string> tags = 6;
+  string target_resource_id = 7;
+  message Notification {
+    message Email {
+      repeated string custom_emails = 1;
+      bool   send_to_subscription_administrator = 2;
+      bool   send_to_subscription_co_administrator = 3;
+    }
+    repeated Email email = 1;
+    message Webhook {
+      map<string, string> properties = 1;
+      string service_uri = 2;
+    }
+    repeated Webhook webhook = 2;
+  }
+  repeated Notification notification = 8;
+  message Profile {
+    string name = 1;
+    message Capacity {
+      int64  default = 1;
+      int64  maximum = 2;
+      int64  minimum = 3;
+    }
+    repeated Capacity capacity = 2;
+    message FixedDate {
+      string end = 1;
+      string start = 2;
+      string timezone = 3;
+    }
+    repeated FixedDate fixed_date = 3;
+    message Recurrence {
+      repeated string days = 1;
+      repeated int64 hours = 2;
+      repeated int64 minutes = 3;
+      string timezone = 4;
+    }
+    repeated Recurrence recurrence = 4;
+    message Rule {
+      message MetricTrigger {
+        string metric_name = 1;
+        string metric_resource_id = 2;
+        string operator = 3;
+        string statistic = 4;
+        int64  threshold = 5;
+        string time_aggregation = 6;
+        string time_grain = 7;
+        string time_window = 8;
+      }
+      repeated MetricTrigger metric_trigger = 1;
+      message ScaleAction {
+        string cooldown = 1;
+        string direction = 2;
+        string type = 3;
+        int64  value = 4;
+      }
+      repeated ScaleAction scale_action = 2;
+    }
+    repeated Rule rule = 5;
+  }
+  repeated Profile profile = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 10;
+}

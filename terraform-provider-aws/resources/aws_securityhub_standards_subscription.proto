@@ -1,0 +1,8 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSecurityhubStandardsSubscription {
+  string id = 1;
+  string standards_arn = 2;
+}

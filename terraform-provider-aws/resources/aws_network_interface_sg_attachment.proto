@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsNetworkInterfaceSgAttachment {
+  string id = 1;
+  string network_interface_id = 2;
+  string security_group_id = 3;
+}

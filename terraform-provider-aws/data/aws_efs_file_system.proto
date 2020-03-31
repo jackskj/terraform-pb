@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEfsFileSystem {
+  string arn = 1;
+  string creation_token = 2;
+  string dns_name = 3;
+  bool   encrypted = 4;
+  string file_system_id = 5;
+  string id = 6;
+  string kms_key_id = 7;
+  message LifecyclePolicy {
+    string transition_to_ia = 1;
+  }
+  repeated LifecyclePolicy lifecycle_policy = 8;
+  string performance_mode = 9;
+  int64  provisioned_throughput_in_mibps = 10;
+  map<string, string> tags = 11;
+  string throughput_mode = 12;
+}

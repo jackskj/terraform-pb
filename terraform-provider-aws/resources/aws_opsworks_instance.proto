@@ -1,0 +1,76 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOpsworksInstance {
+  string agent_version = 1;
+  string ami_id = 2;
+  string architecture = 3;
+  string auto_scaling_type = 4;
+  string availability_zone = 5;
+  string created_at = 6;
+  bool   delete_ebs = 7;
+  bool   delete_eip = 8;
+  bool   ebs_optimized = 9;
+  string ec2_instance_id = 10;
+  string ecs_cluster_arn = 11;
+  string elastic_ip = 12;
+  string hostname = 13;
+  string id = 14;
+  string infrastructure_class = 15;
+  bool   install_updates_on_boot = 16;
+  string instance_profile_arn = 17;
+  string instance_type = 18;
+  string last_service_error_id = 19;
+  repeated string layer_ids = 20;
+  string os = 21;
+  string platform = 22;
+  string private_dns = 23;
+  string private_ip = 24;
+  string public_dns = 25;
+  string public_ip = 26;
+  string registered_by = 27;
+  string reported_agent_version = 28;
+  string reported_os_family = 29;
+  string reported_os_name = 30;
+  string reported_os_version = 31;
+  string root_device_type = 32;
+  string root_device_volume_id = 33;
+  repeated string security_group_ids = 34;
+  string ssh_host_dsa_key_fingerprint = 35;
+  string ssh_host_rsa_key_fingerprint = 36;
+  string ssh_key_name = 37;
+  string stack_id = 38;
+  string state = 39;
+  string status = 40;
+  string subnet_id = 41;
+  string tenancy = 42;
+  string virtualization_type = 43;
+  message EbsBlockDevice {
+    bool   delete_on_termination = 1;
+    string device_name = 2;
+    int64  iops = 3;
+    string snapshot_id = 4;
+    int64  volume_size = 5;
+    string volume_type = 6;
+  }
+  repeated EbsBlockDevice ebs_block_device = 44;
+  message EphemeralBlockDevice {
+    string device_name = 1;
+    string virtual_name = 2;
+  }
+  repeated EphemeralBlockDevice ephemeral_block_device = 45;
+  message RootBlockDevice {
+    bool   delete_on_termination = 1;
+    int64  iops = 2;
+    int64  volume_size = 3;
+    string volume_type = 4;
+  }
+  repeated RootBlockDevice root_block_device = 46;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 47;
+}

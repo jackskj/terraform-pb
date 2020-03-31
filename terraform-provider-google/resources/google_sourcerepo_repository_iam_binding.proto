@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package google;
+
+message GoogleSourcerepoRepositoryIamBinding {
+  string etag = 1;
+  string id = 2;
+  repeated string members = 3;
+  string project = 4;
+  string repository = 5;
+  string role = 6;
+}

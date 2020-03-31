@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermDevspaceController {
+  string data_plane_fqdn = 1;
+  string host_suffix = 2;
+  string id = 3;
+  string location = 4;
+  string name = 5;
+  string resource_group_name = 6;
+  string sku_name = 7;
+  map<string, string> tags = 8;
+  string target_container_host_credentials_base64 = 9;
+  string target_container_host_resource_id = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

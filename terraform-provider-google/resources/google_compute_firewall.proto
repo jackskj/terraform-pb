@@ -1,0 +1,148 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeFirewall {
+
+  // Creation timestamp in RFC3339 text format.
+  string creation_timestamp = 1;
+
+  // An optional description of this resource. Provide this property when
+  // you create the resource.
+  string description = 2;
+
+  // If destination ranges are specified, the firewall will apply only to
+  // traffic that has destination IP address in these ranges. These ranges
+  // must be expressed in CIDR format. Only IPv4 is supported.
+  repeated string destination_ranges = 3;
+
+  // Direction of traffic to which this firewall applies; default is
+  // INGRESS. Note: For INGRESS traffic, it is NOT supported to specify
+  // destinationRanges; For EGRESS traffic, it is NOT supported to specify
+  // sourceRanges OR sourceTags.
+  string direction = 4;
+
+  // Denotes whether the firewall rule is disabled, i.e not applied to the
+  // network it is associated with. When set to true, the firewall rule is
+  // not enforced and the network behaves as if it did not exist. If this
+  // is unspecified, the firewall rule will be enabled.
+  bool   disabled = 5;
+
+  // This field denotes whether to enable logging for a particular
+  // firewall rule. If logging is enabled, logs will be exported to
+  // Stackdriver.
+  bool   enable_logging = 6;
+  string id = 7;
+
+  // Name of the resource. Provided by the client when the resource is
+  // created. The name must be 1-63 characters long, and comply with
+  // RFC1035. Specifically, the name must be 1-63 characters long and match
+  // the regular expression '[a-z]([-a-z0-9]*[a-z0-9])?' which means the
+  // first character must be a lowercase letter, and all following
+  // characters must be a dash, lowercase letter, or digit, except the last
+  // character, which cannot be a dash.
+  string name = 8;
+
+  // The name or self_link of the network to attach this firewall to.
+  string network = 9;
+
+  // Priority for this rule. This is an integer between 0 and 65535, both
+  // inclusive. When not specified, the value assumed is 1000. Relative
+  // priorities determine precedence of conflicting rules. Lower value of
+  // priority implies higher precedence (eg, a rule with priority 0 has
+  // higher precedence than a rule with priority 1). DENY rules take
+  // precedence over ALLOW rules having equal priority.
+  int64  priority = 10;
+  string project = 11;
+  string self_link = 12;
+
+  // If source ranges are specified, the firewall will apply only to
+  // traffic that has source IP address in these ranges. These ranges must
+  // be expressed in CIDR format. One or both of sourceRanges and
+  // sourceTags may be set. If both properties are set, the firewall will
+  // apply to traffic that has source IP address within sourceRanges OR the
+  // source IP that belongs to a tag listed in the sourceTags property. The
+  // connection does not need to match both properties for the firewall to
+  // apply. Only IPv4 is supported.
+  repeated string source_ranges = 13;
+
+  // If source service accounts are specified, the firewall will apply only
+  // to traffic originating from an instance with a service account in this
+  // list. Source service accounts cannot be used to control traffic to an
+  // instance's external IP address because service accounts are associated
+  // with an instance, not an IP address. sourceRanges can be set at the
+  // same time as sourceServiceAccounts. If both are set, the firewall will
+  // apply to traffic that has source IP address within sourceRanges OR the
+  // source IP belongs to an instance with service account listed in
+  // sourceServiceAccount. The connection does not need to match both
+  // properties for the firewall to apply. sourceServiceAccounts cannot be
+  // used at the same time as sourceTags or targetTags.
+  repeated string source_service_accounts = 14;
+
+  // If source tags are specified, the firewall will apply only to traffic
+  // with source IP that belongs to a tag listed in source tags. Source
+  // tags cannot be used to control traffic to an instance's external IP
+  // address. Because tags are associated with an instance, not an IP
+  // address. One or both of sourceRanges and sourceTags may be set. If
+  // both properties are set, the firewall will apply to traffic that has
+  // source IP address within sourceRanges OR the source IP that belongs to
+  // a tag listed in the sourceTags property. The connection does not need
+  // to match both properties for the firewall to apply.
+  repeated string source_tags = 15;
+
+  // A list of service accounts indicating sets of instances located in the
+  // network that may make network connections as specified in allowed[].
+  // targetServiceAccounts cannot be used at the same time as targetTags or
+  // sourceTags. If neither targetServiceAccounts nor targetTags are
+  // specified, the firewall rule applies to all instances on the specified
+  // network.
+  repeated string target_service_accounts = 16;
+
+  // A list of instance tags indicating sets of instances located in the
+  // network that may make network connections as specified in allowed[].
+  // If no targetTags are specified, the firewall rule applies to all
+  // instances on the specified network.
+  repeated string target_tags = 17;
+  message Allow {
+
+    // An optional list of ports to which this rule applies. This field
+    // is only applicable for UDP or TCP protocol. Each entry must be
+    // either an integer or a range. If not specified, this rule
+    // applies to connections through any port.
+    // 
+    // Example inputs include: ["22"], ["80","443"], and
+    // ["12345-12349"].
+    repeated string ports = 1;
+
+    // The IP protocol to which this rule applies. The protocol type is
+    // required when creating a firewall rule. This value can either be
+    // one of the following well known protocol strings (tcp, udp,
+    // icmp, esp, ah, sctp), or the IP protocol number.
+    string protocol = 2;
+  }
+  repeated Allow allow = 18;
+  message Deny {
+
+    // An optional list of ports to which this rule applies. This field
+    // is only applicable for UDP or TCP protocol. Each entry must be
+    // either an integer or a range. If not specified, this rule
+    // applies to connections through any port.
+    // 
+    // Example inputs include: ["22"], ["80","443"], and
+    // ["12345-12349"].
+    repeated string ports = 1;
+
+    // The IP protocol to which this rule applies. The protocol type is
+    // required when creating a firewall rule. This value can either be
+    // one of the following well known protocol strings (tcp, udp,
+    // icmp, esp, ah, sctp), or the IP protocol number.
+    string protocol = 2;
+  }
+  repeated Deny deny = 19;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 20;
+}

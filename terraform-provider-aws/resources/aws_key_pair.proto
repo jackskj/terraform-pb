@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsKeyPair {
+  string fingerprint = 1;
+  string id = 2;
+  string key_name = 3;
+  string key_name_prefix = 4;
+  string key_pair_id = 5;
+  string public_key = 6;
+  map<string, string> tags = 7;
+}

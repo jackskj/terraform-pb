@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStreamAnalyticsFunctionJavascriptUdf {
+  string id = 1;
+  string name = 2;
+  string resource_group_name = 3;
+  string script = 4;
+  string stream_analytics_job_name = 5;
+  message Input {
+    string type = 1;
+  }
+  repeated Input input = 6;
+  message Output {
+    string type = 1;
+  }
+  repeated Output output = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 8;
+}

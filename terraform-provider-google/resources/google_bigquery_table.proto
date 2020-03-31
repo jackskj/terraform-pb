@@ -1,0 +1,64 @@
+syntax="proto3";
+
+package google;
+
+message GoogleBigqueryTable {
+  repeated string clustering = 1;
+  int64  creation_time = 2;
+  string dataset_id = 3;
+  string description = 4;
+  string etag = 5;
+  int64  expiration_time = 6;
+  string friendly_name = 7;
+  string id = 8;
+  map<string, string> labels = 9;
+  int64  last_modified_time = 10;
+  string location = 11;
+  int64  num_bytes = 12;
+  int64  num_long_term_bytes = 13;
+  int64  num_rows = 14;
+  string project = 15;
+  string schema = 16;
+  string self_link = 17;
+  string table_id = 18;
+  string type = 19;
+  message EncryptionConfiguration {
+    string kms_key_name = 1;
+  }
+  repeated EncryptionConfiguration encryption_configuration = 20;
+  message ExternalDataConfiguration {
+    bool   autodetect = 1;
+    string compression = 2;
+    bool   ignore_unknown_values = 3;
+    int64  max_bad_records = 4;
+    string source_format = 5;
+    repeated string source_uris = 6;
+    message CsvOptions {
+      bool   allow_jagged_rows = 1;
+      bool   allow_quoted_newlines = 2;
+      string encoding = 3;
+      string field_delimiter = 4;
+      string quote = 5;
+      int64  skip_leading_rows = 6;
+    }
+    repeated CsvOptions csv_options = 7;
+    message GoogleSheetsOptions {
+      string range = 1;
+      int64  skip_leading_rows = 2;
+    }
+    repeated GoogleSheetsOptions google_sheets_options = 8;
+  }
+  repeated ExternalDataConfiguration external_data_configuration = 21;
+  message TimePartitioning {
+    int64  expiration_ms = 1;
+    string field = 2;
+    bool   require_partition_filter = 3;
+    string type = 4;
+  }
+  repeated TimePartitioning time_partitioning = 22;
+  message View {
+    string query = 1;
+    bool   use_legacy_sql = 2;
+  }
+  repeated View view = 23;
+}

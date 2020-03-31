@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermExpressRouteGateway {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  int64  scale_units = 5;
+  map<string, string> tags = 6;
+  string virtual_hub_id = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 8;
+}

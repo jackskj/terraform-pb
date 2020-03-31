@@ -1,0 +1,35 @@
+syntax="proto3";
+
+package helm;
+
+message HelmRepository {
+
+  // Verify certificates of HTTPS-enabled servers using this CA bundle
+  string ca_file = 1;
+
+  // Identify HTTPS client using this SSL certificate file
+  string cert_file = 2;
+  string id = 3;
+
+  // Identify HTTPS client using this SSL key file
+  string key_file = 4;
+
+  // Status of the deployed release
+  message Metadata {
+    string name = 1;
+    string url = 2;
+  }
+  repeated Metadata metadata = 5;
+
+  // Chart repository name
+  string name = 6;
+
+  // Password for HTTP basic authentication
+  string password = 7;
+
+  // Chart repository URL
+  string url = 8;
+
+  // Username for HTTP basic authentication
+  string username = 9;
+}

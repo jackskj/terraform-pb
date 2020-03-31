@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRamResourceShare {
+  bool   allow_external_principals = 1;
+  string arn = 2;
+  string id = 3;
+  string name = 4;
+  map<string, string> tags = 5;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 6;
+}

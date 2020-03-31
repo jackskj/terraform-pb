@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamRolePolicyAttachment {
+  string id = 1;
+  string policy_arn = 2;
+  string role = 3;
+}

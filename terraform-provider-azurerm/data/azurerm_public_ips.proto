@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermPublicIps {
+  string allocation_type = 1;
+  bool   attached = 2;
+  string id = 3;
+  string name_prefix = 4;
+  message PublicIps {
+    string domain_name_label = 1;
+    string fqdn = 2;
+    string id = 3;
+    string ip_address = 4;
+    string name = 5;
+  }
+  repeated PublicIps public_ips = 5;
+  string resource_group_name = 6;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 7;
+}

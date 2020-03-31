@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermAppServiceEnvironment {
+  int64  front_end_scale_factor = 1;
+  string id = 2;
+  string internal_load_balancing_mode = 3;
+  string location = 4;
+  string name = 5;
+  string pricing_tier = 6;
+  string resource_group_name = 7;
+  string subnet_id = 8;
+  map<string, string> tags = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 10;
+}

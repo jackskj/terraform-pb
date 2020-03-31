@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package aws;
+
+message AwsGuarddutyThreatintelset {
+  bool   activate = 1;
+  string detector_id = 2;
+  string format = 3;
+  string id = 4;
+  string location = 5;
+  string name = 6;
+}

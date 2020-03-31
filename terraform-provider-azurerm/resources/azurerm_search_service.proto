@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSearchService {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  int64  partition_count = 4;
+  string primary_key = 5;
+  message QueryKeys {
+    string key = 1;
+    string name = 2;
+  }
+  repeated QueryKeys query_keys = 6;
+  int64  replica_count = 7;
+  string resource_group_name = 8;
+  string secondary_key = 9;
+  string sku = 10;
+  map<string, string> tags = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDocdbClusterSnapshot {
+  repeated string availability_zones = 1;
+  string db_cluster_identifier = 2;
+  string db_cluster_snapshot_arn = 3;
+  string db_cluster_snapshot_identifier = 4;
+  string engine = 5;
+  string engine_version = 6;
+  string id = 7;
+  string kms_key_id = 8;
+  int64  port = 9;
+  string snapshot_type = 10;
+  string source_db_cluster_snapshot_arn = 11;
+  string status = 12;
+  bool   storage_encrypted = 13;
+  string vpc_id = 14;
+  message Timeouts {
+    string create = 1;
+  }
+  Timeouts timeouts = 15;
+}

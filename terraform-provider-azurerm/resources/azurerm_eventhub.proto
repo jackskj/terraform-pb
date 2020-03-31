@@ -1,0 +1,35 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermEventhub {
+  string id = 1;
+  int64  message_retention = 2;
+  string name = 3;
+  string namespace_name = 4;
+  int64  partition_count = 5;
+  repeated string partition_ids = 6;
+  string resource_group_name = 7;
+  message CaptureDescription {
+    bool   enabled = 1;
+    string encoding = 2;
+    int64  interval_in_seconds = 3;
+    int64  size_limit_in_bytes = 4;
+    bool   skip_empty_archives = 5;
+    message Destination {
+      string archive_name_format = 1;
+      string blob_container_name = 2;
+      string name = 3;
+      string storage_account_id = 4;
+    }
+    repeated Destination destination = 6;
+  }
+  repeated CaptureDescription capture_description = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 9;
+}

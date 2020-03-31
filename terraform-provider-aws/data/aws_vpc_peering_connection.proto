@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVpcPeeringConnection {
+  map<string, bool> accepter = 1;
+  string cidr_block = 2;
+  string id = 3;
+  string owner_id = 4;
+  string peer_cidr_block = 5;
+  string peer_owner_id = 6;
+  string peer_region = 7;
+  string peer_vpc_id = 8;
+  string region = 9;
+  map<string, bool> requester = 10;
+  string status = 11;
+  map<string, string> tags = 12;
+  string vpc_id = 13;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 14;
+}

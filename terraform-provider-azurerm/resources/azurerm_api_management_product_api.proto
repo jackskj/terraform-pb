@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermApiManagementProductApi {
+  string api_management_name = 1;
+  string api_name = 2;
+  string id = 3;
+  string product_id = 4;
+  string resource_group_name = 5;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 6;
+}

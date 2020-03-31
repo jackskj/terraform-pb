@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermNetappPool {
+  string account_name = 1;
+  string id = 2;
+  string location = 3;
+  string name = 4;
+  string resource_group_name = 5;
+  string service_level = 6;
+  int64  size_in_tb = 7;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 8;
+}

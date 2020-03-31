@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIotThingPrincipalAttachment {
+  string id = 1;
+  string principal = 2;
+  string thing = 3;
+}

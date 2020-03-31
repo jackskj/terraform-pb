@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package aws;
+
+message AwsFsxLustreFileSystem {
+  string arn = 1;
+  string dns_name = 2;
+  string export_path = 3;
+  string id = 4;
+  string import_path = 5;
+  int64  imported_file_chunk_size = 6;
+  repeated string network_interface_ids = 7;
+  string owner_id = 8;
+  repeated string security_group_ids = 9;
+  int64  storage_capacity = 10;
+  repeated string subnet_ids = 11;
+  map<string, string> tags = 12;
+  string vpc_id = 13;
+  string weekly_maintenance_start_time = 14;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 15;
+}

@@ -1,0 +1,29 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMonitorScheduledQueryRulesLog {
+  repeated string authorized_resource_ids = 1;
+  message Criteria {
+    message Dimension {
+      string name = 1;
+      string operator = 2;
+      repeated string values = 3;
+    }
+    repeated Dimension dimension = 1;
+    string metric_name = 2;
+  }
+  repeated Criteria criteria = 2;
+  string data_source_id = 3;
+  string description = 4;
+  bool   enabled = 5;
+  string id = 6;
+  string location = 7;
+  string name = 8;
+  string resource_group_name = 9;
+  map<string, string> tags = 10;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 11;
+}

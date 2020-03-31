@@ -1,0 +1,42 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermCdnEndpoint {
+  repeated string content_types_to_compress = 1;
+  string host_name = 2;
+  string id = 3;
+  bool   is_compression_enabled = 4;
+  bool   is_http_allowed = 5;
+  bool   is_https_allowed = 6;
+  string location = 7;
+  string name = 8;
+  string optimization_type = 9;
+  string origin_host_header = 10;
+  string origin_path = 11;
+  string probe_path = 12;
+  string profile_name = 13;
+  string querystring_caching_behaviour = 14;
+  string resource_group_name = 15;
+  map<string, string> tags = 16;
+  message GeoFilter {
+    string action = 1;
+    repeated string country_codes = 2;
+    string relative_path = 3;
+  }
+  repeated GeoFilter geo_filter = 17;
+  message Origin {
+    string host_name = 1;
+    int64  http_port = 2;
+    int64  https_port = 3;
+    string name = 4;
+  }
+  repeated Origin origin = 18;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 19;
+}

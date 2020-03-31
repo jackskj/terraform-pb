@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayAuthorizer {
+  string authorizer_credentials = 1;
+  int64  authorizer_result_ttl_in_seconds = 2;
+  string authorizer_uri = 3;
+  string id = 4;
+  string identity_source = 5;
+  string identity_validation_expression = 6;
+  string name = 7;
+  repeated string provider_arns = 8;
+  string rest_api_id = 9;
+  string type = 10;
+}

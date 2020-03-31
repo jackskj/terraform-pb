@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApigatewayv2Api {
+  string api_endpoint = 1;
+  string api_key_selection_expression = 2;
+  string arn = 3;
+  string description = 4;
+  string execution_arn = 5;
+  string id = 6;
+  string name = 7;
+  string protocol_type = 8;
+  string route_selection_expression = 9;
+  map<string, string> tags = 10;
+  string version = 11;
+}

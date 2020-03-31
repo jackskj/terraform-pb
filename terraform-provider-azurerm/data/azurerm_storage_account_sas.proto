@@ -1,0 +1,40 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStorageAccountSas {
+  string connection_string = 1;
+  string expiry = 2;
+  bool   https_only = 3;
+  string id = 4;
+  string sas = 5;
+  string start = 6;
+  message Permissions {
+    bool   add = 1;
+    bool   create = 2;
+    bool   delete = 3;
+    bool   list = 4;
+    bool   process = 5;
+    bool   read = 6;
+    bool   update = 7;
+    bool   write = 8;
+  }
+  repeated Permissions permissions = 7;
+  message ResourceTypes {
+    bool   container = 1;
+    bool   object = 2;
+    bool   service = 3;
+  }
+  repeated ResourceTypes resource_types = 8;
+  message Services {
+    bool   blob = 1;
+    bool   file = 2;
+    bool   queue = 3;
+    bool   table = 4;
+  }
+  repeated Services services = 9;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 10;
+}

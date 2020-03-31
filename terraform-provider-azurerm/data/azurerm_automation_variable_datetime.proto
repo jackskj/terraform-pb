@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermAutomationVariableDatetime {
+  string automation_account_name = 1;
+  string description = 2;
+  bool   encrypted = 3;
+  string id = 4;
+  string name = 5;
+  string resource_group_name = 6;
+  string value = 7;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 8;
+}

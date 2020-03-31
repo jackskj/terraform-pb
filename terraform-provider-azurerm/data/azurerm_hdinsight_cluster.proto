@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermHdinsightCluster {
+  string cluster_version = 1;
+  map<string, string> component_versions = 2;
+  string edge_ssh_endpoint = 3;
+  message Gateway {
+    bool   enabled = 1;
+    string password = 2;
+    string username = 3;
+  }
+  repeated Gateway gateway = 4;
+  string https_endpoint = 5;
+  string id = 6;
+  string kind = 7;
+  string location = 8;
+  string name = 9;
+  string resource_group_name = 10;
+  string ssh_endpoint = 11;
+  map<string, string> tags = 12;
+  string tier = 13;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 14;
+}

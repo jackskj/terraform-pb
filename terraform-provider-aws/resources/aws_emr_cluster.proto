@@ -1,0 +1,116 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEmrCluster {
+  string additional_info = 1;
+  repeated string applications = 2;
+  string arn = 3;
+  string autoscaling_role = 4;
+  string cluster_state = 5;
+  string configurations = 6;
+  string configurations_json = 7;
+  int64  core_instance_count = 8;
+  string core_instance_type = 9;
+  string custom_ami_id = 10;
+  int64  ebs_root_volume_size = 11;
+  string id = 12;
+  bool   keep_job_flow_alive_when_no_steps = 13;
+  string log_uri = 14;
+  string master_instance_type = 15;
+  string master_public_dns = 16;
+  string name = 17;
+  string release_label = 18;
+  string scale_down_behavior = 19;
+  string security_configuration = 20;
+  string service_role = 21;
+  message Step {
+    string action_on_failure = 1;
+    message HadoopJarStep {
+      repeated string args = 1;
+      string jar = 2;
+      string main_class = 3;
+      map<string, string> properties = 4;
+    }
+    repeated HadoopJarStep hadoop_jar_step = 2;
+    string name = 3;
+  }
+  repeated Step step = 22;
+  int64  step_concurrency_level = 23;
+  map<string, string> tags = 24;
+  bool   termination_protection = 25;
+  bool   visible_to_all_users = 26;
+  message BootstrapAction {
+    repeated string args = 1;
+    string name = 2;
+    string path = 3;
+  }
+  repeated BootstrapAction bootstrap_action = 27;
+  message CoreInstanceGroup {
+    string autoscaling_policy = 1;
+    string bid_price = 2;
+    string id = 3;
+    int64  instance_count = 4;
+    string instance_type = 5;
+    string name = 6;
+    message EbsConfig {
+      int64  iops = 1;
+      int64  size = 2;
+      string type = 3;
+      int64  volumes_per_instance = 4;
+    }
+    repeated EbsConfig ebs_config = 7;
+  }
+  repeated CoreInstanceGroup core_instance_group = 28;
+  message Ec2Attributes {
+    string additional_master_security_groups = 1;
+    string additional_slave_security_groups = 2;
+    string emr_managed_master_security_group = 3;
+    string emr_managed_slave_security_group = 4;
+    string instance_profile = 5;
+    string key_name = 6;
+    string service_access_security_group = 7;
+    string subnet_id = 8;
+  }
+  repeated Ec2Attributes ec2_attributes = 29;
+  message InstanceGroup {
+    string autoscaling_policy = 1;
+    string bid_price = 2;
+    string id = 3;
+    int64  instance_count = 4;
+    string instance_role = 5;
+    string instance_type = 6;
+    string name = 7;
+    message EbsConfig {
+      int64  iops = 1;
+      int64  size = 2;
+      string type = 3;
+      int64  volumes_per_instance = 4;
+    }
+    repeated EbsConfig ebs_config = 8;
+  }
+  repeated InstanceGroup instance_group = 30;
+  message KerberosAttributes {
+    string ad_domain_join_password = 1;
+    string ad_domain_join_user = 2;
+    string cross_realm_trust_principal_password = 3;
+    string kdc_admin_password = 4;
+    string realm = 5;
+  }
+  repeated KerberosAttributes kerberos_attributes = 31;
+  message MasterInstanceGroup {
+    string bid_price = 1;
+    string id = 2;
+    int64  instance_count = 3;
+    string instance_type = 4;
+    string name = 5;
+    message EbsConfig {
+      int64  iops = 1;
+      int64  size = 2;
+      string type = 3;
+      int64  volumes_per_instance = 4;
+    }
+    repeated EbsConfig ebs_config = 6;
+  }
+  repeated MasterInstanceGroup master_instance_group = 32;
+}

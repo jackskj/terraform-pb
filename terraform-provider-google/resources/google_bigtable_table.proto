@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package google;
+
+message GoogleBigtableTable {
+  string id = 1;
+  string instance_name = 2;
+  string name = 3;
+  string project = 4;
+  repeated string split_keys = 5;
+  message ColumnFamily {
+    string family = 1;
+  }
+  repeated ColumnFamily column_family = 6;
+}

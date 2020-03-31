@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package aws;
+
+message AwsKinesisStream {
+  string arn = 1;
+  string encryption_type = 2;
+  bool   enforce_consumer_deletion = 3;
+  string id = 4;
+  string kms_key_id = 5;
+  string name = 6;
+  int64  retention_period = 7;
+  int64  shard_count = 8;
+  repeated string shard_level_metrics = 9;
+  map<string, string> tags = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 11;
+}

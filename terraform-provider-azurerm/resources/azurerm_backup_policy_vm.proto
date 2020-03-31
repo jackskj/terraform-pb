@@ -1,0 +1,47 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermBackupPolicyVm {
+  string id = 1;
+  string name = 2;
+  string recovery_vault_name = 3;
+  string resource_group_name = 4;
+  map<string, string> tags = 5;
+  string timezone = 6;
+  message Backup {
+    string frequency = 1;
+    string time = 2;
+    repeated string weekdays = 3;
+  }
+  repeated Backup backup = 7;
+  message RetentionDaily {
+    int64  count = 1;
+  }
+  repeated RetentionDaily retention_daily = 8;
+  message RetentionMonthly {
+    int64  count = 1;
+    repeated string weekdays = 2;
+    repeated string weeks = 3;
+  }
+  repeated RetentionMonthly retention_monthly = 9;
+  message RetentionWeekly {
+    int64  count = 1;
+    repeated string weekdays = 2;
+  }
+  repeated RetentionWeekly retention_weekly = 10;
+  message RetentionYearly {
+    int64  count = 1;
+    repeated string months = 2;
+    repeated string weekdays = 3;
+    repeated string weeks = 4;
+  }
+  repeated RetentionYearly retention_yearly = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCloudwatchLogGroup {
+  string arn = 1;
+  string id = 2;
+  string kms_key_id = 3;
+  string name = 4;
+  string name_prefix = 5;
+  int64  retention_in_days = 6;
+  map<string, string> tags = 7;
+}

@@ -1,0 +1,43 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMonitorScheduledQueryRulesAlert {
+  message Action {
+    repeated string action_group = 1;
+    string custom_webhook_payload = 2;
+    string email_subject = 3;
+  }
+  repeated Action action = 1;
+  repeated string authorized_resource_ids = 2;
+  string data_source_id = 3;
+  string description = 4;
+  bool   enabled = 5;
+  int64  frequency = 6;
+  string id = 7;
+  string location = 8;
+  string name = 9;
+  string query = 10;
+  string query_type = 11;
+  string resource_group_name = 12;
+  int64  severity = 13;
+  map<string, string> tags = 14;
+  int64  throttling = 15;
+  int64  time_window = 16;
+  message Trigger {
+    message MetricTrigger {
+      string metric_column = 1;
+      string metric_trigger_type = 2;
+      string operator = 3;
+      int64  threshold = 4;
+    }
+    repeated MetricTrigger metric_trigger = 1;
+    string operator = 2;
+    int64  threshold = 3;
+  }
+  repeated Trigger trigger = 17;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 18;
+}

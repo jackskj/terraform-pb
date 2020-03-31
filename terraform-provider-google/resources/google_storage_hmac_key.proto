@@ -1,0 +1,32 @@
+syntax="proto3";
+
+package google;
+
+message GoogleStorageHmacKey {
+
+  // The access ID of the HMAC Key.
+  string access_id = 1;
+  string id = 2;
+  string project = 3;
+
+  // HMAC secret key material.
+  string secret = 4;
+
+  // The email address of the key's associated service account.
+  string service_account_email = 5;
+
+  // The state of the key. Can be set to one of ACTIVE, INACTIVE.
+  string state = 6;
+
+  // 'The creation time of the HMAC key in RFC 3339 format. '
+  string time_created = 7;
+
+  // 'The last modification time of the HMAC key metadata in RFC 3339 format.'
+  string updated = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 9;
+}

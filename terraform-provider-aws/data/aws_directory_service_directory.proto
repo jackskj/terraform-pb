@@ -1,0 +1,32 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDirectoryServiceDirectory {
+  string access_url = 1;
+  string alias = 2;
+  message ConnectSettings {
+    repeated string customer_dns_ips = 1;
+    string customer_username = 2;
+    repeated string subnet_ids = 3;
+    string vpc_id = 4;
+  }
+  repeated ConnectSettings connect_settings = 3;
+  string description = 4;
+  string directory_id = 5;
+  repeated string dns_ip_addresses = 6;
+  string edition = 7;
+  bool   enable_sso = 8;
+  string id = 9;
+  string name = 10;
+  string security_group_id = 11;
+  string short_name = 12;
+  string size = 13;
+  map<string, string> tags = 14;
+  string type = 15;
+  message VpcSettings {
+    repeated string subnet_ids = 1;
+    string vpc_id = 2;
+  }
+  repeated VpcSettings vpc_settings = 16;
+}

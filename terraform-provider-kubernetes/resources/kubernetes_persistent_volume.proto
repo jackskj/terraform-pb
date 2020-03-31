@@ -1,0 +1,356 @@
+syntax="proto3";
+
+package kubernetes;
+
+message KubernetesPersistentVolume {
+  string id = 1;
+  message Metadata {
+
+    // An unstructured key value map stored with the persistent volume that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+    map<string, string> annotations = 1;
+
+    // A sequence number representing a specific generation of the desired state.
+    int64  generation = 2;
+
+    // Map of string keys and values that can be used to organize and categorize (scope and select) the persistent volume. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+    map<string, string> labels = 3;
+
+    // Name of the persistent volume, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+    string name = 4;
+
+    // An opaque value that represents the internal version of this persistent volume that can be used by clients to determine when persistent volume has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+    string resource_version = 5;
+
+    // A URL representing this persistent volume.
+    string self_link = 6;
+
+    // The unique in time and space value for this persistent volume. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+    string uid = 7;
+  }
+  repeated Metadata metadata = 2;
+  message Spec {
+
+    // Contains all ways the volume can be mounted. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#access-modes
+    repeated string access_modes = 1;
+
+    // A description of the persistent volume's resources and capacity. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#capacity
+    map<string, string> capacity = 2;
+
+    // A list of mount options, e.g. ["ro", "soft"]. Not validated - mount will simply fail if one is invalid.
+    repeated string mount_options = 3;
+
+    // What happens to a persistent volume when released from its claim. Valid options are Retain (default) and Recycle. Recycling must be supported by the volume plugin underlying this persistent volume. More info: http://kubernetes.io/docs/user-guide/persistent-volumes#recycling-policy
+    string persistent_volume_reclaim_policy = 4;
+
+    // A description of the persistent volume's class. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class
+    string storage_class_name = 5;
+    message NodeAffinity {
+      message Required {
+        message NodeSelectorTerm {
+          message MatchExpressions {
+
+            // The label key that the selector applies to.
+            string key = 1;
+
+            // A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists`, `DoesNotExist`, `Gt`, and `Lt`.
+            string operator = 2;
+
+            // An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+            repeated string values = 3;
+          }
+          repeated MatchExpressions match_expressions = 1;
+          message MatchFields {
+
+            // The label key that the selector applies to.
+            string key = 1;
+
+            // A key's relationship to a set of values. Valid operators ard `In`, `NotIn`, `Exists`, `DoesNotExist`, `Gt`, and `Lt`.
+            string operator = 2;
+
+            // An array of string values. If the operator is `In` or `NotIn`, the values array must be non-empty. If the operator is `Exists` or `DoesNotExist`, the values array must be empty. This array is replaced during a strategic merge patch.
+            repeated string values = 3;
+          }
+          repeated MatchFields match_fields = 2;
+        }
+        repeated NodeSelectorTerm node_selector_term = 1;
+      }
+      repeated Required required = 1;
+    }
+    repeated NodeAffinity node_affinity = 6;
+    message PersistentVolumeSource {
+      message AwsElasticBlockStore {
+
+        // Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+        string fs_type = 1;
+
+        // The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty).
+        int64  partition = 2;
+
+        // Whether to set the read-only property in VolumeMounts to "true". If omitted, the default is "false". More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+        bool   read_only = 3;
+
+        // Unique ID of the persistent disk resource in AWS (Amazon EBS volume). More info: http://kubernetes.io/docs/user-guide/volumes#awselasticblockstore
+        string volume_id = 4;
+      }
+      repeated AwsElasticBlockStore aws_elastic_block_store = 1;
+      message AzureDisk {
+
+        // Host Caching mode: None, Read Only, Read Write.
+        string caching_mode = 1;
+
+        // The URI the data disk in the blob storage
+        string data_disk_uri = 2;
+
+        // The Name of the data disk in the blob storage
+        string disk_name = 3;
+
+        // Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+        string fs_type = 4;
+
+        // Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+        bool   read_only = 5;
+      }
+      repeated AzureDisk azure_disk = 2;
+      message AzureFile {
+
+        // Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+        bool   read_only = 1;
+
+        // The name of secret that contains Azure Storage Account Name and Key
+        string secret_name = 2;
+
+        // Share Name
+        string share_name = 3;
+      }
+      repeated AzureFile azure_file = 3;
+      message CephFs {
+
+        // Monitors is a collection of Ceph monitors More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+        repeated string monitors = 1;
+
+        // Used as the mounted root, rather than the full Ceph tree, default is /
+        string path = 2;
+
+        // Whether to force the read-only setting in VolumeMounts. Defaults to `false` (read/write). More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+        bool   read_only = 3;
+
+        // The path to key ring for User, default is /etc/ceph/user.secret More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+        string secret_file = 4;
+
+        // User is the rados user name, default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/cephfs/README.md#how-to-use-it
+        string user = 5;
+        message SecretRef {
+
+          // Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+          string name = 1;
+        }
+        repeated SecretRef secret_ref = 6;
+      }
+      repeated CephFs ceph_fs = 4;
+      message Cinder {
+
+        // Filesystem type to mount. Must be a filesystem type supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+        string fs_type = 1;
+
+        // Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write). More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+        bool   read_only = 2;
+
+        // Volume ID used to identify the volume in Cinder. More info: http://releases.k8s.io/HEAD/examples/mysql-cinder-pd/README.md
+        string volume_id = 3;
+      }
+      repeated Cinder cinder = 5;
+      message Fc {
+
+        // Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+        string fs_type = 1;
+
+        // FC target lun number
+        int64  lun = 2;
+
+        // Whether to force the read-only setting in VolumeMounts. Defaults to false (read/write).
+        bool   read_only = 3;
+
+        // FC target worldwide names (WWNs)
+        repeated string target_ww_ns = 4;
+      }
+      repeated Fc fc = 6;
+      message FlexVolume {
+
+        // Driver is the name of the driver to use for this volume.
+        string driver = 1;
+
+        // Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". The default filesystem depends on FlexVolume script.
+        string fs_type = 2;
+
+        // Extra command options if any.
+        map<string, string> options = 3;
+
+        // Whether to force the ReadOnly setting in VolumeMounts. Defaults to false (read/write).
+        bool   read_only = 4;
+        message SecretRef {
+
+          // Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+          string name = 1;
+        }
+        repeated SecretRef secret_ref = 5;
+      }
+      repeated FlexVolume flex_volume = 7;
+      message Flocker {
+
+        // Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated
+        string dataset_name = 1;
+
+        // UUID of the dataset. This is unique identifier of a Flocker dataset
+        string dataset_uuid = 2;
+      }
+      repeated Flocker flocker = 8;
+      message GcePersistentDisk {
+
+        // Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+        string fs_type = 1;
+
+        // The partition in the volume that you want to mount. If omitted, the default is to mount by volume name. Examples: For volume /dev/sda1, you specify the partition as "1". Similarly, the volume partition for /dev/sda is "0" (or you can leave the property empty). More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+        int64  partition = 2;
+
+        // Unique name of the PD resource in GCE. Used to identify the disk in GCE. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+        string pd_name = 3;
+
+        // Whether to force the ReadOnly setting in VolumeMounts. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#gcepersistentdisk
+        bool   read_only = 4;
+      }
+      repeated GcePersistentDisk gce_persistent_disk = 9;
+      message Glusterfs {
+
+        // The endpoint name that details Glusterfs topology. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+        string endpoints_name = 1;
+
+        // The Glusterfs volume path. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+        string path = 2;
+
+        // Whether to force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/glusterfs/README.md#create-a-pod
+        bool   read_only = 3;
+      }
+      repeated Glusterfs glusterfs = 10;
+      message HostPath {
+
+        // Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#hostpath
+        string path = 1;
+
+        // Type for HostPath volume. Allowed values are "" (default), DirectoryOrCreate, Directory, FileOrCreate, File, Socket, CharDevice and BlockDevice
+        string type = 2;
+      }
+      repeated HostPath host_path = 11;
+      message Iscsi {
+
+        // Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#iscsi
+        string fs_type = 1;
+
+        // Target iSCSI Qualified Name.
+        string iqn = 2;
+
+        // iSCSI interface name that uses an iSCSI transport. Defaults to 'default' (tcp).
+        string iscsi_interface = 3;
+
+        // iSCSI target lun number.
+        int64  lun = 4;
+
+        // Whether to force the read-only setting in VolumeMounts. Defaults to false.
+        bool   read_only = 5;
+
+        // iSCSI target portal. The portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
+        string target_portal = 6;
+      }
+      repeated Iscsi iscsi = 12;
+      message Local {
+
+        // Path of the directory on the host. More info: http://kubernetes.io/docs/user-guide/volumes#local
+        string path = 1;
+      }
+      repeated Local local = 13;
+      message Nfs {
+
+        // Path that is exported by the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+        string path = 1;
+
+        // Whether to force the NFS export to be mounted with read-only permissions. Defaults to false. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+        bool   read_only = 2;
+
+        // Server is the hostname or IP address of the NFS server. More info: http://kubernetes.io/docs/user-guide/volumes#nfs
+        string server = 3;
+      }
+      repeated Nfs nfs = 14;
+      message PhotonPersistentDisk {
+
+        // Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+        string fs_type = 1;
+
+        // ID that identifies Photon Controller persistent disk
+        string pd_id = 2;
+      }
+      repeated PhotonPersistentDisk photon_persistent_disk = 15;
+      message Quobyte {
+
+        // Group to map volume access to Default is no group
+        string group = 1;
+
+        // Whether to force the Quobyte volume to be mounted with read-only permissions. Defaults to false.
+        bool   read_only = 2;
+
+        // Registry represents a single or multiple Quobyte Registry services specified as a string as host:port pair (multiple entries are separated with commas) which acts as the central registry for volumes
+        string registry = 3;
+
+        // User to map volume access to Defaults to serivceaccount user
+        string user = 4;
+
+        // Volume is a string that references an already created Quobyte volume by name.
+        string volume = 5;
+      }
+      repeated Quobyte quobyte = 16;
+      message Rbd {
+
+        // A collection of Ceph monitors. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+        repeated string ceph_monitors = 1;
+
+        // Filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified. More info: http://kubernetes.io/docs/user-guide/volumes#rbd
+        string fs_type = 2;
+
+        // Keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+        string keyring = 3;
+
+        // The rados user name. Default is admin. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+        string rados_user = 4;
+
+        // The rados image name. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+        string rbd_image = 5;
+
+        // The rados pool name. Default is rbd. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it.
+        string rbd_pool = 6;
+
+        // Whether to force the read-only setting in VolumeMounts. Defaults to false. More info: http://releases.k8s.io/HEAD/examples/volumes/rbd/README.md#how-to-use-it
+        bool   read_only = 7;
+        message SecretRef {
+
+          // Name of the referent. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+          string name = 1;
+        }
+        repeated SecretRef secret_ref = 8;
+      }
+      repeated Rbd rbd = 17;
+      message VsphereVolume {
+
+        // Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. "ext4", "xfs", "ntfs". Implicitly inferred to be "ext4" if unspecified.
+        string fs_type = 1;
+
+        // Path that identifies vSphere volume vmdk
+        string volume_path = 2;
+      }
+      repeated VsphereVolume vsphere_volume = 18;
+    }
+    repeated PersistentVolumeSource persistent_volume_source = 7;
+  }
+  repeated Spec spec = 3;
+  message Timeouts {
+    string create = 1;
+  }
+  Timeouts timeouts = 4;
+}

@@ -1,0 +1,98 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermServiceFabricCluster {
+  repeated string add_on_features = 1;
+  string cluster_code_version = 2;
+  string cluster_endpoint = 3;
+  string id = 4;
+  string location = 5;
+  string management_endpoint = 6;
+  string name = 7;
+  string reliability_level = 8;
+  string resource_group_name = 9;
+  map<string, string> tags = 10;
+  string upgrade_mode = 11;
+  string vm_image = 12;
+  message AzureActiveDirectory {
+    string client_application_id = 1;
+    string cluster_application_id = 2;
+    string tenant_id = 3;
+  }
+  repeated AzureActiveDirectory azure_active_directory = 13;
+  message Certificate {
+    string thumbprint = 1;
+    string thumbprint_secondary = 2;
+    string x509_store_name = 3;
+  }
+  repeated Certificate certificate = 14;
+  message CertificateCommonNames {
+    string x509_store_name = 1;
+    message CommonNames {
+      string certificate_common_name = 1;
+      string certificate_issuer_thumbprint = 2;
+    }
+    repeated CommonNames common_names = 2;
+  }
+  repeated CertificateCommonNames certificate_common_names = 15;
+  message ClientCertificateCommonName {
+    string common_name = 1;
+    bool   is_admin = 2;
+    string issuer_thumbprint = 3;
+  }
+  repeated ClientCertificateCommonName client_certificate_common_name = 16;
+  message ClientCertificateThumbprint {
+    bool   is_admin = 1;
+    string thumbprint = 2;
+  }
+  repeated ClientCertificateThumbprint client_certificate_thumbprint = 17;
+  message DiagnosticsConfig {
+    string blob_endpoint = 1;
+    string protected_account_key_name = 2;
+    string queue_endpoint = 3;
+    string storage_account_name = 4;
+    string table_endpoint = 5;
+  }
+  repeated DiagnosticsConfig diagnostics_config = 18;
+  message FabricSettings {
+    string name = 1;
+    map<string, string> parameters = 2;
+  }
+  repeated FabricSettings fabric_settings = 19;
+  message NodeType {
+    map<string, string> capacities = 1;
+    int64  client_endpoint_port = 2;
+    string durability_level = 3;
+    int64  http_endpoint_port = 4;
+    int64  instance_count = 5;
+    bool   is_primary = 6;
+    string name = 7;
+    map<string, string> placement_properties = 8;
+    int64  reverse_proxy_endpoint_port = 9;
+    message ApplicationPorts {
+      int64  end_port = 1;
+      int64  start_port = 2;
+    }
+    repeated ApplicationPorts application_ports = 10;
+    message EphemeralPorts {
+      int64  end_port = 1;
+      int64  start_port = 2;
+    }
+    repeated EphemeralPorts ephemeral_ports = 11;
+  }
+  repeated NodeType node_type = 20;
+  message ReverseProxyCertificate {
+    string thumbprint = 1;
+    string thumbprint_secondary = 2;
+    string x509_store_name = 3;
+  }
+  repeated ReverseProxyCertificate reverse_proxy_certificate = 21;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 22;
+}

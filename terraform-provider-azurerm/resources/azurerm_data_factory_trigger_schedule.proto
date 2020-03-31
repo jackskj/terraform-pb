@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermDataFactoryTriggerSchedule {
+  repeated string annotations = 1;
+  string data_factory_name = 2;
+  string end_time = 3;
+  string frequency = 4;
+  string id = 5;
+  int64  interval = 6;
+  string name = 7;
+  string pipeline_name = 8;
+  map<string, string> pipeline_parameters = 9;
+  string resource_group_name = 10;
+  string start_time = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

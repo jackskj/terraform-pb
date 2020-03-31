@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEc2CapacityReservation {
+  string availability_zone = 1;
+  bool   ebs_optimized = 2;
+  string end_date = 3;
+  string end_date_type = 4;
+  bool   ephemeral_storage = 5;
+  string id = 6;
+  int64  instance_count = 7;
+  string instance_match_criteria = 8;
+  string instance_platform = 9;
+  string instance_type = 10;
+  map<string, string> tags = 11;
+  string tenancy = 12;
+}

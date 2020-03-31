@@ -1,0 +1,118 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermKubernetesCluster {
+  message AddonProfile {
+    message AzurePolicy {
+      bool   enabled = 1;
+    }
+    repeated AzurePolicy azure_policy = 1;
+    message HttpApplicationRouting {
+      bool   enabled = 1;
+      string http_application_routing_zone_name = 2;
+    }
+    repeated HttpApplicationRouting http_application_routing = 2;
+    message KubeDashboard {
+      bool   enabled = 1;
+    }
+    repeated KubeDashboard kube_dashboard = 3;
+    message OmsAgent {
+      bool   enabled = 1;
+      string log_analytics_workspace_id = 2;
+    }
+    repeated OmsAgent oms_agent = 4;
+  }
+  repeated AddonProfile addon_profile = 1;
+  message AgentPoolProfile {
+    repeated string availability_zones = 1;
+    int64  count = 2;
+    bool   enable_auto_scaling = 3;
+    bool   enable_node_public_ip = 4;
+    int64  max_count = 5;
+    int64  max_pods = 6;
+    int64  min_count = 7;
+    string name = 8;
+    map<string, string> node_labels = 9;
+    repeated string node_taints = 10;
+    int64  os_disk_size_gb = 11;
+    string os_type = 12;
+    map<string, string> tags = 13;
+    string type = 14;
+    string vm_size = 15;
+    string vnet_subnet_id = 16;
+  }
+  repeated AgentPoolProfile agent_pool_profile = 2;
+  repeated string api_server_authorized_ip_ranges = 3;
+  string dns_prefix = 4;
+  string fqdn = 5;
+  string id = 6;
+  message KubeAdminConfig {
+    string client_certificate = 1;
+    string client_key = 2;
+    string cluster_ca_certificate = 3;
+    string host = 4;
+    string password = 5;
+    string username = 6;
+  }
+  repeated KubeAdminConfig kube_admin_config = 7;
+  string kube_admin_config_raw = 8;
+  message KubeConfig {
+    string client_certificate = 1;
+    string client_key = 2;
+    string cluster_ca_certificate = 3;
+    string host = 4;
+    string password = 5;
+    string username = 6;
+  }
+  repeated KubeConfig kube_config = 9;
+  string kube_config_raw = 10;
+  string kubernetes_version = 11;
+  message LinuxProfile {
+    string admin_username = 1;
+    message SshKey {
+      string key_data = 1;
+    }
+    repeated SshKey ssh_key = 2;
+  }
+  repeated LinuxProfile linux_profile = 12;
+  string location = 13;
+  string name = 14;
+  message NetworkProfile {
+    string dns_service_ip = 1;
+    string docker_bridge_cidr = 2;
+    string load_balancer_sku = 3;
+    string network_plugin = 4;
+    string network_policy = 5;
+    string pod_cidr = 6;
+    string service_cidr = 7;
+  }
+  repeated NetworkProfile network_profile = 15;
+  string node_resource_group = 16;
+  string private_fqdn = 17;
+  bool   private_link_enabled = 18;
+  string resource_group_name = 19;
+  message RoleBasedAccessControl {
+    message AzureActiveDirectory {
+      string client_app_id = 1;
+      string server_app_id = 2;
+      string tenant_id = 3;
+    }
+    repeated AzureActiveDirectory azure_active_directory = 1;
+    bool   enabled = 2;
+  }
+  repeated RoleBasedAccessControl role_based_access_control = 20;
+  message ServicePrincipal {
+    string client_id = 1;
+  }
+  repeated ServicePrincipal service_principal = 21;
+  map<string, string> tags = 22;
+  message WindowsProfile {
+    string admin_username = 1;
+  }
+  repeated WindowsProfile windows_profile = 23;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 24;
+}

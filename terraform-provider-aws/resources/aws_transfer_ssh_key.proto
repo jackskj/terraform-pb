@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsTransferSshKey {
+  string body = 1;
+  string id = 2;
+  string server_id = 3;
+  string user_name = 4;
+}

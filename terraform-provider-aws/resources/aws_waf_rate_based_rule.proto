@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package aws;
+
+message AwsWafRateBasedRule {
+  string arn = 1;
+  string id = 2;
+  string metric_name = 3;
+  string name = 4;
+  string rate_key = 5;
+  int64  rate_limit = 6;
+  map<string, string> tags = 7;
+  message Predicates {
+    string data_id = 1;
+    bool   negated = 2;
+    string type = 3;
+  }
+  repeated Predicates predicates = 8;
+}

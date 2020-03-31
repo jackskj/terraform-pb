@@ -1,0 +1,93 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermLinuxVirtualMachine {
+  string admin_password = 1;
+  string admin_username = 2;
+  bool   allow_extension_operations = 3;
+  string availability_set_id = 4;
+  string computer_name = 5;
+  string custom_data = 6;
+  string dedicated_host_id = 7;
+  bool   disable_password_authentication = 8;
+  string eviction_policy = 9;
+  string id = 10;
+  string location = 11;
+  int64  max_bid_price = 12;
+  string name = 13;
+  repeated string network_interface_ids = 14;
+  string priority = 15;
+  string private_ip_address = 16;
+  repeated string private_ip_addresses = 17;
+  bool   provision_vm_agent = 18;
+  string proximity_placement_group_id = 19;
+  string public_ip_address = 20;
+  repeated string public_ip_addresses = 21;
+  string resource_group_name = 22;
+  string size = 23;
+  string source_image_id = 24;
+  map<string, string> tags = 25;
+  string virtual_machine_id = 26;
+  string zone = 27;
+  message AdditionalCapabilities {
+    bool   ultra_ssd_enabled = 1;
+  }
+  repeated AdditionalCapabilities additional_capabilities = 28;
+  message AdminSshKey {
+    string public_key = 1;
+    string username = 2;
+  }
+  repeated AdminSshKey admin_ssh_key = 29;
+  message BootDiagnostics {
+    string storage_account_uri = 1;
+  }
+  repeated BootDiagnostics boot_diagnostics = 30;
+  message Identity {
+    repeated string identity_ids = 1;
+    string principal_id = 2;
+    string type = 3;
+  }
+  repeated Identity identity = 31;
+  message OsDisk {
+    string caching = 1;
+    string disk_encryption_set_id = 2;
+    int64  disk_size_gb = 3;
+    string name = 4;
+    string storage_account_type = 5;
+    bool   write_accelerator_enabled = 6;
+    message DiffDiskSettings {
+      string option = 1;
+    }
+    repeated DiffDiskSettings diff_disk_settings = 7;
+  }
+  repeated OsDisk os_disk = 32;
+  message Plan {
+    string name = 1;
+    string product = 2;
+    string publisher = 3;
+  }
+  repeated Plan plan = 33;
+  message Secret {
+    string key_vault_id = 1;
+    message Certificate {
+      string url = 1;
+    }
+    repeated Certificate certificate = 2;
+  }
+  repeated Secret secret = 34;
+  message SourceImageReference {
+    string offer = 1;
+    string publisher = 2;
+    string sku = 3;
+    string version = 4;
+  }
+  repeated SourceImageReference source_image_reference = 35;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 36;
+}

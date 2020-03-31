@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermRoleAssignment {
+  string id = 1;
+  string name = 2;
+  string principal_id = 3;
+  string principal_type = 4;
+  string role_definition_id = 5;
+  string role_definition_name = 6;
+  string scope = 7;
+  bool   skip_service_principal_aad_check = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 9;
+}

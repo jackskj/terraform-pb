@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEc2TransitGatewayRoute {
+  bool   blackhole = 1;
+  string destination_cidr_block = 2;
+  string id = 3;
+  string transit_gateway_attachment_id = 4;
+  string transit_gateway_route_table_id = 5;
+}

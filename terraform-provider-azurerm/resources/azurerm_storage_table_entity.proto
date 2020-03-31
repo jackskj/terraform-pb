@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStorageTableEntity {
+  map<string, string> entity = 1;
+  string id = 2;
+  string partition_key = 3;
+  string row_key = 4;
+  string storage_account_name = 5;
+  string table_name = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 7;
+}

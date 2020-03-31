@@ -1,0 +1,141 @@
+syntax="proto3";
+
+package aws;
+
+message AwsS3Bucket {
+  string acceleration_status = 1;
+  string acl = 2;
+  string arn = 3;
+  string bucket = 4;
+  string bucket_domain_name = 5;
+  string bucket_prefix = 6;
+  string bucket_regional_domain_name = 7;
+  bool   force_destroy = 8;
+  string hosted_zone_id = 9;
+  string id = 10;
+  string policy = 11;
+  string region = 12;
+  string request_payer = 13;
+  map<string, string> tags = 14;
+  string website_domain = 15;
+  string website_endpoint = 16;
+  message CorsRule {
+    repeated string allowed_headers = 1;
+    repeated string allowed_methods = 2;
+    repeated string allowed_origins = 3;
+    repeated string expose_headers = 4;
+    int64  max_age_seconds = 5;
+  }
+  repeated CorsRule cors_rule = 17;
+  message Grant {
+    string id = 1;
+    repeated string permissions = 2;
+    string type = 3;
+    string uri = 4;
+  }
+  repeated Grant grant = 18;
+  message LifecycleRule {
+    int64  abort_incomplete_multipart_upload_days = 1;
+    bool   enabled = 2;
+    string id = 3;
+    string prefix = 4;
+    map<string, string> tags = 5;
+    message Expiration {
+      string date = 1;
+      int64  days = 2;
+      bool   expired_object_delete_marker = 3;
+    }
+    repeated Expiration expiration = 6;
+    message NoncurrentVersionExpiration {
+      int64  days = 1;
+    }
+    repeated NoncurrentVersionExpiration noncurrent_version_expiration = 7;
+    message NoncurrentVersionTransition {
+      int64  days = 1;
+      string storage_class = 2;
+    }
+    repeated NoncurrentVersionTransition noncurrent_version_transition = 8;
+    message Transition {
+      string date = 1;
+      int64  days = 2;
+      string storage_class = 3;
+    }
+    repeated Transition transition = 9;
+  }
+  repeated LifecycleRule lifecycle_rule = 19;
+  message Logging {
+    string target_bucket = 1;
+    string target_prefix = 2;
+  }
+  repeated Logging logging = 20;
+  message ObjectLockConfiguration {
+    string object_lock_enabled = 1;
+    message Rule {
+      message DefaultRetention {
+        int64  days = 1;
+        string mode = 2;
+        int64  years = 3;
+      }
+      repeated DefaultRetention default_retention = 1;
+    }
+    repeated Rule rule = 2;
+  }
+  repeated ObjectLockConfiguration object_lock_configuration = 21;
+  message ReplicationConfiguration {
+    string role = 1;
+    message Rules {
+      string id = 1;
+      string prefix = 2;
+      int64  priority = 3;
+      string status = 4;
+      message Destination {
+        string account_id = 1;
+        string bucket = 2;
+        string replica_kms_key_id = 3;
+        string storage_class = 4;
+        message AccessControlTranslation {
+          string owner = 1;
+        }
+        repeated AccessControlTranslation access_control_translation = 5;
+      }
+      repeated Destination destination = 5;
+      message Filter {
+        string prefix = 1;
+        map<string, string> tags = 2;
+      }
+      repeated Filter filter = 6;
+      message SourceSelectionCriteria {
+        message SseKmsEncryptedObjects {
+          bool   enabled = 1;
+        }
+        repeated SseKmsEncryptedObjects sse_kms_encrypted_objects = 1;
+      }
+      repeated SourceSelectionCriteria source_selection_criteria = 7;
+    }
+    repeated Rules rules = 2;
+  }
+  repeated ReplicationConfiguration replication_configuration = 22;
+  message ServerSideEncryptionConfiguration {
+    message Rule {
+      message ApplyServerSideEncryptionByDefault {
+        string kms_master_key_id = 1;
+        string sse_algorithm = 2;
+      }
+      repeated ApplyServerSideEncryptionByDefault apply_server_side_encryption_by_default = 1;
+    }
+    repeated Rule rule = 1;
+  }
+  repeated ServerSideEncryptionConfiguration server_side_encryption_configuration = 23;
+  message Versioning {
+    bool   enabled = 1;
+    bool   mfa_delete = 2;
+  }
+  repeated Versioning versioning = 24;
+  message Website {
+    string error_document = 1;
+    string index_document = 2;
+    string redirect_all_requests_to = 3;
+    string routing_rules = 4;
+  }
+  repeated Website website = 25;
+}

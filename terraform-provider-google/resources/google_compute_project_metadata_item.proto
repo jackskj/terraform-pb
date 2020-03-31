@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeProjectMetadataItem {
+  string id = 1;
+  string key = 2;
+  string project = 3;
+  string value = 4;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 5;
+}

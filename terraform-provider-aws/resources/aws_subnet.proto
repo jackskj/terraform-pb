@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSubnet {
+  string arn = 1;
+  bool   assign_ipv6_address_on_creation = 2;
+  string availability_zone = 3;
+  string availability_zone_id = 4;
+  string cidr_block = 5;
+  string id = 6;
+  string ipv6_cidr_block = 7;
+  string ipv6_cidr_block_association_id = 8;
+  bool   map_public_ip_on_launch = 9;
+  string owner_id = 10;
+  map<string, string> tags = 11;
+  string vpc_id = 12;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 13;
+}

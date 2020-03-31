@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsTransferServer {
+  string arn = 1;
+  string endpoint = 2;
+  string id = 3;
+  string identity_provider_type = 4;
+  string invocation_role = 5;
+  string logging_role = 6;
+  string server_id = 7;
+  string url = 8;
+}

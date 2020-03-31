@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCodestarnotificationsNotificationRule {
+  string arn = 1;
+  string detail_type = 2;
+  repeated string event_type_ids = 3;
+  string id = 4;
+  string name = 5;
+  string resource = 6;
+  string status = 7;
+  map<string, string> tags = 8;
+  message Target {
+    string address = 1;
+    string status = 2;
+    string type = 3;
+  }
+  repeated Target target = 9;
+}

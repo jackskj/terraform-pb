@@ -1,0 +1,63 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSqlDatabase {
+  string collation = 1;
+  string create_mode = 2;
+  string creation_date = 3;
+  string default_secondary_location = 4;
+  string edition = 5;
+  string elastic_pool_name = 6;
+  string encryption = 7;
+  string id = 8;
+  string location = 9;
+  string max_size_bytes = 10;
+  string max_size_gb = 11;
+  string name = 12;
+  bool   read_scale = 13;
+  string requested_service_objective_id = 14;
+  string requested_service_objective_name = 15;
+  string resource_group_name = 16;
+  string restore_point_in_time = 17;
+  string server_name = 18;
+  string source_database_deletion_date = 19;
+  string source_database_id = 20;
+  map<string, string> tags = 21;
+  bool   zone_redundant = 22;
+  message ExtendedAuditingPolicy {
+    int64  retention_in_days = 1;
+    string storage_account_access_key = 2;
+    bool   storage_account_access_key_is_secondary = 3;
+    string storage_endpoint = 4;
+  }
+  repeated ExtendedAuditingPolicy extended_auditing_policy = 23;
+  message Import {
+    string administrator_login = 1;
+    string administrator_login_password = 2;
+    string authentication_type = 3;
+    string operation_mode = 4;
+    string storage_key = 5;
+    string storage_key_type = 6;
+    string storage_uri = 7;
+  }
+  repeated Import import = 24;
+  message ThreatDetectionPolicy {
+    repeated string disabled_alerts = 1;
+    string email_account_admins = 2;
+    repeated string email_addresses = 3;
+    int64  retention_days = 4;
+    string state = 5;
+    string storage_account_access_key = 6;
+    string storage_endpoint = 7;
+    string use_server_default = 8;
+  }
+  repeated ThreatDetectionPolicy threat_detection_policy = 25;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 26;
+}

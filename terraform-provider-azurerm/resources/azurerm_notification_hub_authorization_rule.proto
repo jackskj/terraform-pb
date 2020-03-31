@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermNotificationHubAuthorizationRule {
+  string id = 1;
+  bool   listen = 2;
+  bool   manage = 3;
+  string name = 4;
+  string namespace_name = 5;
+  string notification_hub_name = 6;
+  string primary_access_key = 7;
+  string resource_group_name = 8;
+  string secondary_access_key = 9;
+  bool   send = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

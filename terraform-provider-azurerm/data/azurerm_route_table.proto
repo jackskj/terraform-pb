@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermRouteTable {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  message Route {
+    string address_prefix = 1;
+    string name = 2;
+    string next_hop_in_ip_address = 3;
+    string next_hop_type = 4;
+  }
+  repeated Route route = 5;
+  repeated string subnets = 6;
+  map<string, string> tags = 7;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 8;
+}

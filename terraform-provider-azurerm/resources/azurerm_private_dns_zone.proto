@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermPrivateDnsZone {
+  string id = 1;
+  int64  max_number_of_record_sets = 2;
+  int64  max_number_of_virtual_network_links = 3;
+  int64  max_number_of_virtual_network_links_with_registration = 4;
+  string name = 5;
+  int64  number_of_record_sets = 6;
+  string resource_group_name = 7;
+  map<string, string> tags = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 9;
+}

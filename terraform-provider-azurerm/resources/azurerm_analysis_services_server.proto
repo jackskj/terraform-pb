@@ -1,0 +1,30 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermAnalysisServicesServer {
+  repeated string admin_users = 1;
+  string backup_blob_container_uri = 2;
+  bool   enable_power_bi_service = 3;
+  string id = 4;
+  string location = 5;
+  string name = 6;
+  string querypool_connection_mode = 7;
+  string resource_group_name = 8;
+  string server_full_name = 9;
+  string sku = 10;
+  map<string, string> tags = 11;
+  message Ipv4FirewallRule {
+    string name = 1;
+    string range_end = 2;
+    string range_start = 3;
+  }
+  repeated Ipv4FirewallRule ipv4_firewall_rule = 12;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 13;
+}

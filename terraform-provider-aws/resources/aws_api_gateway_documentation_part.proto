@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayDocumentationPart {
+  string id = 1;
+  string properties = 2;
+  string rest_api_id = 3;
+  message Location {
+    string method = 1;
+    string name = 2;
+    string path = 3;
+    string status_code = 4;
+    string type = 5;
+  }
+  repeated Location location = 4;
+}

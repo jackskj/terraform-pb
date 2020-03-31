@@ -1,0 +1,31 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLambdaEventSourceMapping {
+  int64  batch_size = 1;
+  bool   bisect_batch_on_function_error = 2;
+  bool   enabled = 3;
+  string event_source_arn = 4;
+  string function_arn = 5;
+  string function_name = 6;
+  string id = 7;
+  string last_modified = 8;
+  string last_processing_result = 9;
+  int64  maximum_batching_window_in_seconds = 10;
+  int64  maximum_record_age_in_seconds = 11;
+  int64  maximum_retry_attempts = 12;
+  int64  parallelization_factor = 13;
+  string starting_position = 14;
+  string starting_position_timestamp = 15;
+  string state = 16;
+  string state_transition_reason = 17;
+  string uuid = 18;
+  message DestinationConfig {
+    message OnFailure {
+      string destination_arn = 1;
+    }
+    repeated OnFailure on_failure = 1;
+  }
+  repeated DestinationConfig destination_config = 19;
+}

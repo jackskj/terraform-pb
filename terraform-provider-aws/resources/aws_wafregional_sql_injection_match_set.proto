@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsWafregionalSqlInjectionMatchSet {
+  string id = 1;
+  string name = 2;
+  message SqlInjectionMatchTuple {
+    string text_transformation = 1;
+    message FieldToMatch {
+      string data = 1;
+      string type = 2;
+    }
+    repeated FieldToMatch field_to_match = 2;
+  }
+  repeated SqlInjectionMatchTuple sql_injection_match_tuple = 3;
+}

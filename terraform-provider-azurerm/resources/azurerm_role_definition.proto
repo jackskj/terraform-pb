@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermRoleDefinition {
+  repeated string assignable_scopes = 1;
+  string description = 2;
+  string id = 3;
+  string name = 4;
+  string role_definition_id = 5;
+  string scope = 6;
+  message Permissions {
+    repeated string actions = 1;
+    repeated string data_actions = 2;
+    repeated string not_actions = 3;
+    repeated string not_data_actions = 4;
+  }
+  repeated Permissions permissions = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 8;
+}

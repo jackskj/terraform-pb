@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermPostgresqlServer {
+  string administrator_login = 1;
+  string fqdn = 2;
+  string id = 3;
+  string location = 4;
+  string name = 5;
+  string resource_group_name = 6;
+  map<string, string> tags = 7;
+  string version = 8;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 9;
+}

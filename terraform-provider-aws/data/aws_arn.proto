@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsArn {
+  string account = 1;
+  string arn = 2;
+  string id = 3;
+  string partition = 4;
+  string region = 5;
+  string resource = 6;
+  string service = 7;
+}

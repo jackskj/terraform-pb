@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermClientConfig {
+  string client_id = 1;
+  string id = 2;
+  string object_id = 3;
+  string subscription_id = 4;
+  string tenant_id = 5;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 6;
+}

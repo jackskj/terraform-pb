@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayIntegrationResponse {
+  string content_handling = 1;
+  string http_method = 2;
+  string id = 3;
+  string resource_id = 4;
+  map<string, string> response_parameters = 5;
+  string response_parameters_in_json = 6;
+  map<string, string> response_templates = 7;
+  string rest_api_id = 8;
+  string selection_pattern = 9;
+  string status_code = 10;
+}

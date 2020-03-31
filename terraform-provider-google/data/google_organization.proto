@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package google;
+
+message GoogleOrganization {
+  string create_time = 1;
+  string directory_customer_id = 2;
+  string domain = 3;
+  string id = 4;
+  string lifecycle_state = 5;
+  string name = 6;
+  string org_id = 7;
+  string organization = 8;
+}

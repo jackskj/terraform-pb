@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLightsailKeyPair {
+  string arn = 1;
+  string encrypted_fingerprint = 2;
+  string encrypted_private_key = 3;
+  string fingerprint = 4;
+  string id = 5;
+  string name = 6;
+  string name_prefix = 7;
+  string pgp_key = 8;
+  string private_key = 9;
+  string public_key = 10;
+}

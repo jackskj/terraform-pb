@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLambdaFunctionEventInvokeConfig {
+  string function_name = 1;
+  string id = 2;
+  int64  maximum_event_age_in_seconds = 3;
+  int64  maximum_retry_attempts = 4;
+  string qualifier = 5;
+  message DestinationConfig {
+    message OnFailure {
+      string destination = 1;
+    }
+    repeated OnFailure on_failure = 1;
+    message OnSuccess {
+      string destination = 1;
+    }
+    repeated OnSuccess on_success = 2;
+  }
+  repeated DestinationConfig destination_config = 6;
+}

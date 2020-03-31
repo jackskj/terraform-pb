@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermDnsARecord {
+  string fqdn = 1;
+  string id = 2;
+  string name = 3;
+  repeated string records = 4;
+  string resource_group_name = 5;
+  map<string, string> tags = 6;
+  string target_resource_id = 7;
+  int64  ttl = 8;
+  string zone_name = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 10;
+}

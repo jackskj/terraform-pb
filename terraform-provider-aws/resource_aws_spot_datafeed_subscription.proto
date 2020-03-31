@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsSpotDatafeedSubscription {
-  bucket = 1;
-  id = 2;
-  prefix = 3;
-}

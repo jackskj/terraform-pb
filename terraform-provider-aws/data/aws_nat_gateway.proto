@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package aws;
+
+message AwsNatGateway {
+  string allocation_id = 1;
+  string id = 2;
+  string network_interface_id = 3;
+  string private_ip = 4;
+  string public_ip = 5;
+  string state = 6;
+  string subnet_id = 7;
+  map<string, string> tags = 8;
+  string vpc_id = 9;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 10;
+}

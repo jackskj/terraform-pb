@@ -1,8 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsEbsDefaultKmsKey {
-  id = 1;
-  key_arn = 2;
-}

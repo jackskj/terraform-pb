@@ -1,0 +1,80 @@
+syntax="proto3";
+
+package google;
+
+message GoogleAccessContextManagerServicePerimeter {
+
+  // Time the AccessPolicy was created in UTC.
+  string create_time = 1;
+
+  // Description of the ServicePerimeter and its use. Does not affect
+  // behavior.
+  string description = 2;
+  string id = 3;
+
+  // Resource name for the ServicePerimeter. The short_name component must
+  // begin with a letter and only include alphanumeric and '_'.
+  // Format: accessPolicies/{policy_id}/servicePerimeters/{short_name}
+  string name = 4;
+
+  // The AccessPolicy this ServicePerimeter lives in.
+  // Format: accessPolicies/{policy_id}
+  string parent = 5;
+
+  // Specifies the type of the Perimeter. There are two types: regular and
+  // bridge. Regular Service Perimeter contains resources, access levels,
+  // and restricted services. Every resource can be in at most
+  // ONE regular Service Perimeter.
+  // 
+  // In addition to being in a regular service perimeter, a resource can also
+  // be in zero or more perimeter bridges. A perimeter bridge only contains
+  // resources. Cross project operations are permitted if all effected
+  // resources share some perimeter (whether bridge or regular). Perimeter
+  // Bridge does not contain access levels or services: those are governed
+  // entirely by the regular perimeter that resource is in.
+  // 
+  // Perimeter Bridges are typically useful when building more complex
+  // topologies with many independent perimeters that need to share some data
+  // with a common perimeter, but should not be able to share data among
+  // themselves.
+  string perimeter_type = 6;
+
+  // Human readable title. Must be unique within the Policy.
+  string title = 7;
+
+  // Time the AccessPolicy was updated in UTC.
+  string update_time = 8;
+  message Status {
+
+    // A list of AccessLevel resource names that allow resources within
+    // the ServicePerimeter to be accessed from the internet.
+    // AccessLevels listed must be in the same policy as this
+    // ServicePerimeter. Referencing a nonexistent AccessLevel is a
+    // syntax error. If no AccessLevel names are listed, resources within
+    // the perimeter can only be accessed via GCP calls with request
+    // origins within the perimeter. For Service Perimeter Bridge, must
+    // be empty.
+    // 
+    // Format: accessPolicies/{policy_id}/accessLevels/{access_level_name}
+    repeated string access_levels = 1;
+
+    // A list of GCP resources that are inside of the service perimeter.
+    // Currently only projects are allowed.
+    // Format: projects/{project_number}
+    repeated string resources = 2;
+
+    // GCP services that are subject to the Service Perimeter
+    // restrictions. Must contain a list of services. For example, if
+    // 'storage.googleapis.com' is specified, access to the storage
+    // buckets inside the perimeter must meet the perimeter's access
+    // restrictions.
+    repeated string restricted_services = 3;
+  }
+  repeated Status status = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 10;
+}

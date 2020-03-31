@@ -1,0 +1,126 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCodebuildProject {
+  string arn = 1;
+  bool   badge_enabled = 2;
+  string badge_url = 3;
+  int64  build_timeout = 4;
+  string description = 5;
+  string encryption_key = 6;
+  string id = 7;
+  string name = 8;
+  int64  queued_timeout = 9;
+  string service_role = 10;
+  string source_version = 11;
+  map<string, string> tags = 12;
+  message Artifacts {
+    string artifact_identifier = 1;
+    bool   encryption_disabled = 2;
+    string location = 3;
+    string name = 4;
+    string namespace_type = 5;
+    bool   override_artifact_name = 6;
+    string packaging = 7;
+    string path = 8;
+    string type = 9;
+  }
+  repeated Artifacts artifacts = 13;
+  message Cache {
+    string location = 1;
+    repeated string modes = 2;
+    string type = 3;
+  }
+  repeated Cache cache = 14;
+  message Environment {
+    string certificate = 1;
+    string compute_type = 2;
+    string image = 3;
+    string image_pull_credentials_type = 4;
+    bool   privileged_mode = 5;
+    string type = 6;
+    message EnvironmentVariable {
+      string name = 1;
+      string type = 2;
+      string value = 3;
+    }
+    repeated EnvironmentVariable environment_variable = 7;
+    message RegistryCredential {
+      string credential = 1;
+      string credential_provider = 2;
+    }
+    repeated RegistryCredential registry_credential = 8;
+  }
+  repeated Environment environment = 15;
+  message LogsConfig {
+    message CloudwatchLogs {
+      string group_name = 1;
+      string status = 2;
+      string stream_name = 3;
+    }
+    repeated CloudwatchLogs cloudwatch_logs = 1;
+    message S3Logs {
+      bool   encryption_disabled = 1;
+      string location = 2;
+      string status = 3;
+    }
+    repeated S3Logs s3_logs = 2;
+  }
+  repeated LogsConfig logs_config = 16;
+  message SecondaryArtifacts {
+    string artifact_identifier = 1;
+    bool   encryption_disabled = 2;
+    string location = 3;
+    string name = 4;
+    string namespace_type = 5;
+    bool   override_artifact_name = 6;
+    string packaging = 7;
+    string path = 8;
+    string type = 9;
+  }
+  repeated SecondaryArtifacts secondary_artifacts = 17;
+  message SecondarySources {
+    string buildspec = 1;
+    int64  git_clone_depth = 2;
+    bool   insecure_ssl = 3;
+    string location = 4;
+    bool   report_build_status = 5;
+    string source_identifier = 6;
+    string type = 7;
+    message Auth {
+      string resource = 1;
+      string type = 2;
+    }
+    repeated Auth auth = 8;
+    message GitSubmodulesConfig {
+      bool   fetch_submodules = 1;
+    }
+    repeated GitSubmodulesConfig git_submodules_config = 9;
+  }
+  repeated SecondarySources secondary_sources = 18;
+  message Source {
+    string buildspec = 1;
+    int64  git_clone_depth = 2;
+    bool   insecure_ssl = 3;
+    string location = 4;
+    bool   report_build_status = 5;
+    string type = 6;
+    message Auth {
+      string resource = 1;
+      string type = 2;
+    }
+    repeated Auth auth = 7;
+    message GitSubmodulesConfig {
+      bool   fetch_submodules = 1;
+    }
+    repeated GitSubmodulesConfig git_submodules_config = 8;
+  }
+  repeated Source source = 19;
+  message VpcConfig {
+    repeated string security_group_ids = 1;
+    repeated string subnets = 2;
+    string vpc_id = 3;
+  }
+  repeated VpcConfig vpc_config = 20;
+}

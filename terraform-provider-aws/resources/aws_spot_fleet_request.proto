@@ -1,0 +1,74 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSpotFleetRequest {
+  string allocation_strategy = 1;
+  string client_token = 2;
+  string excess_capacity_termination_policy = 3;
+  string fleet_type = 4;
+  string iam_fleet_role = 5;
+  string id = 6;
+  string instance_interruption_behaviour = 7;
+  int64  instance_pools_to_use_count = 8;
+  repeated string load_balancers = 9;
+  bool   replace_unhealthy_instances = 10;
+  string spot_price = 11;
+  string spot_request_state = 12;
+  int64  target_capacity = 13;
+  repeated string target_group_arns = 14;
+  bool   terminate_instances_with_expiration = 15;
+  string valid_from = 16;
+  string valid_until = 17;
+  bool   wait_for_fulfillment = 18;
+  message LaunchSpecification {
+    string ami = 1;
+    bool   associate_public_ip_address = 2;
+    string availability_zone = 3;
+    bool   ebs_optimized = 4;
+    string iam_instance_profile = 5;
+    string iam_instance_profile_arn = 6;
+    string instance_type = 7;
+    string key_name = 8;
+    bool   monitoring = 9;
+    string placement_group = 10;
+    string placement_tenancy = 11;
+    string spot_price = 12;
+    string subnet_id = 13;
+    map<string, string> tags = 14;
+    string user_data = 15;
+    repeated string vpc_security_group_ids = 16;
+    string weighted_capacity = 17;
+    message EbsBlockDevice {
+      bool   delete_on_termination = 1;
+      string device_name = 2;
+      bool   encrypted = 3;
+      int64  iops = 4;
+      string kms_key_id = 5;
+      string snapshot_id = 6;
+      int64  volume_size = 7;
+      string volume_type = 8;
+    }
+    repeated EbsBlockDevice ebs_block_device = 18;
+    message EphemeralBlockDevice {
+      string device_name = 1;
+      string virtual_name = 2;
+    }
+    repeated EphemeralBlockDevice ephemeral_block_device = 19;
+    message RootBlockDevice {
+      bool   delete_on_termination = 1;
+      bool   encrypted = 2;
+      int64  iops = 3;
+      string kms_key_id = 4;
+      int64  volume_size = 5;
+      string volume_type = 6;
+    }
+    repeated RootBlockDevice root_block_device = 20;
+  }
+  repeated LaunchSpecification launch_specification = 19;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 20;
+}

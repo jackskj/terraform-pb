@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIotRoleAlias {
+  string alias = 1;
+  string arn = 2;
+  int64  credential_duration = 3;
+  string id = 4;
+  string role_arn = 5;
+}

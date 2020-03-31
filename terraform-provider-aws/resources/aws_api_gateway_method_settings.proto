@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayMethodSettings {
+  string id = 1;
+  string method_path = 2;
+  string rest_api_id = 3;
+  string stage_name = 4;
+  message Settings {
+    bool   cache_data_encrypted = 1;
+    int64  cache_ttl_in_seconds = 2;
+    bool   caching_enabled = 3;
+    bool   data_trace_enabled = 4;
+    string logging_level = 5;
+    bool   metrics_enabled = 6;
+    bool   require_authorization_for_cache_control = 7;
+    int64  throttling_burst_limit = 8;
+    int64  throttling_rate_limit = 9;
+    string unauthorized_cache_control_header_strategy = 10;
+  }
+  repeated Settings settings = 5;
+}

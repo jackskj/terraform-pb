@@ -1,0 +1,7 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSecurityhubAccount {
+  string id = 1;
+}

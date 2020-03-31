@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package aws;
+
+message AwsElasticBeanstalkConfigurationTemplate {
+  string application = 1;
+  string description = 2;
+  string environment_id = 3;
+  string id = 4;
+  string name = 5;
+  string solution_stack_name = 6;
+  message Setting {
+    string name = 1;
+    string namespace = 2;
+    string resource = 3;
+    string value = 4;
+  }
+  repeated Setting setting = 7;
+}

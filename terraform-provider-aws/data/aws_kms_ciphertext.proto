@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsKmsCiphertext {
+  string ciphertext_blob = 1;
+  map<string, string> context = 2;
+  string id = 3;
+  string key_id = 4;
+  string plaintext = 5;
+}

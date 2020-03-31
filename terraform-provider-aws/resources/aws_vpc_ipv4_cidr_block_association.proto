@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVpcIpv4CidrBlockAssociation {
+  string cidr_block = 1;
+  string id = 2;
+  string vpc_id = 3;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 4;
+}

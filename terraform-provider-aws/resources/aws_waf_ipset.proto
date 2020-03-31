@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsWafIpset {
+  string arn = 1;
+  string id = 2;
+  string name = 3;
+  message IpSetDescriptors {
+    string type = 1;
+    string value = 2;
+  }
+  repeated IpSetDescriptors ip_set_descriptors = 4;
+}

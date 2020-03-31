@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSqlServer {
+  string administrator_login = 1;
+  string fqdn = 2;
+  string id = 3;
+  message Identity {
+    string principal_id = 1;
+    string tenant_id = 2;
+    string type = 3;
+  }
+  repeated Identity identity = 4;
+  string location = 5;
+  string name = 6;
+  string resource_group_name = 7;
+  map<string, string> tags = 8;
+  string version = 9;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 10;
+}

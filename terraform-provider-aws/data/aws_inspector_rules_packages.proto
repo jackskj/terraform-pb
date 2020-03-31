@@ -1,0 +1,8 @@
+syntax="proto3";
+
+package aws;
+
+message AwsInspectorRulesPackages {
+  repeated string arns = 1;
+  string id = 2;
+}

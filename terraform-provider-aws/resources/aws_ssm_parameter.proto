@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSsmParameter {
+  string allowed_pattern = 1;
+  string arn = 2;
+  string description = 3;
+  string id = 4;
+  string key_id = 5;
+  string name = 6;
+  bool   overwrite = 7;
+  map<string, string> tags = 8;
+  string tier = 9;
+  string type = 10;
+  string value = 11;
+  int64  version = 12;
+}

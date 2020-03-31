@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStorageQueue {
+  string id = 1;
+  map<string, string> metadata = 2;
+  string name = 3;
+  string storage_account_name = 4;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 5;
+}

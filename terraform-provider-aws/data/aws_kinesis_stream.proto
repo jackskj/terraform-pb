@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsKinesisStream {
+  string arn = 1;
+  repeated string closed_shards = 2;
+  int64  creation_timestamp = 3;
+  string id = 4;
+  string name = 5;
+  repeated string open_shards = 6;
+  int64  retention_period = 7;
+  repeated string shard_level_metrics = 8;
+  string status = 9;
+  map<string, string> tags = 10;
+}

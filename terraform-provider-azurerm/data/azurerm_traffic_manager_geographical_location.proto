@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermTrafficManagerGeographicalLocation {
+  string id = 1;
+  string name = 2;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 3;
+}

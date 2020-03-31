@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLicensemanagerLicenseConfiguration {
+  string description = 1;
+  string id = 2;
+  int64  license_count = 3;
+  bool   license_count_hard_limit = 4;
+  string license_counting_type = 5;
+  repeated string license_rules = 6;
+  string name = 7;
+  map<string, string> tags = 8;
+}

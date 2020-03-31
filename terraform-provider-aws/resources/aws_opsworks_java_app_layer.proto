@@ -1,0 +1,43 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOpsworksJavaAppLayer {
+  string app_server = 1;
+  string app_server_version = 2;
+  string arn = 3;
+  bool   auto_assign_elastic_ips = 4;
+  bool   auto_assign_public_ips = 5;
+  bool   auto_healing = 6;
+  repeated string custom_configure_recipes = 7;
+  repeated string custom_deploy_recipes = 8;
+  string custom_instance_profile_arn = 9;
+  string custom_json = 10;
+  repeated string custom_security_group_ids = 11;
+  repeated string custom_setup_recipes = 12;
+  repeated string custom_shutdown_recipes = 13;
+  repeated string custom_undeploy_recipes = 14;
+  bool   drain_elb_on_shutdown = 15;
+  string elastic_load_balancer = 16;
+  string id = 17;
+  bool   install_updates_on_boot = 18;
+  int64  instance_shutdown_timeout = 19;
+  string jvm_options = 20;
+  string jvm_type = 21;
+  string jvm_version = 22;
+  string name = 23;
+  string stack_id = 24;
+  repeated string system_packages = 25;
+  map<string, string> tags = 26;
+  bool   use_ebs_optimized_instances = 27;
+  message EbsVolume {
+    bool   encrypted = 1;
+    int64  iops = 2;
+    string mount_point = 3;
+    int64  number_of_disks = 4;
+    string raid_level = 5;
+    int64  size = 6;
+    string type = 7;
+  }
+  repeated EbsVolume ebs_volume = 28;
+}

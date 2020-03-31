@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSnsPlatformApplication {
+  string arn = 1;
+  string event_delivery_failure_topic_arn = 2;
+  string event_endpoint_created_topic_arn = 3;
+  string event_endpoint_deleted_topic_arn = 4;
+  string event_endpoint_updated_topic_arn = 5;
+  string failure_feedback_role_arn = 6;
+  string id = 7;
+  string name = 8;
+  string platform = 9;
+  string platform_credential = 10;
+  string platform_principal = 11;
+  string success_feedback_role_arn = 12;
+  string success_feedback_sample_rate = 13;
+}

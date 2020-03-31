@@ -1,0 +1,141 @@
+syntax="proto3";
+
+package aws;
+
+message AwsKinesisAnalyticsApplication {
+  string arn = 1;
+  string code = 2;
+  string create_timestamp = 3;
+  string description = 4;
+  string id = 5;
+  string last_update_timestamp = 6;
+  string name = 7;
+  string status = 8;
+  map<string, string> tags = 9;
+  int64  version = 10;
+  message CloudwatchLoggingOptions {
+    string id = 1;
+    string log_stream_arn = 2;
+    string role_arn = 3;
+  }
+  repeated CloudwatchLoggingOptions cloudwatch_logging_options = 11;
+  message Inputs {
+    string id = 1;
+    string name_prefix = 2;
+    message StartingPositionConfiguration {
+      string starting_position = 1;
+    }
+    repeated StartingPositionConfiguration starting_position_configuration = 3;
+    repeated string stream_names = 4;
+    message KinesisFirehose {
+      string resource_arn = 1;
+      string role_arn = 2;
+    }
+    repeated KinesisFirehose kinesis_firehose = 5;
+    message KinesisStream {
+      string resource_arn = 1;
+      string role_arn = 2;
+    }
+    repeated KinesisStream kinesis_stream = 6;
+    message Parallelism {
+      int64  count = 1;
+    }
+    repeated Parallelism parallelism = 7;
+    message ProcessingConfiguration {
+      message Lambda {
+        string resource_arn = 1;
+        string role_arn = 2;
+      }
+      repeated Lambda lambda = 1;
+    }
+    repeated ProcessingConfiguration processing_configuration = 8;
+    message Schema {
+      string record_encoding = 1;
+      message RecordColumns {
+        string mapping = 1;
+        string name = 2;
+        string sql_type = 3;
+      }
+      repeated RecordColumns record_columns = 2;
+      message RecordFormat {
+        string record_format_type = 1;
+        message MappingParameters {
+          message Csv {
+            string record_column_delimiter = 1;
+            string record_row_delimiter = 2;
+          }
+          repeated Csv csv = 1;
+          message Json {
+            string record_row_path = 1;
+          }
+          repeated Json json = 2;
+        }
+        repeated MappingParameters mapping_parameters = 2;
+      }
+      repeated RecordFormat record_format = 3;
+    }
+    repeated Schema schema = 9;
+  }
+  repeated Inputs inputs = 12;
+  message Outputs {
+    string id = 1;
+    string name = 2;
+    message KinesisFirehose {
+      string resource_arn = 1;
+      string role_arn = 2;
+    }
+    repeated KinesisFirehose kinesis_firehose = 3;
+    message KinesisStream {
+      string resource_arn = 1;
+      string role_arn = 2;
+    }
+    repeated KinesisStream kinesis_stream = 4;
+    message Lambda {
+      string resource_arn = 1;
+      string role_arn = 2;
+    }
+    repeated Lambda lambda = 5;
+    message Schema {
+      string record_format_type = 1;
+    }
+    repeated Schema schema = 6;
+  }
+  repeated Outputs outputs = 13;
+  message ReferenceDataSources {
+    string id = 1;
+    string table_name = 2;
+    message S3 {
+      string bucket_arn = 1;
+      string file_key = 2;
+      string role_arn = 3;
+    }
+    repeated S3 s3 = 3;
+    message Schema {
+      string record_encoding = 1;
+      message RecordColumns {
+        string mapping = 1;
+        string name = 2;
+        string sql_type = 3;
+      }
+      repeated RecordColumns record_columns = 2;
+      message RecordFormat {
+        string record_format_type = 1;
+        message MappingParameters {
+          message Csv {
+            string record_column_delimiter = 1;
+            string record_row_delimiter = 2;
+          }
+          repeated Csv csv = 1;
+          message Json {
+            string record_row_path = 1;
+          }
+          repeated Json json = 2;
+        }
+        repeated MappingParameters mapping_parameters = 2;
+      }
+      repeated RecordFormat record_format = 3;
+    }
+    repeated Schema schema = 4;
+  }
+  repeated ReferenceDataSources reference_data_sources = 14;
+}

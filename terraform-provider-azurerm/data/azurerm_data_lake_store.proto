@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermDataLakeStore {
+  string encryption_state = 1;
+  string encryption_type = 2;
+  string firewall_allow_azure_ips = 3;
+  string firewall_state = 4;
+  string id = 5;
+  string location = 6;
+  string name = 7;
+  string resource_group_name = 8;
+  map<string, string> tags = 9;
+  string tier = 10;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 11;
+}

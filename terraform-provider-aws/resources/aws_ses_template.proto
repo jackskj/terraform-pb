@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSesTemplate {
+  string html = 1;
+  string id = 2;
+  string name = 3;
+  string subject = 4;
+  string text = 5;
+}

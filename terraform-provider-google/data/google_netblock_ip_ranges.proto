@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package google;
+
+message GoogleNetblockIpRanges {
+  repeated string cidr_blocks = 1;
+  repeated string cidr_blocks_ipv4 = 2;
+  repeated string cidr_blocks_ipv6 = 3;
+  string id = 4;
+  string range_type = 5;
+}

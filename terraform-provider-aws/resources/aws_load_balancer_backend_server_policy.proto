@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLoadBalancerBackendServerPolicy {
+  string id = 1;
+  int64  instance_port = 2;
+  string load_balancer_name = 3;
+  repeated string policy_names = 4;
+}

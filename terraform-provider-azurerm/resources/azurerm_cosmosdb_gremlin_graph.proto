@@ -1,0 +1,37 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermCosmosdbGremlinGraph {
+  string account_name = 1;
+  string database_name = 2;
+  string id = 3;
+  string name = 4;
+  string partition_key_path = 5;
+  string resource_group_name = 6;
+  int64  throughput = 7;
+  message ConflictResolutionPolicy {
+    string conflict_resolution_path = 1;
+    string conflict_resolution_procedure = 2;
+    string mode = 3;
+  }
+  repeated ConflictResolutionPolicy conflict_resolution_policy = 8;
+  message IndexPolicy {
+    bool   automatic = 1;
+    repeated string excluded_paths = 2;
+    repeated string included_paths = 3;
+    string indexing_mode = 4;
+  }
+  repeated IndexPolicy index_policy = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 10;
+  message UniqueKey {
+    repeated string paths = 1;
+  }
+  repeated UniqueKey unique_key = 11;
+}

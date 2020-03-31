@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRoute53ZoneAssociation {
+  string id = 1;
+  string vpc_id = 2;
+  string vpc_region = 3;
+  string zone_id = 4;
+}

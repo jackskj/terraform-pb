@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSqsQueue {
+  string arn = 1;
+  bool   content_based_deduplication = 2;
+  int64  delay_seconds = 3;
+  bool   fifo_queue = 4;
+  string id = 5;
+  int64  kms_data_key_reuse_period_seconds = 6;
+  string kms_master_key_id = 7;
+  int64  max_message_size = 8;
+  int64  message_retention_seconds = 9;
+  string name = 10;
+  string name_prefix = 11;
+  string policy = 12;
+  int64  receive_wait_time_seconds = 13;
+  string redrive_policy = 14;
+  map<string, string> tags = 15;
+  int64  visibility_timeout_seconds = 16;
+}

@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEmrSecurityConfiguration {
+  string configuration = 1;
+  string creation_date = 2;
+  string id = 3;
+  string name = 4;
+  string name_prefix = 5;
+}

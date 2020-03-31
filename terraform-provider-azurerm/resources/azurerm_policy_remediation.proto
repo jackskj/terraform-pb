@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermPolicyRemediation {
+  string id = 1;
+  repeated string location_filters = 2;
+  string name = 3;
+  string policy_assignment_id = 4;
+  string policy_definition_reference_id = 5;
+  string scope = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 7;
+}

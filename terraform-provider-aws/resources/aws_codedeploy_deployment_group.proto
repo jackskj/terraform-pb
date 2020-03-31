@@ -1,0 +1,103 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCodedeployDeploymentGroup {
+  string app_name = 1;
+  repeated string autoscaling_groups = 2;
+  string deployment_config_name = 3;
+  string deployment_group_name = 4;
+  string id = 5;
+  string service_role_arn = 6;
+  message AlarmConfiguration {
+    repeated string alarms = 1;
+    bool   enabled = 2;
+    bool   ignore_poll_alarm_failure = 3;
+  }
+  repeated AlarmConfiguration alarm_configuration = 7;
+  message AutoRollbackConfiguration {
+    bool   enabled = 1;
+    repeated string events = 2;
+  }
+  repeated AutoRollbackConfiguration auto_rollback_configuration = 8;
+  message BlueGreenDeploymentConfig {
+    message DeploymentReadyOption {
+      string action_on_timeout = 1;
+      int64  wait_time_in_minutes = 2;
+    }
+    repeated DeploymentReadyOption deployment_ready_option = 1;
+    message GreenFleetProvisioningOption {
+      string action = 1;
+    }
+    repeated GreenFleetProvisioningOption green_fleet_provisioning_option = 2;
+    message TerminateBlueInstancesOnDeploymentSuccess {
+      string action = 1;
+      int64  termination_wait_time_in_minutes = 2;
+    }
+    repeated TerminateBlueInstancesOnDeploymentSuccess terminate_blue_instances_on_deployment_success = 3;
+  }
+  repeated BlueGreenDeploymentConfig blue_green_deployment_config = 9;
+  message DeploymentStyle {
+    string deployment_option = 1;
+    string deployment_type = 2;
+  }
+  repeated DeploymentStyle deployment_style = 10;
+  message Ec2TagFilter {
+    string key = 1;
+    string type = 2;
+    string value = 3;
+  }
+  repeated Ec2TagFilter ec2_tag_filter = 11;
+  message Ec2TagSet {
+    message Ec2TagFilter {
+      string key = 1;
+      string type = 2;
+      string value = 3;
+    }
+    repeated Ec2TagFilter ec2_tag_filter = 1;
+  }
+  repeated Ec2TagSet ec2_tag_set = 12;
+  message EcsService {
+    string cluster_name = 1;
+    string service_name = 2;
+  }
+  repeated EcsService ecs_service = 13;
+  message LoadBalancerInfo {
+    message ElbInfo {
+      string name = 1;
+    }
+    repeated ElbInfo elb_info = 1;
+    message TargetGroupInfo {
+      string name = 1;
+    }
+    repeated TargetGroupInfo target_group_info = 2;
+    message TargetGroupPairInfo {
+      message ProdTrafficRoute {
+        repeated string listener_arns = 1;
+      }
+      repeated ProdTrafficRoute prod_traffic_route = 1;
+      message TargetGroup {
+        string name = 1;
+      }
+      repeated TargetGroup target_group = 2;
+      message TestTrafficRoute {
+        repeated string listener_arns = 1;
+      }
+      repeated TestTrafficRoute test_traffic_route = 3;
+    }
+    repeated TargetGroupPairInfo target_group_pair_info = 3;
+  }
+  repeated LoadBalancerInfo load_balancer_info = 14;
+  message OnPremisesInstanceTagFilter {
+    string key = 1;
+    string type = 2;
+    string value = 3;
+  }
+  repeated OnPremisesInstanceTagFilter on_premises_instance_tag_filter = 15;
+  message TriggerConfiguration {
+    repeated string trigger_events = 1;
+    string trigger_name = 2;
+    string trigger_target_arn = 3;
+  }
+  repeated TriggerConfiguration trigger_configuration = 16;
+}

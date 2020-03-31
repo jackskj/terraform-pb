@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAutoscalingGroup {
+  string arn = 1;
+  repeated string availability_zones = 2;
+  int64  default_cooldown = 3;
+  int64  desired_capacity = 4;
+  int64  health_check_grace_period = 5;
+  string health_check_type = 6;
+  string id = 7;
+  string launch_configuration = 8;
+  repeated string load_balancers = 9;
+  int64  max_size = 10;
+  int64  min_size = 11;
+  string name = 12;
+  bool   new_instances_protected_from_scale_in = 13;
+  string placement_group = 14;
+  string service_linked_role_arn = 15;
+  string status = 16;
+  repeated string target_group_arns = 17;
+  repeated string termination_policies = 18;
+  string vpc_zone_identifier = 19;
+}

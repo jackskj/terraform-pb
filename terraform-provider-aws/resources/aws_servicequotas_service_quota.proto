@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsServicequotasServiceQuota {
+  bool   adjustable = 1;
+  string arn = 2;
+  int64  default_value = 3;
+  string id = 4;
+  string quota_code = 5;
+  string quota_name = 6;
+  string request_id = 7;
+  string request_status = 8;
+  string service_code = 9;
+  string service_name = 10;
+  int64  value = 11;
+}

@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsPinpointGcmChannel {
+  string api_key = 1;
+  string application_id = 2;
+  bool   enabled = 3;
+  string id = 4;
+}

@@ -1,0 +1,45 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLaunchConfiguration {
+  string arn = 1;
+  bool   associate_public_ip_address = 2;
+  message EbsBlockDevice {
+    bool   delete_on_termination = 1;
+    string device_name = 2;
+    bool   encrypted = 3;
+    int64  iops = 4;
+    string snapshot_id = 5;
+    int64  volume_size = 6;
+    string volume_type = 7;
+  }
+  repeated EbsBlockDevice ebs_block_device = 3;
+  bool   ebs_optimized = 4;
+  bool   enable_monitoring = 5;
+  message EphemeralBlockDevice {
+    string device_name = 1;
+    string virtual_name = 2;
+  }
+  repeated EphemeralBlockDevice ephemeral_block_device = 6;
+  string iam_instance_profile = 7;
+  string id = 8;
+  string image_id = 9;
+  string instance_type = 10;
+  string key_name = 11;
+  string name = 12;
+  string placement_tenancy = 13;
+  message RootBlockDevice {
+    bool   delete_on_termination = 1;
+    bool   encrypted = 2;
+    int64  iops = 3;
+    int64  volume_size = 4;
+    string volume_type = 5;
+  }
+  repeated RootBlockDevice root_block_device = 14;
+  repeated string security_groups = 15;
+  string spot_price = 16;
+  string user_data = 17;
+  string vpc_classic_link_id = 18;
+  repeated string vpc_classic_link_security_groups = 19;
+}

@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLbListenerCertificate {
+  string certificate_arn = 1;
+  string id = 2;
+  string listener_arn = 3;
+}

@@ -1,0 +1,8 @@
+syntax="proto3";
+
+package aws;
+
+message AwsFmsAdminAccount {
+  string account_id = 1;
+  string id = 2;
+}

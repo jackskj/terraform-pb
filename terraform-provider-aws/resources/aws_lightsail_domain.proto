@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLightsailDomain {
+  string arn = 1;
+  string domain_name = 2;
+  string id = 3;
+}

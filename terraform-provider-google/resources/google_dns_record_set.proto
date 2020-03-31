@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package google;
+
+message GoogleDnsRecordSet {
+  string id = 1;
+  string managed_zone = 2;
+  string name = 3;
+  string project = 4;
+  repeated string rrdatas = 5;
+  int64  ttl = 6;
+  string type = 7;
+}

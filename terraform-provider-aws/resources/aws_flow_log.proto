@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsFlowLog {
+  string eni_id = 1;
+  string iam_role_arn = 2;
+  string id = 3;
+  string log_destination = 4;
+  string log_destination_type = 5;
+  string log_format = 6;
+  string log_group_name = 7;
+  int64  max_aggregation_interval = 8;
+  string subnet_id = 9;
+  map<string, string> tags = 10;
+  string traffic_type = 11;
+  string vpc_id = 12;
+}

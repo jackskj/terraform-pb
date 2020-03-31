@@ -1,0 +1,142 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermKubernetesCluster {
+  repeated string api_server_authorized_ip_ranges = 1;
+  string dns_prefix = 2;
+  bool   enable_pod_security_policy = 3;
+  string fqdn = 4;
+  string id = 5;
+  message KubeAdminConfig {
+    string client_certificate = 1;
+    string client_key = 2;
+    string cluster_ca_certificate = 3;
+    string host = 4;
+    string password = 5;
+    string username = 6;
+  }
+  repeated KubeAdminConfig kube_admin_config = 6;
+  string kube_admin_config_raw = 7;
+  message KubeConfig {
+    string client_certificate = 1;
+    string client_key = 2;
+    string cluster_ca_certificate = 3;
+    string host = 4;
+    string password = 5;
+    string username = 6;
+  }
+  repeated KubeConfig kube_config = 8;
+  string kube_config_raw = 9;
+  string kubernetes_version = 10;
+  string location = 11;
+  string name = 12;
+  string node_resource_group = 13;
+  string private_fqdn = 14;
+  bool   private_link_enabled = 15;
+  string resource_group_name = 16;
+  map<string, string> tags = 17;
+  message AddonProfile {
+    message AciConnectorLinux {
+      bool   enabled = 1;
+      string subnet_name = 2;
+    }
+    repeated AciConnectorLinux aci_connector_linux = 1;
+    message AzurePolicy {
+      bool   enabled = 1;
+    }
+    repeated AzurePolicy azure_policy = 2;
+    message HttpApplicationRouting {
+      bool   enabled = 1;
+      string http_application_routing_zone_name = 2;
+    }
+    repeated HttpApplicationRouting http_application_routing = 3;
+    message KubeDashboard {
+      bool   enabled = 1;
+    }
+    repeated KubeDashboard kube_dashboard = 4;
+    message OmsAgent {
+      bool   enabled = 1;
+      string log_analytics_workspace_id = 2;
+    }
+    repeated OmsAgent oms_agent = 5;
+  }
+  repeated AddonProfile addon_profile = 18;
+  message DefaultNodePool {
+    repeated string availability_zones = 1;
+    bool   enable_auto_scaling = 2;
+    bool   enable_node_public_ip = 3;
+    int64  max_count = 4;
+    int64  max_pods = 5;
+    int64  min_count = 6;
+    string name = 7;
+    int64  node_count = 8;
+    map<string, string> node_labels = 9;
+    repeated string node_taints = 10;
+    int64  os_disk_size_gb = 11;
+    map<string, string> tags = 12;
+    string type = 13;
+    string vm_size = 14;
+    string vnet_subnet_id = 15;
+  }
+  repeated DefaultNodePool default_node_pool = 19;
+  message Identity {
+    string principal_id = 1;
+    string tenant_id = 2;
+    string type = 3;
+  }
+  repeated Identity identity = 20;
+  message LinuxProfile {
+    string admin_username = 1;
+    message SshKey {
+      string key_data = 1;
+    }
+    repeated SshKey ssh_key = 2;
+  }
+  repeated LinuxProfile linux_profile = 21;
+  message NetworkProfile {
+    string dns_service_ip = 1;
+    string docker_bridge_cidr = 2;
+    string load_balancer_sku = 3;
+    string network_plugin = 4;
+    string network_policy = 5;
+    string pod_cidr = 6;
+    string service_cidr = 7;
+    message LoadBalancerProfile {
+      repeated string effective_outbound_ips = 1;
+      int64  managed_outbound_ip_count = 2;
+      repeated string outbound_ip_address_ids = 3;
+      repeated string outbound_ip_prefix_ids = 4;
+    }
+    repeated LoadBalancerProfile load_balancer_profile = 8;
+  }
+  repeated NetworkProfile network_profile = 22;
+  message RoleBasedAccessControl {
+    bool   enabled = 1;
+    message AzureActiveDirectory {
+      string client_app_id = 1;
+      string server_app_id = 2;
+      string server_app_secret = 3;
+      string tenant_id = 4;
+    }
+    repeated AzureActiveDirectory azure_active_directory = 2;
+  }
+  repeated RoleBasedAccessControl role_based_access_control = 23;
+  message ServicePrincipal {
+    string client_id = 1;
+    string client_secret = 2;
+  }
+  repeated ServicePrincipal service_principal = 24;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 25;
+  message WindowsProfile {
+    string admin_password = 1;
+    string admin_username = 2;
+  }
+  repeated WindowsProfile windows_profile = 26;
+}

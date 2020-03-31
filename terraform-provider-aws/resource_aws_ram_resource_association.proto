@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsRamResourceAssociation {
-  id = 1;
-  resource_arn = 2;
-  resource_share_arn = 3;
-}

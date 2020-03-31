@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVpnGatewayRoutePropagation {
+  string id = 1;
+  string route_table_id = 2;
+  string vpn_gateway_id = 3;
+}

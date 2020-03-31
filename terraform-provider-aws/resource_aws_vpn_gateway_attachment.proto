@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsVpnGatewayAttachment {
-  id = 1;
-  vpc_id = 2;
-  vpn_gateway_id = 3;
-}

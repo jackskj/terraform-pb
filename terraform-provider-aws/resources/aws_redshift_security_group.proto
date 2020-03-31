@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRedshiftSecurityGroup {
+  string description = 1;
+  string id = 2;
+  string name = 3;
+  message Ingress {
+    string cidr = 1;
+    string security_group_name = 2;
+    string security_group_owner_id = 3;
+  }
+  repeated Ingress ingress = 4;
+}

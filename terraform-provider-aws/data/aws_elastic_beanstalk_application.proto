@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsElasticBeanstalkApplication {
+  message AppversionLifecycle {
+    bool   delete_source_from_s3 = 1;
+    int64  max_age_in_days = 2;
+    int64  max_count = 3;
+    string service_role = 4;
+  }
+  repeated AppversionLifecycle appversion_lifecycle = 1;
+  string arn = 2;
+  string description = 3;
+  string id = 4;
+  string name = 5;
+}

@@ -1,0 +1,66 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAppmeshVirtualNode {
+  string arn = 1;
+  string created_date = 2;
+  string id = 3;
+  string last_updated_date = 4;
+  string mesh_name = 5;
+  string name = 6;
+  map<string, string> tags = 7;
+  message Spec {
+    repeated string backends = 1;
+    message Backend {
+      message VirtualService {
+        string virtual_service_name = 1;
+      }
+      repeated VirtualService virtual_service = 1;
+    }
+    repeated Backend backend = 2;
+    message Listener {
+      message HealthCheck {
+        int64  healthy_threshold = 1;
+        int64  interval_millis = 2;
+        string path = 3;
+        int64  port = 4;
+        string protocol = 5;
+        int64  timeout_millis = 6;
+        int64  unhealthy_threshold = 7;
+      }
+      repeated HealthCheck health_check = 1;
+      message PortMapping {
+        int64  port = 1;
+        string protocol = 2;
+      }
+      repeated PortMapping port_mapping = 2;
+    }
+    repeated Listener listener = 3;
+    message Logging {
+      message AccessLog {
+        message File {
+          string path = 1;
+        }
+        repeated File file = 1;
+      }
+      repeated AccessLog access_log = 1;
+    }
+    repeated Logging logging = 4;
+    message ServiceDiscovery {
+      message AwsCloudMap {
+        map<string, string> attributes = 1;
+        string namespace_name = 2;
+        string service_name = 3;
+      }
+      repeated AwsCloudMap aws_cloud_map = 1;
+      message Dns {
+        string hostname = 1;
+        string service_name = 2;
+      }
+      repeated Dns dns = 2;
+    }
+    repeated ServiceDiscovery service_discovery = 5;
+  }
+  repeated Spec spec = 8;
+}

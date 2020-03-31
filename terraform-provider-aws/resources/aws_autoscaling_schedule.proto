@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAutoscalingSchedule {
+  string arn = 1;
+  string autoscaling_group_name = 2;
+  int64  desired_capacity = 3;
+  string end_time = 4;
+  string id = 5;
+  int64  max_size = 6;
+  int64  min_size = 7;
+  string recurrence = 8;
+  string scheduled_action_name = 9;
+  string start_time = 10;
+}

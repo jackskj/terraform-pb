@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayMethodResponse {
+  string http_method = 1;
+  string id = 2;
+  string resource_id = 3;
+  map<string, string> response_models = 4;
+  map<string, bool> response_parameters = 5;
+  string response_parameters_in_json = 6;
+  string rest_api_id = 7;
+  string status_code = 8;
+}

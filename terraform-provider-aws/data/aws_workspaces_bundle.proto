@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package aws;
+
+message AwsWorkspacesBundle {
+  string bundle_id = 1;
+  message ComputeType {
+    string name = 1;
+  }
+  repeated ComputeType compute_type = 2;
+  string description = 3;
+  string id = 4;
+  string name = 5;
+  string owner = 6;
+  message RootStorage {
+    string capacity = 1;
+  }
+  repeated RootStorage root_storage = 7;
+  message UserStorage {
+    string capacity = 1;
+  }
+  repeated UserStorage user_storage = 8;
+}

@@ -1,0 +1,42 @@
+syntax="proto3";
+
+package google;
+
+message GoogleFolderOrganizationPolicy {
+  string constraint = 1;
+  string etag = 2;
+  string folder = 3;
+  string id = 4;
+  string update_time = 5;
+  int64  version = 6;
+  message BooleanPolicy {
+    bool   enforced = 1;
+  }
+  repeated BooleanPolicy boolean_policy = 7;
+  message ListPolicy {
+    bool   inherit_from_parent = 1;
+    string suggested_value = 2;
+    message Allow {
+      bool   all = 1;
+      repeated string values = 2;
+    }
+    repeated Allow allow = 3;
+    message Deny {
+      bool   all = 1;
+      repeated string values = 2;
+    }
+    repeated Deny deny = 4;
+  }
+  repeated ListPolicy list_policy = 8;
+  message RestorePolicy {
+    bool   default = 1;
+  }
+  repeated RestorePolicy restore_policy = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 10;
+}

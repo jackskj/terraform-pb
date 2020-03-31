@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSsmMaintenanceWindowTarget {
+  string description = 1;
+  string id = 2;
+  string name = 3;
+  string owner_information = 4;
+  string resource_type = 5;
+  string window_id = 6;
+  message Targets {
+    string key = 1;
+    repeated string values = 2;
+  }
+  repeated Targets targets = 7;
+}

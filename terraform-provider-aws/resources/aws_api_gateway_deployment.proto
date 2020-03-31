@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayDeployment {
+  string created_date = 1;
+  string description = 2;
+  string execution_arn = 3;
+  string id = 4;
+  string invoke_url = 5;
+  string rest_api_id = 6;
+  string stage_description = 7;
+  string stage_name = 8;
+  map<string, string> variables = 9;
+}

@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsApiGatewayAccount {
-  cloudwatch_role_arn = 1;
-  id = 2;
-  throttle_settings = 3;
-}

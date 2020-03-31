@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsStoragegatewayCache {
+  string disk_id = 1;
+  string gateway_arn = 2;
+  string id = 3;
+}

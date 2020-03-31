@@ -1,0 +1,51 @@
+syntax="proto3";
+
+package kubernetes;
+
+message KubernetesResourceQuota {
+  string id = 1;
+  message Metadata {
+
+    // An unstructured key value map stored with the resource quota that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+    map<string, string> annotations = 1;
+
+    // Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+    string generate_name = 2;
+
+    // A sequence number representing a specific generation of the desired state.
+    int64  generation = 3;
+
+    // Map of string keys and values that can be used to organize and categorize (scope and select) the resource quota. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+    map<string, string> labels = 4;
+
+    // Name of the resource quota, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+    string name = 5;
+
+    // Namespace defines the space within which name of the resource quota must be unique.
+    string namespace = 6;
+
+    // An opaque value that represents the internal version of this resource quota that can be used by clients to determine when resource quota has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+    string resource_version = 7;
+
+    // A URL representing this resource quota.
+    string self_link = 8;
+
+    // The unique in time and space value for this resource quota. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+    string uid = 9;
+  }
+  repeated Metadata metadata = 2;
+  message Spec {
+
+    // The set of desired hard limits for each named resource. More info: http://releases.k8s.io/HEAD/docs/design/admission_control_resource_quota.md#admissioncontrol-plugin-resourcequota
+    map<string, string> hard = 1;
+
+    // A collection of filters that must match each object tracked by a quota. If not specified, the quota matches all objects.
+    repeated string scopes = 2;
+  }
+  repeated Spec spec = 3;
+  message Timeouts {
+    string create = 1;
+    string update = 2;
+  }
+  Timeouts timeouts = 4;
+}

@@ -1,0 +1,47 @@
+syntax="proto3";
+
+package aws;
+
+message AwsGameliftFleet {
+  string arn = 1;
+  string build_id = 2;
+  string description = 3;
+  string ec2_instance_type = 4;
+  string fleet_type = 5;
+  string id = 6;
+  string instance_role_arn = 7;
+  repeated string log_paths = 8;
+  repeated string metric_groups = 9;
+  string name = 10;
+  string new_game_session_protection_policy = 11;
+  string operating_system = 12;
+  map<string, string> tags = 13;
+  message Ec2InboundPermission {
+    int64  from_port = 1;
+    string ip_range = 2;
+    string protocol = 3;
+    int64  to_port = 4;
+  }
+  repeated Ec2InboundPermission ec2_inbound_permission = 14;
+  message ResourceCreationLimitPolicy {
+    int64  new_game_sessions_per_creator = 1;
+    int64  policy_period_in_minutes = 2;
+  }
+  repeated ResourceCreationLimitPolicy resource_creation_limit_policy = 15;
+  message RuntimeConfiguration {
+    int64  game_session_activation_timeout_seconds = 1;
+    int64  max_concurrent_game_session_activations = 2;
+    message ServerProcess {
+      int64  concurrent_executions = 1;
+      string launch_path = 2;
+      string parameters = 3;
+    }
+    repeated ServerProcess server_process = 3;
+  }
+  repeated RuntimeConfiguration runtime_configuration = 16;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 17;
+}

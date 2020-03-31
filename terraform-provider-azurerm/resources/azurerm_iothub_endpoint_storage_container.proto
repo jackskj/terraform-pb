@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermIothubEndpointStorageContainer {
+  int64  batch_frequency_in_seconds = 1;
+  string connection_string = 2;
+  string container_name = 3;
+  string encoding = 4;
+  string file_name_format = 5;
+  string id = 6;
+  string iothub_name = 7;
+  int64  max_chunk_size_in_bytes = 8;
+  string name = 9;
+  string resource_group_name = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

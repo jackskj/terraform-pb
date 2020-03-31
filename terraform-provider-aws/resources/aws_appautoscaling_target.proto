@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAppautoscalingTarget {
+  string id = 1;
+  int64  max_capacity = 2;
+  int64  min_capacity = 3;
+  string resource_id = 4;
+  string role_arn = 5;
+  string scalable_dimension = 6;
+  string service_namespace = 7;
+}

@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsElasticsearchDomainPolicy {
-  access_policies = 1;
-  domain_name = 2;
-  id = 3;
-}

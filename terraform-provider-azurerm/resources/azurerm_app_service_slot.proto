@@ -1,0 +1,144 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermAppServiceSlot {
+  string app_service_name = 1;
+  string app_service_plan_id = 2;
+  map<string, string> app_settings = 3;
+  bool   client_affinity_enabled = 4;
+  string default_site_hostname = 5;
+  bool   enabled = 6;
+  bool   https_only = 7;
+  string id = 8;
+  string location = 9;
+  string name = 10;
+  string resource_group_name = 11;
+  message SiteCredential {
+    string password = 1;
+    string username = 2;
+  }
+  repeated SiteCredential site_credential = 12;
+  map<string, string> tags = 13;
+  message AuthSettings {
+    map<string, string> additional_login_params = 1;
+    repeated string allowed_external_redirect_urls = 2;
+    string default_provider = 3;
+    bool   enabled = 4;
+    string issuer = 5;
+    string runtime_version = 6;
+    int64  token_refresh_extension_hours = 7;
+    bool   token_store_enabled = 8;
+    string unauthenticated_client_action = 9;
+    message ActiveDirectory {
+      repeated string allowed_audiences = 1;
+      string client_id = 2;
+      string client_secret = 3;
+    }
+    repeated ActiveDirectory active_directory = 10;
+    message Facebook {
+      string app_id = 1;
+      string app_secret = 2;
+      repeated string oauth_scopes = 3;
+    }
+    repeated Facebook facebook = 11;
+    message Google {
+      string client_id = 1;
+      string client_secret = 2;
+      repeated string oauth_scopes = 3;
+    }
+    repeated Google google = 12;
+    message Microsoft {
+      string client_id = 1;
+      string client_secret = 2;
+      repeated string oauth_scopes = 3;
+    }
+    repeated Microsoft microsoft = 13;
+    message Twitter {
+      string consumer_key = 1;
+      string consumer_secret = 2;
+    }
+    repeated Twitter twitter = 14;
+  }
+  repeated AuthSettings auth_settings = 14;
+  message ConnectionString {
+    string name = 1;
+    string type = 2;
+    string value = 3;
+  }
+  repeated ConnectionString connection_string = 15;
+  message Identity {
+    repeated string identity_ids = 1;
+    string principal_id = 2;
+    string tenant_id = 3;
+    string type = 4;
+  }
+  repeated Identity identity = 16;
+  message Logs {
+    message ApplicationLogs {
+      message AzureBlobStorage {
+        string level = 1;
+        int64  retention_in_days = 2;
+        string sas_url = 3;
+      }
+      repeated AzureBlobStorage azure_blob_storage = 1;
+    }
+    repeated ApplicationLogs application_logs = 1;
+    message HttpLogs {
+      message AzureBlobStorage {
+        int64  retention_in_days = 1;
+        string sas_url = 2;
+      }
+      repeated AzureBlobStorage azure_blob_storage = 1;
+      message FileSystem {
+        int64  retention_in_days = 1;
+        int64  retention_in_mb = 2;
+      }
+      repeated FileSystem file_system = 2;
+    }
+    repeated HttpLogs http_logs = 2;
+  }
+  repeated Logs logs = 17;
+  message SiteConfig {
+    bool   always_on = 1;
+    string app_command_line = 2;
+    string auto_swap_slot_name = 3;
+    repeated string default_documents = 4;
+    string dotnet_framework_version = 5;
+    string ftps_state = 6;
+    bool   http2_enabled = 7;
+    message IpRestriction {
+      string ip_address = 1;
+      string virtual_network_subnet_id = 2;
+    }
+    repeated IpRestriction ip_restriction = 8;
+    string java_container = 9;
+    string java_container_version = 10;
+    string java_version = 11;
+    string linux_fx_version = 12;
+    bool   local_mysql_enabled = 13;
+    string managed_pipeline_mode = 14;
+    string min_tls_version = 15;
+    string php_version = 16;
+    string python_version = 17;
+    bool   remote_debugging_enabled = 18;
+    string remote_debugging_version = 19;
+    string scm_type = 20;
+    bool   use_32_bit_worker_process = 21;
+    bool   websockets_enabled = 22;
+    string windows_fx_version = 23;
+    message Cors {
+      repeated string allowed_origins = 1;
+      bool   support_credentials = 2;
+    }
+    repeated Cors cors = 24;
+  }
+  repeated SiteConfig site_config = 18;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 19;
+}

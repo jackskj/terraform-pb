@@ -1,0 +1,64 @@
+syntax="proto3";
+
+package google;
+
+message GoogleFilestoreInstance {
+
+  // Creation timestamp in RFC3339 text format.
+  string create_time = 1;
+
+  // A description of the instance.
+  string description = 2;
+
+  // Server-specified ETag for the instance resource to prevent
+  // simultaneous updates from overwriting each other.
+  string etag = 3;
+  string id = 4;
+
+  // Resource labels to represent user-provided metadata.
+  map<string, string> labels = 5;
+
+  // The resource name of the instance.
+  string name = 6;
+  string project = 7;
+
+  // The service tier of the instance.
+  string tier = 8;
+
+  // The name of the Filestore zone of the instance.
+  string zone = 9;
+  message FileShares {
+
+    // File share capacity in GiB. This must be at least 1024 GiB
+    // for the standard tier, or 2560 GiB for the premium tier.
+    int64  capacity_gb = 1;
+
+    // The name of the fileshare (16 characters or less)
+    string name = 2;
+  }
+  repeated FileShares file_shares = 10;
+  message Networks {
+
+    // A list of IPv4 or IPv6 addresses.
+    repeated string ip_addresses = 1;
+
+    // IP versions for which the instance has
+    // IP addresses assigned.
+    repeated string modes = 2;
+
+    // The name of the GCE VPC network to which the
+    // instance is connected.
+    string network = 3;
+
+    // A /29 CIDR block that identifies the range of IP
+    // addresses reserved for this instance.
+    string reserved_ip_range = 4;
+  }
+  repeated Networks networks = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 12;
+}

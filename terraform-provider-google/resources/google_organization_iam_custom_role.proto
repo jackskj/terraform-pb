@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package google;
+
+message GoogleOrganizationIamCustomRole {
+  bool   deleted = 1;
+  string description = 2;
+  string id = 3;
+  string org_id = 4;
+  repeated string permissions = 5;
+  string role_id = 6;
+  string stage = 7;
+  string title = 8;
+}

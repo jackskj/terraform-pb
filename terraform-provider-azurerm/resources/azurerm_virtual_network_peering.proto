@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermVirtualNetworkPeering {
+  bool   allow_forwarded_traffic = 1;
+  bool   allow_gateway_transit = 2;
+  bool   allow_virtual_network_access = 3;
+  string id = 4;
+  string name = 5;
+  string remote_virtual_network_id = 6;
+  string resource_group_name = 7;
+  bool   use_remote_gateways = 8;
+  string virtual_network_name = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 10;
+}

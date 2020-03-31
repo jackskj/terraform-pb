@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDatasyncLocationS3 {
+  string arn = 1;
+  string id = 2;
+  string s3_bucket_arn = 3;
+  string subdirectory = 4;
+  map<string, string> tags = 5;
+  string uri = 6;
+  message S3Config {
+    string bucket_access_role_arn = 1;
+  }
+  repeated S3Config s3_config = 7;
+}

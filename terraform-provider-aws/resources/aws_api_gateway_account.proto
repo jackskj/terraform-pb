@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayAccount {
+  string cloudwatch_role_arn = 1;
+  string id = 2;
+  message ThrottleSettings {
+    int64  burst_limit = 1;
+    int64  rate_limit = 2;
+  }
+  repeated ThrottleSettings throttle_settings = 3;
+}

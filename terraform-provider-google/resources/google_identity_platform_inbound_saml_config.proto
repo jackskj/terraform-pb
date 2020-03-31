@@ -1,0 +1,58 @@
+syntax="proto3";
+
+package google;
+
+message GoogleIdentityPlatformInboundSamlConfig {
+
+  // Human friendly display name.
+  string display_name = 1;
+
+  // If this config allows users to sign in with the provider.
+  bool   enabled = 2;
+  string id = 3;
+
+  // The name of the InboundSamlConfig resource. Must start with 'saml.' and can only have alphanumeric characters,
+  // hyphens, underscores or periods. The part after 'saml.' must also start with a lowercase letter, end with an
+  // alphanumeric character, and have at least 2 characters.
+  string name = 4;
+  string project = 5;
+  message IdpConfig {
+
+    // Unique identifier for all SAML entities
+    string idp_entity_id = 1;
+
+    // Indicates if outbounding SAMLRequest should be signed.
+    bool   sign_request = 2;
+
+    // URL to send Authentication request to.
+    string sso_url = 3;
+    message IdpCertificates {
+
+      // The IdP's x509 certificate.
+      string x509_certificate = 1;
+    }
+    repeated IdpCertificates idp_certificates = 4;
+  }
+  repeated IdpConfig idp_config = 6;
+  message SpConfig {
+
+    // Callback URI where responses from IDP are handled. Must start with 'https://'.
+    string callback_uri = 1;
+
+    // The IDP's certificate data to verify the signature in the SAMLResponse issued by the IDP.
+    message SpCertificates {
+      string x509_certificate = 1;
+    }
+    repeated SpCertificates sp_certificates = 2;
+
+    // Unique identifier for all SAML entities.
+    string sp_entity_id = 3;
+  }
+  repeated SpConfig sp_config = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 8;
+}

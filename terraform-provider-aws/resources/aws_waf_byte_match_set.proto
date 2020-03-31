@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package aws;
+
+message AwsWafByteMatchSet {
+  string id = 1;
+  string name = 2;
+  message ByteMatchTuples {
+    string positional_constraint = 1;
+    string target_string = 2;
+    string text_transformation = 3;
+    message FieldToMatch {
+      string data = 1;
+      string type = 2;
+    }
+    repeated FieldToMatch field_to_match = 4;
+  }
+  repeated ByteMatchTuples byte_match_tuples = 3;
+}

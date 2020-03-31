@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package aws;
+
+message AwsKmsKey {
+  string arn = 1;
+  string aws_account_id = 2;
+  string creation_date = 3;
+  string customer_master_key_spec = 4;
+  string deletion_date = 5;
+  string description = 6;
+  bool   enabled = 7;
+  string expiration_model = 8;
+  repeated string grant_tokens = 9;
+  string id = 10;
+  string key_id = 11;
+  string key_manager = 12;
+  string key_state = 13;
+  string key_usage = 14;
+  string origin = 15;
+  string valid_to = 16;
+}

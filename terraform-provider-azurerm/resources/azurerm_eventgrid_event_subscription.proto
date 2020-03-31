@@ -1,0 +1,53 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermEventgridEventSubscription {
+  string event_delivery_schema = 1;
+  string id = 2;
+  repeated string included_event_types = 3;
+  repeated string labels = 4;
+  string name = 5;
+  string scope = 6;
+  string topic_name = 7;
+  message EventhubEndpoint {
+    string eventhub_id = 1;
+  }
+  repeated EventhubEndpoint eventhub_endpoint = 8;
+  message HybridConnectionEndpoint {
+    string hybrid_connection_id = 1;
+  }
+  repeated HybridConnectionEndpoint hybrid_connection_endpoint = 9;
+  message RetryPolicy {
+    int64  event_time_to_live = 1;
+    int64  max_delivery_attempts = 2;
+  }
+  repeated RetryPolicy retry_policy = 10;
+  message StorageBlobDeadLetterDestination {
+    string storage_account_id = 1;
+    string storage_blob_container_name = 2;
+  }
+  repeated StorageBlobDeadLetterDestination storage_blob_dead_letter_destination = 11;
+  message StorageQueueEndpoint {
+    string queue_name = 1;
+    string storage_account_id = 2;
+  }
+  repeated StorageQueueEndpoint storage_queue_endpoint = 12;
+  message SubjectFilter {
+    bool   case_sensitive = 1;
+    string subject_begins_with = 2;
+    string subject_ends_with = 3;
+  }
+  repeated SubjectFilter subject_filter = 13;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 14;
+  message WebhookEndpoint {
+    string url = 1;
+  }
+  repeated WebhookEndpoint webhook_endpoint = 15;
+}

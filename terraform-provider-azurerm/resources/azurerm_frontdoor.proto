@@ -1,0 +1,104 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermFrontdoor {
+  string cname = 1;
+  bool   enforce_backend_pools_certificate_name_check = 2;
+  string friendly_name = 3;
+  string id = 4;
+  bool   load_balancer_enabled = 5;
+  string location = 6;
+  string name = 7;
+  string resource_group_name = 8;
+  map<string, string> tags = 9;
+  message BackendPool {
+    string health_probe_name = 1;
+    string id = 2;
+    string load_balancing_name = 3;
+    string name = 4;
+    message Backend {
+      string address = 1;
+      bool   enabled = 2;
+      string host_header = 3;
+      int64  http_port = 4;
+      int64  https_port = 5;
+      int64  priority = 6;
+      int64  weight = 7;
+    }
+    repeated Backend backend = 5;
+  }
+  repeated BackendPool backend_pool = 10;
+  message BackendPoolHealthProbe {
+    bool   enabled = 1;
+    string id = 2;
+    int64  interval_in_seconds = 3;
+    string name = 4;
+    string path = 5;
+    string probe_method = 6;
+    string protocol = 7;
+  }
+  repeated BackendPoolHealthProbe backend_pool_health_probe = 11;
+  message BackendPoolLoadBalancing {
+    int64  additional_latency_milliseconds = 1;
+    string id = 2;
+    string name = 3;
+    int64  sample_size = 4;
+    int64  successful_samples_required = 5;
+  }
+  repeated BackendPoolLoadBalancing backend_pool_load_balancing = 12;
+  message FrontendEndpoint {
+    bool   custom_https_provisioning_enabled = 1;
+    string host_name = 2;
+    string id = 3;
+    string name = 4;
+    bool   session_affinity_enabled = 5;
+    int64  session_affinity_ttl_seconds = 6;
+    string web_application_firewall_policy_link_id = 7;
+    message CustomHttpsConfiguration {
+      string azure_key_vault_certificate_secret_name = 1;
+      string azure_key_vault_certificate_secret_version = 2;
+      string azure_key_vault_certificate_vault_id = 3;
+      string certificate_source = 4;
+      string minimum_tls_version = 5;
+      string provisioning_state = 6;
+      string provisioning_substate = 7;
+    }
+    repeated CustomHttpsConfiguration custom_https_configuration = 8;
+  }
+  repeated FrontendEndpoint frontend_endpoint = 13;
+  message RoutingRule {
+    repeated string accepted_protocols = 1;
+    bool   enabled = 2;
+    repeated string frontend_endpoints = 3;
+    string id = 4;
+    string name = 5;
+    repeated string patterns_to_match = 6;
+    message ForwardingConfiguration {
+      string backend_pool_name = 1;
+      bool   cache_enabled = 2;
+      string cache_query_parameter_strip_directive = 3;
+      bool   cache_use_dynamic_compression = 4;
+      string custom_forwarding_path = 5;
+      string forwarding_protocol = 6;
+    }
+    repeated ForwardingConfiguration forwarding_configuration = 7;
+    message RedirectConfiguration {
+      string custom_fragment = 1;
+      string custom_host = 2;
+      string custom_path = 3;
+      string custom_query_string = 4;
+      string redirect_protocol = 5;
+      string redirect_type = 6;
+    }
+    repeated RedirectConfiguration redirect_configuration = 8;
+  }
+  repeated RoutingRule routing_rule = 14;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 15;
+}

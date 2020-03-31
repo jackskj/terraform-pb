@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCloudwatchLogDestinationPolicy {
+  string access_policy = 1;
+  string destination_name = 2;
+  string id = 3;
+}

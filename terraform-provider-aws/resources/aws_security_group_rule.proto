@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSecurityGroupRule {
+  repeated string cidr_blocks = 1;
+  string description = 2;
+  int64  from_port = 3;
+  string id = 4;
+  repeated string ipv6_cidr_blocks = 5;
+  repeated string prefix_list_ids = 6;
+  string protocol = 7;
+  string security_group_id = 8;
+  bool   self = 9;
+  string source_security_group_id = 10;
+  int64  to_port = 11;
+
+  // Type of rule, ingress (inbound) or egress (outbound).
+  string type = 12;
+}

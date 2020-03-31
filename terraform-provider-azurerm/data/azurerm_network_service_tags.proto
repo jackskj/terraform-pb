@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermNetworkServiceTags {
+  repeated string address_prefixes = 1;
+  string id = 2;
+  string location = 3;
+  string location_filter = 4;
+  string service = 5;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 6;
+}

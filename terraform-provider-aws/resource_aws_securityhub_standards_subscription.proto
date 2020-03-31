@@ -1,8 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsSecurityhubStandardsSubscription {
-  id = 1;
-  standards_arn = 2;
-}

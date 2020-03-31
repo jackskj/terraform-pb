@@ -1,0 +1,43 @@
+syntax="proto3";
+
+package aws;
+
+message AwsGlueCrawler {
+  string arn = 1;
+  repeated string classifiers = 2;
+  string configuration = 3;
+  string database_name = 4;
+  string description = 5;
+  string id = 6;
+  string name = 7;
+  string role = 8;
+  string schedule = 9;
+  string security_configuration = 10;
+  string table_prefix = 11;
+  map<string, string> tags = 12;
+  message CatalogTarget {
+    string database_name = 1;
+    repeated string tables = 2;
+  }
+  repeated CatalogTarget catalog_target = 13;
+  message DynamodbTarget {
+    string path = 1;
+  }
+  repeated DynamodbTarget dynamodb_target = 14;
+  message JdbcTarget {
+    string connection_name = 1;
+    repeated string exclusions = 2;
+    string path = 3;
+  }
+  repeated JdbcTarget jdbc_target = 15;
+  message S3Target {
+    repeated string exclusions = 1;
+    string path = 2;
+  }
+  repeated S3Target s3_target = 16;
+  message SchemaChangePolicy {
+    string delete_behavior = 1;
+    string update_behavior = 2;
+  }
+  repeated SchemaChangePolicy schema_change_policy = 17;
+}

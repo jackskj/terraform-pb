@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsInspectorAssessmentTemplate {
+  string arn = 1;
+  int64  duration = 2;
+  string id = 3;
+  string name = 4;
+  repeated string rules_package_arns = 5;
+  map<string, string> tags = 6;
+  string target_arn = 7;
+}

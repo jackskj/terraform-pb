@@ -1,0 +1,32 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAppsyncDatasource {
+  string api_id = 1;
+  string arn = 2;
+  string description = 3;
+  string id = 4;
+  string name = 5;
+  string service_role_arn = 6;
+  string type = 7;
+  message DynamodbConfig {
+    string region = 1;
+    string table_name = 2;
+    bool   use_caller_credentials = 3;
+  }
+  repeated DynamodbConfig dynamodb_config = 8;
+  message ElasticsearchConfig {
+    string endpoint = 1;
+    string region = 2;
+  }
+  repeated ElasticsearchConfig elasticsearch_config = 9;
+  message HttpConfig {
+    string endpoint = 1;
+  }
+  repeated HttpConfig http_config = 10;
+  message LambdaConfig {
+    string function_arn = 1;
+  }
+  repeated LambdaConfig lambda_config = 11;
+}

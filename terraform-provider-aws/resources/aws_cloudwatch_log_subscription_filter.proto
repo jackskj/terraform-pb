@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCloudwatchLogSubscriptionFilter {
+  string destination_arn = 1;
+  string distribution = 2;
+  string filter_pattern = 3;
+  string id = 4;
+  string log_group_name = 5;
+  string name = 6;
+  string role_arn = 7;
+}

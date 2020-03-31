@@ -1,0 +1,72 @@
+syntax="proto3";
+
+package google;
+
+message GoogleBinaryAuthorizationPolicy {
+
+  // A descriptive comment.
+  string description = 1;
+
+  // Controls the evaluation of a Google-maintained global admission policy
+  // for common system-level images. Images not covered by the global
+  // policy will be subject to the project admission policy.
+  string global_policy_evaluation_mode = 2;
+  string id = 3;
+  string project = 4;
+  message AdmissionWhitelistPatterns {
+
+    // An image name pattern to whitelist, in the form
+    // 'registry/path/to/image'. This supports a trailing * as a
+    // wildcard, but this is allowed only in text after the registry/
+    // part.
+    string name_pattern = 1;
+  }
+  repeated AdmissionWhitelistPatterns admission_whitelist_patterns = 5;
+  message ClusterAdmissionRules {
+    string cluster = 1;
+
+    // The action when a pod creation is denied by the admission rule.
+    string enforcement_mode = 2;
+
+    // How this admission rule will be evaluated.
+    string evaluation_mode = 3;
+
+    // The resource names of the attestors that must attest to a
+    // container image. If the attestor is in a different project from the
+    // policy, it should be specified in the format 'projects/*/attestors/*'.
+    // Each attestor must exist before a policy can reference it. To add an
+    // attestor to a policy the principal issuing the policy change
+    // request must be able to read the attestor resource.
+    // 
+    // Note: this field must be non-empty when the evaluation_mode field
+    // specifies REQUIRE_ATTESTATION, otherwise it must be empty.
+    repeated string require_attestations_by = 4;
+  }
+  repeated ClusterAdmissionRules cluster_admission_rules = 6;
+  message DefaultAdmissionRule {
+
+    // The action when a pod creation is denied by the admission rule.
+    string enforcement_mode = 1;
+
+    // How this admission rule will be evaluated.
+    string evaluation_mode = 2;
+
+    // The resource names of the attestors that must attest to a
+    // container image. If the attestor is in a different project from the
+    // policy, it should be specified in the format 'projects/*/attestors/*'.
+    // Each attestor must exist before a policy can reference it. To add an
+    // attestor to a policy the principal issuing the policy change
+    // request must be able to read the attestor resource.
+    // 
+    // Note: this field must be non-empty when the evaluation_mode field
+    // specifies REQUIRE_ATTESTATION, otherwise it must be empty.
+    repeated string require_attestations_by = 3;
+  }
+  repeated DefaultAdmissionRule default_admission_rule = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 8;
+}

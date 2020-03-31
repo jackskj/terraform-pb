@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeInstanceIamBinding {
+  string etag = 1;
+  string id = 2;
+  string instance_name = 3;
+  repeated string members = 4;
+  string project = 5;
+  string role = 6;
+  string zone = 7;
+}

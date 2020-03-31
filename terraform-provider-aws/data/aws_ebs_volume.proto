@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEbsVolume {
+  string arn = 1;
+  string availability_zone = 2;
+  bool   encrypted = 3;
+  string id = 4;
+  int64  iops = 5;
+  string kms_key_id = 6;
+  bool   most_recent = 7;
+  int64  size = 8;
+  string snapshot_id = 9;
+  map<string, string> tags = 10;
+  string volume_id = 11;
+  string volume_type = 12;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 13;
+}

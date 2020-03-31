@@ -1,0 +1,45 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEksNodeGroup {
+  string ami_type = 1;
+  string arn = 2;
+  string cluster_name = 3;
+  int64  disk_size = 4;
+  string id = 5;
+  repeated string instance_types = 6;
+  map<string, string> labels = 7;
+  string node_group_name = 8;
+  string node_role_arn = 9;
+  string release_version = 10;
+  message Resources {
+    message AutoscalingGroups {
+      string name = 1;
+    }
+    repeated AutoscalingGroups autoscaling_groups = 1;
+    string remote_access_security_group_id = 2;
+  }
+  repeated Resources resources = 11;
+  string status = 12;
+  repeated string subnet_ids = 13;
+  map<string, string> tags = 14;
+  string version = 15;
+  message RemoteAccess {
+    string ec2_ssh_key = 1;
+    repeated string source_security_group_ids = 2;
+  }
+  repeated RemoteAccess remote_access = 16;
+  message ScalingConfig {
+    int64  desired_size = 1;
+    int64  max_size = 2;
+    int64  min_size = 3;
+  }
+  repeated ScalingConfig scaling_config = 17;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 18;
+}

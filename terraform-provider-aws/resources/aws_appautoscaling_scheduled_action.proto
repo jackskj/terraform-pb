@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAppautoscalingScheduledAction {
+  string arn = 1;
+  string end_time = 2;
+  string id = 3;
+  string name = 4;
+  string resource_id = 5;
+  string scalable_dimension = 6;
+  string schedule = 7;
+  string service_namespace = 8;
+  string start_time = 9;
+  message ScalableTargetAction {
+    int64  max_capacity = 1;
+    int64  min_capacity = 2;
+  }
+  repeated ScalableTargetAction scalable_target_action = 10;
+}

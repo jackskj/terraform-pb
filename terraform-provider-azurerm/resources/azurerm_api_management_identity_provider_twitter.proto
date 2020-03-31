@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermApiManagementIdentityProviderTwitter {
+  string api_key = 1;
+  string api_management_name = 2;
+  string api_secret_key = 3;
+  string id = 4;
+  string resource_group_name = 5;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 6;
+}

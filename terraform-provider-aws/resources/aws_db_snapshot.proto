@@ -1,0 +1,31 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDbSnapshot {
+  int64  allocated_storage = 1;
+  string availability_zone = 2;
+  string db_instance_identifier = 3;
+  string db_snapshot_arn = 4;
+  string db_snapshot_identifier = 5;
+  bool   encrypted = 6;
+  string engine = 7;
+  string engine_version = 8;
+  string id = 9;
+  int64  iops = 10;
+  string kms_key_id = 11;
+  string license_model = 12;
+  string option_group_name = 13;
+  int64  port = 14;
+  string snapshot_type = 15;
+  string source_db_snapshot_identifier = 16;
+  string source_region = 17;
+  string status = 18;
+  string storage_type = 19;
+  map<string, string> tags = 20;
+  string vpc_id = 21;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 22;
+}

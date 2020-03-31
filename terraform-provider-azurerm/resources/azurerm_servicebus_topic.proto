@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermServicebusTopic {
+  string auto_delete_on_idle = 1;
+  string default_message_ttl = 2;
+  string duplicate_detection_history_time_window = 3;
+  bool   enable_batched_operations = 4;
+  bool   enable_express = 5;
+  bool   enable_partitioning = 6;
+  string id = 7;
+  int64  max_size_in_megabytes = 8;
+  string name = 9;
+  string namespace_name = 10;
+  bool   requires_duplicate_detection = 11;
+  string resource_group_name = 12;
+  string status = 13;
+  bool   support_ordering = 14;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 15;
+}

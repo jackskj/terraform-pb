@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsWorkspacesDirectory {
+  string directory_id = 1;
+  string id = 2;
+  repeated string subnet_ids = 3;
+  map<string, string> tags = 4;
+  message SelfServicePermissions {
+    bool   change_compute_type = 1;
+    bool   increase_volume_size = 2;
+    bool   rebuild_workspace = 3;
+    bool   restart_workspace = 4;
+    bool   switch_running_mode = 5;
+  }
+  repeated SelfServicePermissions self_service_permissions = 5;
+}

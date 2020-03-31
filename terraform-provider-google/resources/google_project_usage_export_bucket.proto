@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package google;
+
+message GoogleProjectUsageExportBucket {
+  string bucket_name = 1;
+  string id = 2;
+  string prefix = 3;
+  string project = 4;
+}

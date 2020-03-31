@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeDiskResourcePolicyAttachment {
+
+  // The name of the disk in which the resource policies are attached to.
+  string disk = 1;
+  string id = 2;
+
+  // The resource policy to be attached to the disk for scheduling snapshot
+  // creation. Do not specify the self link.
+  string name = 3;
+  string project = 4;
+
+  // A reference to the zone where the disk resides.
+  string zone = 5;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 6;
+}

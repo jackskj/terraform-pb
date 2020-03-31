@@ -1,0 +1,86 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAutoscalingGroup {
+  string arn = 1;
+  repeated string availability_zones = 2;
+  int64  default_cooldown = 3;
+  int64  desired_capacity = 4;
+  repeated string enabled_metrics = 5;
+  bool   force_delete = 6;
+  int64  health_check_grace_period = 7;
+  string health_check_type = 8;
+  string id = 9;
+  string launch_configuration = 10;
+  repeated string load_balancers = 11;
+  int64  max_instance_lifetime = 12;
+  int64  max_size = 13;
+  string metrics_granularity = 14;
+  int64  min_elb_capacity = 15;
+  int64  min_size = 16;
+  string name = 17;
+  string name_prefix = 18;
+  string placement_group = 19;
+  bool   protect_from_scale_in = 20;
+  string service_linked_role_arn = 21;
+  repeated string suspended_processes = 22;
+  map<string, string> tags = 23;
+  repeated string target_group_arns = 24;
+  repeated string termination_policies = 25;
+  repeated string vpc_zone_identifier = 26;
+  string wait_for_capacity_timeout = 27;
+  int64  wait_for_elb_capacity = 28;
+  message InitialLifecycleHook {
+    string default_result = 1;
+    int64  heartbeat_timeout = 2;
+    string lifecycle_transition = 3;
+    string name = 4;
+    string notification_metadata = 5;
+    string notification_target_arn = 6;
+    string role_arn = 7;
+  }
+  repeated InitialLifecycleHook initial_lifecycle_hook = 29;
+  message LaunchTemplate {
+    string id = 1;
+    string name = 2;
+    string version = 3;
+  }
+  repeated LaunchTemplate launch_template = 30;
+  message MixedInstancesPolicy {
+    message InstancesDistribution {
+      string on_demand_allocation_strategy = 1;
+      int64  on_demand_base_capacity = 2;
+      int64  on_demand_percentage_above_base_capacity = 3;
+      string spot_allocation_strategy = 4;
+      int64  spot_instance_pools = 5;
+      string spot_max_price = 6;
+    }
+    repeated InstancesDistribution instances_distribution = 1;
+    message LaunchTemplate {
+      message LaunchTemplateSpecification {
+        string launch_template_id = 1;
+        string launch_template_name = 2;
+        string version = 3;
+      }
+      repeated LaunchTemplateSpecification launch_template_specification = 1;
+      message Override {
+        string instance_type = 1;
+        string weighted_capacity = 2;
+      }
+      repeated Override override = 2;
+    }
+    repeated LaunchTemplate launch_template = 2;
+  }
+  repeated MixedInstancesPolicy mixed_instances_policy = 31;
+  message Tag {
+    string key = 1;
+    bool   propagate_at_launch = 2;
+    string value = 3;
+  }
+  repeated Tag tag = 32;
+  message Timeouts {
+    string delete = 1;
+  }
+  Timeouts timeouts = 33;
+}

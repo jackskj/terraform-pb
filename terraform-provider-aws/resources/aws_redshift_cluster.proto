@@ -1,0 +1,62 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRedshiftCluster {
+  bool   allow_version_upgrade = 1;
+  string arn = 2;
+  int64  automated_snapshot_retention_period = 3;
+  string availability_zone = 4;
+  string bucket_name = 5;
+  string cluster_identifier = 6;
+  string cluster_parameter_group_name = 7;
+  string cluster_public_key = 8;
+  string cluster_revision_number = 9;
+  repeated string cluster_security_groups = 10;
+  string cluster_subnet_group_name = 11;
+  string cluster_type = 12;
+  string cluster_version = 13;
+  string database_name = 14;
+  string dns_name = 15;
+  string elastic_ip = 16;
+  bool   enable_logging = 17;
+  bool   encrypted = 18;
+  string endpoint = 19;
+  bool   enhanced_vpc_routing = 20;
+  string final_snapshot_identifier = 21;
+  repeated string iam_roles = 22;
+  string id = 23;
+  string kms_key_id = 24;
+  string master_password = 25;
+  string master_username = 26;
+  string node_type = 27;
+  int64  number_of_nodes = 28;
+  string owner_account = 29;
+  int64  port = 30;
+  string preferred_maintenance_window = 31;
+  bool   publicly_accessible = 32;
+  string s3_key_prefix = 33;
+  bool   skip_final_snapshot = 34;
+  string snapshot_cluster_identifier = 35;
+  string snapshot_identifier = 36;
+  map<string, string> tags = 37;
+  repeated string vpc_security_group_ids = 38;
+  message Logging {
+    string bucket_name = 1;
+    bool   enable = 2;
+    string s3_key_prefix = 3;
+  }
+  repeated Logging logging = 39;
+  message SnapshotCopy {
+    string destination_region = 1;
+    string grant_name = 2;
+    int64  retention_period = 3;
+  }
+  repeated SnapshotCopy snapshot_copy = 40;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 41;
+}

@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeZones {
+  string id = 1;
+  repeated string names = 2;
+  string project = 3;
+  string region = 4;
+  string status = 5;
+}

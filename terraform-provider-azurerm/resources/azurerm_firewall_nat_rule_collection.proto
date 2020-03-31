@@ -1,0 +1,30 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermFirewallNatRuleCollection {
+  string action = 1;
+  string azure_firewall_name = 2;
+  string id = 3;
+  string name = 4;
+  int64  priority = 5;
+  string resource_group_name = 6;
+  message Rule {
+    string description = 1;
+    repeated string destination_addresses = 2;
+    repeated string destination_ports = 3;
+    string name = 4;
+    repeated string protocols = 5;
+    repeated string source_addresses = 6;
+    string translated_address = 7;
+    string translated_port = 8;
+  }
+  repeated Rule rule = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 8;
+}

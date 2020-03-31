@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsStoragegatewayUploadBuffer {
+  string disk_id = 1;
+  string gateway_arn = 2;
+  string id = 3;
+}

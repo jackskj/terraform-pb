@@ -1,68 +1,68 @@
-syntax "proto3";
+syntax="proto3";
 
 package azurerm;
 
 message Azurerm {
-  auxiliary_tenant_ids = 1;
+  repeated string auxiliary_tenant_ids = 1;
 
   // The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client Certificate
-  client_certificate_password = 2;
+  string client_certificate_password = 2;
 
   // The path to the Client Certificate associated with the Service Principal for use when authenticating as a Service Principal using a Client Certificate.
-  client_certificate_path = 3;
+  string client_certificate_path = 3;
 
   // The Client ID which should be used.
-  client_id = 4;
+  string client_id = 4;
 
   // The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
-  client_secret = 5;
+  string client_secret = 5;
 
   // This will disable the x-ms-correlation-request-id header.
-  disable_correlation_request_id = 6;
+  bool   disable_correlation_request_id = 6;
 
   // This will disable the Terraform Partner ID which is used if a custom `partner_id` isn't specified.
-  disable_terraform_partner_id = 7;
+  bool   disable_terraform_partner_id = 7;
 
   // The Cloud Environment which should be used. Possible values are public, usgovernment, german, and china. Defaults to public.
-  environment = 8;
+  string environment = 8;
 
   // The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically. 
-  msi_endpoint = 9;
+  string msi_endpoint = 9;
 
   // A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
-  partner_id = 10;
+  string partner_id = 10;
 
   // This will cause the AzureRM Provider to skip verifying the credentials being used are valid.
-  skip_credentials_validation = 11;
+  bool   skip_credentials_validation = 11;
 
   // Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
-  skip_provider_registration = 12;
+  bool   skip_provider_registration = 12;
 
   // Should the AzureRM Provider use AzureAD to access the Storage Data Plane API's?
-  storage_use_azuread = 13;
+  bool   storage_use_azuread = 13;
 
   // The Subscription ID which should be used.
-  subscription_id = 14;
+  string subscription_id = 14;
 
   // The Tenant ID which should be used.
-  tenant_id = 15;
+  string tenant_id = 15;
 
   // Allowed Managed Service Identity be used for Authentication.
-  use_msi = 16;
+  bool   use_msi = 16;
   message Features {
     message KeyVault {
-      purge_soft_delete_on_destroy = 1;
-      recover_soft_deleted_key_vaults = 2;
+      bool   purge_soft_delete_on_destroy = 1;
+      bool   recover_soft_deleted_key_vaults = 2;
     }
-    key_vault = 1;
+    repeated KeyVault key_vault = 1;
     message VirtualMachine {
-      delete_os_disk_on_deletion = 1;
+      bool   delete_os_disk_on_deletion = 1;
     }
-    virtual_machine = 2;
+    repeated VirtualMachine virtual_machine = 2;
     message VirtualMachineScaleSet {
-      roll_instances_when_required = 1;
+      bool   roll_instances_when_required = 1;
     }
-    virtual_machine_scale_set = 3;
+    repeated VirtualMachineScaleSet virtual_machine_scale_set = 3;
   }
-  features = 17;
+  repeated Features features = 17;
 }

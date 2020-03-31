@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDirectoryServiceConditionalForwarder {
+  string directory_id = 1;
+  repeated string dns_ips = 2;
+  string id = 3;
+  string remote_domain_name = 4;
+}

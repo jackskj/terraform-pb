@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEc2AvailabilityZoneGroup {
+  string group_name = 1;
+  string id = 2;
+  string opt_in_status = 3;
+}

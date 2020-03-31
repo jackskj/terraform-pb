@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package google;
+
+message GoogleCloudRunServiceIamBinding {
+  string etag = 1;
+  string id = 2;
+  string location = 3;
+  repeated string members = 4;
+  string project = 5;
+  string role = 6;
+  string service = 7;
+}

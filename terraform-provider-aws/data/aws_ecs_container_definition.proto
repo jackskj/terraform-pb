@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEcsContainerDefinition {
+  string container_name = 1;
+  int64  cpu = 2;
+  bool   disable_networking = 3;
+  map<string, string> docker_labels = 4;
+  map<string, string> environment = 5;
+  string id = 6;
+  string image = 7;
+  string image_digest = 8;
+  int64  memory = 9;
+  int64  memory_reservation = 10;
+  string task_definition = 11;
+}

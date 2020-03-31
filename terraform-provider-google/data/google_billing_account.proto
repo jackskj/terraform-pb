@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package google;
+
+message GoogleBillingAccount {
+  string billing_account = 1;
+  string display_name = 2;
+  string id = 3;
+  string name = 4;
+  bool   open = 5;
+  repeated string project_ids = 6;
+}

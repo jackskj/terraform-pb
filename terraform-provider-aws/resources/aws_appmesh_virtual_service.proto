@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAppmeshVirtualService {
+  string arn = 1;
+  string created_date = 2;
+  string id = 3;
+  string last_updated_date = 4;
+  string mesh_name = 5;
+  string name = 6;
+  map<string, string> tags = 7;
+  message Spec {
+    message Provider {
+      message VirtualNode {
+        string virtual_node_name = 1;
+      }
+      repeated VirtualNode virtual_node = 1;
+      message VirtualRouter {
+        string virtual_router_name = 1;
+      }
+      repeated VirtualRouter virtual_router = 2;
+    }
+    repeated Provider provider = 1;
+  }
+  repeated Spec spec = 8;
+}

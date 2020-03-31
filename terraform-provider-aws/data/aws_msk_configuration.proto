@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsMskConfiguration {
+  string arn = 1;
+  string description = 2;
+  string id = 3;
+  repeated string kafka_versions = 4;
+  int64  latest_revision = 5;
+  string name = 6;
+  string server_properties = 7;
+}

@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRoute {
+  string destination_cidr_block = 1;
+  string destination_ipv6_cidr_block = 2;
+  string egress_only_gateway_id = 3;
+  string gateway_id = 4;
+  string id = 5;
+  string instance_id = 6;
+  string nat_gateway_id = 7;
+  string network_interface_id = 8;
+  string route_table_id = 9;
+  string transit_gateway_id = 10;
+  string vpc_peering_connection_id = 11;
+}

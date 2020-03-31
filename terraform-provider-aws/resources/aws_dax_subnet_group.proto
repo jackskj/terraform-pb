@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDaxSubnetGroup {
+  string description = 1;
+  string id = 2;
+  string name = 3;
+  repeated string subnet_ids = 4;
+  string vpc_id = 5;
+}

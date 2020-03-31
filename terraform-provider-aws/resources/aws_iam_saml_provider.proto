@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamSamlProvider {
+  string arn = 1;
+  string id = 2;
+  string name = 3;
+  string saml_metadata_document = 4;
+  string valid_until = 5;
+}

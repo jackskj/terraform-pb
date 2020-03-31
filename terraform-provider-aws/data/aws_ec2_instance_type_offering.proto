@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEc2InstanceTypeOffering {
+  string id = 1;
+  string instance_type = 2;
+  string location_type = 3;
+  repeated string preferred_instance_types = 4;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 5;
+}

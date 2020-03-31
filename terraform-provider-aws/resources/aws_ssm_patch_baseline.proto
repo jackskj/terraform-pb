@@ -1,0 +1,30 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSsmPatchBaseline {
+  repeated string approved_patches = 1;
+  string approved_patches_compliance_level = 2;
+  string description = 3;
+  string id = 4;
+  string name = 5;
+  string operating_system = 6;
+  repeated string rejected_patches = 7;
+  map<string, string> tags = 8;
+  message ApprovalRule {
+    int64  approve_after_days = 1;
+    string compliance_level = 2;
+    bool   enable_non_security = 3;
+    message PatchFilter {
+      string key = 1;
+      repeated string values = 2;
+    }
+    repeated PatchFilter patch_filter = 4;
+  }
+  repeated ApprovalRule approval_rule = 9;
+  message GlobalFilter {
+    string key = 1;
+    repeated string values = 2;
+  }
+  repeated GlobalFilter global_filter = 10;
+}

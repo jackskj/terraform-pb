@@ -1,0 +1,79 @@
+syntax="proto3";
+
+package google;
+
+message GoogleContainerNodePool {
+  string cluster = 1;
+  string id = 2;
+  int64  initial_node_count = 3;
+  repeated string instance_group_urls = 4;
+  string location = 5;
+  int64  max_pods_per_node = 6;
+  string name = 7;
+  string name_prefix = 8;
+  int64  node_count = 9;
+  string project = 10;
+  string region = 11;
+  string version = 12;
+  string zone = 13;
+  message Autoscaling {
+    int64  max_node_count = 1;
+    int64  min_node_count = 2;
+  }
+  repeated Autoscaling autoscaling = 14;
+  message Management {
+    bool   auto_repair = 1;
+    bool   auto_upgrade = 2;
+  }
+  repeated Management management = 15;
+  message NodeConfig {
+    int64  disk_size_gb = 1;
+    string disk_type = 2;
+    message GuestAccelerator {
+      int64  count = 1;
+      string type = 2;
+    }
+    repeated GuestAccelerator guest_accelerator = 3;
+    string image_type = 4;
+    map<string, string> labels = 5;
+    int64  local_ssd_count = 6;
+    string machine_type = 7;
+    map<string, string> metadata = 8;
+    string min_cpu_platform = 9;
+    repeated string oauth_scopes = 10;
+    bool   preemptible = 11;
+    string service_account = 12;
+    repeated string tags = 13;
+    message Taint {
+      string effect = 1;
+      string key = 2;
+      string value = 3;
+    }
+    repeated Taint taint = 14;
+    message SandboxConfig {
+      string sandbox_type = 1;
+    }
+    repeated SandboxConfig sandbox_config = 15;
+    message ShieldedInstanceConfig {
+      bool   enable_integrity_monitoring = 1;
+      bool   enable_secure_boot = 2;
+    }
+    repeated ShieldedInstanceConfig shielded_instance_config = 16;
+    message WorkloadMetadataConfig {
+      string node_metadata = 1;
+    }
+    repeated WorkloadMetadataConfig workload_metadata_config = 17;
+  }
+  repeated NodeConfig node_config = 16;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 17;
+  message UpgradeSettings {
+    int64  max_surge = 1;
+    int64  max_unavailable = 2;
+  }
+  repeated UpgradeSettings upgrade_settings = 18;
+}

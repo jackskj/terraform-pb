@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermAutomationModule {
+  string automation_account_name = 1;
+  string id = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  message ModuleLink {
+    string uri = 1;
+    message Hash {
+      string algorithm = 1;
+      string value = 2;
+    }
+    repeated Hash hash = 2;
+  }
+  repeated ModuleLink module_link = 5;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 6;
+}

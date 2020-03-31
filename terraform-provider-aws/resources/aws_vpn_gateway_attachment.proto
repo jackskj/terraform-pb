@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVpnGatewayAttachment {
+  string id = 1;
+  string vpc_id = 2;
+  string vpn_gateway_id = 3;
+}

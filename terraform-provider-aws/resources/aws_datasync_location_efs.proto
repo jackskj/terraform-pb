@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDatasyncLocationEfs {
+  string arn = 1;
+  string efs_file_system_arn = 2;
+  string id = 3;
+  string subdirectory = 4;
+  map<string, string> tags = 5;
+  string uri = 6;
+  message Ec2Config {
+    repeated string security_group_arns = 1;
+    string subnet_arn = 2;
+  }
+  repeated Ec2Config ec2_config = 7;
+}

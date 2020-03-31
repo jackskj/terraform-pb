@@ -1,0 +1,102 @@
+syntax="proto3";
+
+package google;
+
+message GoogleSqlDatabaseInstance {
+  string connection_name = 1;
+  string database_version = 2;
+  string first_ip_address = 3;
+  string id = 4;
+  message IpAddress {
+    string ip_address = 1;
+    string time_to_retire = 2;
+    string type = 3;
+  }
+  repeated IpAddress ip_address = 5;
+  string master_instance_name = 6;
+  string name = 7;
+  string private_ip_address = 8;
+  string project = 9;
+  string public_ip_address = 10;
+  string region = 11;
+  string self_link = 12;
+  message ServerCaCert {
+    string cert = 1;
+    string common_name = 2;
+    string create_time = 3;
+    string expiration_time = 4;
+    string sha1_fingerprint = 5;
+  }
+  repeated ServerCaCert server_ca_cert = 13;
+  string service_account_email_address = 14;
+  message ReplicaConfiguration {
+    string ca_certificate = 1;
+    string client_certificate = 2;
+    string client_key = 3;
+    int64  connect_retry_interval = 4;
+    string dump_file_path = 5;
+    bool   failover_target = 6;
+    int64  master_heartbeat_period = 7;
+    string password = 8;
+    string ssl_cipher = 9;
+    string username = 10;
+    bool   verify_server_certificate = 11;
+  }
+  repeated ReplicaConfiguration replica_configuration = 15;
+  message Settings {
+    string activation_policy = 1;
+    repeated string authorized_gae_applications = 2;
+    string availability_type = 3;
+    bool   crash_safe_replication = 4;
+    bool   disk_autoresize = 5;
+    int64  disk_size = 6;
+    string disk_type = 7;
+    string pricing_plan = 8;
+    string replication_type = 9;
+    string tier = 10;
+    map<string, string> user_labels = 11;
+    int64  version = 12;
+    message BackupConfiguration {
+      bool   binary_log_enabled = 1;
+      bool   enabled = 2;
+      string location = 3;
+      string start_time = 4;
+    }
+    repeated BackupConfiguration backup_configuration = 13;
+    message DatabaseFlags {
+      string name = 1;
+      string value = 2;
+    }
+    repeated DatabaseFlags database_flags = 14;
+    message IpConfiguration {
+      bool   ipv4_enabled = 1;
+      string private_network = 2;
+      bool   require_ssl = 3;
+      message AuthorizedNetworks {
+        string expiration_time = 1;
+        string name = 2;
+        string value = 3;
+      }
+      repeated AuthorizedNetworks authorized_networks = 4;
+    }
+    repeated IpConfiguration ip_configuration = 15;
+    message LocationPreference {
+      string follow_gae_application = 1;
+      string zone = 2;
+    }
+    repeated LocationPreference location_preference = 16;
+    message MaintenanceWindow {
+      int64  day = 1;
+      int64  hour = 2;
+      string update_track = 3;
+    }
+    repeated MaintenanceWindow maintenance_window = 17;
+  }
+  repeated Settings settings = 16;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 17;
+}

@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsPinpointSmsChannel {
+  string application_id = 1;
+  bool   enabled = 2;
+  string id = 3;
+  int64  promotional_messages_per_second = 4;
+  string sender_id = 5;
+  string short_code = 6;
+  int64  transactional_messages_per_second = 7;
+}

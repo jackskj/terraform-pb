@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamUser {
+  string arn = 1;
+  string id = 2;
+  string path = 3;
+  string permissions_boundary = 4;
+  string user_id = 5;
+  string user_name = 6;
+}

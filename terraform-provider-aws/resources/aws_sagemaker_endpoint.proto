@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSagemakerEndpoint {
+  string arn = 1;
+  string endpoint_config_name = 2;
+  string id = 3;
+  string name = 4;
+  map<string, string> tags = 5;
+}

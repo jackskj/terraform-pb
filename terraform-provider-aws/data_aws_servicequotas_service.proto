@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsServicequotasService {
-  id = 1;
-  service_code = 2;
-  service_name = 3;
-}

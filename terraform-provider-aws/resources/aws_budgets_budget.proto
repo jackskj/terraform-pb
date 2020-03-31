@@ -1,0 +1,40 @@
+syntax="proto3";
+
+package aws;
+
+message AwsBudgetsBudget {
+  string account_id = 1;
+  string budget_type = 2;
+  map<string, string> cost_filters = 3;
+  string id = 4;
+  string limit_amount = 5;
+  string limit_unit = 6;
+  string name = 7;
+  string name_prefix = 8;
+  string time_period_end = 9;
+  string time_period_start = 10;
+  string time_unit = 11;
+  message CostTypes {
+    bool   include_credit = 1;
+    bool   include_discount = 2;
+    bool   include_other_subscription = 3;
+    bool   include_recurring = 4;
+    bool   include_refund = 5;
+    bool   include_subscription = 6;
+    bool   include_support = 7;
+    bool   include_tax = 8;
+    bool   include_upfront = 9;
+    bool   use_amortized = 10;
+    bool   use_blended = 11;
+  }
+  repeated CostTypes cost_types = 12;
+  message Notification {
+    string comparison_operator = 1;
+    string notification_type = 2;
+    repeated string subscriber_email_addresses = 3;
+    repeated string subscriber_sns_topic_arns = 4;
+    int64  threshold = 5;
+    string threshold_type = 6;
+  }
+  repeated Notification notification = 13;
+}

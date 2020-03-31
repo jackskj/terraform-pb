@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsWorkspacesIpGroup {
+  string description = 1;
+  string id = 2;
+  string name = 3;
+  map<string, string> tags = 4;
+  message Rules {
+    string description = 1;
+    string source = 2;
+  }
+  repeated Rules rules = 5;
+}

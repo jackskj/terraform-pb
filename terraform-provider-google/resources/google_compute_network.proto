@@ -1,0 +1,49 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeNetwork {
+
+  // When set to 'true', the network is created in "auto subnet mode" and
+  // it will create a subnet for each region automatically across the
+  // '10.128.0.0/9' address range.
+  // 
+  // When set to 'false', the network is created in "custom subnet mode" so
+  // the user can explicitly connect subnetwork resources.
+  bool   auto_create_subnetworks = 1;
+  bool   delete_default_routes_on_create = 2;
+
+  // An optional description of this resource. The resource must be
+  // recreated to modify this field.
+  string description = 3;
+
+  // The gateway address for default routing out of the network. This value
+  // is selected by GCP.
+  string gateway_ipv4 = 4;
+  string id = 5;
+  string ipv4_range = 6;
+
+  // Name of the resource. Provided by the client when the resource is
+  // created. The name must be 1-63 characters long, and comply with
+  // RFC1035. Specifically, the name must be 1-63 characters long and match
+  // the regular expression '[a-z]([-a-z0-9]*[a-z0-9])?' which means the
+  // first character must be a lowercase letter, and all following
+  // characters must be a dash, lowercase letter, or digit, except the last
+  // character, which cannot be a dash.
+  string name = 7;
+  string project = 8;
+
+  // The network-wide routing mode to use. If set to 'REGIONAL', this
+  // network's cloud routers will only advertise routes with subnetworks
+  // of this network in the same region as the router. If set to 'GLOBAL',
+  // this network's cloud routers will advertise routes with all
+  // subnetworks of this network, across regions.
+  string routing_mode = 9;
+  string self_link = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 11;
+}

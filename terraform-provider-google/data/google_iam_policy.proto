@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package google;
+
+message GoogleIamPolicy {
+  string id = 1;
+  string policy_data = 2;
+  message AuditConfig {
+    string service = 1;
+    message AuditLogConfigs {
+      repeated string exempted_members = 1;
+      string log_type = 2;
+    }
+    repeated AuditLogConfigs audit_log_configs = 2;
+  }
+  repeated AuditConfig audit_config = 3;
+  message Binding {
+    repeated string members = 1;
+    string role = 2;
+  }
+  repeated Binding binding = 4;
+}

@@ -1,0 +1,35 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStorageManagementPolicy {
+  string id = 1;
+  message Rule {
+    message Actions {
+      message BaseBlob {
+        int64  delete_after_days_since_modification_greater_than = 1;
+        int64  tier_to_archive_after_days_since_modification_greater_than = 2;
+        int64  tier_to_cool_after_days_since_modification_greater_than = 3;
+      }
+      repeated BaseBlob base_blob = 1;
+      message Snapshot {
+        int64  delete_after_days_since_creation_greater_than = 1;
+      }
+      repeated Snapshot snapshot = 2;
+    }
+    repeated Actions actions = 1;
+    bool   enabled = 2;
+    message Filters {
+      repeated string blob_types = 1;
+      repeated string prefix_match = 2;
+    }
+    repeated Filters filters = 3;
+    string name = 4;
+  }
+  repeated Rule rule = 2;
+  string storage_account_id = 3;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 4;
+}

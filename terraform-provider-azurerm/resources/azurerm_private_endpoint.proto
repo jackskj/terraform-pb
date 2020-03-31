@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermPrivateEndpoint {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  string subnet_id = 5;
+  message PrivateServiceConnection {
+    bool   is_manual_connection = 1;
+    string name = 2;
+    string private_connection_resource_id = 3;
+    string private_ip_address = 4;
+    string request_message = 5;
+    repeated string subresource_names = 6;
+  }
+  repeated PrivateServiceConnection private_service_connection = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 7;
+}

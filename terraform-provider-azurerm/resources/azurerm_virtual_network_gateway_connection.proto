@@ -1,0 +1,41 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermVirtualNetworkGatewayConnection {
+  string authorization_key = 1;
+  string connection_protocol = 2;
+  bool   enable_bgp = 3;
+  string express_route_circuit_id = 4;
+  bool   express_route_gateway_bypass = 5;
+  string id = 6;
+  string local_network_gateway_id = 7;
+  string location = 8;
+  string name = 9;
+  string peer_virtual_network_gateway_id = 10;
+  string resource_group_name = 11;
+  int64  routing_weight = 12;
+  string shared_key = 13;
+  map<string, string> tags = 14;
+  string type = 15;
+  bool   use_policy_based_traffic_selectors = 16;
+  string virtual_network_gateway_id = 17;
+  message IpsecPolicy {
+    string dh_group = 1;
+    string ike_encryption = 2;
+    string ike_integrity = 3;
+    string ipsec_encryption = 4;
+    string ipsec_integrity = 5;
+    string pfs_group = 6;
+    int64  sa_datasize = 7;
+    int64  sa_lifetime = 8;
+  }
+  repeated IpsecPolicy ipsec_policy = 18;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 19;
+}

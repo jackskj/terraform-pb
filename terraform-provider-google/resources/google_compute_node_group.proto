@@ -1,0 +1,33 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeNodeGroup {
+
+  // Creation timestamp in RFC3339 text format.
+  string creation_timestamp = 1;
+
+  // An optional textual description of the resource.
+  string description = 2;
+  string id = 3;
+
+  // Name of the resource.
+  string name = 4;
+
+  // The URL of the node template to which this node group belongs.
+  string node_template = 5;
+  string project = 6;
+  string self_link = 7;
+
+  // The total number of nodes in the node group.
+  int64  size = 8;
+
+  // Zone where this node group is located
+  string zone = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 10;
+}

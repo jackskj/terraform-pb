@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsPartition {
-  dns_suffix = 1;
-  id = 2;
-  partition = 3;
-}

@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCodecommitTrigger {
+  string configuration_id = 1;
+  string id = 2;
+  string repository_name = 3;
+  message Trigger {
+    repeated string branches = 1;
+    string custom_data = 2;
+    string destination_arn = 3;
+    repeated string events = 4;
+    string name = 5;
+  }
+  repeated Trigger trigger = 4;
+}

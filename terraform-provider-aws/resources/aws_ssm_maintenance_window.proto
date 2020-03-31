@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSsmMaintenanceWindow {
+  bool   allow_unassociated_targets = 1;
+  int64  cutoff = 2;
+  string description = 3;
+  int64  duration = 4;
+  bool   enabled = 5;
+  string end_date = 6;
+  string id = 7;
+  string name = 8;
+  string schedule = 9;
+  string schedule_timezone = 10;
+  string start_date = 11;
+  map<string, string> tags = 12;
+}

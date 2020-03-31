@@ -1,0 +1,41 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDmsEndpoint {
+  string certificate_arn = 1;
+  string database_name = 2;
+  string endpoint_arn = 3;
+  string endpoint_id = 4;
+  string endpoint_type = 5;
+  string engine_name = 6;
+  string extra_connection_attributes = 7;
+  string id = 8;
+  string kms_key_arn = 9;
+  string password = 10;
+  int64  port = 11;
+  string server_name = 12;
+  string service_access_role = 13;
+  string ssl_mode = 14;
+  map<string, string> tags = 15;
+  string username = 16;
+  message MongodbSettings {
+    string auth_mechanism = 1;
+    string auth_source = 2;
+    string auth_type = 3;
+    string docs_to_investigate = 4;
+    string extract_doc_id = 5;
+    string nesting_level = 6;
+  }
+  repeated MongodbSettings mongodb_settings = 17;
+  message S3Settings {
+    string bucket_folder = 1;
+    string bucket_name = 2;
+    string compression_type = 3;
+    string csv_delimiter = 4;
+    string csv_row_delimiter = 5;
+    string external_table_definition = 6;
+    string service_access_role_arn = 7;
+  }
+  repeated S3Settings s3_settings = 18;
+}

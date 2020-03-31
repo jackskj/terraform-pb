@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package google;
+
+message GoogleIamRole {
+  string id = 1;
+  repeated string included_permissions = 2;
+  string name = 3;
+  string stage = 4;
+  string title = 5;
+}

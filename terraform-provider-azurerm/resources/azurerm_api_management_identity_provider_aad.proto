@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermApiManagementIdentityProviderAad {
+  repeated string allowed_tenants = 1;
+  string api_management_name = 2;
+  string client_id = 3;
+  string client_secret = 4;
+  string id = 5;
+  string resource_group_name = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 7;
+}

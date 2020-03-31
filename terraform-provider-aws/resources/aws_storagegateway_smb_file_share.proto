@@ -1,0 +1,29 @@
+syntax="proto3";
+
+package aws;
+
+message AwsStoragegatewaySmbFileShare {
+  string arn = 1;
+  string authentication = 2;
+  string default_storage_class = 3;
+  string fileshare_id = 4;
+  string gateway_arn = 5;
+  bool   guess_mime_type_enabled = 6;
+  string id = 7;
+  repeated string invalid_user_list = 8;
+  bool   kms_encrypted = 9;
+  string kms_key_arn = 10;
+  string location_arn = 11;
+  string object_acl = 12;
+  bool   read_only = 13;
+  bool   requester_pays = 14;
+  string role_arn = 15;
+  map<string, string> tags = 16;
+  repeated string valid_user_list = 17;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 18;
+}

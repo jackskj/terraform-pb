@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermVirtualNetwork {
+  repeated string address_space = 1;
+  repeated string dns_servers = 2;
+  string id = 3;
+  string location = 4;
+  string name = 5;
+  string resource_group_name = 6;
+  repeated string subnets = 7;
+  map<string, string> vnet_peerings = 8;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 9;
+}

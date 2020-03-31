@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsMskCluster {
+  string arn = 1;
+  string bootstrap_brokers = 2;
+  string bootstrap_brokers_tls = 3;
+  string cluster_name = 4;
+  string id = 5;
+  string kafka_version = 6;
+  int64  number_of_broker_nodes = 7;
+  map<string, string> tags = 8;
+  string zookeeper_connect_string = 9;
+}

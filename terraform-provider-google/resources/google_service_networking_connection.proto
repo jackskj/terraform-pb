@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package google;
+
+message GoogleServiceNetworkingConnection {
+  string id = 1;
+  string network = 2;
+  string peering = 3;
+  repeated string reserved_peering_ranges = 4;
+  string service = 5;
+}

@@ -1,0 +1,41 @@
+syntax="proto3";
+
+package google;
+
+message GoogleFirestoreIndex {
+
+  // The collection being indexed.
+  string collection = 1;
+
+  // The Firestore database id. Defaults to '"(default)"'.
+  string database = 2;
+  string id = 3;
+
+  // A server defined name for this index. Format:
+  // 'projects/{{project}}/databases/{{database}}/collectionGroups/{{collection}}/indexes/{{server_generated_id}}'
+  string name = 4;
+  string project = 5;
+
+  // The scope at which a query is run. One of '"COLLECTION"' or
+  // '"COLLECTION_GROUP"'. Defaults to '"COLLECTION"'.
+  string query_scope = 6;
+  message Fields {
+
+    // Indicates that this field supports operations on arrayValues. Only one of 'order' and 'arrayConfig' can
+    // be specified.
+    string array_config = 1;
+
+    // Name of the field.
+    string field_path = 2;
+
+    // Indicates that this field supports ordering by the specified order or comparing using =, <, <=, >, >=.
+    // Only one of 'order' and 'arrayConfig' can be specified.
+    string order = 3;
+  }
+  repeated Fields fields = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 8;
+}

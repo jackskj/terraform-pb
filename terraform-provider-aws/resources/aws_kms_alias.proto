@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package aws;
+
+message AwsKmsAlias {
+  string arn = 1;
+  string id = 2;
+  string name = 3;
+  string name_prefix = 4;
+  string target_key_arn = 5;
+  string target_key_id = 6;
+}

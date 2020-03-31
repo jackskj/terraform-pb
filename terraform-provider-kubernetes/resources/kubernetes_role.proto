@@ -1,0 +1,52 @@
+syntax="proto3";
+
+package kubernetes;
+
+message KubernetesRole {
+  string id = 1;
+  message Metadata {
+
+    // An unstructured key value map stored with the role that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+    map<string, string> annotations = 1;
+
+    // Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+    string generate_name = 2;
+
+    // A sequence number representing a specific generation of the desired state.
+    int64  generation = 3;
+
+    // Map of string keys and values that can be used to organize and categorize (scope and select) the role. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+    map<string, string> labels = 4;
+
+    // Name of the role, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+    string name = 5;
+
+    // Namespace defines the space within which name of the role must be unique.
+    string namespace = 6;
+
+    // An opaque value that represents the internal version of this role that can be used by clients to determine when role has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+    string resource_version = 7;
+
+    // A URL representing this role.
+    string self_link = 8;
+
+    // The unique in time and space value for this role. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+    string uid = 9;
+  }
+  repeated Metadata metadata = 2;
+  message Rule {
+
+    // Name of the APIGroup that contains the resources
+    repeated string api_groups = 1;
+
+    // White list of names that the rule applies to
+    repeated string resource_names = 2;
+
+    // List of resources that the rule applies to
+    repeated string resources = 3;
+
+    // List of Verbs that apply to ALL the ResourceKinds and AttributeRestrictions contained in this rule
+    repeated string verbs = 4;
+  }
+  repeated Rule rule = 3;
+}

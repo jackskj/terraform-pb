@@ -1,0 +1,80 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermIothub {
+  string event_hub_events_endpoint = 1;
+  string event_hub_events_path = 2;
+  string event_hub_operations_endpoint = 3;
+  string event_hub_operations_path = 4;
+  int64  event_hub_partition_count = 5;
+  int64  event_hub_retention_in_days = 6;
+  string hostname = 7;
+  string id = 8;
+  string location = 9;
+  string name = 10;
+  string resource_group_name = 11;
+  message SharedAccessPolicy {
+    string key_name = 1;
+    string permissions = 2;
+    string primary_key = 3;
+    string secondary_key = 4;
+  }
+  repeated SharedAccessPolicy shared_access_policy = 12;
+  map<string, string> tags = 13;
+  string type = 14;
+  message Endpoint {
+    int64  batch_frequency_in_seconds = 1;
+    string connection_string = 2;
+    string container_name = 3;
+    string encoding = 4;
+    string file_name_format = 5;
+    int64  max_chunk_size_in_bytes = 6;
+    string name = 7;
+    string type = 8;
+  }
+  repeated Endpoint endpoint = 15;
+  message FallbackRoute {
+    string condition = 1;
+    bool   enabled = 2;
+    repeated string endpoint_names = 3;
+    string source = 4;
+  }
+  repeated FallbackRoute fallback_route = 16;
+  message FileUpload {
+    string connection_string = 1;
+    string container_name = 2;
+    string default_ttl = 3;
+    string lock_duration = 4;
+    int64  max_delivery_count = 5;
+    bool   notifications = 6;
+    string sas_ttl = 7;
+  }
+  repeated FileUpload file_upload = 17;
+  message IpFilterRule {
+    string action = 1;
+    string ip_mask = 2;
+    string name = 3;
+  }
+  repeated IpFilterRule ip_filter_rule = 18;
+  message Route {
+    string condition = 1;
+    bool   enabled = 2;
+    repeated string endpoint_names = 3;
+    string name = 4;
+    string source = 5;
+  }
+  repeated Route route = 19;
+  message Sku {
+    int64  capacity = 1;
+    string name = 2;
+  }
+  repeated Sku sku = 20;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 21;
+}

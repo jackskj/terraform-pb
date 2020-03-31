@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermApiManagementUser {
+  string api_management_name = 1;
+  string confirmation = 2;
+  string email = 3;
+  string first_name = 4;
+  string id = 5;
+  string last_name = 6;
+  string note = 7;
+  string password = 8;
+  string resource_group_name = 9;
+  string state = 10;
+  string user_id = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

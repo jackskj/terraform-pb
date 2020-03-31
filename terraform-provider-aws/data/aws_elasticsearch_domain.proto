@@ -1,0 +1,72 @@
+syntax="proto3";
+
+package aws;
+
+message AwsElasticsearchDomain {
+  string access_policies = 1;
+  map<string, string> advanced_options = 2;
+  string arn = 3;
+  message ClusterConfig {
+    int64  dedicated_master_count = 1;
+    bool   dedicated_master_enabled = 2;
+    string dedicated_master_type = 3;
+    int64  instance_count = 4;
+    string instance_type = 5;
+    message ZoneAwarenessConfig {
+      int64  availability_zone_count = 1;
+    }
+    repeated ZoneAwarenessConfig zone_awareness_config = 6;
+    bool   zone_awareness_enabled = 7;
+  }
+  repeated ClusterConfig cluster_config = 4;
+  message CognitoOptions {
+    bool   enabled = 1;
+    string identity_pool_id = 2;
+    string role_arn = 3;
+    string user_pool_id = 4;
+  }
+  repeated CognitoOptions cognito_options = 5;
+  bool   created = 6;
+  bool   deleted = 7;
+  string domain_id = 8;
+  string domain_name = 9;
+  message EbsOptions {
+    bool   ebs_enabled = 1;
+    int64  iops = 2;
+    int64  volume_size = 3;
+    string volume_type = 4;
+  }
+  repeated EbsOptions ebs_options = 10;
+  string elasticsearch_version = 11;
+  message EncryptionAtRest {
+    bool   enabled = 1;
+    string kms_key_id = 2;
+  }
+  repeated EncryptionAtRest encryption_at_rest = 12;
+  string endpoint = 13;
+  string id = 14;
+  string kibana_endpoint = 15;
+  message LogPublishingOptions {
+    string cloudwatch_log_group_arn = 1;
+    bool   enabled = 2;
+    string log_type = 3;
+  }
+  repeated LogPublishingOptions log_publishing_options = 16;
+  message NodeToNodeEncryption {
+    bool   enabled = 1;
+  }
+  repeated NodeToNodeEncryption node_to_node_encryption = 17;
+  string processing = 18;
+  message SnapshotOptions {
+    int64  automated_snapshot_start_hour = 1;
+  }
+  repeated SnapshotOptions snapshot_options = 19;
+  map<string, string> tags = 20;
+  message VpcOptions {
+    repeated string availability_zones = 1;
+    repeated string security_group_ids = 2;
+    repeated string subnet_ids = 3;
+    string vpc_id = 4;
+  }
+  repeated VpcOptions vpc_options = 21;
+}

@@ -1,0 +1,31 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMariadbServer {
+  string administrator_login = 1;
+  string administrator_login_password = 2;
+  string fqdn = 3;
+  string id = 4;
+  string location = 5;
+  string name = 6;
+  string resource_group_name = 7;
+  string sku_name = 8;
+  string ssl_enforcement = 9;
+  map<string, string> tags = 10;
+  string version = 11;
+  message StorageProfile {
+    string auto_grow = 1;
+    int64  backup_retention_days = 2;
+    string geo_redundant_backup = 3;
+    int64  storage_mb = 4;
+  }
+  repeated StorageProfile storage_profile = 12;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 13;
+}

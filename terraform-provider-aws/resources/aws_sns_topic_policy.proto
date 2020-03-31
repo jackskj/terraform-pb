@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSnsTopicPolicy {
+  string arn = 1;
+  string id = 2;
+  string policy = 3;
+}

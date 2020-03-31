@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermLbNatPool {
+  int64  backend_port = 1;
+  string frontend_ip_configuration_id = 2;
+  string frontend_ip_configuration_name = 3;
+  int64  frontend_port_end = 4;
+  int64  frontend_port_start = 5;
+  string id = 6;
+  string loadbalancer_id = 7;
+  string name = 8;
+  string protocol = 9;
+  string resource_group_name = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

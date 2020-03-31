@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDxGatewayAssociation {
+  repeated string allowed_prefixes = 1;
+  string associated_gateway_id = 2;
+  string associated_gateway_owner_account_id = 3;
+  string associated_gateway_type = 4;
+  string dx_gateway_association_id = 5;
+  string dx_gateway_id = 6;
+  string dx_gateway_owner_account_id = 7;
+  string id = 8;
+  string proposal_id = 9;
+  string vpn_gateway_id = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 11;
+}

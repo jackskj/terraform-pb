@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermFirewall {
+  string id = 1;
+  message IpConfiguration {
+    string internal_public_ip_address_id = 1;
+    string name = 2;
+    string private_ip_address = 3;
+    string public_ip_address_id = 4;
+    string subnet_id = 5;
+  }
+  repeated IpConfiguration ip_configuration = 2;
+  string location = 3;
+  string name = 4;
+  string resource_group_name = 5;
+  map<string, string> tags = 6;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 7;
+}

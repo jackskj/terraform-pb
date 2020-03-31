@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsRamPrincipalAssociation {
-  id = 1;
-  principal = 2;
-  resource_share_arn = 3;
-}

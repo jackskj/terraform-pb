@@ -1,0 +1,43 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVpnConnection {
+  string customer_gateway_configuration = 1;
+  string customer_gateway_id = 2;
+  string id = 3;
+  message Routes {
+    string destination_cidr_block = 1;
+    string source = 2;
+    string state = 3;
+  }
+  repeated Routes routes = 4;
+  bool   static_routes_only = 5;
+  map<string, string> tags = 6;
+  string transit_gateway_attachment_id = 7;
+  string transit_gateway_id = 8;
+  string tunnel1_address = 9;
+  string tunnel1_bgp_asn = 10;
+  int64  tunnel1_bgp_holdtime = 11;
+  string tunnel1_cgw_inside_address = 12;
+  string tunnel1_inside_cidr = 13;
+  string tunnel1_preshared_key = 14;
+  string tunnel1_vgw_inside_address = 15;
+  string tunnel2_address = 16;
+  string tunnel2_bgp_asn = 17;
+  int64  tunnel2_bgp_holdtime = 18;
+  string tunnel2_cgw_inside_address = 19;
+  string tunnel2_inside_cidr = 20;
+  string tunnel2_preshared_key = 21;
+  string tunnel2_vgw_inside_address = 22;
+  string type = 23;
+  message VgwTelemetry {
+    int64  accepted_route_count = 1;
+    string last_status_change = 2;
+    string outside_ip_address = 3;
+    string status = 4;
+    string status_message = 5;
+  }
+  repeated VgwTelemetry vgw_telemetry = 24;
+  string vpn_gateway_id = 25;
+}

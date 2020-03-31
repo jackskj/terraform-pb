@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMonitorDiagnosticCategories {
+  string id = 1;
+  repeated string logs = 2;
+  repeated string metrics = 3;
+  string resource_id = 4;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 5;
+}

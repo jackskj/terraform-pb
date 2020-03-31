@@ -1,0 +1,99 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermApiManagementApiOperation {
+  string api_management_name = 1;
+  string api_name = 2;
+  string description = 3;
+  string display_name = 4;
+  string id = 5;
+  string method = 6;
+  string operation_id = 7;
+  string resource_group_name = 8;
+  string url_template = 9;
+  message Request {
+    string description = 1;
+    message Header {
+      string default_value = 1;
+      string description = 2;
+      string name = 3;
+      bool   required = 4;
+      string type = 5;
+      repeated string values = 6;
+    }
+    repeated Header header = 2;
+    message QueryParameter {
+      string default_value = 1;
+      string description = 2;
+      string name = 3;
+      bool   required = 4;
+      string type = 5;
+      repeated string values = 6;
+    }
+    repeated QueryParameter query_parameter = 3;
+    message Representation {
+      string content_type = 1;
+      string sample = 2;
+      string schema_id = 3;
+      string type_name = 4;
+      message FormParameter {
+        string default_value = 1;
+        string description = 2;
+        string name = 3;
+        bool   required = 4;
+        string type = 5;
+        repeated string values = 6;
+      }
+      repeated FormParameter form_parameter = 5;
+    }
+    repeated Representation representation = 4;
+  }
+  repeated Request request = 10;
+  message Response {
+    string description = 1;
+    int64  status_code = 2;
+    message Header {
+      string default_value = 1;
+      string description = 2;
+      string name = 3;
+      bool   required = 4;
+      string type = 5;
+      repeated string values = 6;
+    }
+    repeated Header header = 3;
+    message Representation {
+      string content_type = 1;
+      string sample = 2;
+      string schema_id = 3;
+      string type_name = 4;
+      message FormParameter {
+        string default_value = 1;
+        string description = 2;
+        string name = 3;
+        bool   required = 4;
+        string type = 5;
+        repeated string values = 6;
+      }
+      repeated FormParameter form_parameter = 5;
+    }
+    repeated Representation representation = 4;
+  }
+  repeated Response response = 11;
+  message TemplateParameter {
+    string default_value = 1;
+    string description = 2;
+    string name = 3;
+    bool   required = 4;
+    string type = 5;
+    repeated string values = 6;
+  }
+  repeated TemplateParameter template_parameter = 12;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 13;
+}

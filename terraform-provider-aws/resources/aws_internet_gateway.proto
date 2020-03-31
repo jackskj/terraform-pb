@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsInternetGateway {
+  string id = 1;
+  string owner_id = 2;
+  map<string, string> tags = 3;
+  string vpc_id = 4;
+}

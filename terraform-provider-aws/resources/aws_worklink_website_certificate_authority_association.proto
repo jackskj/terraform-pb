@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsWorklinkWebsiteCertificateAuthorityAssociation {
+  string certificate = 1;
+  string display_name = 2;
+  string fleet_arn = 3;
+  string id = 4;
+  string website_ca_id = 5;
+}

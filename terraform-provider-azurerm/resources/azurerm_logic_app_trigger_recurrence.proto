@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermLogicAppTriggerRecurrence {
+  string frequency = 1;
+  string id = 2;
+  int64  interval = 3;
+  string logic_app_id = 4;
+  string name = 5;
+  string start_time = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 7;
+}

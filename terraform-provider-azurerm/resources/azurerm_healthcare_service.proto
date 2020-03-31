@@ -1,0 +1,35 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermHealthcareService {
+  repeated string access_policy_object_ids = 1;
+  int64  cosmosdb_throughput = 2;
+  string id = 3;
+  string kind = 4;
+  string location = 5;
+  string name = 6;
+  string resource_group_name = 7;
+  map<string, string> tags = 8;
+  message AuthenticationConfiguration {
+    string audience = 1;
+    string authority = 2;
+    bool   smart_proxy_enabled = 3;
+  }
+  repeated AuthenticationConfiguration authentication_configuration = 9;
+  message CorsConfiguration {
+    bool   allow_credentials = 1;
+    repeated string allowed_headers = 2;
+    repeated string allowed_methods = 3;
+    repeated string allowed_origins = 4;
+    int64  max_age_in_seconds = 5;
+  }
+  repeated CorsConfiguration cors_configuration = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

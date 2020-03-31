@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package google;
+
+message GoogleDataprocJobIamBinding {
+  string etag = 1;
+  string id = 2;
+  string job_id = 3;
+  repeated string members = 4;
+  string project = 5;
+  string region = 6;
+  string role = 7;
+}

@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCognitoIdentityProvider {
+  map<string, string> attribute_mapping = 1;
+  string id = 2;
+  repeated string idp_identifiers = 3;
+  map<string, string> provider_details = 4;
+  string provider_name = 5;
+  string provider_type = 6;
+  string user_pool_id = 7;
+}

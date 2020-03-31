@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package aws;
+
+message AwsS3AccessPoint {
+  string account_id = 1;
+  string arn = 2;
+  string bucket = 3;
+  string domain_name = 4;
+  bool   has_public_access_policy = 5;
+  string id = 6;
+  string name = 7;
+  string network_origin = 8;
+  string policy = 9;
+  message PublicAccessBlockConfiguration {
+    bool   block_public_acls = 1;
+    bool   block_public_policy = 2;
+    bool   ignore_public_acls = 3;
+    bool   restrict_public_buckets = 4;
+  }
+  repeated PublicAccessBlockConfiguration public_access_block_configuration = 10;
+  message VpcConfiguration {
+    string vpc_id = 1;
+  }
+  repeated VpcConfiguration vpc_configuration = 11;
+}

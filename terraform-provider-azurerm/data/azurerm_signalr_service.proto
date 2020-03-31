@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSignalrService {
+  string hostname = 1;
+  string id = 2;
+  string ip_address = 3;
+  string location = 4;
+  string name = 5;
+  string primary_access_key = 6;
+  string primary_connection_string = 7;
+  int64  public_port = 8;
+  string resource_group_name = 9;
+  string secondary_access_key = 10;
+  string secondary_connection_string = 11;
+  int64  server_port = 12;
+  map<string, string> tags = 13;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 14;
+}

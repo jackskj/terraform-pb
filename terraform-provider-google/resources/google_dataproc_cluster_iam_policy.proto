@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package google;
+
+message GoogleDataprocClusterIamPolicy {
+  string cluster = 1;
+  string etag = 2;
+  string id = 3;
+  string policy_data = 4;
+  string project = 5;
+  string region = 6;
+}

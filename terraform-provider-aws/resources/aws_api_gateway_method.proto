@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayMethod {
+  bool   api_key_required = 1;
+  string authorization = 2;
+  repeated string authorization_scopes = 3;
+  string authorizer_id = 4;
+  string http_method = 5;
+  string id = 6;
+  map<string, string> request_models = 7;
+  map<string, bool> request_parameters = 8;
+  string request_parameters_in_json = 9;
+  string request_validator_id = 10;
+  string resource_id = 11;
+  string rest_api_id = 12;
+}

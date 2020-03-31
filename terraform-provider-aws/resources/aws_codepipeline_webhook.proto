@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCodepipelineWebhook {
+  string authentication = 1;
+  string id = 2;
+  string name = 3;
+  map<string, string> tags = 4;
+  string target_action = 5;
+  string target_pipeline = 6;
+  string url = 7;
+  message AuthenticationConfiguration {
+    string allowed_ip_range = 1;
+    string secret_token = 2;
+  }
+  repeated AuthenticationConfiguration authentication_configuration = 8;
+  message Filter {
+    string json_path = 1;
+    string match_equals = 2;
+  }
+  repeated Filter filter = 9;
+}

@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsGlueWorkflow {
+  map<string, string> default_run_properties = 1;
+  string description = 2;
+  string id = 3;
+  string name = 4;
+}

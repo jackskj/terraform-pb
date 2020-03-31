@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package google;
+
+message GoogleStorageObjectSignedUrl {
+  string bucket = 1;
+  string content_md5 = 2;
+  string content_type = 3;
+  string credentials = 4;
+  string duration = 5;
+  map<string, string> extension_headers = 6;
+  string http_method = 7;
+  string id = 8;
+  string path = 9;
+  string signed_url = 10;
+}

@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayUsagePlanKey {
+  string id = 1;
+  string key_id = 2;
+  string key_type = 3;
+  string name = 4;
+  string usage_plan_id = 5;
+  string value = 6;
+}

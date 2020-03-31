@@ -1,0 +1,30 @@
+syntax="proto3";
+
+package aws;
+
+message AwsS3BucketObject {
+  string acl = 1;
+  string bucket = 2;
+  string cache_control = 3;
+  string content = 4;
+  string content_base64 = 5;
+  string content_disposition = 6;
+  string content_encoding = 7;
+  string content_language = 8;
+  string content_type = 9;
+  string etag = 10;
+  bool   force_destroy = 11;
+  string id = 12;
+  string key = 13;
+  string kms_key_id = 14;
+  map<string, string> metadata = 15;
+  string object_lock_legal_hold_status = 16;
+  string object_lock_mode = 17;
+  string object_lock_retain_until_date = 18;
+  string server_side_encryption = 19;
+  string source = 20;
+  string storage_class = 21;
+  map<string, string> tags = 22;
+  string version_id = 23;
+  string website_redirect = 24;
+}

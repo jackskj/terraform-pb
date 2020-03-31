@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDefaultVpc {
+  string arn = 1;
+  bool   assign_generated_ipv6_cidr_block = 2;
+  string cidr_block = 3;
+  string default_network_acl_id = 4;
+  string default_route_table_id = 5;
+  string default_security_group_id = 6;
+  string dhcp_options_id = 7;
+  bool   enable_classiclink = 8;
+  bool   enable_classiclink_dns_support = 9;
+  bool   enable_dns_hostnames = 10;
+  bool   enable_dns_support = 11;
+  string id = 12;
+  string instance_tenancy = 13;
+  string ipv6_association_id = 14;
+  string ipv6_cidr_block = 15;
+  string main_route_table_id = 16;
+  string owner_id = 17;
+  map<string, string> tags = 18;
+}

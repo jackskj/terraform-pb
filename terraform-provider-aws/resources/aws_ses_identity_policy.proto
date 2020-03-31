@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSesIdentityPolicy {
+  string id = 1;
+  string identity = 2;
+  string name = 3;
+  string policy = 4;
+}

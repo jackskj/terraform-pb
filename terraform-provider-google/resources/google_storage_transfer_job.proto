@@ -1,0 +1,73 @@
+syntax="proto3";
+
+package google;
+
+message GoogleStorageTransferJob {
+  string creation_time = 1;
+  string deletion_time = 2;
+  string description = 3;
+  string id = 4;
+  string last_modification_time = 5;
+  string name = 6;
+  string project = 7;
+  string status = 8;
+  message Schedule {
+    message ScheduleEndDate {
+      int64  day = 1;
+      int64  month = 2;
+      int64  year = 3;
+    }
+    repeated ScheduleEndDate schedule_end_date = 1;
+    message ScheduleStartDate {
+      int64  day = 1;
+      int64  month = 2;
+      int64  year = 3;
+    }
+    repeated ScheduleStartDate schedule_start_date = 2;
+    message StartTimeOfDay {
+      int64  hours = 1;
+      int64  minutes = 2;
+      int64  nanos = 3;
+      int64  seconds = 4;
+    }
+    repeated StartTimeOfDay start_time_of_day = 3;
+  }
+  repeated Schedule schedule = 9;
+  message TransferSpec {
+    message AwsS3DataSource {
+      string bucket_name = 1;
+      message AwsAccessKey {
+        string access_key_id = 1;
+        string secret_access_key = 2;
+      }
+      repeated AwsAccessKey aws_access_key = 2;
+    }
+    repeated AwsS3DataSource aws_s3_data_source = 1;
+    message GcsDataSink {
+      string bucket_name = 1;
+    }
+    repeated GcsDataSink gcs_data_sink = 2;
+    message GcsDataSource {
+      string bucket_name = 1;
+    }
+    repeated GcsDataSource gcs_data_source = 3;
+    message HttpDataSource {
+      string list_url = 1;
+    }
+    repeated HttpDataSource http_data_source = 4;
+    message ObjectConditions {
+      repeated string exclude_prefixes = 1;
+      repeated string include_prefixes = 2;
+      string max_time_elapsed_since_last_modification = 3;
+      string min_time_elapsed_since_last_modification = 4;
+    }
+    repeated ObjectConditions object_conditions = 5;
+    message TransferOptions {
+      bool   delete_objects_from_source_after_transfer = 1;
+      bool   delete_objects_unique_in_sink = 2;
+      bool   overwrite_objects_already_existing_in_sink = 3;
+    }
+    repeated TransferOptions transfer_options = 6;
+  }
+  repeated TransferSpec transfer_spec = 10;
+}

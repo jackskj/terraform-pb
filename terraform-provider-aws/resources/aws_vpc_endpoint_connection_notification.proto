@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVpcEndpointConnectionNotification {
+  repeated string connection_events = 1;
+  string connection_notification_arn = 2;
+  string id = 3;
+  string notification_type = 4;
+  string state = 5;
+  string vpc_endpoint_id = 6;
+  string vpc_endpoint_service_id = 7;
+}

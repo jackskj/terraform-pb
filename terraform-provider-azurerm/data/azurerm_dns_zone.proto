@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermDnsZone {
+  string id = 1;
+  int64  max_number_of_record_sets = 2;
+  string name = 3;
+  repeated string name_servers = 4;
+  int64  number_of_record_sets = 5;
+  string resource_group_name = 6;
+  map<string, string> tags = 7;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 8;
+}

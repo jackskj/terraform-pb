@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEc2TrafficMirrorFilterRule {
+  string description = 1;
+  string destination_cidr_block = 2;
+  string id = 3;
+  int64  protocol = 4;
+  string rule_action = 5;
+  int64  rule_number = 6;
+  string source_cidr_block = 7;
+  string traffic_direction = 8;
+  string traffic_mirror_filter_id = 9;
+  message DestinationPortRange {
+    int64  from_port = 1;
+    int64  to_port = 2;
+  }
+  repeated DestinationPortRange destination_port_range = 10;
+  message SourcePortRange {
+    int64  from_port = 1;
+    int64  to_port = 2;
+  }
+  repeated SourcePortRange source_port_range = 11;
+}

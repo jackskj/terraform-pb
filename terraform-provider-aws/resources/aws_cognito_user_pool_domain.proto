@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCognitoUserPoolDomain {
+  string aws_account_id = 1;
+  string certificate_arn = 2;
+  string cloudfront_distribution_arn = 3;
+  string domain = 4;
+  string id = 5;
+  string s3_bucket = 6;
+  string user_pool_id = 7;
+  string version = 8;
+}

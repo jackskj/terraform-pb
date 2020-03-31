@@ -1,0 +1,110 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCognitoUserPool {
+  repeated string alias_attributes = 1;
+  string arn = 2;
+  repeated string auto_verified_attributes = 3;
+  string creation_date = 4;
+  string email_verification_message = 5;
+  string email_verification_subject = 6;
+  string endpoint = 7;
+  string id = 8;
+  string last_modified_date = 9;
+  string mfa_configuration = 10;
+  string name = 11;
+  string sms_authentication_message = 12;
+  string sms_verification_message = 13;
+  map<string, string> tags = 14;
+  repeated string username_attributes = 15;
+  message AdminCreateUserConfig {
+    bool   allow_admin_create_user_only = 1;
+    int64  unused_account_validity_days = 2;
+    message InviteMessageTemplate {
+      string email_message = 1;
+      string email_subject = 2;
+      string sms_message = 3;
+    }
+    repeated InviteMessageTemplate invite_message_template = 3;
+  }
+  repeated AdminCreateUserConfig admin_create_user_config = 16;
+  message DeviceConfiguration {
+    bool   challenge_required_on_new_device = 1;
+    bool   device_only_remembered_on_user_prompt = 2;
+  }
+  repeated DeviceConfiguration device_configuration = 17;
+  message EmailConfiguration {
+    string email_sending_account = 1;
+    string from_email_address = 2;
+    string reply_to_email_address = 3;
+    string source_arn = 4;
+  }
+  repeated EmailConfiguration email_configuration = 18;
+  message LambdaConfig {
+    string create_auth_challenge = 1;
+    string custom_message = 2;
+    string define_auth_challenge = 3;
+    string post_authentication = 4;
+    string post_confirmation = 5;
+    string pre_authentication = 6;
+    string pre_sign_up = 7;
+    string pre_token_generation = 8;
+    string user_migration = 9;
+    string verify_auth_challenge_response = 10;
+  }
+  repeated LambdaConfig lambda_config = 19;
+  message PasswordPolicy {
+    int64  minimum_length = 1;
+    bool   require_lowercase = 2;
+    bool   require_numbers = 3;
+    bool   require_symbols = 4;
+    bool   require_uppercase = 5;
+    int64  temporary_password_validity_days = 6;
+  }
+  repeated PasswordPolicy password_policy = 20;
+  message Schema {
+    string attribute_data_type = 1;
+    bool   developer_only_attribute = 2;
+    bool   mutable = 3;
+    string name = 4;
+    bool   required = 5;
+    message NumberAttributeConstraints {
+      string max_value = 1;
+      string min_value = 2;
+    }
+    repeated NumberAttributeConstraints number_attribute_constraints = 6;
+    message StringAttributeConstraints {
+      string max_length = 1;
+      string min_length = 2;
+    }
+    repeated StringAttributeConstraints string_attribute_constraints = 7;
+  }
+  repeated Schema schema = 21;
+  message SmsConfiguration {
+    string external_id = 1;
+    string sns_caller_arn = 2;
+  }
+  repeated SmsConfiguration sms_configuration = 22;
+  message SoftwareTokenMfaConfiguration {
+    bool   enabled = 1;
+  }
+  repeated SoftwareTokenMfaConfiguration software_token_mfa_configuration = 23;
+  message UserPoolAddOns {
+    string advanced_security_mode = 1;
+  }
+  repeated UserPoolAddOns user_pool_add_ons = 24;
+  message UsernameConfiguration {
+    bool   case_sensitive = 1;
+  }
+  repeated UsernameConfiguration username_configuration = 25;
+  message VerificationMessageTemplate {
+    string default_email_option = 1;
+    string email_message = 2;
+    string email_message_by_link = 3;
+    string email_subject = 4;
+    string email_subject_by_link = 5;
+    string sms_message = 6;
+  }
+  repeated VerificationMessageTemplate verification_message_template = 26;
+}

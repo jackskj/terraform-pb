@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEip {
+  string allocation_id = 1;
+  string associate_with_private_ip = 2;
+  string association_id = 3;
+  string domain = 4;
+  string id = 5;
+  string instance = 6;
+  string network_interface = 7;
+  string private_dns = 8;
+  string private_ip = 9;
+  string public_dns = 10;
+  string public_ip = 11;
+  string public_ipv4_pool = 12;
+  map<string, string> tags = 13;
+  bool   vpc = 14;
+  message Timeouts {
+    string delete = 1;
+    string read = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 15;
+}

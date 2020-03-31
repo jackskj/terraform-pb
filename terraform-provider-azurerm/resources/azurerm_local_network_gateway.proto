@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermLocalNetworkGateway {
+  repeated string address_space = 1;
+  string gateway_address = 2;
+  string id = 3;
+  string location = 4;
+  string name = 5;
+  string resource_group_name = 6;
+  map<string, string> tags = 7;
+  message BgpSettings {
+    int64  asn = 1;
+    string bgp_peering_address = 2;
+    int64  peer_weight = 3;
+  }
+  repeated BgpSettings bgp_settings = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 9;
+}

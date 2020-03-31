@@ -1,0 +1,74 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermAppService {
+  string app_service_plan_id = 1;
+  map<string, string> app_settings = 2;
+  bool   client_affinity_enabled = 3;
+  bool   client_cert_enabled = 4;
+  message ConnectionString {
+    string name = 1;
+    string type = 2;
+    string value = 3;
+  }
+  repeated ConnectionString connection_string = 5;
+  string default_site_hostname = 6;
+  bool   enabled = 7;
+  bool   https_only = 8;
+  string id = 9;
+  string location = 10;
+  string name = 11;
+  string outbound_ip_addresses = 12;
+  string possible_outbound_ip_addresses = 13;
+  string resource_group_name = 14;
+  message SiteConfig {
+    bool   always_on = 1;
+    string app_command_line = 2;
+    message Cors {
+      repeated string allowed_origins = 1;
+      bool   support_credentials = 2;
+    }
+    repeated Cors cors = 3;
+    repeated string default_documents = 4;
+    string dotnet_framework_version = 5;
+    string ftps_state = 6;
+    bool   http2_enabled = 7;
+    message IpRestriction {
+      string ip_address = 1;
+      string virtual_network_subnet_id = 2;
+    }
+    repeated IpRestriction ip_restriction = 8;
+    string java_container = 9;
+    string java_container_version = 10;
+    string java_version = 11;
+    string linux_fx_version = 12;
+    bool   local_mysql_enabled = 13;
+    string managed_pipeline_mode = 14;
+    string min_tls_version = 15;
+    string php_version = 16;
+    string python_version = 17;
+    bool   remote_debugging_enabled = 18;
+    string remote_debugging_version = 19;
+    string scm_type = 20;
+    bool   use_32_bit_worker_process = 21;
+    bool   websockets_enabled = 22;
+    string windows_fx_version = 23;
+  }
+  repeated SiteConfig site_config = 15;
+  message SiteCredential {
+    string password = 1;
+    string username = 2;
+  }
+  repeated SiteCredential site_credential = 16;
+  message SourceControl {
+    string branch = 1;
+    string repo_url = 2;
+  }
+  repeated SourceControl source_control = 17;
+  map<string, string> tags = 18;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 19;
+}

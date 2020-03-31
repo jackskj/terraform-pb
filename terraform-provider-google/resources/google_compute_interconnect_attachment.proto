@@ -1,0 +1,110 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeInterconnectAttachment {
+
+  // Whether the VLAN attachment is enabled or disabled.  When using
+  // PARTNER type this will Pre-Activate the interconnect attachment
+  bool   admin_enabled = 1;
+
+  // Provisioned bandwidth capacity for the interconnect attachment.
+  // For attachments of type DEDICATED, the user can set the bandwidth.
+  // For attachments of type PARTNER, the Google Partner that is operating the interconnect must set the bandwidth.
+  // Output only for PARTNER type, mutable for PARTNER_PROVIDER and DEDICATED,
+  // Defaults to BPS_10G
+  string bandwidth = 2;
+
+  // Up to 16 candidate prefixes that can be used to restrict the allocation
+  // of cloudRouterIpAddress and customerRouterIpAddress for this attachment.
+  // All prefixes must be within link-local address space (169.254.0.0/16)
+  // and must be /29 or shorter (/28, /27, etc). Google will attempt to select
+  // an unused /29 from the supplied candidate prefix(es). The request will
+  // fail if all possible /29s are in use on Google's edge. If not supplied,
+  // Google will randomly select an unused /29 from all of link-local space.
+  repeated string candidate_subnets = 3;
+
+  // IPv4 address + prefix length to be configured on Cloud Router
+  // Interface for this interconnect attachment.
+  string cloud_router_ip_address = 4;
+
+  // Creation timestamp in RFC3339 text format.
+  string creation_timestamp = 5;
+
+  // IPv4 address + prefix length to be configured on the customer
+  // router subinterface for this interconnect attachment.
+  string customer_router_ip_address = 6;
+
+  // An optional description of this resource.
+  string description = 7;
+
+  // Desired availability domain for the attachment. Only available for type
+  // PARTNER, at creation time. For improved reliability, customers should
+  // configure a pair of attachments with one per availability domain. The
+  // selected availability domain will be provided to the Partner via the
+  // pairing key so that the provisioned circuit will lie in the specified
+  // domain. If not specified, the value will default to AVAILABILITY_DOMAIN_ANY.
+  string edge_availability_domain = 8;
+
+  // Google reference ID, to be used when raising support tickets with
+  // Google or otherwise to debug backend connectivity issues.
+  string google_reference_id = 9;
+  string id = 10;
+
+  // URL of the underlying Interconnect object that this attachment's
+  // traffic will traverse through. Required if type is DEDICATED, must not
+  // be set if type is PARTNER.
+  string interconnect = 11;
+
+  // Name of the resource. Provided by the client when the resource is created. The
+  // name must be 1-63 characters long, and comply with RFC1035. Specifically, the
+  // name must be 1-63 characters long and match the regular expression
+  // '[a-z]([-a-z0-9]*[a-z0-9])?' which means the first character must be a
+  // lowercase letter, and all following characters must be a dash, lowercase
+  // letter, or digit, except the last character, which cannot be a dash.
+  string name = 12;
+
+  // [Output only for type PARTNER. Not present for DEDICATED]. The opaque
+  // identifier of an PARTNER attachment used to initiate provisioning with
+  // a selected partner. Of the form "XXXXX/region/domain"
+  string pairing_key = 13;
+
+  // [Output only for type PARTNER. Not present for DEDICATED]. Optional
+  // BGP ASN for the router that should be supplied by a layer 3 Partner if
+  // they configured BGP on behalf of the customer.
+  string partner_asn = 14;
+
+  // Information specific to an InterconnectAttachment. This property
+  // is populated if the interconnect that this is attached to is of type DEDICATED.
+  message PrivateInterconnectInfo {
+    int64  tag8021q = 1;
+  }
+  repeated PrivateInterconnectInfo private_interconnect_info = 15;
+  string project = 16;
+
+  // Region where the regional interconnect attachment resides.
+  string region = 17;
+
+  // URL of the cloud router to be used for dynamic routing. This router must be in
+  // the same region as this InterconnectAttachment. The InterconnectAttachment will
+  // automatically connect the Interconnect to the network & region within which the
+  // Cloud Router is configured.
+  string router = 18;
+  string self_link = 19;
+
+  // [Output Only] The current state of this attachment's functionality.
+  string state = 20;
+
+  // The type of InterconnectAttachment you wish to create. Defaults to
+  // DEDICATED.
+  string type = 21;
+
+  // The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4094. When
+  // using PARTNER type this will be managed upstream.
+  int64  vlan_tag8021q = 22;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 23;
+}

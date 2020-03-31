@@ -1,0 +1,40 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDaxCluster {
+  string arn = 1;
+  repeated string availability_zones = 2;
+  string cluster_address = 3;
+  string cluster_name = 4;
+  string configuration_endpoint = 5;
+  string description = 6;
+  string iam_role_arn = 7;
+  string id = 8;
+  string maintenance_window = 9;
+  string node_type = 10;
+  message Nodes {
+    string address = 1;
+    string availability_zone = 2;
+    string id = 3;
+    int64  port = 4;
+  }
+  repeated Nodes nodes = 11;
+  string notification_topic_arn = 12;
+  string parameter_group_name = 13;
+  int64  port = 14;
+  int64  replication_factor = 15;
+  repeated string security_group_ids = 16;
+  string subnet_group_name = 17;
+  map<string, string> tags = 18;
+  message ServerSideEncryption {
+    bool   enabled = 1;
+  }
+  repeated ServerSideEncryption server_side_encryption = 19;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 20;
+}

@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsMqConfiguration {
+  string arn = 1;
+  string data = 2;
+  string description = 3;
+  string engine_type = 4;
+  string engine_version = 5;
+  string id = 6;
+  int64  latest_revision = 7;
+  string name = 8;
+  map<string, string> tags = 9;
+}

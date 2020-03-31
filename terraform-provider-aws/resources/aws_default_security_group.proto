@@ -1,0 +1,43 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDefaultSecurityGroup {
+  string arn = 1;
+  string description = 2;
+  message Egress {
+    repeated string cidr_blocks = 1;
+    string description = 2;
+    int64  from_port = 3;
+    repeated string ipv6_cidr_blocks = 4;
+    repeated string prefix_list_ids = 5;
+    string protocol = 6;
+    repeated string security_groups = 7;
+    bool   self = 8;
+    int64  to_port = 9;
+  }
+  repeated Egress egress = 3;
+  string id = 4;
+  message Ingress {
+    repeated string cidr_blocks = 1;
+    string description = 2;
+    int64  from_port = 3;
+    repeated string ipv6_cidr_blocks = 4;
+    repeated string prefix_list_ids = 5;
+    string protocol = 6;
+    repeated string security_groups = 7;
+    bool   self = 8;
+    int64  to_port = 9;
+  }
+  repeated Ingress ingress = 5;
+  string name = 6;
+  string owner_id = 7;
+  bool   revoke_rules_on_delete = 8;
+  map<string, string> tags = 9;
+  string vpc_id = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+  }
+  Timeouts timeouts = 11;
+}

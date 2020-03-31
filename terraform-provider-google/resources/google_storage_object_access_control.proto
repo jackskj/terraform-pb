@@ -1,0 +1,52 @@
+syntax="proto3";
+
+package google;
+
+message GoogleStorageObjectAccessControl {
+
+  // The name of the bucket.
+  string bucket = 1;
+
+  // The domain associated with the entity.
+  string domain = 2;
+
+  // The email address associated with the entity.
+  string email = 3;
+
+  // The entity holding the permission, in one of the following forms:
+  //   * user-{{userId}}
+  //   * user-{{email}} (such as "user-liz@example.com")
+  //   * group-{{groupId}}
+  //   * group-{{email}} (such as "group-example@googlegroups.com")
+  //   * domain-{{domain}} (such as "domain-example.com")
+  //   * project-team-{{projectId}}
+  //   * allUsers
+  //   * allAuthenticatedUsers
+  string entity = 4;
+
+  // The ID for the entity
+  string entity_id = 5;
+
+  // The content generation of the object, if applied to an object.
+  int64  generation = 6;
+  string id = 7;
+
+  // The name of the object to apply the access control to.
+  string object = 8;
+
+  // The project team associated with the entity
+  message ProjectTeam {
+    string project_number = 1;
+    string team = 2;
+  }
+  repeated ProjectTeam project_team = 9;
+
+  // The access permission for the entity.
+  string role = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 11;
+}

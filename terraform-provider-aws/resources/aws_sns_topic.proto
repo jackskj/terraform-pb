@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSnsTopic {
+  string application_failure_feedback_role_arn = 1;
+  string application_success_feedback_role_arn = 2;
+  int64  application_success_feedback_sample_rate = 3;
+  string arn = 4;
+  string delivery_policy = 5;
+  string display_name = 6;
+  string http_failure_feedback_role_arn = 7;
+  string http_success_feedback_role_arn = 8;
+  int64  http_success_feedback_sample_rate = 9;
+  string id = 10;
+  string kms_master_key_id = 11;
+  string lambda_failure_feedback_role_arn = 12;
+  string lambda_success_feedback_role_arn = 13;
+  int64  lambda_success_feedback_sample_rate = 14;
+  string name = 15;
+  string name_prefix = 16;
+  string policy = 17;
+  string sqs_failure_feedback_role_arn = 18;
+  string sqs_success_feedback_role_arn = 19;
+  int64  sqs_success_feedback_sample_rate = 20;
+  map<string, string> tags = 21;
+}

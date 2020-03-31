@@ -1,0 +1,68 @@
+syntax="proto3";
+
+package aws;
+
+message AwsElastictranscoderPreset {
+  string arn = 1;
+  string container = 2;
+  string description = 3;
+  string id = 4;
+  string name = 5;
+  string type = 6;
+  map<string, string> video_codec_options = 7;
+  message Audio {
+    string audio_packing_mode = 1;
+    string bit_rate = 2;
+    string channels = 3;
+    string codec = 4;
+    string sample_rate = 5;
+  }
+  repeated Audio audio = 8;
+  message AudioCodecOptions {
+    string bit_depth = 1;
+    string bit_order = 2;
+    string profile = 3;
+    string signed = 4;
+  }
+  repeated AudioCodecOptions audio_codec_options = 9;
+  message Thumbnails {
+    string aspect_ratio = 1;
+    string format = 2;
+    string interval = 3;
+    string max_height = 4;
+    string max_width = 5;
+    string padding_policy = 6;
+    string resolution = 7;
+    string sizing_policy = 8;
+  }
+  repeated Thumbnails thumbnails = 10;
+  message Video {
+    string aspect_ratio = 1;
+    string bit_rate = 2;
+    string codec = 3;
+    string display_aspect_ratio = 4;
+    string fixed_gop = 5;
+    string frame_rate = 6;
+    string keyframes_max_dist = 7;
+    string max_frame_rate = 8;
+    string max_height = 9;
+    string max_width = 10;
+    string padding_policy = 11;
+    string resolution = 12;
+    string sizing_policy = 13;
+  }
+  repeated Video video = 11;
+  message VideoWatermarks {
+    string horizontal_align = 1;
+    string horizontal_offset = 2;
+    string id = 3;
+    string max_height = 4;
+    string max_width = 5;
+    string opacity = 6;
+    string sizing_policy = 7;
+    string target = 8;
+    string vertical_align = 9;
+    string vertical_offset = 10;
+  }
+  repeated VideoWatermarks video_watermarks = 12;
+}

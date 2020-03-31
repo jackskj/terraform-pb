@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSsmPatchGroup {
+  string baseline_id = 1;
+  string id = 2;
+  string patch_group = 3;
+}

@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDirectoryServiceLogSubscription {
+  string directory_id = 1;
+  string id = 2;
+  string log_group_name = 3;
+}

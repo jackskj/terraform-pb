@@ -1,0 +1,82 @@
+syntax="proto3";
+
+package aws;
+
+message AwsMskCluster {
+  string arn = 1;
+  string bootstrap_brokers = 2;
+  string bootstrap_brokers_tls = 3;
+  string cluster_name = 4;
+  string current_version = 5;
+  string enhanced_monitoring = 6;
+  string id = 7;
+  string kafka_version = 8;
+  int64  number_of_broker_nodes = 9;
+  map<string, string> tags = 10;
+  string zookeeper_connect_string = 11;
+  message BrokerNodeGroupInfo {
+    string az_distribution = 1;
+    repeated string client_subnets = 2;
+    int64  ebs_volume_size = 3;
+    string instance_type = 4;
+    repeated string security_groups = 5;
+  }
+  repeated BrokerNodeGroupInfo broker_node_group_info = 12;
+  message ClientAuthentication {
+    message Tls {
+      repeated string certificate_authority_arns = 1;
+    }
+    repeated Tls tls = 1;
+  }
+  repeated ClientAuthentication client_authentication = 13;
+  message ConfigurationInfo {
+    string arn = 1;
+    int64  revision = 2;
+  }
+  repeated ConfigurationInfo configuration_info = 14;
+  message EncryptionInfo {
+    string encryption_at_rest_kms_key_arn = 1;
+    message EncryptionInTransit {
+      string client_broker = 1;
+      bool   in_cluster = 2;
+    }
+    repeated EncryptionInTransit encryption_in_transit = 2;
+  }
+  repeated EncryptionInfo encryption_info = 15;
+  message LoggingInfo {
+    message BrokerLogs {
+      message CloudwatchLogs {
+        bool   enabled = 1;
+        string log_group = 2;
+      }
+      repeated CloudwatchLogs cloudwatch_logs = 1;
+      message Firehose {
+        string delivery_stream = 1;
+        bool   enabled = 2;
+      }
+      repeated Firehose firehose = 2;
+      message S3 {
+        string bucket = 1;
+        bool   enabled = 2;
+        string prefix = 3;
+      }
+      repeated S3 s3 = 3;
+    }
+    repeated BrokerLogs broker_logs = 1;
+  }
+  repeated LoggingInfo logging_info = 16;
+  message OpenMonitoring {
+    message Prometheus {
+      message JmxExporter {
+        bool   enabled_in_broker = 1;
+      }
+      repeated JmxExporter jmx_exporter = 1;
+      message NodeExporter {
+        bool   enabled_in_broker = 1;
+      }
+      repeated NodeExporter node_exporter = 2;
+    }
+    repeated Prometheus prometheus = 1;
+  }
+  repeated OpenMonitoring open_monitoring = 17;
+}

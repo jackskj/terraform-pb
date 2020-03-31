@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAcmCertificateValidation {
+  string certificate_arn = 1;
+  string id = 2;
+  repeated string validation_record_fqdns = 3;
+  message Timeouts {
+    string create = 1;
+  }
+  Timeouts timeouts = 4;
+}

@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermNotificationHub {
+  message ApnsCredential {
+    string application_mode = 1;
+    string bundle_id = 2;
+    string key_id = 3;
+    string team_id = 4;
+    string token = 5;
+  }
+  repeated ApnsCredential apns_credential = 1;
+  message GcmCredential {
+    string api_key = 1;
+  }
+  repeated GcmCredential gcm_credential = 2;
+  string id = 3;
+  string location = 4;
+  string name = 5;
+  string namespace_name = 6;
+  string resource_group_name = 7;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 8;
+}

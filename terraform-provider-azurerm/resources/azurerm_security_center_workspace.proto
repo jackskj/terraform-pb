@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSecurityCenterWorkspace {
+  string id = 1;
+  string scope = 2;
+  string workspace_id = 3;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 4;
+}

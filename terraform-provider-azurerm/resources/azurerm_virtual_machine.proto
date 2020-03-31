@@ -1,0 +1,124 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermVirtualMachine {
+  string availability_set_id = 1;
+  bool   delete_data_disks_on_termination = 2;
+  bool   delete_os_disk_on_termination = 3;
+  string id = 4;
+  string license_type = 5;
+  string location = 6;
+  string name = 7;
+  repeated string network_interface_ids = 8;
+  string primary_network_interface_id = 9;
+  string proximity_placement_group_id = 10;
+  string resource_group_name = 11;
+  map<string, string> tags = 12;
+  string vm_size = 13;
+  repeated string zones = 14;
+  message AdditionalCapabilities {
+    bool   ultra_ssd_enabled = 1;
+  }
+  repeated AdditionalCapabilities additional_capabilities = 15;
+  message BootDiagnostics {
+    bool   enabled = 1;
+    string storage_uri = 2;
+  }
+  repeated BootDiagnostics boot_diagnostics = 16;
+  message Identity {
+    repeated string identity_ids = 1;
+    string principal_id = 2;
+    string type = 3;
+  }
+  repeated Identity identity = 17;
+  message OsProfile {
+    string admin_password = 1;
+    string admin_username = 2;
+    string computer_name = 3;
+    string custom_data = 4;
+  }
+  repeated OsProfile os_profile = 18;
+  message OsProfileLinuxConfig {
+    bool   disable_password_authentication = 1;
+    message SshKeys {
+      string key_data = 1;
+      string path = 2;
+    }
+    repeated SshKeys ssh_keys = 2;
+  }
+  repeated OsProfileLinuxConfig os_profile_linux_config = 19;
+  message OsProfileSecrets {
+    string source_vault_id = 1;
+    message VaultCertificates {
+      string certificate_store = 1;
+      string certificate_url = 2;
+    }
+    repeated VaultCertificates vault_certificates = 2;
+  }
+  repeated OsProfileSecrets os_profile_secrets = 20;
+  message OsProfileWindowsConfig {
+    bool   enable_automatic_upgrades = 1;
+    bool   provision_vm_agent = 2;
+    string timezone = 3;
+    message AdditionalUnattendConfig {
+      string component = 1;
+      string content = 2;
+      string pass = 3;
+      string setting_name = 4;
+    }
+    repeated AdditionalUnattendConfig additional_unattend_config = 4;
+    message Winrm {
+      string certificate_url = 1;
+      string protocol = 2;
+    }
+    repeated Winrm winrm = 5;
+  }
+  repeated OsProfileWindowsConfig os_profile_windows_config = 21;
+  message Plan {
+    string name = 1;
+    string product = 2;
+    string publisher = 3;
+  }
+  repeated Plan plan = 22;
+  message StorageDataDisk {
+    string caching = 1;
+    string create_option = 2;
+    int64  disk_size_gb = 3;
+    int64  lun = 4;
+    string managed_disk_id = 5;
+    string managed_disk_type = 6;
+    string name = 7;
+    string vhd_uri = 8;
+    bool   write_accelerator_enabled = 9;
+  }
+  repeated StorageDataDisk storage_data_disk = 23;
+  message StorageImageReference {
+    string id = 1;
+    string offer = 2;
+    string publisher = 3;
+    string sku = 4;
+    string version = 5;
+  }
+  repeated StorageImageReference storage_image_reference = 24;
+  message StorageOsDisk {
+    string caching = 1;
+    string create_option = 2;
+    int64  disk_size_gb = 3;
+    string image_uri = 4;
+    string managed_disk_id = 5;
+    string managed_disk_type = 6;
+    string name = 7;
+    string os_type = 8;
+    string vhd_uri = 9;
+    bool   write_accelerator_enabled = 10;
+  }
+  repeated StorageOsDisk storage_os_disk = 25;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 26;
+}

@@ -1,0 +1,44 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOpsworksRailsAppLayer {
+  string app_server = 1;
+  string arn = 2;
+  bool   auto_assign_elastic_ips = 3;
+  bool   auto_assign_public_ips = 4;
+  bool   auto_healing = 5;
+  string bundler_version = 6;
+  repeated string custom_configure_recipes = 7;
+  repeated string custom_deploy_recipes = 8;
+  string custom_instance_profile_arn = 9;
+  string custom_json = 10;
+  repeated string custom_security_group_ids = 11;
+  repeated string custom_setup_recipes = 12;
+  repeated string custom_shutdown_recipes = 13;
+  repeated string custom_undeploy_recipes = 14;
+  bool   drain_elb_on_shutdown = 15;
+  string elastic_load_balancer = 16;
+  string id = 17;
+  bool   install_updates_on_boot = 18;
+  int64  instance_shutdown_timeout = 19;
+  bool   manage_bundler = 20;
+  string name = 21;
+  string passenger_version = 22;
+  string ruby_version = 23;
+  string rubygems_version = 24;
+  string stack_id = 25;
+  repeated string system_packages = 26;
+  map<string, string> tags = 27;
+  bool   use_ebs_optimized_instances = 28;
+  message EbsVolume {
+    bool   encrypted = 1;
+    int64  iops = 2;
+    string mount_point = 3;
+    int64  number_of_disks = 4;
+    string raid_level = 5;
+    int64  size = 6;
+    string type = 7;
+  }
+  repeated EbsVolume ebs_volume = 29;
+}

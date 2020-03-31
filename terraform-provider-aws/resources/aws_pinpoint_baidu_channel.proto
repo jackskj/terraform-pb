@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsPinpointBaiduChannel {
+  string api_key = 1;
+  string application_id = 2;
+  bool   enabled = 3;
+  string id = 4;
+  string secret_key = 5;
+}

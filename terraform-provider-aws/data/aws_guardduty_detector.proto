@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsGuarddutyDetector {
+  string finding_publishing_frequency = 1;
+  string id = 2;
+  string service_role_arn = 3;
+  string status = 4;
+}

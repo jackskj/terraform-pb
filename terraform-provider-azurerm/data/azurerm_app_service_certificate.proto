@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermAppServiceCertificate {
+  string expiration_date = 1;
+  string friendly_name = 2;
+  repeated string host_names = 3;
+  string id = 4;
+  string issue_date = 5;
+  string issuer = 6;
+  string location = 7;
+  string name = 8;
+  string resource_group_name = 9;
+  string subject_name = 10;
+  map<string, string> tags = 11;
+  string thumbprint = 12;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 13;
+}

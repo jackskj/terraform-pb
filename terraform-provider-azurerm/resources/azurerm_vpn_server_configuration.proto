@@ -1,0 +1,62 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermVpnServerConfiguration {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  map<string, string> tags = 5;
+  repeated string vpn_authentication_types = 6;
+  repeated string vpn_protocols = 7;
+  message AzureActiveDirectoryAuthentication {
+    string audience = 1;
+    string issuer = 2;
+    string tenant = 3;
+  }
+  repeated AzureActiveDirectoryAuthentication azure_active_directory_authentication = 8;
+  message ClientRevokedCertificate {
+    string name = 1;
+    string thumbprint = 2;
+  }
+  repeated ClientRevokedCertificate client_revoked_certificate = 9;
+  message ClientRootCertificate {
+    string name = 1;
+    string public_cert_data = 2;
+  }
+  repeated ClientRootCertificate client_root_certificate = 10;
+  message IpsecPolicy {
+    string dh_group = 1;
+    string ike_encryption = 2;
+    string ike_integrity = 3;
+    string ipsec_encryption = 4;
+    string ipsec_integrity = 5;
+    string pfs_group = 6;
+    int64  sa_data_size_kilobytes = 7;
+    int64  sa_lifetime_seconds = 8;
+  }
+  repeated IpsecPolicy ipsec_policy = 11;
+  message RadiusServer {
+    string address = 1;
+    string secret = 2;
+    message ClientRootCertificate {
+      string name = 1;
+      string thumbprint = 2;
+    }
+    repeated ClientRootCertificate client_root_certificate = 3;
+    message ServerRootCertificate {
+      string name = 1;
+      string public_cert_data = 2;
+    }
+    repeated ServerRootCertificate server_root_certificate = 4;
+  }
+  repeated RadiusServer radius_server = 12;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 13;
+}

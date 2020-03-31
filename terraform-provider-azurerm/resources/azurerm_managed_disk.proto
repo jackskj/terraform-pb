@@ -1,0 +1,44 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermManagedDisk {
+  string create_option = 1;
+  string disk_encryption_set_id = 2;
+  int64  disk_iops_read_write = 3;
+  int64  disk_mbps_read_write = 4;
+  int64  disk_size_gb = 5;
+  string id = 6;
+  string image_reference_id = 7;
+  string location = 8;
+  string name = 9;
+  string os_type = 10;
+  string resource_group_name = 11;
+  string source_resource_id = 12;
+  string source_uri = 13;
+  string storage_account_id = 14;
+  string storage_account_type = 15;
+  map<string, string> tags = 16;
+  repeated string zones = 17;
+  message EncryptionSettings {
+    bool   enabled = 1;
+    message DiskEncryptionKey {
+      string secret_url = 1;
+      string source_vault_id = 2;
+    }
+    repeated DiskEncryptionKey disk_encryption_key = 2;
+    message KeyEncryptionKey {
+      string key_url = 1;
+      string source_vault_id = 2;
+    }
+    repeated KeyEncryptionKey key_encryption_key = 3;
+  }
+  repeated EncryptionSettings encryption_settings = 18;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 19;
+}

@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeImage {
+  int64  archive_size_bytes = 1;
+  string creation_timestamp = 2;
+  string description = 3;
+  int64  disk_size_gb = 4;
+  string family = 5;
+  string id = 6;
+  string image_encryption_key_sha256 = 7;
+  string image_id = 8;
+  string label_fingerprint = 9;
+  map<string, string> labels = 10;
+  repeated string licenses = 11;
+  string name = 12;
+  string project = 13;
+  string self_link = 14;
+  string source_disk = 15;
+  string source_disk_encryption_key_sha256 = 16;
+  string source_disk_id = 17;
+  string source_image_id = 18;
+  string status = 19;
+}

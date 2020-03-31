@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEc2ClientVpnNetworkAssociation {
+  string client_vpn_endpoint_id = 1;
+  string id = 2;
+  repeated string security_groups = 3;
+  string status = 4;
+  string subnet_id = 5;
+  string vpc_id = 6;
+}

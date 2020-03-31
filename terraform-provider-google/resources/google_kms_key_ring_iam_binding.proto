@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package google;
+
+message GoogleKmsKeyRingIamBinding {
+  string etag = 1;
+  string id = 2;
+  string key_ring_id = 3;
+  repeated string members = 4;
+  string role = 5;
+}

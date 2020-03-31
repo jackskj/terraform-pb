@@ -1,0 +1,32 @@
+syntax="proto3";
+
+package google;
+
+message GoogleEndpointsService {
+  message Apis {
+    message Methods {
+      string name = 1;
+      string request_type = 2;
+      string response_type = 3;
+      string syntax = 4;
+    }
+    repeated Methods methods = 1;
+    string name = 2;
+    string syntax = 3;
+    string version = 4;
+  }
+  repeated Apis apis = 1;
+  string config_id = 2;
+  string dns_address = 3;
+  message Endpoints {
+    string address = 1;
+    string name = 2;
+  }
+  repeated Endpoints endpoints = 4;
+  string grpc_config = 5;
+  string id = 6;
+  string openapi_config = 7;
+  string project = 8;
+  string protoc_output_base64 = 9;
+  string service_name = 10;
+}

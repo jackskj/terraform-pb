@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermResources {
+  string id = 1;
+  string name = 2;
+  map<string, string> required_tags = 3;
+  string resource_group_name = 4;
+  message Resources {
+    string id = 1;
+    string location = 2;
+    string name = 3;
+    map<string, string> tags = 4;
+    string type = 5;
+  }
+  repeated Resources resources = 5;
+  string type = 6;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 7;
+}

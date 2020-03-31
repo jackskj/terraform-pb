@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsNatGateway {
+  string allocation_id = 1;
+  string id = 2;
+  string network_interface_id = 3;
+  string private_ip = 4;
+  string public_ip = 5;
+  string subnet_id = 6;
+  map<string, string> tags = 7;
+}

@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsInspectorResourceGroup {
+  string arn = 1;
+  string id = 2;
+  map<string, string> tags = 3;
+}

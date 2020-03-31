@@ -1,0 +1,61 @@
+syntax="proto3";
+
+package kubernetes;
+
+message KubernetesLimitRange {
+  string id = 1;
+  message Metadata {
+
+    // An unstructured key value map stored with the limit range that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+    map<string, string> annotations = 1;
+
+    // Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+    string generate_name = 2;
+
+    // A sequence number representing a specific generation of the desired state.
+    int64  generation = 3;
+
+    // Map of string keys and values that can be used to organize and categorize (scope and select) the limit range. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+    map<string, string> labels = 4;
+
+    // Name of the limit range, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+    string name = 5;
+
+    // Namespace defines the space within which name of the limit range must be unique.
+    string namespace = 6;
+
+    // An opaque value that represents the internal version of this limit range that can be used by clients to determine when limit range has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+    string resource_version = 7;
+
+    // A URL representing this limit range.
+    string self_link = 8;
+
+    // The unique in time and space value for this limit range. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+    string uid = 9;
+  }
+  repeated Metadata metadata = 2;
+  message Spec {
+    message Limit {
+
+      // Default resource requirement limit value by resource name if resource limit is omitted.
+      map<string, string> default = 1;
+
+      // The default resource requirement request value by resource name if resource request is omitted.
+      map<string, string> default_request = 2;
+
+      // Max usage constraints on this kind by resource name.
+      map<string, string> max = 3;
+
+      // The named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value; this represents the max burst for the named resource.
+      map<string, string> max_limit_request_ratio = 4;
+
+      // Min usage constraints on this kind by resource name.
+      map<string, string> min = 5;
+
+      // Type of resource that this limit applies to.
+      string type = 6;
+    }
+    repeated Limit limit = 1;
+  }
+  repeated Spec spec = 3;
+}

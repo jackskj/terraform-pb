@@ -1,0 +1,41 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRoute53Record {
+  bool   allow_overwrite = 1;
+  string fqdn = 2;
+  string health_check_id = 3;
+  string id = 4;
+  bool   multivalue_answer_routing_policy = 5;
+  string name = 6;
+  repeated string records = 7;
+  string set_identifier = 8;
+  int64  ttl = 9;
+  string type = 10;
+  string zone_id = 11;
+  message Alias {
+    bool   evaluate_target_health = 1;
+    string name = 2;
+    string zone_id = 3;
+  }
+  repeated Alias alias = 12;
+  message FailoverRoutingPolicy {
+    string type = 1;
+  }
+  repeated FailoverRoutingPolicy failover_routing_policy = 13;
+  message GeolocationRoutingPolicy {
+    string continent = 1;
+    string country = 2;
+    string subdivision = 3;
+  }
+  repeated GeolocationRoutingPolicy geolocation_routing_policy = 14;
+  message LatencyRoutingPolicy {
+    string region = 1;
+  }
+  repeated LatencyRoutingPolicy latency_routing_policy = 15;
+  message WeightedRoutingPolicy {
+    int64  weight = 1;
+  }
+  repeated WeightedRoutingPolicy weighted_routing_policy = 16;
+}

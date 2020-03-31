@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermDevTestLab {
+  string artifacts_storage_account_id = 1;
+  string default_premium_storage_account_id = 2;
+  string default_storage_account_id = 3;
+  string id = 4;
+  string key_vault_id = 5;
+  string location = 6;
+  string name = 7;
+  string premium_data_disk_storage_account_id = 8;
+  string resource_group_name = 9;
+  string storage_type = 10;
+  map<string, string> tags = 11;
+  string unique_identifier = 12;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 13;
+}

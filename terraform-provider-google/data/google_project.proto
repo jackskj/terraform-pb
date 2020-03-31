@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package google;
+
+message GoogleProject {
+  bool   auto_create_network = 1;
+  string billing_account = 2;
+  string folder_id = 3;
+  string id = 4;
+  map<string, string> labels = 5;
+  string name = 6;
+  string number = 7;
+  string org_id = 8;
+  string project_id = 9;
+  bool   skip_delete = 10;
+}

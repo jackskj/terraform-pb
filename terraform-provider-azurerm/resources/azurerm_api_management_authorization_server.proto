@@ -1,0 +1,37 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermApiManagementAuthorizationServer {
+  string api_management_name = 1;
+  string authorization_endpoint = 2;
+  repeated string authorization_methods = 3;
+  repeated string bearer_token_sending_methods = 4;
+  repeated string client_authentication_method = 5;
+  string client_id = 6;
+  string client_registration_endpoint = 7;
+  string client_secret = 8;
+  string default_scope = 9;
+  string description = 10;
+  string display_name = 11;
+  repeated string grant_types = 12;
+  string id = 13;
+  string name = 14;
+  string resource_group_name = 15;
+  string resource_owner_password = 16;
+  string resource_owner_username = 17;
+  bool   support_state = 18;
+  string token_endpoint = 19;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 20;
+  message TokenBodyParameter {
+    string name = 1;
+    string value = 2;
+  }
+  repeated TokenBodyParameter token_body_parameter = 21;
+}

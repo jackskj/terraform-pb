@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package aws;
+
+message AwsGuarddutyMember {
+  string account_id = 1;
+  string detector_id = 2;
+  bool   disable_email_notification = 3;
+  string email = 4;
+  string id = 5;
+  string invitation_message = 6;
+  bool   invite = 7;
+  string relationship_status = 8;
+  message Timeouts {
+    string create = 1;
+    string update = 2;
+  }
+  Timeouts timeouts = 9;
+}

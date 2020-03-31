@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package google;
+
+message GoogleKmsCryptoKeyVersion {
+  string algorithm = 1;
+  string crypto_key = 2;
+  string id = 3;
+  string protection_level = 4;
+  message PublicKey {
+    string algorithm = 1;
+    string pem = 2;
+  }
+  repeated PublicKey public_key = 5;
+  string state = 6;
+  int64  version = 7;
+}

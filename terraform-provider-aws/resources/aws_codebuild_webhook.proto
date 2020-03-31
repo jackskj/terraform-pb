@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCodebuildWebhook {
+  string branch_filter = 1;
+  string id = 2;
+  string payload_url = 3;
+  string project_name = 4;
+  string secret = 5;
+  string url = 6;
+  message FilterGroup {
+    message Filter {
+      bool   exclude_matched_pattern = 1;
+      string pattern = 2;
+      string type = 3;
+    }
+    repeated Filter filter = 1;
+  }
+  repeated FilterGroup filter_group = 7;
+}

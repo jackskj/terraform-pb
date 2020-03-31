@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMssqlElasticpool {
+  string id = 1;
+  string location = 2;
+  int64  max_size_bytes = 3;
+  int64  max_size_gb = 4;
+  string name = 5;
+  int64  per_db_max_capacity = 6;
+  int64  per_db_min_capacity = 7;
+  string resource_group_name = 8;
+  string server_name = 9;
+  map<string, string> tags = 10;
+  bool   zone_redundant = 11;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 12;
+}

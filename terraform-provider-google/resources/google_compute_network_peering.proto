@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeNetworkPeering {
+  bool   auto_create_routes = 1;
+  bool   export_custom_routes = 2;
+  string id = 3;
+  bool   import_custom_routes = 4;
+  string name = 5;
+  string network = 6;
+  string peer_network = 7;
+  string state = 8;
+  string state_details = 9;
+}

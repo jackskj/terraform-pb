@@ -1,0 +1,77 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermHdinsightRserverCluster {
+  string cluster_version = 1;
+  string edge_ssh_endpoint = 2;
+  string https_endpoint = 3;
+  string id = 4;
+  string location = 5;
+  string name = 6;
+  string resource_group_name = 7;
+  bool   rstudio = 8;
+  string ssh_endpoint = 9;
+  map<string, string> tags = 10;
+  string tier = 11;
+  message Gateway {
+    bool   enabled = 1;
+    string password = 2;
+    string username = 3;
+  }
+  repeated Gateway gateway = 12;
+  message Roles {
+    message EdgeNode {
+      string password = 1;
+      repeated string ssh_keys = 2;
+      string subnet_id = 3;
+      string username = 4;
+      string virtual_network_id = 5;
+      string vm_size = 6;
+    }
+    repeated EdgeNode edge_node = 1;
+    message HeadNode {
+      string password = 1;
+      repeated string ssh_keys = 2;
+      string subnet_id = 3;
+      string username = 4;
+      string virtual_network_id = 5;
+      string vm_size = 6;
+    }
+    repeated HeadNode head_node = 2;
+    message WorkerNode {
+      int64  min_instance_count = 1;
+      string password = 2;
+      repeated string ssh_keys = 3;
+      string subnet_id = 4;
+      int64  target_instance_count = 5;
+      string username = 6;
+      string virtual_network_id = 7;
+      string vm_size = 8;
+    }
+    repeated WorkerNode worker_node = 3;
+    message ZookeeperNode {
+      string password = 1;
+      repeated string ssh_keys = 2;
+      string subnet_id = 3;
+      string username = 4;
+      string virtual_network_id = 5;
+      string vm_size = 6;
+    }
+    repeated ZookeeperNode zookeeper_node = 4;
+  }
+  repeated Roles roles = 13;
+  message StorageAccount {
+    bool   is_default = 1;
+    string storage_account_key = 2;
+    string storage_container_id = 3;
+  }
+  repeated StorageAccount storage_account = 14;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 15;
+}

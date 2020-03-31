@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStreamAnalyticsJob {
+  string compatibility_level = 1;
+  string data_locale = 2;
+  int64  events_late_arrival_max_delay_in_seconds = 3;
+  int64  events_out_of_order_max_delay_in_seconds = 4;
+  string events_out_of_order_policy = 5;
+  string id = 6;
+  string job_id = 7;
+  string location = 8;
+  string name = 9;
+  string output_error_policy = 10;
+  string resource_group_name = 11;
+  int64  streaming_units = 12;
+  string transformation_query = 13;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 14;
+}

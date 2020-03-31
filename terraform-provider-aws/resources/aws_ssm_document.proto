@@ -1,0 +1,38 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSsmDocument {
+  string arn = 1;
+  string content = 2;
+  string created_date = 3;
+  string default_version = 4;
+  string description = 5;
+  string document_format = 6;
+  string document_type = 7;
+  string hash = 8;
+  string hash_type = 9;
+  string id = 10;
+  string latest_version = 11;
+  string name = 12;
+  string owner = 13;
+  message Parameter {
+    string default_value = 1;
+    string description = 2;
+    string name = 3;
+    string type = 4;
+  }
+  repeated Parameter parameter = 14;
+  map<string, string> permissions = 15;
+  repeated string platform_types = 16;
+  string schema_version = 17;
+  string status = 18;
+  map<string, string> tags = 19;
+  string target_type = 20;
+  message AttachmentsSource {
+    string key = 1;
+    string name = 2;
+    repeated string values = 3;
+  }
+  repeated AttachmentsSource attachments_source = 21;
+}

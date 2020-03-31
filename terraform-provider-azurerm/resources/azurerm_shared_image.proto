@@ -1,0 +1,30 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSharedImage {
+  string description = 1;
+  string eula = 2;
+  string gallery_name = 3;
+  string id = 4;
+  string location = 5;
+  string name = 6;
+  string os_type = 7;
+  string privacy_statement_uri = 8;
+  string release_note_uri = 9;
+  string resource_group_name = 10;
+  map<string, string> tags = 11;
+  message Identifier {
+    string offer = 1;
+    string publisher = 2;
+    string sku = 3;
+  }
+  repeated Identifier identifier = 12;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 13;
+}

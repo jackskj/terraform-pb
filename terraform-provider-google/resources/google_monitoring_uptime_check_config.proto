@@ -1,0 +1,101 @@
+syntax="proto3";
+
+package google;
+
+message GoogleMonitoringUptimeCheckConfig {
+
+  // A human-friendly name for the uptime check configuration. The display name should be unique within a Stackdriver Workspace in order to make it easier to identify; however, uniqueness is not enforced.
+  string display_name = 1;
+  string id = 2;
+  bool   is_internal = 3;
+
+  // A unique resource name for this UptimeCheckConfig. The format is projects/[PROJECT_ID]/uptimeCheckConfigs/[UPTIME_CHECK_ID].
+  string name = 4;
+
+  // How often, in seconds, the uptime check is performed. Currently, the only supported values are 60s (1 minute), 300s (5 minutes), 600s (10 minutes), and 900s (15 minutes). Optional, defaults to 300s.
+  string period = 5;
+  string project = 6;
+
+  // The list of regions from which the check will be run. Some regions contain one location, and others contain more than one. If this field is specified, enough regions to include a minimum of 3 locations must be provided, or an error message is returned. Not specifying this field will result in uptime checks running from all regions.
+  repeated string selected_regions = 7;
+
+  // The maximum amount of time to wait for the request to complete (must be between 1 and 60 seconds). Accepted formats https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Duration
+  string timeout = 8;
+
+  // The id of the uptime check
+  string uptime_check_id = 9;
+  message ContentMatchers {
+
+    // String or regex content to match (max 1024 bytes)
+    string content = 1;
+  }
+  repeated ContentMatchers content_matchers = 10;
+  message HttpCheck {
+
+    // The list of headers to send as part of the uptime check request. If two headers have the same key and different values, they should be entered as a single header, with the value being a comma-separated list of all the desired values as described at https://www.w3.org/Protocols/rfc2616/rfc2616.txt (page 31). Entering two separate headers with the same key in a Create call will cause the first to be overwritten by the second. The maximum number of headers allowed is 100.
+    map<string, string> headers = 1;
+
+    // Boolean specifying whether to encrypt the header information. Encryption should be specified for any headers related to authentication that you do not wish to be seen when retrieving the configuration. The server will be responsible for encrypting the headers. On Get/List calls, if mask_headers is set to True then the headers will be obscured with ******.
+    bool   mask_headers = 2;
+
+    // The path to the page to run the check against. Will be combined with the host (specified within the MonitoredResource) and port to construct the full URL. Optional (defaults to "/").
+    string path = 3;
+
+    // The port to the page to run the check against. Will be combined with host (specified within the MonitoredResource) and path to construct the full URL. Optional (defaults to 80 without SSL, or 443 with SSL).
+    int64  port = 4;
+
+    // If true, use HTTPS instead of HTTP to run the check.
+    bool   use_ssl = 5;
+
+    // Boolean specifying whether to include SSL certificate validation as a part of the Uptime check. Only applies to checks where monitoredResource is set to uptime_url. If useSsl is false, setting validateSsl to true has no effect.
+    bool   validate_ssl = 6;
+    message AuthInfo {
+
+      // The password to authenticate.
+      string password = 1;
+
+      // The username to authenticate.
+      string username = 2;
+    }
+    repeated AuthInfo auth_info = 7;
+  }
+  repeated HttpCheck http_check = 11;
+  message InternalCheckers {
+    string display_name = 1;
+    string gcp_zone = 2;
+    string name = 3;
+    string network = 4;
+    string peer_project_id = 5;
+  }
+  repeated InternalCheckers internal_checkers = 12;
+  message MonitoredResource {
+
+    // Values for all of the labels listed in the associated monitored resource descriptor. For example, Compute Engine VM instances use the labels "project_id", "instance_id", and "zone".
+    map<string, string> labels = 1;
+
+    // The monitored resource type. This field must match the type field of a MonitoredResourceDescriptor (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.monitoredResourceDescriptors#MonitoredResourceDescriptor) object. For example, the type of a Compute Engine VM instance is gce_instance. For a list of types, see Monitoring resource types (https://cloud.google.com/monitoring/api/resources) and Logging resource types (https://cloud.google.com/logging/docs/api/v2/resource-list).
+    string type = 2;
+  }
+  repeated MonitoredResource monitored_resource = 13;
+  message ResourceGroup {
+
+    // The group of resources being monitored. Should be the 'name' of a group
+    string group_id = 1;
+
+    // The resource type of the group members.
+    string resource_type = 2;
+  }
+  repeated ResourceGroup resource_group = 14;
+  message TcpCheck {
+
+    // The port to the page to run the check against. Will be combined with host (specified within the MonitoredResource) to construct the full URL.
+    int64  port = 1;
+  }
+  repeated TcpCheck tcp_check = 15;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 16;
+}

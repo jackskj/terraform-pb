@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDbClusterSnapshot {
+  int64  allocated_storage = 1;
+  repeated string availability_zones = 2;
+  string db_cluster_identifier = 3;
+  string db_cluster_snapshot_arn = 4;
+  string db_cluster_snapshot_identifier = 5;
+  string engine = 6;
+  string engine_version = 7;
+  string id = 8;
+  bool   include_public = 9;
+  bool   include_shared = 10;
+  string kms_key_id = 11;
+  string license_model = 12;
+  bool   most_recent = 13;
+  int64  port = 14;
+  string snapshot_create_time = 15;
+  string snapshot_type = 16;
+  string source_db_cluster_snapshot_arn = 17;
+  string status = 18;
+  bool   storage_encrypted = 19;
+  map<string, string> tags = 20;
+  string vpc_id = 21;
+}

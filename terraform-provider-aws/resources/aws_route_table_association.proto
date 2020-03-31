@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRouteTableAssociation {
+  string gateway_id = 1;
+  string id = 2;
+  string route_table_id = 3;
+  string subnet_id = 4;
+}

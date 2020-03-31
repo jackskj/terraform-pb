@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package google;
+
+message GoogleOrganizationIamMember {
+  string etag = 1;
+  string id = 2;
+  string member = 3;
+  string org_id = 4;
+  string role = 5;
+}

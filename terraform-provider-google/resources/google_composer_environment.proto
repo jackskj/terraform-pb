@@ -1,0 +1,56 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComposerEnvironment {
+  string id = 1;
+  map<string, string> labels = 2;
+  string name = 3;
+  string project = 4;
+  string region = 5;
+  message Config {
+    string airflow_uri = 1;
+    string dag_gcs_prefix = 2;
+    string gke_cluster = 3;
+    int64  node_count = 4;
+    message NodeConfig {
+      int64  disk_size_gb = 1;
+      message IpAllocationPolicy {
+        string cluster_ipv4_cidr_block = 1;
+        string cluster_secondary_range_name = 2;
+        string services_ipv4_cidr_block = 3;
+        string services_secondary_range_name = 4;
+        bool   use_ip_aliases = 5;
+      }
+      repeated IpAllocationPolicy ip_allocation_policy = 2;
+      string machine_type = 3;
+      string network = 4;
+      repeated string oauth_scopes = 5;
+      string service_account = 6;
+      string subnetwork = 7;
+      repeated string tags = 8;
+      string zone = 9;
+    }
+    repeated NodeConfig node_config = 5;
+    message PrivateEnvironmentConfig {
+      bool   enable_private_endpoint = 1;
+      string master_ipv4_cidr_block = 2;
+    }
+    repeated PrivateEnvironmentConfig private_environment_config = 6;
+    message SoftwareConfig {
+      map<string, string> airflow_config_overrides = 1;
+      map<string, string> env_variables = 2;
+      string image_version = 3;
+      map<string, string> pypi_packages = 4;
+      string python_version = 5;
+    }
+    repeated SoftwareConfig software_config = 7;
+  }
+  repeated Config config = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 7;
+}

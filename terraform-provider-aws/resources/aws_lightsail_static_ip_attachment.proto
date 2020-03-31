@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLightsailStaticIpAttachment {
+  string id = 1;
+  string instance_name = 2;
+  string ip_address = 3;
+  string static_ip_name = 4;
+}

@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStreamAnalyticsOutputServicebusTopic {
+  string id = 1;
+  string name = 2;
+  string resource_group_name = 3;
+  string servicebus_namespace = 4;
+  string shared_access_policy_key = 5;
+  string shared_access_policy_name = 6;
+  string stream_analytics_job_name = 7;
+  string topic_name = 8;
+  message Serialization {
+    string encoding = 1;
+    string field_delimiter = 2;
+    string format = 3;
+    string type = 4;
+  }
+  repeated Serialization serialization = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 10;
+}

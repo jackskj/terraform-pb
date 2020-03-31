@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamPolicy {
+  string arn = 1;
+  string description = 2;
+  string id = 3;
+  string name = 4;
+  string name_prefix = 5;
+  string path = 6;
+  string policy = 7;
+}

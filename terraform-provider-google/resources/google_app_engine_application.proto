@@ -1,0 +1,33 @@
+syntax="proto3";
+
+package google;
+
+message GoogleAppEngineApplication {
+  string app_id = 1;
+  string auth_domain = 2;
+  string code_bucket = 3;
+  string default_bucket = 4;
+  string default_hostname = 5;
+  string gcr_domain = 6;
+  string id = 7;
+  string location_id = 8;
+  string name = 9;
+  string project = 10;
+  string serving_status = 11;
+  message UrlDispatchRule {
+    string domain = 1;
+    string path = 2;
+    string service = 3;
+  }
+  repeated UrlDispatchRule url_dispatch_rule = 12;
+  message FeatureSettings {
+    bool   split_health_checks = 1;
+  }
+  repeated FeatureSettings feature_settings = 13;
+  message Iap {
+    string oauth2_client_id = 1;
+    string oauth2_client_secret = 2;
+    string oauth2_client_secret_sha256 = 3;
+  }
+  repeated Iap iap = 14;
+}

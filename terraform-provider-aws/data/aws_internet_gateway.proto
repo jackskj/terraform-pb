@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package aws;
+
+message AwsInternetGateway {
+  message Attachments {
+    string state = 1;
+    string vpc_id = 2;
+  }
+  repeated Attachments attachments = 1;
+  string id = 2;
+  string internet_gateway_id = 3;
+  string owner_id = 4;
+  map<string, string> tags = 5;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 6;
+}

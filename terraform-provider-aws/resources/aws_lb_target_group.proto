@@ -1,0 +1,39 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLbTargetGroup {
+  string arn = 1;
+  string arn_suffix = 2;
+  int64  deregistration_delay = 3;
+  string id = 4;
+  bool   lambda_multi_value_headers_enabled = 5;
+  string load_balancing_algorithm_type = 6;
+  string name = 7;
+  string name_prefix = 8;
+  int64  port = 9;
+  string protocol = 10;
+  bool   proxy_protocol_v2 = 11;
+  int64  slow_start = 12;
+  map<string, string> tags = 13;
+  string target_type = 14;
+  string vpc_id = 15;
+  message HealthCheck {
+    bool   enabled = 1;
+    int64  healthy_threshold = 2;
+    int64  interval = 3;
+    string matcher = 4;
+    string path = 5;
+    string port = 6;
+    string protocol = 7;
+    int64  timeout = 8;
+    int64  unhealthy_threshold = 9;
+  }
+  repeated HealthCheck health_check = 16;
+  message Stickiness {
+    int64  cookie_duration = 1;
+    bool   enabled = 2;
+    string type = 3;
+  }
+  repeated Stickiness stickiness = 17;
+}

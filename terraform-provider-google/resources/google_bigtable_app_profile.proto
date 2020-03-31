@@ -1,0 +1,44 @@
+syntax="proto3";
+
+package google;
+
+message GoogleBigtableAppProfile {
+
+  // The unique name of the app profile in the form '[_a-zA-Z0-9][-_.a-zA-Z0-9]*'.
+  string app_profile_id = 1;
+
+  // Long form description of the use case for this app profile.
+  string description = 2;
+  string id = 3;
+
+  // If true, ignore safety checks when deleting/updating the app profile.
+  bool   ignore_warnings = 4;
+
+  // The name of the instance to create the app profile within.
+  string instance = 5;
+
+  // If true, read/write requests are routed to the nearest cluster in the instance, and will fail over to the nearest cluster that is available
+  // in the event of transient errors or delays. Clusters in a region are considered equidistant. Choosing this option sacrifices read-your-writes
+  // consistency to improve availability.
+  bool   multi_cluster_routing_use_any = 6;
+
+  // The unique name of the requested app profile. Values are of the form 'projects/<project>/instances/<instance>/appProfiles/<appProfileId>'.
+  string name = 7;
+  string project = 8;
+  message SingleClusterRouting {
+
+    // If true, CheckAndMutateRow and ReadModifyWriteRow requests are allowed by this app profile.
+    // It is unsafe to send these requests to the same table/row/column in multiple clusters.
+    bool   allow_transactional_writes = 1;
+
+    // The cluster to which read/write requests should be routed.
+    string cluster_id = 2;
+  }
+  repeated SingleClusterRouting single_cluster_routing = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 10;
+}

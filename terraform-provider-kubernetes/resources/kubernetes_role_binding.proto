@@ -1,0 +1,61 @@
+syntax="proto3";
+
+package kubernetes;
+
+message KubernetesRoleBinding {
+  string id = 1;
+  message Metadata {
+
+    // An unstructured key value map stored with the roleBinding that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+    map<string, string> annotations = 1;
+
+    // A sequence number representing a specific generation of the desired state.
+    int64  generation = 2;
+
+    // Map of string keys and values that can be used to organize and categorize (scope and select) the roleBinding. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+    map<string, string> labels = 3;
+
+    // Name of the roleBinding, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+    string name = 4;
+
+    // Namespace defines the space within which name of the roleBinding must be unique.
+    string namespace = 5;
+
+    // An opaque value that represents the internal version of this roleBinding that can be used by clients to determine when roleBinding has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+    string resource_version = 6;
+
+    // A URL representing this roleBinding.
+    string self_link = 7;
+
+    // The unique in time and space value for this roleBinding. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+    string uid = 8;
+  }
+  repeated Metadata metadata = 2;
+  message RoleRef {
+
+    // The API group of the user. The only value possible at the moment is `rbac.authorization.k8s.io`.
+    string api_group = 1;
+
+    // The kind of resource.
+    string kind = 2;
+
+    // The name of the User to bind to.
+    string name = 3;
+  }
+  repeated RoleRef role_ref = 3;
+  message Subject {
+
+    // The API group of the subject resource.
+    string api_group = 1;
+
+    // The kind of resource.
+    string kind = 2;
+
+    // The name of the resource to bind to.
+    string name = 3;
+
+    // The Namespace of the subject resource.
+    string namespace = 4;
+  }
+  repeated Subject subject = 4;
+}

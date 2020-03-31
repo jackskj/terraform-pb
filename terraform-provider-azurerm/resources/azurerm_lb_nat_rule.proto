@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermLbNatRule {
+  string backend_ip_configuration_id = 1;
+  int64  backend_port = 2;
+  bool   enable_floating_ip = 3;
+  bool   enable_tcp_reset = 4;
+  string frontend_ip_configuration_id = 5;
+  string frontend_ip_configuration_name = 6;
+  int64  frontend_port = 7;
+  string id = 8;
+  int64  idle_timeout_in_minutes = 9;
+  string loadbalancer_id = 10;
+  string name = 11;
+  string protocol = 12;
+  string resource_group_name = 13;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 14;
+}

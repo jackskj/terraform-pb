@@ -1,0 +1,88 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIotTopicRule {
+  string arn = 1;
+  string description = 2;
+  bool   enabled = 3;
+  string id = 4;
+  string name = 5;
+  string sql = 6;
+  string sql_version = 7;
+  message CloudwatchAlarm {
+    string alarm_name = 1;
+    string role_arn = 2;
+    string state_reason = 3;
+    string state_value = 4;
+  }
+  repeated CloudwatchAlarm cloudwatch_alarm = 8;
+  message CloudwatchMetric {
+    string metric_name = 1;
+    string metric_namespace = 2;
+    string metric_timestamp = 3;
+    string metric_unit = 4;
+    string metric_value = 5;
+    string role_arn = 6;
+  }
+  repeated CloudwatchMetric cloudwatch_metric = 9;
+  message Dynamodb {
+    string hash_key_field = 1;
+    string hash_key_type = 2;
+    string hash_key_value = 3;
+    string payload_field = 4;
+    string range_key_field = 5;
+    string range_key_type = 6;
+    string range_key_value = 7;
+    string role_arn = 8;
+    string table_name = 9;
+  }
+  repeated Dynamodb dynamodb = 10;
+  message Elasticsearch {
+    string endpoint = 1;
+    string id = 2;
+    string index = 3;
+    string role_arn = 4;
+    string type = 5;
+  }
+  repeated Elasticsearch elasticsearch = 11;
+  message Firehose {
+    string delivery_stream_name = 1;
+    string role_arn = 2;
+    string separator = 3;
+  }
+  repeated Firehose firehose = 12;
+  message Kinesis {
+    string partition_key = 1;
+    string role_arn = 2;
+    string stream_name = 3;
+  }
+  repeated Kinesis kinesis = 13;
+  message Lambda {
+    string function_arn = 1;
+  }
+  repeated Lambda lambda = 14;
+  message Republish {
+    string role_arn = 1;
+    string topic = 2;
+  }
+  repeated Republish republish = 15;
+  message S3 {
+    string bucket_name = 1;
+    string key = 2;
+    string role_arn = 3;
+  }
+  repeated S3 s3 = 16;
+  message Sns {
+    string message_format = 1;
+    string role_arn = 2;
+    string target_arn = 3;
+  }
+  repeated Sns sns = 17;
+  message Sqs {
+    string queue_url = 1;
+    string role_arn = 2;
+    bool   use_base64 = 3;
+  }
+  repeated Sqs sqs = 18;
+}

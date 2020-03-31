@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package google;
+
+message GoogleCloudfunctionsFunctionIamBinding {
+  string cloud_function = 1;
+  string etag = 2;
+  string id = 3;
+  repeated string members = 4;
+  string project = 5;
+  string region = 6;
+  string role = 7;
+}

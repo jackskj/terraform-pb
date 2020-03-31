@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamUserSshKey {
+  string encoding = 1;
+  string fingerprint = 2;
+  string id = 3;
+  string public_key = 4;
+  string ssh_public_key_id = 5;
+  string status = 6;
+  string username = 7;
+}

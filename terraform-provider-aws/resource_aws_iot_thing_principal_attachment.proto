@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsIotThingPrincipalAttachment {
-  id = 1;
-  principal = 2;
-  thing = 3;
-}

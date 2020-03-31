@@ -1,0 +1,58 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeRegionInstanceGroupManager {
+  string base_instance_name = 1;
+  string description = 2;
+  repeated string distribution_policy_zones = 3;
+  string fingerprint = 4;
+  string id = 5;
+  string instance_group = 6;
+  string instance_template = 7;
+  string name = 8;
+  string project = 9;
+  string region = 10;
+  string self_link = 11;
+  repeated string target_pools = 12;
+  int64  target_size = 13;
+  string update_strategy = 14;
+  bool   wait_for_instances = 15;
+  message AutoHealingPolicies {
+    string health_check = 1;
+    int64  initial_delay_sec = 2;
+  }
+  repeated AutoHealingPolicies auto_healing_policies = 16;
+  message NamedPort {
+    string name = 1;
+    int64  port = 2;
+  }
+  repeated NamedPort named_port = 17;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 18;
+  message UpdatePolicy {
+    string instance_redistribution_type = 1;
+    int64  max_surge_fixed = 2;
+    int64  max_surge_percent = 3;
+    int64  max_unavailable_fixed = 4;
+    int64  max_unavailable_percent = 5;
+    int64  min_ready_sec = 6;
+    string minimal_action = 7;
+    string type = 8;
+  }
+  repeated UpdatePolicy update_policy = 19;
+  message Version {
+    string instance_template = 1;
+    string name = 2;
+    message TargetSize {
+      int64  fixed = 1;
+      int64  percent = 2;
+    }
+    repeated TargetSize target_size = 3;
+  }
+  repeated Version version = 20;
+}

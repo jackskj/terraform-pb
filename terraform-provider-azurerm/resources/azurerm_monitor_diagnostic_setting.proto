@@ -1,0 +1,41 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMonitorDiagnosticSetting {
+  string eventhub_authorization_rule_id = 1;
+  string eventhub_name = 2;
+  string id = 3;
+  string log_analytics_destination_type = 4;
+  string log_analytics_workspace_id = 5;
+  string name = 6;
+  string storage_account_id = 7;
+  string target_resource_id = 8;
+  message Log {
+    string category = 1;
+    bool   enabled = 2;
+    message RetentionPolicy {
+      int64  days = 1;
+      bool   enabled = 2;
+    }
+    repeated RetentionPolicy retention_policy = 3;
+  }
+  repeated Log log = 9;
+  message Metric {
+    string category = 1;
+    bool   enabled = 2;
+    message RetentionPolicy {
+      int64  days = 1;
+      bool   enabled = 2;
+    }
+    repeated RetentionPolicy retention_policy = 3;
+  }
+  repeated Metric metric = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

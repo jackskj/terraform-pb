@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayDomainName {
+  string arn = 1;
+  string certificate_arn = 2;
+  string certificate_body = 3;
+  string certificate_chain = 4;
+  string certificate_name = 5;
+  string certificate_private_key = 6;
+  string certificate_upload_date = 7;
+  string cloudfront_domain_name = 8;
+  string cloudfront_zone_id = 9;
+  string domain_name = 10;
+  string id = 11;
+  string regional_certificate_arn = 12;
+  string regional_certificate_name = 13;
+  string regional_domain_name = 14;
+  string regional_zone_id = 15;
+  string security_policy = 16;
+  map<string, string> tags = 17;
+  message EndpointConfiguration {
+    repeated string types = 1;
+  }
+  repeated EndpointConfiguration endpoint_configuration = 18;
+}

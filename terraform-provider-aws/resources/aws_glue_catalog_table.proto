@@ -1,0 +1,57 @@
+syntax="proto3";
+
+package aws;
+
+message AwsGlueCatalogTable {
+  string catalog_id = 1;
+  string database_name = 2;
+  string description = 3;
+  string id = 4;
+  string name = 5;
+  string owner = 6;
+  map<string, string> parameters = 7;
+  int64  retention = 8;
+  string table_type = 9;
+  string view_expanded_text = 10;
+  string view_original_text = 11;
+  message PartitionKeys {
+    string comment = 1;
+    string name = 2;
+    string type = 3;
+  }
+  repeated PartitionKeys partition_keys = 12;
+  message StorageDescriptor {
+    repeated string bucket_columns = 1;
+    bool   compressed = 2;
+    string input_format = 3;
+    string location = 4;
+    int64  number_of_buckets = 5;
+    string output_format = 6;
+    map<string, string> parameters = 7;
+    bool   stored_as_sub_directories = 8;
+    message Columns {
+      string comment = 1;
+      string name = 2;
+      string type = 3;
+    }
+    repeated Columns columns = 9;
+    message SerDeInfo {
+      string name = 1;
+      map<string, string> parameters = 2;
+      string serialization_library = 3;
+    }
+    repeated SerDeInfo ser_de_info = 10;
+    message SkewedInfo {
+      repeated string skewed_column_names = 1;
+      map<string, string> skewed_column_value_location_maps = 2;
+      repeated string skewed_column_values = 3;
+    }
+    repeated SkewedInfo skewed_info = 11;
+    message SortColumns {
+      string column = 1;
+      int64  sort_order = 2;
+    }
+    repeated SortColumns sort_columns = 12;
+  }
+  repeated StorageDescriptor storage_descriptor = 13;
+}

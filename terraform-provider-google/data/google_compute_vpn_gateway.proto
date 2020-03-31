@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeVpnGateway {
+  string description = 1;
+  string id = 2;
+  string name = 3;
+  string network = 4;
+  string project = 5;
+  string region = 6;
+  string self_link = 7;
+}

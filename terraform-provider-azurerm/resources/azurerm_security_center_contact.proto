@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSecurityCenterContact {
+  bool   alert_notifications = 1;
+  bool   alerts_to_admins = 2;
+  string email = 3;
+  string id = 4;
+  string phone = 5;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 6;
+}

@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsGameliftAlias {
+  string arn = 1;
+  string description = 2;
+  string id = 3;
+  string name = 4;
+  map<string, string> tags = 5;
+  message RoutingStrategy {
+    string fleet_id = 1;
+    string message = 2;
+    string type = 3;
+  }
+  repeated RoutingStrategy routing_strategy = 6;
+}

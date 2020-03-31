@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsWafSqlInjectionMatchSet {
+  string id = 1;
+  string name = 2;
+  message SqlInjectionMatchTuples {
+    string text_transformation = 1;
+    message FieldToMatch {
+      string data = 1;
+      string type = 2;
+    }
+    repeated FieldToMatch field_to_match = 2;
+  }
+  repeated SqlInjectionMatchTuples sql_injection_match_tuples = 3;
+}

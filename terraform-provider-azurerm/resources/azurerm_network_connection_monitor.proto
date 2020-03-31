@@ -1,0 +1,32 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermNetworkConnectionMonitor {
+  bool   auto_start = 1;
+  string id = 2;
+  int64  interval_in_seconds = 3;
+  string location = 4;
+  string name = 5;
+  string network_watcher_name = 6;
+  string resource_group_name = 7;
+  map<string, string> tags = 8;
+  message Destination {
+    string address = 1;
+    int64  port = 2;
+    string virtual_machine_id = 3;
+  }
+  repeated Destination destination = 9;
+  message Source {
+    int64  port = 1;
+    string virtual_machine_id = 2;
+  }
+  repeated Source source = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

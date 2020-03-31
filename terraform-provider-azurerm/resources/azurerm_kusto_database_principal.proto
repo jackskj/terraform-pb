@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermKustoDatabasePrincipal {
+  string app_id = 1;
+  string client_id = 2;
+  string cluster_name = 3;
+  string database_name = 4;
+  string email = 5;
+  string fully_qualified_name = 6;
+  string id = 7;
+  string name = 8;
+  string object_id = 9;
+  string resource_group_name = 10;
+  string role = 11;
+  string type = 12;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 13;
+}

@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDxConnection {
+  string arn = 1;
+  string aws_device = 2;
+  string bandwidth = 3;
+  string has_logical_redundancy = 4;
+  string id = 5;
+  bool   jumbo_frame_capable = 6;
+  string location = 7;
+  string name = 8;
+  map<string, string> tags = 9;
+}

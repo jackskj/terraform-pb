@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSsmPatchBaseline {
+  bool   default_baseline = 1;
+  string description = 2;
+  string id = 3;
+  string name = 4;
+  string name_prefix = 5;
+  string operating_system = 6;
+  string owner = 7;
+}

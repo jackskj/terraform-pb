@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEmrInstanceGroup {
+  string autoscaling_policy = 1;
+  string bid_price = 2;
+  string cluster_id = 3;
+  string configurations_json = 4;
+  bool   ebs_optimized = 5;
+  string id = 6;
+  int64  instance_count = 7;
+  string instance_type = 8;
+  string name = 9;
+  int64  running_instance_count = 10;
+  string status = 11;
+  message EbsConfig {
+    int64  iops = 1;
+    int64  size = 2;
+    string type = 3;
+    int64  volumes_per_instance = 4;
+  }
+  repeated EbsConfig ebs_config = 12;
+}

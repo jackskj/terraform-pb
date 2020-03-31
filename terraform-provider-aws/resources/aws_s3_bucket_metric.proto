@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsS3BucketMetric {
+  string bucket = 1;
+  string id = 2;
+  string name = 3;
+  message Filter {
+    string prefix = 1;
+    map<string, string> tags = 2;
+  }
+  repeated Filter filter = 4;
+}

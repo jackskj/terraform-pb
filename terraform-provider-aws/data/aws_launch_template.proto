@@ -1,0 +1,109 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLaunchTemplate {
+  string arn = 1;
+  message BlockDeviceMappings {
+    string device_name = 1;
+    message Ebs {
+      string delete_on_termination = 1;
+      string encrypted = 2;
+      int64  iops = 3;
+      string kms_key_id = 4;
+      string snapshot_id = 5;
+      int64  volume_size = 6;
+      string volume_type = 7;
+    }
+    repeated Ebs ebs = 2;
+    string no_device = 3;
+    string virtual_name = 4;
+  }
+  repeated BlockDeviceMappings block_device_mappings = 2;
+  message CreditSpecification {
+    string cpu_credits = 1;
+  }
+  repeated CreditSpecification credit_specification = 3;
+  int64  default_version = 4;
+  string description = 5;
+  bool   disable_api_termination = 6;
+  string ebs_optimized = 7;
+  message ElasticGpuSpecifications {
+    string type = 1;
+  }
+  repeated ElasticGpuSpecifications elastic_gpu_specifications = 8;
+  message IamInstanceProfile {
+    string arn = 1;
+    string name = 2;
+  }
+  repeated IamInstanceProfile iam_instance_profile = 9;
+  string id = 10;
+  string image_id = 11;
+  string instance_initiated_shutdown_behavior = 12;
+  message InstanceMarketOptions {
+    string market_type = 1;
+    message SpotOptions {
+      int64  block_duration_minutes = 1;
+      string instance_interruption_behavior = 2;
+      string max_price = 3;
+      string spot_instance_type = 4;
+      string valid_until = 5;
+    }
+    repeated SpotOptions spot_options = 2;
+  }
+  repeated InstanceMarketOptions instance_market_options = 13;
+  string instance_type = 14;
+  string kernel_id = 15;
+  string key_name = 16;
+  int64  latest_version = 17;
+  message MetadataOptions {
+    string http_endpoint = 1;
+    int64  http_put_response_hop_limit = 2;
+    string http_tokens = 3;
+  }
+  repeated MetadataOptions metadata_options = 18;
+  message Monitoring {
+    bool   enabled = 1;
+  }
+  repeated Monitoring monitoring = 19;
+  string name = 20;
+  message NetworkInterfaces {
+    bool   associate_public_ip_address = 1;
+    bool   delete_on_termination = 2;
+    string description = 3;
+    int64  device_index = 4;
+    int64  ipv4_address_count = 5;
+    repeated string ipv4_addresses = 6;
+    int64  ipv6_address_count = 7;
+    repeated string ipv6_addresses = 8;
+    string network_interface_id = 9;
+    string private_ip_address = 10;
+    repeated string security_groups = 11;
+    string subnet_id = 12;
+  }
+  repeated NetworkInterfaces network_interfaces = 21;
+  message Placement {
+    string affinity = 1;
+    string availability_zone = 2;
+    string group_name = 3;
+    string host_id = 4;
+    string spread_domain = 5;
+    string tenancy = 6;
+  }
+  repeated Placement placement = 22;
+  string ram_disk_id = 23;
+  repeated string security_group_names = 24;
+  message TagSpecifications {
+    string resource_type = 1;
+    map<string, string> tags = 2;
+  }
+  repeated TagSpecifications tag_specifications = 25;
+  map<string, string> tags = 26;
+  string user_data = 27;
+  repeated string vpc_security_group_ids = 28;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 29;
+}

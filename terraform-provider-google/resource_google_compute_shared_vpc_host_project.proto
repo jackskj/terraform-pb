@@ -1,8 +1,0 @@
-syntax "proto3";
-
-package google;
-
-message GoogleComputeSharedVpcHostProject {
-  id = 1;
-  project = 2;
-}

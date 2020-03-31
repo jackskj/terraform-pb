@@ -1,0 +1,31 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVpc {
+  string arn = 1;
+  string cidr_block = 2;
+  message CidrBlockAssociations {
+    string association_id = 1;
+    string cidr_block = 2;
+    string state = 3;
+  }
+  repeated CidrBlockAssociations cidr_block_associations = 3;
+  bool   default = 4;
+  string dhcp_options_id = 5;
+  bool   enable_dns_hostnames = 6;
+  bool   enable_dns_support = 7;
+  string id = 8;
+  string instance_tenancy = 9;
+  string ipv6_association_id = 10;
+  string ipv6_cidr_block = 11;
+  string main_route_table_id = 12;
+  string owner_id = 13;
+  string state = 14;
+  map<string, string> tags = 15;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 16;
+}

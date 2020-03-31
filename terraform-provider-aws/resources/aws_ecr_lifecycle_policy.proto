@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEcrLifecyclePolicy {
+  string id = 1;
+  string policy = 2;
+  string registry_id = 3;
+  string repository = 4;
+}

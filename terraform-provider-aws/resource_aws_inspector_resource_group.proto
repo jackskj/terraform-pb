@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsInspectorResourceGroup {
-  arn = 1;
-  id = 2;
-  tags = 3;
-}

@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermResourceGroup {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  map<string, string> tags = 4;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 5;
+}

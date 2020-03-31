@@ -1,0 +1,29 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStreamAnalyticsStreamInputBlob {
+  string date_format = 1;
+  string id = 2;
+  string name = 3;
+  string path_pattern = 4;
+  string resource_group_name = 5;
+  string storage_account_key = 6;
+  string storage_account_name = 7;
+  string storage_container_name = 8;
+  string stream_analytics_job_name = 9;
+  string time_format = 10;
+  message Serialization {
+    string encoding = 1;
+    string field_delimiter = 2;
+    string type = 3;
+  }
+  repeated Serialization serialization = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

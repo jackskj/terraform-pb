@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVpnGateway {
+  string amazon_side_asn = 1;
+  string availability_zone = 2;
+  string id = 3;
+  map<string, string> tags = 4;
+  string vpc_id = 5;
+}

@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsS3Bucket {
+  string arn = 1;
+  string bucket = 2;
+  string bucket_domain_name = 3;
+  string bucket_regional_domain_name = 4;
+  string hosted_zone_id = 5;
+  string id = 6;
+  string region = 7;
+  string website_domain = 8;
+  string website_endpoint = 9;
+}

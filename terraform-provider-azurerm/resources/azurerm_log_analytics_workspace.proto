@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermLogAnalyticsWorkspace {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  string portal_url = 4;
+  string primary_shared_key = 5;
+  string resource_group_name = 6;
+  int64  retention_in_days = 7;
+  string secondary_shared_key = 8;
+  string sku = 9;
+  map<string, string> tags = 10;
+  string workspace_id = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

@@ -1,0 +1,90 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeInstanceTemplate {
+  bool   can_ip_forward = 1;
+  string description = 2;
+  bool   enable_display = 3;
+  string id = 4;
+  string instance_description = 5;
+  map<string, string> labels = 6;
+  string machine_type = 7;
+  map<string, string> metadata = 8;
+  string metadata_fingerprint = 9;
+  string metadata_startup_script = 10;
+  string min_cpu_platform = 11;
+  string name = 12;
+  string name_prefix = 13;
+  string project = 14;
+  string region = 15;
+  string self_link = 16;
+  repeated string tags = 17;
+  string tags_fingerprint = 18;
+  message Disk {
+    bool   auto_delete = 1;
+    bool   boot = 2;
+    string device_name = 3;
+    string disk_name = 4;
+    int64  disk_size_gb = 5;
+    string disk_type = 6;
+    string interface = 7;
+    map<string, string> labels = 8;
+    string mode = 9;
+    string source = 10;
+    string source_image = 11;
+    string type = 12;
+    message DiskEncryptionKey {
+      string kms_key_self_link = 1;
+    }
+    repeated DiskEncryptionKey disk_encryption_key = 13;
+  }
+  repeated Disk disk = 19;
+  message GuestAccelerator {
+    int64  count = 1;
+    string type = 2;
+  }
+  repeated GuestAccelerator guest_accelerator = 20;
+  message NetworkInterface {
+    string name = 1;
+    string network = 2;
+    string network_ip = 3;
+    string subnetwork = 4;
+    string subnetwork_project = 5;
+    message AccessConfig {
+      string nat_ip = 1;
+      string network_tier = 2;
+      string public_ptr_domain_name = 3;
+    }
+    repeated AccessConfig access_config = 6;
+    message AliasIpRange {
+      string ip_cidr_range = 1;
+      string subnetwork_range_name = 2;
+    }
+    repeated AliasIpRange alias_ip_range = 7;
+  }
+  repeated NetworkInterface network_interface = 21;
+  message Scheduling {
+    bool   automatic_restart = 1;
+    string on_host_maintenance = 2;
+    bool   preemptible = 3;
+    message NodeAffinities {
+      string key = 1;
+      string operator = 2;
+      repeated string values = 3;
+    }
+    repeated NodeAffinities node_affinities = 4;
+  }
+  repeated Scheduling scheduling = 22;
+  message ServiceAccount {
+    string email = 1;
+    repeated string scopes = 2;
+  }
+  repeated ServiceAccount service_account = 23;
+  message ShieldedInstanceConfig {
+    bool   enable_integrity_monitoring = 1;
+    bool   enable_secure_boot = 2;
+    bool   enable_vtpm = 3;
+  }
+  repeated ShieldedInstanceConfig shielded_instance_config = 24;
+}

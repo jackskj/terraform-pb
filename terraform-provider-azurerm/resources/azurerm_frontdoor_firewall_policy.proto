@@ -1,0 +1,76 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermFrontdoorFirewallPolicy {
+  string custom_block_response_body = 1;
+  int64  custom_block_response_status_code = 2;
+  bool   enabled = 3;
+  repeated string frontend_endpoint_ids = 4;
+  string id = 5;
+  string location = 6;
+  string mode = 7;
+  string name = 8;
+  string redirect_url = 9;
+  string resource_group_name = 10;
+  map<string, string> tags = 11;
+  message CustomRule {
+    string action = 1;
+    bool   enabled = 2;
+    string name = 3;
+    int64  priority = 4;
+    int64  rate_limit_duration_in_minutes = 5;
+    int64  rate_limit_threshold = 6;
+    string type = 7;
+    message MatchCondition {
+      repeated string match_values = 1;
+      string match_variable = 2;
+      bool   negation_condition = 3;
+      string operator = 4;
+      string selector = 5;
+      repeated string transforms = 6;
+    }
+    repeated MatchCondition match_condition = 8;
+  }
+  repeated CustomRule custom_rule = 12;
+  message ManagedRule {
+    string type = 1;
+    string version = 2;
+    message Exclusion {
+      string match_variable = 1;
+      string operator = 2;
+      string selector = 3;
+    }
+    repeated Exclusion exclusion = 3;
+    message Override {
+      string rule_group_name = 1;
+      message Exclusion {
+        string match_variable = 1;
+        string operator = 2;
+        string selector = 3;
+      }
+      repeated Exclusion exclusion = 2;
+      message Rule {
+        string action = 1;
+        bool   enabled = 2;
+        string rule_id = 3;
+        message Exclusion {
+          string match_variable = 1;
+          string operator = 2;
+          string selector = 3;
+        }
+        repeated Exclusion exclusion = 4;
+      }
+      repeated Rule rule = 3;
+    }
+    repeated Override override = 4;
+  }
+  repeated ManagedRule managed_rule = 13;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 14;
+}

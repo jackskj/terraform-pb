@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRoute53ResolverRules {
+  string id = 1;
+  string owner_id = 2;
+  string resolver_endpoint_id = 3;
+  repeated string resolver_rule_ids = 4;
+  string rule_type = 5;
+  string share_status = 6;
+}

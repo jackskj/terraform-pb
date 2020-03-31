@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCloudformationStackSetInstance {
+  string account_id = 1;
+  string id = 2;
+  map<string, string> parameter_overrides = 3;
+  string region = 4;
+  bool   retain_stack = 5;
+  string stack_id = 6;
+  string stack_set_name = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 8;
+}

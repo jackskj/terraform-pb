@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRedshiftSnapshotSchedule {
+  string arn = 1;
+  repeated string definitions = 2;
+  string description = 3;
+  bool   force_destroy = 4;
+  string id = 5;
+  string identifier = 6;
+  string identifier_prefix = 7;
+  map<string, string> tags = 8;
+}

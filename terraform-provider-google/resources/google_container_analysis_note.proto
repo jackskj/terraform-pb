@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package google;
+
+message GoogleContainerAnalysisNote {
+  string id = 1;
+
+  // The name of the note.
+  string name = 2;
+  string project = 3;
+  message AttestationAuthority {
+    message Hint {
+
+      // The human readable name of this Attestation Authority, for
+      // example "qa".
+      string human_readable_name = 1;
+    }
+    repeated Hint hint = 1;
+  }
+  repeated AttestationAuthority attestation_authority = 4;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 5;
+}

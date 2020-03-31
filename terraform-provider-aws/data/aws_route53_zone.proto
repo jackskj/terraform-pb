@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRoute53Zone {
+  string caller_reference = 1;
+  string comment = 2;
+  string id = 3;
+  string linked_service_description = 4;
+  string linked_service_principal = 5;
+  string name = 6;
+  repeated string name_servers = 7;
+  bool   private_zone = 8;
+  int64  resource_record_set_count = 9;
+  map<string, string> tags = 10;
+  string vpc_id = 11;
+  string zone_id = 12;
+}

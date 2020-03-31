@@ -1,0 +1,41 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermWebApplicationFirewallPolicy {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  map<string, string> tags = 5;
+  message CustomRules {
+    string action = 1;
+    string name = 2;
+    int64  priority = 3;
+    string rule_type = 4;
+    message MatchConditions {
+      repeated string match_values = 1;
+      bool   negation_condition = 2;
+      string operator = 3;
+      message MatchVariables {
+        string selector = 1;
+        string variable_name = 2;
+      }
+      repeated MatchVariables match_variables = 4;
+    }
+    repeated MatchConditions match_conditions = 5;
+  }
+  repeated CustomRules custom_rules = 6;
+  message PolicySettings {
+    bool   enabled = 1;
+    string mode = 2;
+  }
+  repeated PolicySettings policy_settings = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 8;
+}

@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeTargetPool {
+  string backup_pool = 1;
+  string description = 2;
+  int64  failover_ratio = 3;
+  repeated string health_checks = 4;
+  string id = 5;
+  repeated string instances = 6;
+  string name = 7;
+  string project = 8;
+  string region = 9;
+  string self_link = 10;
+  string session_affinity = 11;
+}

@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStreamAnalyticsStreamInputIothub {
+  string endpoint = 1;
+  string eventhub_consumer_group_name = 2;
+  string id = 3;
+  string iothub_namespace = 4;
+  string name = 5;
+  string resource_group_name = 6;
+  string shared_access_policy_key = 7;
+  string shared_access_policy_name = 8;
+  string stream_analytics_job_name = 9;
+  message Serialization {
+    string encoding = 1;
+    string field_delimiter = 2;
+    string type = 3;
+  }
+  repeated Serialization serialization = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 11;
+}

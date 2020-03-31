@@ -1,0 +1,52 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermVirtualNetworkGateway {
+  bool   active_active = 1;
+  message BgpSettings {
+    int64  asn = 1;
+    int64  peer_weight = 2;
+    string peering_address = 3;
+  }
+  repeated BgpSettings bgp_settings = 2;
+  string default_local_network_gateway_id = 3;
+  bool   enable_bgp = 4;
+  string generation = 5;
+  string id = 6;
+  message IpConfiguration {
+    string name = 1;
+    string private_ip_address_allocation = 2;
+    string public_ip_address_id = 3;
+    string subnet_id = 4;
+  }
+  repeated IpConfiguration ip_configuration = 7;
+  string location = 8;
+  string name = 9;
+  string resource_group_name = 10;
+  string sku = 11;
+  map<string, string> tags = 12;
+  string type = 13;
+  message VpnClientConfiguration {
+    repeated string address_space = 1;
+    string radius_server_address = 2;
+    string radius_server_secret = 3;
+    message RevokedCertificate {
+      string name = 1;
+      string thumbprint = 2;
+    }
+    repeated RevokedCertificate revoked_certificate = 4;
+    message RootCertificate {
+      string name = 1;
+      string public_cert_data = 2;
+    }
+    repeated RootCertificate root_certificate = 5;
+    repeated string vpn_client_protocols = 6;
+  }
+  repeated VpnClientConfiguration vpn_client_configuration = 14;
+  string vpn_type = 15;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 16;
+}

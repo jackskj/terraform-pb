@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVpnGateway {
+  string amazon_side_asn = 1;
+  string attached_vpc_id = 2;
+  string availability_zone = 3;
+  string id = 4;
+  string state = 5;
+  map<string, string> tags = 6;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 7;
+}

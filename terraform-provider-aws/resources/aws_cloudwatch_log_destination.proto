@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCloudwatchLogDestination {
+  string arn = 1;
+  string id = 2;
+  string name = 3;
+  string role_arn = 4;
+  string target_arn = 5;
+}

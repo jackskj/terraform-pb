@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermBotChannelMsTeams {
+  string bot_name = 1;
+  string calling_web_hook = 2;
+  bool   enable_calling = 3;
+  string id = 4;
+  string location = 5;
+  string resource_group_name = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 7;
+}

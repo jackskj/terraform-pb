@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsLambdaPermission {
+  string action = 1;
+  string event_source_token = 2;
+  string function_name = 3;
+  string id = 4;
+  string principal = 5;
+  string qualifier = 6;
+  string source_account = 7;
+  string source_arn = 8;
+  string statement_id = 9;
+  string statement_id_prefix = 10;
+}

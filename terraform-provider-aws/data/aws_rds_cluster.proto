@@ -1,0 +1,34 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRdsCluster {
+  string arn = 1;
+  repeated string availability_zones = 2;
+  int64  backup_retention_period = 3;
+  string cluster_identifier = 4;
+  repeated string cluster_members = 5;
+  string cluster_resource_id = 6;
+  string database_name = 7;
+  string db_cluster_parameter_group_name = 8;
+  string db_subnet_group_name = 9;
+  repeated string enabled_cloudwatch_logs_exports = 10;
+  string endpoint = 11;
+  string engine = 12;
+  string engine_version = 13;
+  string final_snapshot_identifier = 14;
+  string hosted_zone_id = 15;
+  bool   iam_database_authentication_enabled = 16;
+  repeated string iam_roles = 17;
+  string id = 18;
+  string kms_key_id = 19;
+  string master_username = 20;
+  int64  port = 21;
+  string preferred_backup_window = 22;
+  string preferred_maintenance_window = 23;
+  string reader_endpoint = 24;
+  string replication_source_identifier = 25;
+  bool   storage_encrypted = 26;
+  map<string, string> tags = 27;
+  repeated string vpc_security_group_ids = 28;
+}

@@ -1,0 +1,35 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermImage {
+  message DataDisk {
+    string blob_uri = 1;
+    string caching = 2;
+    int64  lun = 3;
+    string managed_disk_id = 4;
+    int64  size_gb = 5;
+  }
+  repeated DataDisk data_disk = 1;
+  string id = 2;
+  string location = 3;
+  string name = 4;
+  string name_regex = 5;
+  message OsDisk {
+    string blob_uri = 1;
+    string caching = 2;
+    string managed_disk_id = 3;
+    string os_state = 4;
+    string os_type = 5;
+    int64  size_gb = 6;
+  }
+  repeated OsDisk os_disk = 6;
+  string resource_group_name = 7;
+  bool   sort_descending = 8;
+  map<string, string> tags = 9;
+  bool   zone_resilient = 10;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 11;
+}

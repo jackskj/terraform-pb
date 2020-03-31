@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsSesEmailIdentity {
-  arn = 1;
-  email = 2;
-  id = 3;
-}

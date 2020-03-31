@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVpnConnectionRoute {
+  string destination_cidr_block = 1;
+  string id = 2;
+  string vpn_connection_id = 3;
+}

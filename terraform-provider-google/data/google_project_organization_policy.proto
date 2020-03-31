@@ -1,0 +1,35 @@
+syntax="proto3";
+
+package google;
+
+message GoogleProjectOrganizationPolicy {
+  message BooleanPolicy {
+    bool   enforced = 1;
+  }
+  repeated BooleanPolicy boolean_policy = 1;
+  string constraint = 2;
+  string etag = 3;
+  string id = 4;
+  message ListPolicy {
+    message Allow {
+      bool   all = 1;
+      repeated string values = 2;
+    }
+    repeated Allow allow = 1;
+    message Deny {
+      bool   all = 1;
+      repeated string values = 2;
+    }
+    repeated Deny deny = 2;
+    bool   inherit_from_parent = 3;
+    string suggested_value = 4;
+  }
+  repeated ListPolicy list_policy = 5;
+  string project = 6;
+  message RestorePolicy {
+    bool   default = 1;
+  }
+  repeated RestorePolicy restore_policy = 7;
+  string update_time = 8;
+  int64  version = 9;
+}

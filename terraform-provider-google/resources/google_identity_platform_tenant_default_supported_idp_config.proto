@@ -1,0 +1,52 @@
+syntax="proto3";
+
+package google;
+
+message GoogleIdentityPlatformTenantDefaultSupportedIdpConfig {
+
+  // OAuth client ID
+  string client_id = 1;
+
+  // OAuth client secret
+  string client_secret = 2;
+
+  // If this IDP allows the user to sign in
+  bool   enabled = 3;
+  string id = 4;
+
+  // ID of the IDP. Possible values include:
+  // 
+  // * 'apple.com'
+  // 
+  // * 'facebook.com'
+  // 
+  // * 'gc.apple.com'
+  // 
+  // * 'github.com'
+  // 
+  // * 'google.com'
+  // 
+  // * 'linkedin.com'
+  // 
+  // * 'microsoft.com'
+  // 
+  // * 'playgames.google.com'
+  // 
+  // * 'twitter.com'
+  // 
+  // * 'yahoo.com'
+  string idp_id = 5;
+
+  // The name of the default supported IDP config resource
+  string name = 6;
+  string project = 7;
+
+  // The name of the tenant where this DefaultSupportedIdpConfig resource exists
+  string tenant = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 9;
+}

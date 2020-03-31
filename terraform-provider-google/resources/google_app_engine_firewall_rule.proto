@@ -1,0 +1,31 @@
+syntax="proto3";
+
+package google;
+
+message GoogleAppEngineFirewallRule {
+
+  // The action to take if this rule matches.
+  string action = 1;
+
+  // An optional string description of this rule.
+  string description = 2;
+  string id = 3;
+
+  // A positive integer that defines the order of rule evaluation.
+  // Rules with the lowest priority are evaluated first.
+  // 
+  // A default rule at priority Int32.MaxValue matches all IPv4 and
+  // IPv6 traffic when no previous rule matches. Only the action of
+  // this rule can be modified by the user.
+  int64  priority = 4;
+  string project = 5;
+
+  // IP address or range, defined using CIDR notation, of requests that this rule applies to.
+  string source_range = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 7;
+}

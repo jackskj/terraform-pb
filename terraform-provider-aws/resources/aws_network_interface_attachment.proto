@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package aws;
+
+message AwsNetworkInterfaceAttachment {
+  string attachment_id = 1;
+  int64  device_index = 2;
+  string id = 3;
+  string instance_id = 4;
+  string network_interface_id = 5;
+  string status = 6;
+}

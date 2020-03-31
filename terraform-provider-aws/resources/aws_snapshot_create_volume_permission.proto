@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSnapshotCreateVolumePermission {
+  string account_id = 1;
+  string id = 2;
+  string snapshot_id = 3;
+}

@@ -1,0 +1,31 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermCostManagementExportResourceGroup {
+  bool   active = 1;
+  string id = 2;
+  string name = 3;
+  string recurrence_period_end = 4;
+  string recurrence_period_start = 5;
+  string recurrence_type = 6;
+  string resource_group_id = 7;
+  message DeliveryInfo {
+    string container_name = 1;
+    string root_folder_path = 2;
+    string storage_account_id = 3;
+  }
+  repeated DeliveryInfo delivery_info = 8;
+  message Query {
+    string time_frame = 1;
+    string type = 2;
+  }
+  repeated Query query = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 10;
+}

@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermLogAnalyticsSolution {
+  string id = 1;
+  string location = 2;
+  string resource_group_name = 3;
+  string solution_name = 4;
+  string workspace_name = 5;
+  string workspace_resource_id = 6;
+  message Plan {
+    string name = 1;
+    string product = 2;
+    string promotion_code = 3;
+    string publisher = 4;
+  }
+  repeated Plan plan = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 8;
+}

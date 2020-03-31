@@ -1,8 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsEgressOnlyInternetGateway {
-  id = 1;
-  vpc_id = 2;
-}

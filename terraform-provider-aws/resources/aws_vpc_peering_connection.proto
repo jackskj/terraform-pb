@@ -1,0 +1,32 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVpcPeeringConnection {
+  string accept_status = 1;
+  bool   auto_accept = 2;
+  string id = 3;
+  string peer_owner_id = 4;
+  string peer_region = 5;
+  string peer_vpc_id = 6;
+  map<string, string> tags = 7;
+  string vpc_id = 8;
+  message Accepter {
+    bool   allow_classic_link_to_remote_vpc = 1;
+    bool   allow_remote_vpc_dns_resolution = 2;
+    bool   allow_vpc_to_remote_classic_link = 3;
+  }
+  repeated Accepter accepter = 9;
+  message Requester {
+    bool   allow_classic_link_to_remote_vpc = 1;
+    bool   allow_remote_vpc_dns_resolution = 2;
+    bool   allow_vpc_to_remote_classic_link = 3;
+  }
+  repeated Requester requester = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 11;
+}

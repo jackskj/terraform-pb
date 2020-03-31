@@ -1,0 +1,24 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermRelayNamespace {
+  string id = 1;
+  string location = 2;
+  string metric_id = 3;
+  string name = 4;
+  string primary_connection_string = 5;
+  string primary_key = 6;
+  string resource_group_name = 7;
+  string secondary_connection_string = 8;
+  string secondary_key = 9;
+  string sku_name = 10;
+  map<string, string> tags = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

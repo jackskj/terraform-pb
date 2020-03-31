@@ -1,0 +1,42 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRdsClusterInstance {
+  bool   apply_immediately = 1;
+  string arn = 2;
+  bool   auto_minor_version_upgrade = 3;
+  string availability_zone = 4;
+  string ca_cert_identifier = 5;
+  string cluster_identifier = 6;
+  bool   copy_tags_to_snapshot = 7;
+  string db_parameter_group_name = 8;
+  string db_subnet_group_name = 9;
+  string dbi_resource_id = 10;
+  string endpoint = 11;
+  string engine = 12;
+  string engine_version = 13;
+  string id = 14;
+  string identifier = 15;
+  string identifier_prefix = 16;
+  string instance_class = 17;
+  string kms_key_id = 18;
+  int64  monitoring_interval = 19;
+  string monitoring_role_arn = 20;
+  bool   performance_insights_enabled = 21;
+  string performance_insights_kms_key_id = 22;
+  int64  port = 23;
+  string preferred_backup_window = 24;
+  string preferred_maintenance_window = 25;
+  int64  promotion_tier = 26;
+  bool   publicly_accessible = 27;
+  bool   storage_encrypted = 28;
+  map<string, string> tags = 29;
+  bool   writer = 30;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 31;
+}

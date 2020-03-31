@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package google;
+
+message GoogleBillingAccountIamMember {
+  string billing_account_id = 1;
+  string etag = 2;
+  string id = 3;
+  string member = 4;
+  string role = 5;
+}

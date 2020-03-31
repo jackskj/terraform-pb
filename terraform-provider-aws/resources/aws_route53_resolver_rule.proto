@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRoute53ResolverRule {
+  string arn = 1;
+  string domain_name = 2;
+  string id = 3;
+  string name = 4;
+  string owner_id = 5;
+  string resolver_endpoint_id = 6;
+  string rule_type = 7;
+  string share_status = 8;
+  map<string, string> tags = 9;
+  message TargetIp {
+    string ip = 1;
+    int64  port = 2;
+  }
+  repeated TargetIp target_ip = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 11;
+}

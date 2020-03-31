@@ -1,0 +1,165 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermVirtualMachineScaleSet {
+  bool   automatic_os_upgrade = 1;
+  string eviction_policy = 2;
+  string health_probe_id = 3;
+  string id = 4;
+  string license_type = 5;
+  string location = 6;
+  string name = 7;
+  bool   overprovision = 8;
+  string priority = 9;
+  string proximity_placement_group_id = 10;
+  string resource_group_name = 11;
+  bool   single_placement_group = 12;
+  map<string, string> tags = 13;
+  string upgrade_policy_mode = 14;
+  repeated string zones = 15;
+  message BootDiagnostics {
+    bool   enabled = 1;
+    string storage_uri = 2;
+  }
+  repeated BootDiagnostics boot_diagnostics = 16;
+  message Extension {
+    bool   auto_upgrade_minor_version = 1;
+    string name = 2;
+    string protected_settings = 3;
+    repeated string provision_after_extensions = 4;
+    string publisher = 5;
+    string settings = 6;
+    string type = 7;
+    string type_handler_version = 8;
+  }
+  repeated Extension extension = 17;
+  message Identity {
+    repeated string identity_ids = 1;
+    string principal_id = 2;
+    string type = 3;
+  }
+  repeated Identity identity = 18;
+  message NetworkProfile {
+    bool   accelerated_networking = 1;
+    bool   ip_forwarding = 2;
+    string name = 3;
+    string network_security_group_id = 4;
+    bool   primary = 5;
+    message DnsSettings {
+      repeated string dns_servers = 1;
+    }
+    repeated DnsSettings dns_settings = 6;
+    message IpConfiguration {
+      repeated string application_gateway_backend_address_pool_ids = 1;
+      repeated string application_security_group_ids = 2;
+      repeated string load_balancer_backend_address_pool_ids = 3;
+      repeated string load_balancer_inbound_nat_rules_ids = 4;
+      string name = 5;
+      bool   primary = 6;
+      string subnet_id = 7;
+      message PublicIpAddressConfiguration {
+        string domain_name_label = 1;
+        int64  idle_timeout = 2;
+        string name = 3;
+      }
+      repeated PublicIpAddressConfiguration public_ip_address_configuration = 8;
+    }
+    repeated IpConfiguration ip_configuration = 7;
+  }
+  repeated NetworkProfile network_profile = 19;
+  message OsProfile {
+    string admin_password = 1;
+    string admin_username = 2;
+    string computer_name_prefix = 3;
+    string custom_data = 4;
+  }
+  repeated OsProfile os_profile = 20;
+  message OsProfileLinuxConfig {
+    bool   disable_password_authentication = 1;
+    message SshKeys {
+      string key_data = 1;
+      string path = 2;
+    }
+    repeated SshKeys ssh_keys = 2;
+  }
+  repeated OsProfileLinuxConfig os_profile_linux_config = 21;
+  message OsProfileSecrets {
+    string source_vault_id = 1;
+    message VaultCertificates {
+      string certificate_store = 1;
+      string certificate_url = 2;
+    }
+    repeated VaultCertificates vault_certificates = 2;
+  }
+  repeated OsProfileSecrets os_profile_secrets = 22;
+  message OsProfileWindowsConfig {
+    bool   enable_automatic_upgrades = 1;
+    bool   provision_vm_agent = 2;
+    message AdditionalUnattendConfig {
+      string component = 1;
+      string content = 2;
+      string pass = 3;
+      string setting_name = 4;
+    }
+    repeated AdditionalUnattendConfig additional_unattend_config = 3;
+    message Winrm {
+      string certificate_url = 1;
+      string protocol = 2;
+    }
+    repeated Winrm winrm = 4;
+  }
+  repeated OsProfileWindowsConfig os_profile_windows_config = 23;
+  message Plan {
+    string name = 1;
+    string product = 2;
+    string publisher = 3;
+  }
+  repeated Plan plan = 24;
+  message RollingUpgradePolicy {
+    int64  max_batch_instance_percent = 1;
+    int64  max_unhealthy_instance_percent = 2;
+    int64  max_unhealthy_upgraded_instance_percent = 3;
+    string pause_time_between_batches = 4;
+  }
+  repeated RollingUpgradePolicy rolling_upgrade_policy = 25;
+  message Sku {
+    int64  capacity = 1;
+    string name = 2;
+    string tier = 3;
+  }
+  repeated Sku sku = 26;
+  message StorageProfileDataDisk {
+    string caching = 1;
+    string create_option = 2;
+    int64  disk_size_gb = 3;
+    int64  lun = 4;
+    string managed_disk_type = 5;
+  }
+  repeated StorageProfileDataDisk storage_profile_data_disk = 27;
+  message StorageProfileImageReference {
+    string id = 1;
+    string offer = 2;
+    string publisher = 3;
+    string sku = 4;
+    string version = 5;
+  }
+  repeated StorageProfileImageReference storage_profile_image_reference = 28;
+  message StorageProfileOsDisk {
+    string caching = 1;
+    string create_option = 2;
+    string image = 3;
+    string managed_disk_type = 4;
+    string name = 5;
+    string os_type = 6;
+    repeated string vhd_containers = 7;
+  }
+  repeated StorageProfileOsDisk storage_profile_os_disk = 29;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 30;
+}

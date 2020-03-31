@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOpsworksRdsDbInstance {
+  string db_password = 1;
+  string db_user = 2;
+  string id = 3;
+  string rds_db_instance_arn = 4;
+  string stack_id = 5;
+}

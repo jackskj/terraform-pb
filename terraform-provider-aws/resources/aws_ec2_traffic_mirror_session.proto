@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEc2TrafficMirrorSession {
+  string description = 1;
+  string id = 2;
+  string network_interface_id = 3;
+  int64  packet_length = 4;
+  int64  session_number = 5;
+  map<string, string> tags = 6;
+  string traffic_mirror_filter_id = 7;
+  string traffic_mirror_target_id = 8;
+  int64  virtual_network_id = 9;
+}

@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDbParameterGroup {
+  string arn = 1;
+  string description = 2;
+  string family = 3;
+  string id = 4;
+  string name = 5;
+  string name_prefix = 6;
+  map<string, string> tags = 7;
+  message Parameter {
+    string apply_method = 1;
+    string name = 2;
+    string value = 3;
+  }
+  repeated Parameter parameter = 8;
+}

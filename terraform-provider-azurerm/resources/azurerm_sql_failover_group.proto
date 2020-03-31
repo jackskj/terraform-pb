@@ -1,0 +1,36 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSqlFailoverGroup {
+  repeated string databases = 1;
+  string id = 2;
+  string location = 3;
+  string name = 4;
+  string resource_group_name = 5;
+  string role = 6;
+  string server_name = 7;
+  map<string, string> tags = 8;
+  message PartnerServers {
+    string id = 1;
+    string location = 2;
+    string role = 3;
+  }
+  repeated PartnerServers partner_servers = 9;
+  message ReadWriteEndpointFailoverPolicy {
+    int64  grace_minutes = 1;
+    string mode = 2;
+  }
+  repeated ReadWriteEndpointFailoverPolicy read_write_endpoint_failover_policy = 10;
+  message ReadonlyEndpointFailoverPolicy {
+    string mode = 1;
+  }
+  repeated ReadonlyEndpointFailoverPolicy readonly_endpoint_failover_policy = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 12;
+}

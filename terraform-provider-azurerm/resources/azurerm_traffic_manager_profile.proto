@@ -1,0 +1,40 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermTrafficManagerProfile {
+  string fqdn = 1;
+  string id = 2;
+  string name = 3;
+  string profile_status = 4;
+  string resource_group_name = 5;
+  map<string, string> tags = 6;
+  string traffic_routing_method = 7;
+  message DnsConfig {
+    string relative_name = 1;
+    int64  ttl = 2;
+  }
+  repeated DnsConfig dns_config = 8;
+  message MonitorConfig {
+    repeated string expected_status_code_ranges = 1;
+    int64  interval_in_seconds = 2;
+    string path = 3;
+    int64  port = 4;
+    string protocol = 5;
+    int64  timeout_in_seconds = 6;
+    int64  tolerated_number_of_failures = 7;
+    message CustomHeader {
+      string name = 1;
+      string value = 2;
+    }
+    repeated CustomHeader custom_header = 8;
+  }
+  repeated MonitorConfig monitor_config = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 10;
+}

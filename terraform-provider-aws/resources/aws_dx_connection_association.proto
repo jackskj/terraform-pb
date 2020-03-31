@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDxConnectionAssociation {
+  string connection_id = 1;
+  string id = 2;
+  string lag_id = 3;
+}

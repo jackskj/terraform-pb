@@ -1,0 +1,54 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEcsTaskDefinition {
+  string arn = 1;
+  string container_definitions = 2;
+  string cpu = 3;
+  string execution_role_arn = 4;
+  string family = 5;
+  string id = 6;
+  string ipc_mode = 7;
+  string memory = 8;
+  string network_mode = 9;
+  string pid_mode = 10;
+  repeated string requires_compatibilities = 11;
+  int64  revision = 12;
+  map<string, string> tags = 13;
+  string task_role_arn = 14;
+  message InferenceAccelerator {
+    string device_name = 1;
+    string device_type = 2;
+  }
+  repeated InferenceAccelerator inference_accelerator = 15;
+  message PlacementConstraints {
+    string expression = 1;
+    string type = 2;
+  }
+  repeated PlacementConstraints placement_constraints = 16;
+  message ProxyConfiguration {
+    string container_name = 1;
+    map<string, string> properties = 2;
+    string type = 3;
+  }
+  repeated ProxyConfiguration proxy_configuration = 17;
+  message Volume {
+    string host_path = 1;
+    string name = 2;
+    message DockerVolumeConfiguration {
+      bool   autoprovision = 1;
+      string driver = 2;
+      map<string, string> driver_opts = 3;
+      map<string, string> labels = 4;
+      string scope = 5;
+    }
+    repeated DockerVolumeConfiguration docker_volume_configuration = 3;
+    message EfsVolumeConfiguration {
+      string file_system_id = 1;
+      string root_directory = 2;
+    }
+    repeated EfsVolumeConfiguration efs_volume_configuration = 4;
+  }
+  repeated Volume volume = 18;
+}

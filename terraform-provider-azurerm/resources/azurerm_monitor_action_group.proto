@@ -1,0 +1,87 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMonitorActionGroup {
+  bool   enabled = 1;
+  string id = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  string short_name = 5;
+  map<string, string> tags = 6;
+  message ArmRoleReceiver {
+    string name = 1;
+    string role_id = 2;
+    bool   use_common_alert_schema = 3;
+  }
+  repeated ArmRoleReceiver arm_role_receiver = 7;
+  message AutomationRunbookReceiver {
+    string automation_account_id = 1;
+    bool   is_global_runbook = 2;
+    string name = 3;
+    string runbook_name = 4;
+    string service_uri = 5;
+    bool   use_common_alert_schema = 6;
+    string webhook_resource_id = 7;
+  }
+  repeated AutomationRunbookReceiver automation_runbook_receiver = 8;
+  message AzureAppPushReceiver {
+    string email_address = 1;
+    string name = 2;
+  }
+  repeated AzureAppPushReceiver azure_app_push_receiver = 9;
+  message AzureFunctionReceiver {
+    string function_app_resource_id = 1;
+    string function_name = 2;
+    string http_trigger_url = 3;
+    string name = 4;
+    bool   use_common_alert_schema = 5;
+  }
+  repeated AzureFunctionReceiver azure_function_receiver = 10;
+  message EmailReceiver {
+    string email_address = 1;
+    string name = 2;
+    bool   use_common_alert_schema = 3;
+  }
+  repeated EmailReceiver email_receiver = 11;
+  message ItsmReceiver {
+    string connection_id = 1;
+    string name = 2;
+    string region = 3;
+    string ticket_configuration = 4;
+    string workspace_id = 5;
+  }
+  repeated ItsmReceiver itsm_receiver = 12;
+  message LogicAppReceiver {
+    string callback_url = 1;
+    string name = 2;
+    string resource_id = 3;
+    bool   use_common_alert_schema = 4;
+  }
+  repeated LogicAppReceiver logic_app_receiver = 13;
+  message SmsReceiver {
+    string country_code = 1;
+    string name = 2;
+    string phone_number = 3;
+  }
+  repeated SmsReceiver sms_receiver = 14;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 15;
+  message VoiceReceiver {
+    string country_code = 1;
+    string name = 2;
+    string phone_number = 3;
+  }
+  repeated VoiceReceiver voice_receiver = 16;
+  message WebhookReceiver {
+    string name = 1;
+    string service_uri = 2;
+    bool   use_common_alert_schema = 3;
+  }
+  repeated WebhookReceiver webhook_receiver = 17;
+}

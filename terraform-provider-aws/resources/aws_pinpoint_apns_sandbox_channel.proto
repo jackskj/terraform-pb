@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsPinpointApnsSandboxChannel {
+  string application_id = 1;
+  string bundle_id = 2;
+  string certificate = 3;
+  string default_authentication_method = 4;
+  bool   enabled = 5;
+  string id = 6;
+  string private_key = 7;
+  string team_id = 8;
+  string token_key = 9;
+  string token_key_id = 10;
+}

@@ -1,0 +1,33 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermFunctionApp {
+  string app_service_plan_id = 1;
+  map<string, string> app_settings = 2;
+  message ConnectionString {
+    string name = 1;
+    string type = 2;
+    string value = 3;
+  }
+  repeated ConnectionString connection_string = 3;
+  string default_hostname = 4;
+  bool   enabled = 5;
+  string id = 6;
+  string location = 7;
+  string name = 8;
+  string os_type = 9;
+  string outbound_ip_addresses = 10;
+  string possible_outbound_ip_addresses = 11;
+  string resource_group_name = 12;
+  message SiteCredential {
+    string password = 1;
+    string username = 2;
+  }
+  repeated SiteCredential site_credential = 13;
+  map<string, string> tags = 14;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 15;
+}

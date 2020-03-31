@@ -1,0 +1,62 @@
+syntax="proto3";
+
+package kubernetes;
+
+message KubernetesService {
+  string id = 1;
+  message LoadBalancerIngress {
+    string hostname = 1;
+    string ip = 2;
+  }
+  repeated LoadBalancerIngress load_balancer_ingress = 2;
+
+  // Spec defines the behavior of a service. https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#spec-and-status
+  message Spec {
+    string cluster_ip = 1;
+    repeated string external_ips = 2;
+    string external_name = 3;
+    string external_traffic_policy = 4;
+    string load_balancer_ip = 5;
+    repeated string load_balancer_source_ranges = 6;
+    message Port {
+      string name = 1;
+      int64  node_port = 2;
+      int64  port = 3;
+      string protocol = 4;
+      string target_port = 5;
+    }
+    repeated Port port = 7;
+    bool   publish_not_ready_addresses = 8;
+    map<string, string> selector = 9;
+    string session_affinity = 10;
+    string type = 11;
+  }
+  repeated Spec spec = 3;
+  message Metadata {
+
+    // An unstructured key value map stored with the service that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+    map<string, string> annotations = 1;
+
+    // A sequence number representing a specific generation of the desired state.
+    int64  generation = 2;
+
+    // Map of string keys and values that can be used to organize and categorize (scope and select) the service. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+    map<string, string> labels = 3;
+
+    // Name of the service, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+    string name = 4;
+
+    // Namespace defines the space within which name of the service must be unique.
+    string namespace = 5;
+
+    // An opaque value that represents the internal version of this service that can be used by clients to determine when service has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+    string resource_version = 6;
+
+    // A URL representing this service.
+    string self_link = 7;
+
+    // The unique in time and space value for this service. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+    string uid = 8;
+  }
+  repeated Metadata metadata = 4;
+}

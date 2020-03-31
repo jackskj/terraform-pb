@@ -1,0 +1,65 @@
+syntax="proto3";
+
+package google;
+
+message GoogleStorageBucket {
+  bool   bucket_policy_only = 1;
+  bool   default_event_based_hold = 2;
+  bool   force_destroy = 3;
+  string id = 4;
+  map<string, string> labels = 5;
+  string location = 6;
+  string name = 7;
+  string project = 8;
+  bool   requester_pays = 9;
+  string self_link = 10;
+  string storage_class = 11;
+  string url = 12;
+  message Cors {
+    int64  max_age_seconds = 1;
+    repeated string method = 2;
+    repeated string origin = 3;
+    repeated string response_header = 4;
+  }
+  repeated Cors cors = 13;
+  message Encryption {
+    string default_kms_key_name = 1;
+  }
+  repeated Encryption encryption = 14;
+  message LifecycleRule {
+    message Action {
+      string storage_class = 1;
+      string type = 2;
+    }
+    repeated Action action = 1;
+    message Condition {
+      int64  age = 1;
+      string created_before = 2;
+      bool   is_live = 3;
+      repeated string matches_storage_class = 4;
+      int64  num_newer_versions = 5;
+      string with_state = 6;
+    }
+    repeated Condition condition = 2;
+  }
+  repeated LifecycleRule lifecycle_rule = 15;
+  message Logging {
+    string log_bucket = 1;
+    string log_object_prefix = 2;
+  }
+  repeated Logging logging = 16;
+  message RetentionPolicy {
+    bool   is_locked = 1;
+    int64  retention_period = 2;
+  }
+  repeated RetentionPolicy retention_policy = 17;
+  message Versioning {
+    bool   enabled = 1;
+  }
+  repeated Versioning versioning = 18;
+  message Website {
+    string main_page_suffix = 1;
+    string not_found_page = 2;
+  }
+  repeated Website website = 19;
+}

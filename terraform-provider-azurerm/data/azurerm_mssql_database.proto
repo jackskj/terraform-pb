@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMssqlDatabase {
+  string collation = 1;
+  string elastic_pool_id = 2;
+  string id = 3;
+  string license_type = 4;
+  int64  max_size_gb = 5;
+  string name = 6;
+  int64  read_replica_count = 7;
+  bool   read_scale = 8;
+  string server_id = 9;
+  string sku_name = 10;
+  map<string, string> tags = 11;
+  bool   zone_redundant = 12;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 13;
+}

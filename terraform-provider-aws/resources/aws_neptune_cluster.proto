@@ -1,0 +1,43 @@
+syntax="proto3";
+
+package aws;
+
+message AwsNeptuneCluster {
+  bool   apply_immediately = 1;
+  string arn = 2;
+  repeated string availability_zones = 3;
+  int64  backup_retention_period = 4;
+  string cluster_identifier = 5;
+  string cluster_identifier_prefix = 6;
+  repeated string cluster_members = 7;
+  string cluster_resource_id = 8;
+  bool   deletion_protection = 9;
+  repeated string enable_cloudwatch_logs_exports = 10;
+  string endpoint = 11;
+  string engine = 12;
+  string engine_version = 13;
+  string final_snapshot_identifier = 14;
+  string hosted_zone_id = 15;
+  bool   iam_database_authentication_enabled = 16;
+  repeated string iam_roles = 17;
+  string id = 18;
+  string kms_key_arn = 19;
+  string neptune_cluster_parameter_group_name = 20;
+  string neptune_subnet_group_name = 21;
+  int64  port = 22;
+  string preferred_backup_window = 23;
+  string preferred_maintenance_window = 24;
+  string reader_endpoint = 25;
+  string replication_source_identifier = 26;
+  bool   skip_final_snapshot = 27;
+  string snapshot_identifier = 28;
+  bool   storage_encrypted = 29;
+  map<string, string> tags = 30;
+  repeated string vpc_security_group_ids = 31;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 32;
+}

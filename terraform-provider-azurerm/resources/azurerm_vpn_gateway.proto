@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermVpnGateway {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  int64  scale_unit = 5;
+  map<string, string> tags = 6;
+  string virtual_hub_id = 7;
+  message BgpSettings {
+    int64  asn = 1;
+    string bgp_peering_address = 2;
+    int64  peer_weight = 3;
+  }
+  repeated BgpSettings bgp_settings = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 9;
+}

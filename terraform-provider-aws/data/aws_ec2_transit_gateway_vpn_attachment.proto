@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEc2TransitGatewayVpnAttachment {
+  string id = 1;
+  map<string, string> tags = 2;
+  string transit_gateway_id = 3;
+  string vpn_connection_id = 4;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 5;
+}

@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsVpcEndpointServiceAllowedPrincipal {
-  id = 1;
-  principal_arn = 2;
-  vpc_endpoint_service_id = 3;
-}

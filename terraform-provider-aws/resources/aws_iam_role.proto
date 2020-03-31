@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamRole {
+  string arn = 1;
+  string assume_role_policy = 2;
+  string create_date = 3;
+  string description = 4;
+  bool   force_detach_policies = 5;
+  string id = 6;
+  int64  max_session_duration = 7;
+  string name = 8;
+  string name_prefix = 9;
+  string path = 10;
+  string permissions_boundary = 11;
+  map<string, string> tags = 12;
+  string unique_id = 13;
+}

@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package aws;
+
+message AwsGlueCatalogDatabase {
+  string catalog_id = 1;
+  string description = 2;
+  string id = 3;
+  string location_uri = 4;
+  string name = 5;
+  map<string, string> parameters = 6;
+}

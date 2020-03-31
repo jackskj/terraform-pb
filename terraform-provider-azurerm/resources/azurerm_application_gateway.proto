@@ -1,0 +1,267 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermApplicationGateway {
+  bool   enable_http2 = 1;
+  string id = 2;
+  string location = 3;
+  string name = 4;
+  string resource_group_name = 5;
+  map<string, string> tags = 6;
+  repeated string zones = 7;
+  message AuthenticationCertificate {
+    string data = 1;
+    string id = 2;
+    string name = 3;
+  }
+  repeated AuthenticationCertificate authentication_certificate = 8;
+  message AutoscaleConfiguration {
+    int64  max_capacity = 1;
+    int64  min_capacity = 2;
+  }
+  repeated AutoscaleConfiguration autoscale_configuration = 9;
+  message BackendAddressPool {
+    repeated string fqdns = 1;
+    string id = 2;
+    repeated string ip_addresses = 3;
+    string name = 4;
+  }
+  repeated BackendAddressPool backend_address_pool = 10;
+  message BackendHttpSettings {
+    string affinity_cookie_name = 1;
+    string cookie_based_affinity = 2;
+    string host_name = 3;
+    string id = 4;
+    string name = 5;
+    string path = 6;
+    bool   pick_host_name_from_backend_address = 7;
+    int64  port = 8;
+    string probe_id = 9;
+    string probe_name = 10;
+    string protocol = 11;
+    int64  request_timeout = 12;
+    repeated string trusted_root_certificate_names = 13;
+    message AuthenticationCertificate {
+      string id = 1;
+      string name = 2;
+    }
+    repeated AuthenticationCertificate authentication_certificate = 14;
+    message ConnectionDraining {
+      int64  drain_timeout_sec = 1;
+      bool   enabled = 2;
+    }
+    repeated ConnectionDraining connection_draining = 15;
+  }
+  repeated BackendHttpSettings backend_http_settings = 11;
+  message CustomErrorConfiguration {
+    string custom_error_page_url = 1;
+    string id = 2;
+    string status_code = 3;
+  }
+  repeated CustomErrorConfiguration custom_error_configuration = 12;
+  message FrontendIpConfiguration {
+    string id = 1;
+    string name = 2;
+    string private_ip_address = 3;
+    string private_ip_address_allocation = 4;
+    string public_ip_address_id = 5;
+    string subnet_id = 6;
+  }
+  repeated FrontendIpConfiguration frontend_ip_configuration = 13;
+  message FrontendPort {
+    string id = 1;
+    string name = 2;
+    int64  port = 3;
+  }
+  repeated FrontendPort frontend_port = 14;
+  message GatewayIpConfiguration {
+    string id = 1;
+    string name = 2;
+    string subnet_id = 3;
+  }
+  repeated GatewayIpConfiguration gateway_ip_configuration = 15;
+  message HttpListener {
+    string frontend_ip_configuration_id = 1;
+    string frontend_ip_configuration_name = 2;
+    string frontend_port_id = 3;
+    string frontend_port_name = 4;
+    string host_name = 5;
+    string id = 6;
+    string name = 7;
+    string protocol = 8;
+    bool   require_sni = 9;
+    string ssl_certificate_id = 10;
+    string ssl_certificate_name = 11;
+    message CustomErrorConfiguration {
+      string custom_error_page_url = 1;
+      string id = 2;
+      string status_code = 3;
+    }
+    repeated CustomErrorConfiguration custom_error_configuration = 12;
+  }
+  repeated HttpListener http_listener = 16;
+  message Identity {
+    repeated string identity_ids = 1;
+    string type = 2;
+  }
+  repeated Identity identity = 17;
+  message Probe {
+    string host = 1;
+    string id = 2;
+    int64  interval = 3;
+    int64  minimum_servers = 4;
+    string name = 5;
+    string path = 6;
+    bool   pick_host_name_from_backend_http_settings = 7;
+    string protocol = 8;
+    int64  timeout = 9;
+    int64  unhealthy_threshold = 10;
+    message Match {
+      string body = 1;
+      repeated string status_code = 2;
+    }
+    repeated Match match = 11;
+  }
+  repeated Probe probe = 18;
+  message RedirectConfiguration {
+    string id = 1;
+    bool   include_path = 2;
+    bool   include_query_string = 3;
+    string name = 4;
+    string redirect_type = 5;
+    string target_listener_id = 6;
+    string target_listener_name = 7;
+    string target_url = 8;
+  }
+  repeated RedirectConfiguration redirect_configuration = 19;
+  message RequestRoutingRule {
+    string backend_address_pool_id = 1;
+    string backend_address_pool_name = 2;
+    string backend_http_settings_id = 3;
+    string backend_http_settings_name = 4;
+    string http_listener_id = 5;
+    string http_listener_name = 6;
+    string id = 7;
+    string name = 8;
+    string redirect_configuration_id = 9;
+    string redirect_configuration_name = 10;
+    string rewrite_rule_set_id = 11;
+    string rewrite_rule_set_name = 12;
+    string rule_type = 13;
+    string url_path_map_id = 14;
+    string url_path_map_name = 15;
+  }
+  repeated RequestRoutingRule request_routing_rule = 20;
+  message RewriteRuleSet {
+    string id = 1;
+    string name = 2;
+    message RewriteRule {
+      string name = 1;
+      int64  rule_sequence = 2;
+      message Condition {
+        bool   ignore_case = 1;
+        bool   negate = 2;
+        string pattern = 3;
+        string variable = 4;
+      }
+      repeated Condition condition = 3;
+      message RequestHeaderConfiguration {
+        string header_name = 1;
+        string header_value = 2;
+      }
+      repeated RequestHeaderConfiguration request_header_configuration = 4;
+      message ResponseHeaderConfiguration {
+        string header_name = 1;
+        string header_value = 2;
+      }
+      repeated ResponseHeaderConfiguration response_header_configuration = 5;
+    }
+    repeated RewriteRule rewrite_rule = 3;
+  }
+  repeated RewriteRuleSet rewrite_rule_set = 21;
+  message Sku {
+    int64  capacity = 1;
+    string name = 2;
+    string tier = 3;
+  }
+  repeated Sku sku = 22;
+  message SslCertificate {
+    string data = 1;
+    string id = 2;
+    string key_vault_secret_id = 3;
+    string name = 4;
+    string password = 5;
+    string public_cert_data = 6;
+  }
+  repeated SslCertificate ssl_certificate = 23;
+  message SslPolicy {
+    repeated string cipher_suites = 1;
+    repeated string disabled_protocols = 2;
+    string min_protocol_version = 3;
+    string policy_name = 4;
+    string policy_type = 5;
+  }
+  repeated SslPolicy ssl_policy = 24;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 25;
+  message TrustedRootCertificate {
+    string data = 1;
+    string id = 2;
+    string name = 3;
+  }
+  repeated TrustedRootCertificate trusted_root_certificate = 26;
+  message UrlPathMap {
+    string default_backend_address_pool_id = 1;
+    string default_backend_address_pool_name = 2;
+    string default_backend_http_settings_id = 3;
+    string default_backend_http_settings_name = 4;
+    string default_redirect_configuration_id = 5;
+    string default_redirect_configuration_name = 6;
+    string default_rewrite_rule_set_id = 7;
+    string default_rewrite_rule_set_name = 8;
+    string id = 9;
+    string name = 10;
+    message PathRule {
+      string backend_address_pool_id = 1;
+      string backend_address_pool_name = 2;
+      string backend_http_settings_id = 3;
+      string backend_http_settings_name = 4;
+      string id = 5;
+      string name = 6;
+      repeated string paths = 7;
+      string redirect_configuration_id = 8;
+      string redirect_configuration_name = 9;
+      string rewrite_rule_set_id = 10;
+      string rewrite_rule_set_name = 11;
+    }
+    repeated PathRule path_rule = 11;
+  }
+  repeated UrlPathMap url_path_map = 27;
+  message WafConfiguration {
+    bool   enabled = 1;
+    int64  file_upload_limit_mb = 2;
+    string firewall_mode = 3;
+    int64  max_request_body_size_kb = 4;
+    bool   request_body_check = 5;
+    string rule_set_type = 6;
+    string rule_set_version = 7;
+    message DisabledRuleGroup {
+      string rule_group_name = 1;
+      repeated int64 rules = 2;
+    }
+    repeated DisabledRuleGroup disabled_rule_group = 8;
+    message Exclusion {
+      string match_variable = 1;
+      string selector = 2;
+      string selector_match_operator = 3;
+    }
+    repeated Exclusion exclusion = 9;
+  }
+  repeated WafConfiguration waf_configuration = 28;
+}

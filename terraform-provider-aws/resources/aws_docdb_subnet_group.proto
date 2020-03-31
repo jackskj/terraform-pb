@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDocdbSubnetGroup {
+  string arn = 1;
+  string description = 2;
+  string id = 3;
+  string name = 4;
+  string name_prefix = 5;
+  repeated string subnet_ids = 6;
+  map<string, string> tags = 7;
+}

@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOrganizationsPolicyAttachment {
+  string id = 1;
+  string policy_id = 2;
+  string target_id = 3;
+}

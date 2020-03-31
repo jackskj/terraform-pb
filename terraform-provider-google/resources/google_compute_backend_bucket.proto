@@ -1,0 +1,50 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeBackendBucket {
+
+  // Cloud Storage bucket name.
+  string bucket_name = 1;
+
+  // Creation timestamp in RFC3339 text format.
+  string creation_timestamp = 2;
+
+  // An optional textual description of the resource; provided by the
+  // client when the resource is created.
+  string description = 3;
+
+  // If true, enable Cloud CDN for this BackendBucket.
+  bool   enable_cdn = 4;
+  string id = 5;
+
+  // Name of the resource. Provided by the client when the resource is
+  // created. The name must be 1-63 characters long, and comply with
+  // RFC1035.  Specifically, the name must be 1-63 characters long and
+  // match the regular expression '[a-z]([-a-z0-9]*[a-z0-9])?' which means
+  // the first character must be a lowercase letter, and all following
+  // characters must be a dash, lowercase letter, or digit, except the
+  // last character, which cannot be a dash.
+  string name = 6;
+  string project = 7;
+  string self_link = 8;
+  message CdnPolicy {
+
+    // Maximum number of seconds the response to a signed URL request will
+    // be considered fresh. After this time period,
+    // the response will be revalidated before being served.
+    // When serving responses to signed URL requests,
+    // Cloud CDN will internally behave as though
+    // all responses from this backend had a "Cache-Control: public,
+    // max-age=[TTL]" header, regardless of any existing Cache-Control
+    // header. The actual headers served in responses will not be altered.
+    int64  signed_url_cache_max_age_sec = 1;
+  }
+  repeated CdnPolicy cdn_policy = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 10;
+}

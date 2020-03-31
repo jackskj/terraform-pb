@@ -1,0 +1,39 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOpsworksNodejsAppLayer {
+  string arn = 1;
+  bool   auto_assign_elastic_ips = 2;
+  bool   auto_assign_public_ips = 3;
+  bool   auto_healing = 4;
+  repeated string custom_configure_recipes = 5;
+  repeated string custom_deploy_recipes = 6;
+  string custom_instance_profile_arn = 7;
+  string custom_json = 8;
+  repeated string custom_security_group_ids = 9;
+  repeated string custom_setup_recipes = 10;
+  repeated string custom_shutdown_recipes = 11;
+  repeated string custom_undeploy_recipes = 12;
+  bool   drain_elb_on_shutdown = 13;
+  string elastic_load_balancer = 14;
+  string id = 15;
+  bool   install_updates_on_boot = 16;
+  int64  instance_shutdown_timeout = 17;
+  string name = 18;
+  string nodejs_version = 19;
+  string stack_id = 20;
+  repeated string system_packages = 21;
+  map<string, string> tags = 22;
+  bool   use_ebs_optimized_instances = 23;
+  message EbsVolume {
+    bool   encrypted = 1;
+    int64  iops = 2;
+    string mount_point = 3;
+    int64  number_of_disks = 4;
+    string raid_level = 5;
+    int64  size = 6;
+    string type = 7;
+  }
+  repeated EbsVolume ebs_volume = 24;
+}

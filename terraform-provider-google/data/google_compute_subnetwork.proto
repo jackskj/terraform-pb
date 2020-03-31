@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeSubnetwork {
+  string description = 1;
+  string gateway_address = 2;
+  string id = 3;
+  string ip_cidr_range = 4;
+  string name = 5;
+  string network = 6;
+  bool   private_ip_google_access = 7;
+  string project = 8;
+  string region = 9;
+  message SecondaryIpRange {
+    string ip_cidr_range = 1;
+    string range_name = 2;
+  }
+  repeated SecondaryIpRange secondary_ip_range = 10;
+  string self_link = 11;
+}

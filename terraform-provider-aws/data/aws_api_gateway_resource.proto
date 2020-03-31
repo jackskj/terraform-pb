@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayResource {
+  string id = 1;
+  string parent_id = 2;
+  string path = 3;
+  string path_part = 4;
+  string rest_api_id = 5;
+}

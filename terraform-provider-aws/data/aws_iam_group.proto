@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamGroup {
+  string arn = 1;
+  string group_id = 2;
+  string group_name = 3;
+  string id = 4;
+  string path = 5;
+  message Users {
+    string arn = 1;
+    string path = 2;
+    string user_id = 3;
+    string user_name = 4;
+  }
+  repeated Users users = 6;
+}

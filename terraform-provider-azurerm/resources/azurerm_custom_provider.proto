@@ -1,0 +1,33 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermCustomProvider {
+  string id = 1;
+  string location = 2;
+  string name = 3;
+  string resource_group_name = 4;
+  map<string, string> tags = 5;
+  message Action {
+    string endpoint = 1;
+    string name = 2;
+  }
+  repeated Action action = 6;
+  message ResourceType {
+    string endpoint = 1;
+    string name = 2;
+    string routing_type = 3;
+  }
+  repeated ResourceType resource_type = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 8;
+  message Validation {
+    string specification = 1;
+  }
+  repeated Validation validation = 9;
+}

@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermAppServiceCustomHostnameBinding {
+  string app_service_name = 1;
+  string hostname = 2;
+  string id = 3;
+  string resource_group_name = 4;
+  string ssl_state = 5;
+  string thumbprint = 6;
+  string virtual_ip = 7;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 8;
+}

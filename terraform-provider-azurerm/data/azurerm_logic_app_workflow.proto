@@ -1,0 +1,23 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermLogicAppWorkflow {
+  string access_endpoint = 1;
+  repeated string connector_endpoint_ip_addresses = 2;
+  repeated string connector_outbound_ip_addresses = 3;
+  string id = 4;
+  string location = 5;
+  string name = 6;
+  map<string, string> parameters = 7;
+  string resource_group_name = 8;
+  map<string, string> tags = 9;
+  repeated string workflow_endpoint_ip_addresses = 10;
+  repeated string workflow_outbound_ip_addresses = 11;
+  string workflow_schema = 12;
+  string workflow_version = 13;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 14;
+}

@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEcsCluster {
+  string arn = 1;
+  repeated string capacity_providers = 2;
+  string id = 3;
+  string name = 4;
+  map<string, string> tags = 5;
+  message DefaultCapacityProviderStrategy {
+    int64  base = 1;
+    string capacity_provider = 2;
+    int64  weight = 3;
+  }
+  repeated DefaultCapacityProviderStrategy default_capacity_provider_strategy = 6;
+  message Setting {
+    string name = 1;
+    string value = 2;
+  }
+  repeated Setting setting = 7;
+}

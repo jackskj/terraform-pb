@@ -1,0 +1,57 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStorageAccount {
+  string access_tier = 1;
+  string account_kind = 2;
+  string account_replication_type = 3;
+  string account_tier = 4;
+  message CustomDomain {
+    string name = 1;
+  }
+  repeated CustomDomain custom_domain = 5;
+  bool   enable_https_traffic_only = 6;
+  string id = 7;
+  bool   is_hns_enabled = 8;
+  string location = 9;
+  string name = 10;
+  string primary_access_key = 11;
+  string primary_blob_connection_string = 12;
+  string primary_blob_endpoint = 13;
+  string primary_blob_host = 14;
+  string primary_connection_string = 15;
+  string primary_dfs_endpoint = 16;
+  string primary_dfs_host = 17;
+  string primary_file_endpoint = 18;
+  string primary_file_host = 19;
+  string primary_location = 20;
+  string primary_queue_endpoint = 21;
+  string primary_queue_host = 22;
+  string primary_table_endpoint = 23;
+  string primary_table_host = 24;
+  string primary_web_endpoint = 25;
+  string primary_web_host = 26;
+  string resource_group_name = 27;
+  string secondary_access_key = 28;
+  string secondary_blob_connection_string = 29;
+  string secondary_blob_endpoint = 30;
+  string secondary_blob_host = 31;
+  string secondary_connection_string = 32;
+  string secondary_dfs_endpoint = 33;
+  string secondary_dfs_host = 34;
+  string secondary_file_endpoint = 35;
+  string secondary_file_host = 36;
+  string secondary_location = 37;
+  string secondary_queue_endpoint = 38;
+  string secondary_queue_host = 39;
+  string secondary_table_endpoint = 40;
+  string secondary_table_host = 41;
+  string secondary_web_endpoint = 42;
+  string secondary_web_host = 43;
+  map<string, string> tags = 44;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 45;
+}

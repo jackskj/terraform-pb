@@ -1,0 +1,22 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSqlDatabase {
+  string collation = 1;
+  string default_secondary_location = 2;
+  string edition = 3;
+  string elastic_pool_name = 4;
+  string failover_group_id = 5;
+  string id = 6;
+  string location = 7;
+  string name = 8;
+  bool   read_scale = 9;
+  string resource_group_name = 10;
+  string server_name = 11;
+  map<string, string> tags = 12;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 13;
+}

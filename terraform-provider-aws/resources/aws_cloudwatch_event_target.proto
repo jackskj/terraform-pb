@@ -1,0 +1,52 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCloudwatchEventTarget {
+  string arn = 1;
+  string id = 2;
+  string input = 3;
+  string input_path = 4;
+  string role_arn = 5;
+  string rule = 6;
+  string target_id = 7;
+  message BatchTarget {
+    int64  array_size = 1;
+    int64  job_attempts = 2;
+    string job_definition = 3;
+    string job_name = 4;
+  }
+  repeated BatchTarget batch_target = 8;
+  message EcsTarget {
+    string group = 1;
+    string launch_type = 2;
+    string platform_version = 3;
+    int64  task_count = 4;
+    string task_definition_arn = 5;
+    message NetworkConfiguration {
+      bool   assign_public_ip = 1;
+      repeated string security_groups = 2;
+      repeated string subnets = 3;
+    }
+    repeated NetworkConfiguration network_configuration = 6;
+  }
+  repeated EcsTarget ecs_target = 9;
+  message InputTransformer {
+    map<string, string> input_paths = 1;
+    string input_template = 2;
+  }
+  repeated InputTransformer input_transformer = 10;
+  message KinesisTarget {
+    string partition_key_path = 1;
+  }
+  repeated KinesisTarget kinesis_target = 11;
+  message RunCommandTargets {
+    string key = 1;
+    repeated string values = 2;
+  }
+  repeated RunCommandTargets run_command_targets = 12;
+  message SqsTarget {
+    string message_group_id = 1;
+  }
+  repeated SqsTarget sqs_target = 13;
+}

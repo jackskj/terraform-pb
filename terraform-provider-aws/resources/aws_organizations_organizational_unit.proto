@@ -1,0 +1,17 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOrganizationsOrganizationalUnit {
+  message Accounts {
+    string arn = 1;
+    string email = 2;
+    string id = 3;
+    string name = 4;
+  }
+  repeated Accounts accounts = 1;
+  string arn = 2;
+  string id = 3;
+  string name = 4;
+  string parent_id = 5;
+}

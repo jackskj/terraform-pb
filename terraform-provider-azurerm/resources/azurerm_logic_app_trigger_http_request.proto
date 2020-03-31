@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermLogicAppTriggerHttpRequest {
+  string id = 1;
+  string logic_app_id = 2;
+  string method = 3;
+  string name = 4;
+  string relative_path = 5;
+  string schema = 6;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 7;
+}

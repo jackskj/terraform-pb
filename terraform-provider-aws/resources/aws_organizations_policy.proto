@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOrganizationsPolicy {
+  string arn = 1;
+  string content = 2;
+  string description = 3;
+  string id = 4;
+  string name = 5;
+  string type = 6;
+}

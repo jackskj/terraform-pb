@@ -1,0 +1,31 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSagemakerModel {
+  string arn = 1;
+  bool   enable_network_isolation = 2;
+  string execution_role_arn = 3;
+  string id = 4;
+  string name = 5;
+  map<string, string> tags = 6;
+  message Container {
+    string container_hostname = 1;
+    map<string, string> environment = 2;
+    string image = 3;
+    string model_data_url = 4;
+  }
+  repeated Container container = 7;
+  message PrimaryContainer {
+    string container_hostname = 1;
+    map<string, string> environment = 2;
+    string image = 3;
+    string model_data_url = 4;
+  }
+  repeated PrimaryContainer primary_container = 8;
+  message VpcConfig {
+    repeated string security_group_ids = 1;
+    repeated string subnets = 2;
+  }
+  repeated VpcConfig vpc_config = 9;
+}

@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDmsCertificate {
+  string certificate_arn = 1;
+  string certificate_id = 2;
+  string certificate_pem = 3;
+  string certificate_wallet = 4;
+  string id = 5;
+}

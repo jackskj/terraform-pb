@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsTransferUser {
+  string arn = 1;
+  string home_directory = 2;
+  string id = 3;
+  string policy = 4;
+  string role = 5;
+  string server_id = 6;
+  map<string, string> tags = 7;
+  string user_name = 8;
+}

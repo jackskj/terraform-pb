@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAthenaWorkgroup {
+  string arn = 1;
+  string description = 2;
+  bool   force_destroy = 3;
+  string id = 4;
+  string name = 5;
+  string state = 6;
+  map<string, string> tags = 7;
+  message Configuration {
+    int64  bytes_scanned_cutoff_per_query = 1;
+    bool   enforce_workgroup_configuration = 2;
+    bool   publish_cloudwatch_metrics_enabled = 3;
+    message ResultConfiguration {
+      string output_location = 1;
+      message EncryptionConfiguration {
+        string encryption_option = 1;
+        string kms_key_arn = 2;
+      }
+      repeated EncryptionConfiguration encryption_configuration = 2;
+    }
+    repeated ResultConfiguration result_configuration = 4;
+  }
+  repeated Configuration configuration = 8;
+}

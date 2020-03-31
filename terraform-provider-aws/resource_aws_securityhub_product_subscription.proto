@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsSecurityhubProductSubscription {
-  arn = 1;
-  id = 2;
-  product_arn = 3;
-}

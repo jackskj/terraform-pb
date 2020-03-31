@@ -1,0 +1,36 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermNetappVolume {
+  string account_name = 1;
+  string id = 2;
+  string location = 3;
+  string name = 4;
+  string pool_name = 5;
+  repeated string protocols = 6;
+  string resource_group_name = 7;
+  string service_level = 8;
+  int64  storage_quota_in_gb = 9;
+  string subnet_id = 10;
+  map<string, string> tags = 11;
+  string volume_path = 12;
+  message ExportPolicyRule {
+    repeated string allowed_clients = 1;
+    bool   cifs_enabled = 2;
+    bool   nfsv3_enabled = 3;
+    bool   nfsv4_enabled = 4;
+    repeated string protocols_enabled = 5;
+    int64  rule_index = 6;
+    bool   unix_read_only = 7;
+    bool   unix_read_write = 8;
+  }
+  repeated ExportPolicyRule export_policy_rule = 13;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 14;
+}

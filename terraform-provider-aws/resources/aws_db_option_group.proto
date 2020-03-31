@@ -1,0 +1,31 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDbOptionGroup {
+  string arn = 1;
+  string engine_name = 2;
+  string id = 3;
+  string major_engine_version = 4;
+  string name = 5;
+  string name_prefix = 6;
+  string option_group_description = 7;
+  map<string, string> tags = 8;
+  message Option {
+    repeated string db_security_group_memberships = 1;
+    string option_name = 2;
+    int64  port = 3;
+    string version = 4;
+    repeated string vpc_security_group_memberships = 5;
+    message OptionSettings {
+      string name = 1;
+      string value = 2;
+    }
+    repeated OptionSettings option_settings = 6;
+  }
+  repeated Option option = 9;
+  message Timeouts {
+    string delete = 1;
+  }
+  Timeouts timeouts = 10;
+}

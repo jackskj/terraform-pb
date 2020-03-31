@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsWafregionalRegexPatternSet {
-  id = 1;
-  name = 2;
-  regex_pattern_strings = 3;
-}

@@ -1,0 +1,28 @@
+syntax="proto3";
+
+package aws;
+
+message AwsApiGatewayUsagePlan {
+  string arn = 1;
+  string description = 2;
+  string id = 3;
+  string name = 4;
+  string product_code = 5;
+  map<string, string> tags = 6;
+  message ApiStages {
+    string api_id = 1;
+    string stage = 2;
+  }
+  repeated ApiStages api_stages = 7;
+  message QuotaSettings {
+    int64  limit = 1;
+    int64  offset = 2;
+    string period = 3;
+  }
+  repeated QuotaSettings quota_settings = 8;
+  message ThrottleSettings {
+    int64  burst_limit = 1;
+    int64  rate_limit = 2;
+  }
+  repeated ThrottleSettings throttle_settings = 9;
+}

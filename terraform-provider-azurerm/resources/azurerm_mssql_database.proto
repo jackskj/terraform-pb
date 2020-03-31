@@ -1,0 +1,31 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermMssqlDatabase {
+  int64  auto_pause_delay_in_minutes = 1;
+  string collation = 2;
+  string create_mode = 3;
+  string creation_source_database_id = 4;
+  string elastic_pool_id = 5;
+  string id = 6;
+  string license_type = 7;
+  int64  max_size_gb = 8;
+  int64  min_capacity = 9;
+  string name = 10;
+  int64  read_replica_count = 11;
+  bool   read_scale = 12;
+  string restore_point_in_time = 13;
+  string sample_name = 14;
+  string server_id = 15;
+  string sku_name = 16;
+  map<string, string> tags = 17;
+  bool   zone_redundant = 18;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 19;
+}

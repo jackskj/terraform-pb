@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package aws;
+
+message AwsBatchJobDefinition {
+  string arn = 1;
+  string container_properties = 2;
+  string id = 3;
+  string name = 4;
+  map<string, string> parameters = 5;
+  int64  revision = 6;
+  string type = 7;
+  message RetryStrategy {
+    int64  attempts = 1;
+  }
+  repeated RetryStrategy retry_strategy = 8;
+  message Timeout {
+    int64  attempt_duration_seconds = 1;
+  }
+  repeated Timeout timeout = 9;
+}

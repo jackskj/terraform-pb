@@ -1,0 +1,8 @@
+syntax="proto3";
+
+package google;
+
+message GoogleClientOpenidUserinfo {
+  string email = 1;
+  string id = 2;
+}

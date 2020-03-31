@@ -1,0 +1,10 @@
+syntax="proto3";
+
+package aws;
+
+message AwsIamGroupMembership {
+  string group = 1;
+  string id = 2;
+  string name = 3;
+  repeated string users = 4;
+}

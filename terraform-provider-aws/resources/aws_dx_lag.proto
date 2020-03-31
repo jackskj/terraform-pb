@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDxLag {
+  string arn = 1;
+  string connections_bandwidth = 2;
+  bool   force_destroy = 3;
+  string has_logical_redundancy = 4;
+  string id = 5;
+  bool   jumbo_frame_capable = 6;
+  string location = 7;
+  string name = 8;
+  int64  number_of_connections = 9;
+  map<string, string> tags = 10;
+}

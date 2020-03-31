@@ -1,0 +1,30 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStorageShare {
+  string id = 1;
+  map<string, string> metadata = 2;
+  string name = 3;
+  int64  quota = 4;
+  string resource_manager_id = 5;
+  string storage_account_name = 6;
+  string url = 7;
+  message Acl {
+    string id = 1;
+    message AccessPolicy {
+      string expiry = 1;
+      string permissions = 2;
+      string start = 3;
+    }
+    repeated AccessPolicy access_policy = 2;
+  }
+  repeated Acl acl = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 9;
+}

@@ -1,0 +1,34 @@
+syntax="proto3";
+
+package aws;
+
+message AwsElasticacheCluster {
+  string arn = 1;
+  string availability_zone = 2;
+  message CacheNodes {
+    string address = 1;
+    string availability_zone = 2;
+    string id = 3;
+    int64  port = 4;
+  }
+  repeated CacheNodes cache_nodes = 3;
+  string cluster_address = 4;
+  string cluster_id = 5;
+  string configuration_endpoint = 6;
+  string engine = 7;
+  string engine_version = 8;
+  string id = 9;
+  string maintenance_window = 10;
+  string node_type = 11;
+  string notification_topic_arn = 12;
+  int64  num_cache_nodes = 13;
+  string parameter_group_name = 14;
+  int64  port = 15;
+  string replication_group_id = 16;
+  repeated string security_group_ids = 17;
+  repeated string security_group_names = 18;
+  int64  snapshot_retention_limit = 19;
+  string snapshot_window = 20;
+  string subnet_group_name = 21;
+  map<string, string> tags = 22;
+}

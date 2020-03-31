@@ -1,0 +1,68 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRdsCluster {
+  bool   apply_immediately = 1;
+  string arn = 2;
+  repeated string availability_zones = 3;
+  int64  backtrack_window = 4;
+  int64  backup_retention_period = 5;
+  string cluster_identifier = 6;
+  string cluster_identifier_prefix = 7;
+  repeated string cluster_members = 8;
+  string cluster_resource_id = 9;
+  bool   copy_tags_to_snapshot = 10;
+  string database_name = 11;
+  string db_cluster_parameter_group_name = 12;
+  string db_subnet_group_name = 13;
+  bool   deletion_protection = 14;
+  bool   enable_http_endpoint = 15;
+  repeated string enabled_cloudwatch_logs_exports = 16;
+  string endpoint = 17;
+  string engine = 18;
+  string engine_mode = 19;
+  string engine_version = 20;
+  string final_snapshot_identifier = 21;
+  string global_cluster_identifier = 22;
+  string hosted_zone_id = 23;
+  bool   iam_database_authentication_enabled = 24;
+  repeated string iam_roles = 25;
+  string id = 26;
+  string kms_key_id = 27;
+  string master_password = 28;
+  string master_username = 29;
+  int64  port = 30;
+  string preferred_backup_window = 31;
+  string preferred_maintenance_window = 32;
+  string reader_endpoint = 33;
+  string replication_source_identifier = 34;
+  bool   skip_final_snapshot = 35;
+  string snapshot_identifier = 36;
+  string source_region = 37;
+  bool   storage_encrypted = 38;
+  map<string, string> tags = 39;
+  repeated string vpc_security_group_ids = 40;
+  message S3Import {
+    string bucket_name = 1;
+    string bucket_prefix = 2;
+    string ingestion_role = 3;
+    string source_engine = 4;
+    string source_engine_version = 5;
+  }
+  repeated S3Import s3_import = 41;
+  message ScalingConfiguration {
+    bool   auto_pause = 1;
+    int64  max_capacity = 2;
+    int64  min_capacity = 3;
+    int64  seconds_until_auto_pause = 4;
+    string timeout_action = 5;
+  }
+  repeated ScalingConfiguration scaling_configuration = 42;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 43;
+}

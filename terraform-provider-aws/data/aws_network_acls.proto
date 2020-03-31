@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package aws;
+
+message AwsNetworkAcls {
+  string id = 1;
+  repeated string ids = 2;
+  map<string, string> tags = 3;
+  string vpc_id = 4;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 5;
+}

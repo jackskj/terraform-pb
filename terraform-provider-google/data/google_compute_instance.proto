@@ -1,0 +1,107 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComputeInstance {
+  bool   allow_stopping_for_update = 1;
+  message AttachedDisk {
+    string device_name = 1;
+    string disk_encryption_key_raw = 2;
+    string disk_encryption_key_sha256 = 3;
+    string kms_key_self_link = 4;
+    string mode = 5;
+    string source = 6;
+  }
+  repeated AttachedDisk attached_disk = 2;
+  message BootDisk {
+    bool   auto_delete = 1;
+    string device_name = 2;
+    string disk_encryption_key_raw = 3;
+    string disk_encryption_key_sha256 = 4;
+    message InitializeParams {
+      string image = 1;
+      map<string, string> labels = 2;
+      int64  size = 3;
+      string type = 4;
+    }
+    repeated InitializeParams initialize_params = 5;
+    string kms_key_self_link = 6;
+    string mode = 7;
+    string source = 8;
+  }
+  repeated BootDisk boot_disk = 3;
+  bool   can_ip_forward = 4;
+  string cpu_platform = 5;
+  string current_status = 6;
+  bool   deletion_protection = 7;
+  string description = 8;
+  string desired_status = 9;
+  bool   enable_display = 10;
+  message GuestAccelerator {
+    int64  count = 1;
+    string type = 2;
+  }
+  repeated GuestAccelerator guest_accelerator = 11;
+  string hostname = 12;
+  string id = 13;
+  string instance_id = 14;
+  string label_fingerprint = 15;
+  map<string, string> labels = 16;
+  string machine_type = 17;
+  map<string, string> metadata = 18;
+  string metadata_fingerprint = 19;
+  string metadata_startup_script = 20;
+  string min_cpu_platform = 21;
+  string name = 22;
+  message NetworkInterface {
+    message AccessConfig {
+      string nat_ip = 1;
+      string network_tier = 2;
+      string public_ptr_domain_name = 3;
+    }
+    repeated AccessConfig access_config = 1;
+    message AliasIpRange {
+      string ip_cidr_range = 1;
+      string subnetwork_range_name = 2;
+    }
+    repeated AliasIpRange alias_ip_range = 2;
+    string name = 3;
+    string network = 4;
+    string network_ip = 5;
+    string subnetwork = 6;
+    string subnetwork_project = 7;
+  }
+  repeated NetworkInterface network_interface = 23;
+  string project = 24;
+  message Scheduling {
+    bool   automatic_restart = 1;
+    message NodeAffinities {
+      string key = 1;
+      string operator = 2;
+      repeated string values = 3;
+    }
+    repeated NodeAffinities node_affinities = 2;
+    string on_host_maintenance = 3;
+    bool   preemptible = 4;
+  }
+  repeated Scheduling scheduling = 25;
+  message ScratchDisk {
+    string interface = 1;
+  }
+  repeated ScratchDisk scratch_disk = 26;
+  string self_link = 27;
+  message ServiceAccount {
+    string email = 1;
+    repeated string scopes = 2;
+  }
+  repeated ServiceAccount service_account = 28;
+  message ShieldedInstanceConfig {
+    bool   enable_integrity_monitoring = 1;
+    bool   enable_secure_boot = 2;
+    bool   enable_vtpm = 3;
+  }
+  repeated ShieldedInstanceConfig shielded_instance_config = 29;
+  repeated string tags = 30;
+  string tags_fingerprint = 31;
+  string zone = 32;
+}

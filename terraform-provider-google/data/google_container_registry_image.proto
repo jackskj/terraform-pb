@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package google;
+
+message GoogleContainerRegistryImage {
+  string digest = 1;
+  string id = 2;
+  string image_url = 3;
+  string name = 4;
+  string project = 5;
+  string region = 6;
+  string tag = 7;
+}

@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermManagedDisk {
+  string create_option = 1;
+  string disk_encryption_set_id = 2;
+  int64  disk_iops_read_write = 3;
+  int64  disk_mbps_read_write = 4;
+  int64  disk_size_gb = 5;
+  string id = 6;
+  string name = 7;
+  string os_type = 8;
+  string resource_group_name = 9;
+  string source_resource_id = 10;
+  string source_uri = 11;
+  string storage_account_id = 12;
+  string storage_account_type = 13;
+  map<string, string> tags = 14;
+  repeated string zones = 15;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 16;
+}

@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package aws;
+
+message AwsConfigOrganizationCustomRule {
+  string arn = 1;
+  string description = 2;
+  repeated string excluded_accounts = 3;
+  string id = 4;
+  string input_parameters = 5;
+  string lambda_function_arn = 6;
+  string maximum_execution_frequency = 7;
+  string name = 8;
+  string resource_id_scope = 9;
+  repeated string resource_types_scope = 10;
+  string tag_key_scope = 11;
+  string tag_value_scope = 12;
+  repeated string trigger_types = 13;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 14;
+}

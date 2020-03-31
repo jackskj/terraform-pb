@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package aws;
+
+message AwsRoute53HealthCheck {
+  int64  child_health_threshold = 1;
+  repeated string child_healthchecks = 2;
+  string cloudwatch_alarm_name = 3;
+  string cloudwatch_alarm_region = 4;
+  bool   enable_sni = 5;
+  int64  failure_threshold = 6;
+  string fqdn = 7;
+  string id = 8;
+  string insufficient_data_health_status = 9;
+  bool   invert_healthcheck = 10;
+  string ip_address = 11;
+  bool   measure_latency = 12;
+  int64  port = 13;
+  string reference_name = 14;
+  repeated string regions = 15;
+  int64  request_interval = 16;
+  string resource_path = 17;
+  string search_string = 18;
+  map<string, string> tags = 19;
+  string type = 20;
+}

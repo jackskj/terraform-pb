@@ -1,0 +1,68 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermKeyVaultCertificate {
+  string certificate_data = 1;
+  string id = 2;
+  string key_vault_id = 3;
+  string name = 4;
+  string secret_id = 5;
+  map<string, string> tags = 6;
+  string thumbprint = 7;
+  string version = 8;
+  message Certificate {
+    string contents = 1;
+    string password = 2;
+  }
+  repeated Certificate certificate = 9;
+  message CertificatePolicy {
+    message IssuerParameters {
+      string name = 1;
+    }
+    repeated IssuerParameters issuer_parameters = 1;
+    message KeyProperties {
+      bool   exportable = 1;
+      int64  key_size = 2;
+      string key_type = 3;
+      bool   reuse_key = 4;
+    }
+    repeated KeyProperties key_properties = 2;
+    message LifetimeAction {
+      message Action {
+        string action_type = 1;
+      }
+      repeated Action action = 1;
+      message Trigger {
+        int64  days_before_expiry = 1;
+        int64  lifetime_percentage = 2;
+      }
+      repeated Trigger trigger = 2;
+    }
+    repeated LifetimeAction lifetime_action = 3;
+    message SecretProperties {
+      string content_type = 1;
+    }
+    repeated SecretProperties secret_properties = 4;
+    message X509CertificateProperties {
+      repeated string extended_key_usage = 1;
+      repeated string key_usage = 2;
+      string subject = 3;
+      int64  validity_in_months = 4;
+      message SubjectAlternativeNames {
+        repeated string dns_names = 1;
+        repeated string emails = 2;
+        repeated string upns = 3;
+      }
+      repeated SubjectAlternativeNames subject_alternative_names = 5;
+    }
+    repeated X509CertificateProperties x509_certificate_properties = 5;
+  }
+  repeated CertificatePolicy certificate_policy = 10;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+  }
+  Timeouts timeouts = 11;
+}

@@ -1,0 +1,32 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermVirtualNetwork {
+  repeated string address_space = 1;
+  repeated string dns_servers = 2;
+  string id = 3;
+  string location = 4;
+  string name = 5;
+  string resource_group_name = 6;
+  map<string, string> tags = 7;
+  message DdosProtectionPlan {
+    bool   enable = 1;
+    string id = 2;
+  }
+  repeated DdosProtectionPlan ddos_protection_plan = 8;
+  message Subnet {
+    string address_prefix = 1;
+    string id = 2;
+    string name = 3;
+    string security_group = 4;
+  }
+  repeated Subnet subnet = 9;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 10;
+}

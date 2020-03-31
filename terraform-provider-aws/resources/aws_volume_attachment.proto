@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package aws;
+
+message AwsVolumeAttachment {
+  string device_name = 1;
+  bool   force_detach = 2;
+  string id = 3;
+  string instance_id = 4;
+  bool   skip_destroy = 5;
+  string volume_id = 6;
+}

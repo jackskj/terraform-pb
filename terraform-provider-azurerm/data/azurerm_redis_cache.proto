@@ -1,0 +1,53 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermRedisCache {
+  int64  capacity = 1;
+  bool   enable_non_ssl_port = 2;
+  string family = 3;
+  string hostname = 4;
+  string id = 5;
+  string location = 6;
+  string minimum_tls_version = 7;
+  string name = 8;
+  message PatchSchedule {
+    string day_of_week = 1;
+    int64  start_hour_utc = 2;
+  }
+  repeated PatchSchedule patch_schedule = 9;
+  int64  port = 10;
+  string primary_access_key = 11;
+  string primary_connection_string = 12;
+  string private_static_ip_address = 13;
+  message RedisConfiguration {
+    bool   aof_backup_enabled = 1;
+    string aof_storage_connection_string_0 = 2;
+    string aof_storage_connection_string_1 = 3;
+    bool   enable_authentication = 4;
+    int64  maxclients = 5;
+    int64  maxfragmentationmemory_reserved = 6;
+    int64  maxmemory_delta = 7;
+    string maxmemory_policy = 8;
+    int64  maxmemory_reserved = 9;
+    string notify_keyspace_events = 10;
+    bool   rdb_backup_enabled = 11;
+    int64  rdb_backup_frequency = 12;
+    int64  rdb_backup_max_snapshot_count = 13;
+    string rdb_storage_connection_string = 14;
+  }
+  repeated RedisConfiguration redis_configuration = 14;
+  string resource_group_name = 15;
+  string secondary_access_key = 16;
+  string secondary_connection_string = 17;
+  int64  shard_count = 18;
+  string sku_name = 19;
+  int64  ssl_port = 20;
+  string subnet_id = 21;
+  map<string, string> tags = 22;
+  repeated string zones = 23;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 24;
+}

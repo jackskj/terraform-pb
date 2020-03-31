@@ -1,0 +1,54 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEc2Fleet {
+  string excess_capacity_termination_policy = 1;
+  string id = 2;
+  bool   replace_unhealthy_instances = 3;
+  map<string, string> tags = 4;
+  bool   terminate_instances = 5;
+  bool   terminate_instances_with_expiration = 6;
+  string type = 7;
+  message LaunchTemplateConfig {
+    message LaunchTemplateSpecification {
+      string launch_template_id = 1;
+      string launch_template_name = 2;
+      string version = 3;
+    }
+    repeated LaunchTemplateSpecification launch_template_specification = 1;
+    message Override {
+      string availability_zone = 1;
+      string instance_type = 2;
+      string max_price = 3;
+      int64  priority = 4;
+      string subnet_id = 5;
+      int64  weighted_capacity = 6;
+    }
+    repeated Override override = 2;
+  }
+  repeated LaunchTemplateConfig launch_template_config = 8;
+  message OnDemandOptions {
+    string allocation_strategy = 1;
+  }
+  repeated OnDemandOptions on_demand_options = 9;
+  message SpotOptions {
+    string allocation_strategy = 1;
+    string instance_interruption_behavior = 2;
+    int64  instance_pools_to_use_count = 3;
+  }
+  repeated SpotOptions spot_options = 10;
+  message TargetCapacitySpecification {
+    string default_target_capacity_type = 1;
+    int64  on_demand_target_capacity = 2;
+    int64  spot_target_capacity = 3;
+    int64  total_target_capacity = 4;
+  }
+  repeated TargetCapacitySpecification target_capacity_specification = 11;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string update = 3;
+  }
+  Timeouts timeouts = 12;
+}

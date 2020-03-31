@@ -1,0 +1,39 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOpsworksStack {
+  string agent_version = 1;
+  string arn = 2;
+  string berkshelf_version = 3;
+  string color = 4;
+  string configuration_manager_name = 5;
+  string configuration_manager_version = 6;
+  string custom_json = 7;
+  string default_availability_zone = 8;
+  string default_instance_profile_arn = 9;
+  string default_os = 10;
+  string default_root_device_type = 11;
+  string default_ssh_key_name = 12;
+  string default_subnet_id = 13;
+  string hostname_theme = 14;
+  string id = 15;
+  bool   manage_berkshelf = 16;
+  string name = 17;
+  string region = 18;
+  string service_role_arn = 19;
+  string stack_endpoint = 20;
+  map<string, string> tags = 21;
+  bool   use_custom_cookbooks = 22;
+  bool   use_opsworks_security_groups = 23;
+  string vpc_id = 24;
+  message CustomCookbooksSource {
+    string password = 1;
+    string revision = 2;
+    string ssh_key = 3;
+    string type = 4;
+    string url = 5;
+    string username = 6;
+  }
+  repeated CustomCookbooksSource custom_cookbooks_source = 25;
+}

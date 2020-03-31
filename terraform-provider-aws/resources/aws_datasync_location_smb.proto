@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDatasyncLocationSmb {
+  repeated string agent_arns = 1;
+  string arn = 2;
+  string domain = 3;
+  string id = 4;
+  string password = 5;
+  string server_hostname = 6;
+  string subdirectory = 7;
+  map<string, string> tags = 8;
+  string uri = 9;
+  string user = 10;
+  message MountOptions {
+    string version = 1;
+  }
+  repeated MountOptions mount_options = 11;
+}

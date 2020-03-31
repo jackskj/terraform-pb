@@ -1,9 +1,0 @@
-syntax "proto3";
-
-package aws;
-
-message AwsIotPolicyAttachment {
-  id = 1;
-  policy = 2;
-  target = 3;
-}

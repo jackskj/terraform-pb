@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermStorageContainer {
+  string container_access_type = 1;
+  bool   has_immutability_policy = 2;
+  bool   has_legal_hold = 3;
+  string id = 4;
+  map<string, string> metadata = 5;
+  string name = 6;
+  string resource_manager_id = 7;
+  string storage_account_name = 8;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 9;
+}

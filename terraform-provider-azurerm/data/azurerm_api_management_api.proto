@@ -1,0 +1,30 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermApiManagementApi {
+  string api_management_name = 1;
+  string description = 2;
+  string display_name = 3;
+  string id = 4;
+  bool   is_current = 5;
+  bool   is_online = 6;
+  string name = 7;
+  string path = 8;
+  repeated string protocols = 9;
+  string resource_group_name = 10;
+  string revision = 11;
+  string service_url = 12;
+  bool   soap_pass_through = 13;
+  message SubscriptionKeyParameterNames {
+    string header = 1;
+    string query = 2;
+  }
+  repeated SubscriptionKeyParameterNames subscription_key_parameter_names = 14;
+  string version = 15;
+  string version_set_id = 16;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 17;
+}

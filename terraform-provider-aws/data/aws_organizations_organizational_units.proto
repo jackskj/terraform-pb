@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package aws;
+
+message AwsOrganizationsOrganizationalUnits {
+  message Children {
+    string arn = 1;
+    string id = 2;
+    string name = 3;
+  }
+  repeated Children children = 1;
+  string id = 2;
+  string parent_id = 3;
+}

@@ -1,0 +1,38 @@
+syntax="proto3";
+
+package kubernetes;
+
+message KubernetesNamespace {
+  string id = 1;
+  message Metadata {
+
+    // An unstructured key value map stored with the namespace that may be used to store arbitrary metadata. More info: http://kubernetes.io/docs/user-guide/annotations
+    map<string, string> annotations = 1;
+
+    // Prefix, used by the server, to generate a unique name ONLY IF the `name` field has not been provided. This value will also be combined with a unique suffix. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#idempotency
+    string generate_name = 2;
+
+    // A sequence number representing a specific generation of the desired state.
+    int64  generation = 3;
+
+    // Map of string keys and values that can be used to organize and categorize (scope and select) the namespace. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels
+    map<string, string> labels = 4;
+
+    // Name of the namespace, must be unique. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names
+    string name = 5;
+
+    // An opaque value that represents the internal version of this namespace that can be used by clients to determine when namespace has changed. Read more: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
+    string resource_version = 6;
+
+    // A URL representing this namespace.
+    string self_link = 7;
+
+    // The unique in time and space value for this namespace. More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+    string uid = 8;
+  }
+  repeated Metadata metadata = 2;
+  message Timeouts {
+    string delete = 1;
+  }
+  Timeouts timeouts = 3;
+}

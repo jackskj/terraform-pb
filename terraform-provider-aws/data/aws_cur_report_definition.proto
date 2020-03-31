@@ -1,0 +1,16 @@
+syntax="proto3";
+
+package aws;
+
+message AwsCurReportDefinition {
+  repeated string additional_artifacts = 1;
+  repeated string additional_schema_elements = 2;
+  string compression = 3;
+  string format = 4;
+  string id = 5;
+  string report_name = 6;
+  string s3_bucket = 7;
+  string s3_prefix = 8;
+  string s3_region = 9;
+  string time_unit = 10;
+}

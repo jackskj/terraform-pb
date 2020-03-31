@@ -1,0 +1,29 @@
+syntax="proto3";
+
+package aws;
+
+message AwsDatasyncTask {
+  string arn = 1;
+  string cloudwatch_log_group_arn = 2;
+  string destination_location_arn = 3;
+  string id = 4;
+  string name = 5;
+  string source_location_arn = 6;
+  map<string, string> tags = 7;
+  message Options {
+    string atime = 1;
+    int64  bytes_per_second = 2;
+    string gid = 3;
+    string mtime = 4;
+    string posix_permissions = 5;
+    string preserve_deleted_files = 6;
+    string preserve_devices = 7;
+    string uid = 8;
+    string verify_mode = 9;
+  }
+  repeated Options options = 8;
+  message Timeouts {
+    string create = 1;
+  }
+  Timeouts timeouts = 9;
+}

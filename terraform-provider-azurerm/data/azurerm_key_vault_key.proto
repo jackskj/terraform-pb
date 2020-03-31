@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermKeyVaultKey {
+  string e = 1;
+  string id = 2;
+  repeated string key_opts = 3;
+  int64  key_size = 4;
+  string key_type = 5;
+  string key_vault_id = 6;
+  string n = 7;
+  string name = 8;
+  map<string, string> tags = 9;
+  string version = 10;
+  message Timeouts {
+    string read = 1;
+  }
+  Timeouts timeouts = 11;
+}

@@ -1,0 +1,25 @@
+syntax="proto3";
+
+package aws;
+
+message AwsSubnet {
+  string arn = 1;
+  bool   assign_ipv6_address_on_creation = 2;
+  string availability_zone = 3;
+  string availability_zone_id = 4;
+  string cidr_block = 5;
+  bool   default_for_az = 6;
+  string id = 7;
+  string ipv6_cidr_block = 8;
+  string ipv6_cidr_block_association_id = 9;
+  bool   map_public_ip_on_launch = 10;
+  string owner_id = 11;
+  string state = 12;
+  map<string, string> tags = 13;
+  string vpc_id = 14;
+  message Filter {
+    string name = 1;
+    repeated string values = 2;
+  }
+  repeated Filter filter = 15;
+}

@@ -1,0 +1,20 @@
+syntax="proto3";
+
+package aws;
+
+message AwsMediaPackageChannel {
+  string arn = 1;
+  string channel_id = 2;
+  string description = 3;
+  message HlsIngest {
+    message IngestEndpoints {
+      string password = 1;
+      string url = 2;
+      string username = 3;
+    }
+    repeated IngestEndpoints ingest_endpoints = 1;
+  }
+  repeated HlsIngest hls_ingest = 4;
+  string id = 5;
+  map<string, string> tags = 6;
+}

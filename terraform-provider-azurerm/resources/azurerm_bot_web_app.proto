@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermBotWebApp {
+  string developer_app_insights_api_key = 1;
+  string developer_app_insights_application_id = 2;
+  string developer_app_insights_key = 3;
+  string display_name = 4;
+  string endpoint = 5;
+  string id = 6;
+  string location = 7;
+  repeated string luis_app_ids = 8;
+  string luis_key = 9;
+  string microsoft_app_id = 10;
+  string name = 11;
+  string resource_group_name = 12;
+  string sku = 13;
+  map<string, string> tags = 14;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 15;
+}

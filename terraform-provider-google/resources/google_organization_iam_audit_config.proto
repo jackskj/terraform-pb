@@ -1,0 +1,15 @@
+syntax="proto3";
+
+package google;
+
+message GoogleOrganizationIamAuditConfig {
+  string etag = 1;
+  string id = 2;
+  string org_id = 3;
+  string service = 4;
+  message AuditLogConfig {
+    repeated string exempted_members = 1;
+    string log_type = 2;
+  }
+  repeated AuditLogConfig audit_log_config = 5;
+}

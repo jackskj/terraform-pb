@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package google;
+
+message GoogleComposerImageVersions {
+  string id = 1;
+  message ImageVersions {
+    string image_version_id = 1;
+    repeated string supported_python_versions = 2;
+  }
+  repeated ImageVersions image_versions = 2;
+  string project = 3;
+  string region = 4;
+}

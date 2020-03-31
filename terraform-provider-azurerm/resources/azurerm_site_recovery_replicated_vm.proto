@@ -1,0 +1,33 @@
+syntax="proto3";
+
+package azurerm;
+
+message AzurermSiteRecoveryReplicatedVm {
+  string id = 1;
+  message ManagedDisk {
+    string disk_id = 1;
+    string staging_storage_account_id = 2;
+    string target_disk_type = 3;
+    string target_replica_disk_type = 4;
+    string target_resource_group_id = 5;
+  }
+  repeated ManagedDisk managed_disk = 2;
+  string name = 3;
+  string recovery_replication_policy_id = 4;
+  string recovery_vault_name = 5;
+  string resource_group_name = 6;
+  string source_recovery_fabric_name = 7;
+  string source_recovery_protection_container_name = 8;
+  string source_vm_id = 9;
+  string target_availability_set_id = 10;
+  string target_recovery_fabric_id = 11;
+  string target_recovery_protection_container_id = 12;
+  string target_resource_group_id = 13;
+  message Timeouts {
+    string create = 1;
+    string delete = 2;
+    string read = 3;
+    string update = 4;
+  }
+  Timeouts timeouts = 14;
+}

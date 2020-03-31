@@ -1,0 +1,19 @@
+syntax="proto3";
+
+package aws;
+
+message AwsMediaConvertQueue {
+  string arn = 1;
+  string description = 2;
+  string id = 3;
+  string name = 4;
+  string pricing_plan = 5;
+  string status = 6;
+  map<string, string> tags = 7;
+  message ReservationPlanSettings {
+    string commitment = 1;
+    string renewal_type = 2;
+    int64  reserved_slots = 3;
+  }
+  repeated ReservationPlanSettings reservation_plan_settings = 8;
+}

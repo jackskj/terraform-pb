@@ -1,0 +1,60 @@
+syntax="proto3";
+
+package aws;
+
+message AwsAppautoscalingPolicy {
+  string adjustment_type = 1;
+  string arn = 2;
+  int64  cooldown = 3;
+  string id = 4;
+  string metric_aggregation_type = 5;
+  int64  min_adjustment_magnitude = 6;
+  string name = 7;
+  string policy_type = 8;
+  string resource_id = 9;
+  string scalable_dimension = 10;
+  string service_namespace = 11;
+  message StepAdjustment {
+    string metric_interval_lower_bound = 1;
+    string metric_interval_upper_bound = 2;
+    int64  scaling_adjustment = 3;
+  }
+  repeated StepAdjustment step_adjustment = 12;
+  message StepScalingPolicyConfiguration {
+    string adjustment_type = 1;
+    int64  cooldown = 2;
+    string metric_aggregation_type = 3;
+    int64  min_adjustment_magnitude = 4;
+    message StepAdjustment {
+      string metric_interval_lower_bound = 1;
+      string metric_interval_upper_bound = 2;
+      int64  scaling_adjustment = 3;
+    }
+    repeated StepAdjustment step_adjustment = 5;
+  }
+  repeated StepScalingPolicyConfiguration step_scaling_policy_configuration = 13;
+  message TargetTrackingScalingPolicyConfiguration {
+    bool   disable_scale_in = 1;
+    int64  scale_in_cooldown = 2;
+    int64  scale_out_cooldown = 3;
+    int64  target_value = 4;
+    message CustomizedMetricSpecification {
+      string metric_name = 1;
+      string namespace = 2;
+      string statistic = 3;
+      string unit = 4;
+      message Dimensions {
+        string name = 1;
+        string value = 2;
+      }
+      repeated Dimensions dimensions = 5;
+    }
+    repeated CustomizedMetricSpecification customized_metric_specification = 5;
+    message PredefinedMetricSpecification {
+      string predefined_metric_type = 1;
+      string resource_label = 2;
+    }
+    repeated PredefinedMetricSpecification predefined_metric_specification = 6;
+  }
+  repeated TargetTrackingScalingPolicyConfiguration target_tracking_scaling_policy_configuration = 14;
+}

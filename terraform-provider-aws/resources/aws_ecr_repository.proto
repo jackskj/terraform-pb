@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package aws;
+
+message AwsEcrRepository {
+  string arn = 1;
+  string id = 2;
+  string image_tag_mutability = 3;
+  string name = 4;
+  string registry_id = 5;
+  string repository_url = 6;
+  map<string, string> tags = 7;
+  message ImageScanningConfiguration {
+    bool   scan_on_push = 1;
+  }
+  repeated ImageScanningConfiguration image_scanning_configuration = 8;
+  message Timeouts {
+    string delete = 1;
+  }
+  Timeouts timeouts = 9;
+}
